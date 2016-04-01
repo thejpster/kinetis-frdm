@@ -2,5 +2,6 @@
 *.elf
 *.hex
 *.o
+*.bk
 target
 Cargo.lock

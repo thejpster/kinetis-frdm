@@ -1,67 +1,121 @@
 /*
-Copyright (c) 2015 Michael Daffin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+* Copyright (c) 2012, Mauro Scomparin
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of Mauro Scomparin nor the
+*       names of its contributors may be used to endorse or promote products
+*       derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY Mauro Scomparin ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL Mauro Scomparin BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+* Author:   Mauro Scomparin <http://scompoprojects.wordpress.com>.
+* Author:   Jonathan Pallant <http://railwayelectronics.blogspot.com>.
+* Description:  Linker description file for LM4FXXX microcontrollers.
 */
+
 
 /*
-A very basic linker script for the teensy 3.1. Page references refer to the
-programmers manual for the MK20DX256VLH7 which can be found at:
-https://www.pjrc.com/teensy/K20P64M72SF1RM.pdf
+* Memory definition:
+* FLASH:  start point 0x00,   lenght 0x40000.
+* SRAM:   start point 0x20000000  length 0x8000.
+*   VAR:    enough to hold .data and .bss
+*   HEAP:   All the remaining space, up to...
+*   STACK:  start point 0x20007000  length 0x1000.
 */
-
-_sflashdata = LOADADDR(.data);
-
-MEMORY {
-    FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 256K
-    RAM  (rwx) : ORIGIN = 0x1FFF8000, LENGTH = 64K /* page 90 */
+MEMORY
+{
+    FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x00040000
+    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
 }
 
-SECTIONS {
-    . = 0x00000000;
-    .text : {
-        KEEP(*(.vectors)) /* vectors must be placed first - page 63*/
-        . = 0x400;
-        KEEP(*(.flashconfig*)) /* flash configuration starts at 0x400 - page 569 */
-        *(.startup*)
-        *(.text*)
-        *(.rodata*)
-        . = ALIGN(4);
+_stack_size = 0x1000;
+
+/*
+* Sections definitions:
+*
+* .text     - machine instructions.
+* .ARM*     - No idea
+* .eh_frame - No idea
+* .data     - initialized data defined in the program.
+* .bss      - un-initialized global and static variables (to be initialized to 0 before starting main).
+*/
+SECTIONS
+{
+    /* This section it's the code, containing the NVIC Vector table that must start at 0x0
+     *   Look at the LM4F120H5QR datasheet for details. (Table 2-8. Exception Types)
+     */
+
+    .text :
+    {
+        KEEP(*(.nvic_table))     /* This must be first. It tells the ARM where the stack and IRQ vectors are. */
+                                 /* KEEP stops it being removed as we don't refer to it anywhere. */
+        *    (.text .text.*)     /* This contains most of the executable code. */
+        *    (.init)             /* This section is used by the C-library, newlib. */
+        *    (.fini)             /* This section is used by the C-library, newlib. */
+        *    (.glue_7)           /* This section is used by the compiler */
+        *    (.glue_7t)          /* This section is used by the compiler */
+        *    (.vfp11_veneer)     /* This section is used by the compiler */
+        *    (.v4_bx)            /* This section is used by the compiler */
+        *    (.ARM.extab)        /* This section is used by the compiler */
+        *    (.rodata .rodata.*) /* Read only data (const variables) */
     } > FLASH
 
-    .data : {
-        . = ALIGN(4);
-        _sdata = .;
-        *(.fastrun*)
-        *(.data*)
-        . = ALIGN(4);
-        _edata = .;
-    } > RAM AT > FLASH
+    /* This section are used by the compiler and/or the C-library, newlib. */
+    /* It is a 'sorted' section and so must be separate from .text above. */
+    .ARM.exidx :
+    {
+        *(.ARM.exidx)
+    } > FLASH
 
-    .bss : {
-        . = ALIGN(4);
-        _sbss = .;
-        *(.bss*)
-        *(COMMON)
-        . = ALIGN(4);
-        _ebss = .;
-    } > RAM
+    _start_data_flash = ALIGN(8);
 
-    _estack = ORIGIN(RAM) + LENGTH(RAM); /* stack pointer start */
+    /*
+     * .data segment must be placed in RAM but it's originally stored in FLASH
+     * So I set the data segment in ram, but I specify the load address with the AT
+     * keyword to set that right after the .text section.
+     * (Look at the LD documentation. (Optional Section Attributes))
+     * Thanks https://github.com/utzig for the hints!
+     */
+    .data : AT (_start_data_flash)
+    {
+        _start_data = .;  /* An index to the beginning of .data segment. */
+        *(.data .data.*)  /* Initialised program data */
+        *(.eh_frame)      /* C++ exception handling data */
+        _end_data = .;    /* And another index to the end of .data segment. */
+    } > SRAM
+
+    /*
+    * .bss contains the unitialized variables and must be set as 0x0 during runtime.
+    * It should be loaded in RAM and particular care should be taken initializing them in the startup file.
+    */
+    .bss :
+    {
+        _bss_start = .;  /* This is an index to the beginning of .bss segment. */
+        *(.bss .bss.*)      /* The un-initialized data should go there.  */
+        *(COMMON)           /* All the other stuff should be put there */
+        _bss_end = .;    /* End index for .bss segment */
+    } > SRAM
+
+    _heap_bottom = .;
+    _heap_top = ORIGIN(SRAM) + LENGTH(SRAM) - _stack_size;
+
+    _stack_bottom = _heap_top;
+    _stack_top = ORIGIN(SRAM) + LENGTH(SRAM);
+
 }

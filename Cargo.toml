@@ -14,3 +14,6 @@ debug = false
 
 [target.thumbv7em-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
+
+[build]
+target = "thumbv7em-none-eabi"
