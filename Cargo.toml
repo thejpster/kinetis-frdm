@@ -1,7 +1,7 @@
 [package]
 name = "blink"
 version = "0.1.0"
-authors = ["Michael Daffin <michael@daffin.io>"]
+authors = ["Michael Daffin <michael@daffin.io>", "Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"]
 build = "build.rs"
 
 [profile.dev]
