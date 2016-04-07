@@ -32,11 +32,11 @@ pub extern "C" fn __aeabi_unwind_cpp_pr1() -> () {
 }
 
 extern "C" {
-    static mut _start_data_flash: u32;
-    static mut _start_data: u32;
-    static mut _end_data: u32;
-    static mut _bss_start: u32;
-    static mut _bss_end: u32;
+    static mut _start_data_flash: usize;
+    static mut _start_data: usize;
+    static mut _end_data: usize;
+    static mut _bss_start: usize;
+    static mut _bss_end: usize;
     fn _stack_top();
 }
 
@@ -357,25 +357,25 @@ pub static ISRVectors: [Option<unsafe extern "C" fn()>; 155] = [
 ];
 
 pub unsafe extern "C" fn startup() {
-    let mut src: *mut u32 = &mut _start_data_flash;
-    let mut dest: *mut u32 = &mut _start_data;
+    let mut src: *mut usize = &mut _start_data_flash;
+    let mut dest: *mut usize = &mut _start_data;
 
-    while dest < &mut _end_data as *mut u32 {
+    while dest < &mut _end_data as *mut usize {
         *dest = *src;
-        dest = ((dest as u32) + 4) as *mut u32;
-        src = ((src as u32) + 4) as *mut u32;
+        dest = ((dest as usize) + 4) as *mut usize;
+        src = ((src as usize) + 4) as *mut usize;
     }
 
-    dest = &mut _bss_start as *mut u32;
+    dest = &mut _bss_start as *mut usize;
 
-    while dest < &mut _end_data as *mut u32 {
+    while dest < &mut _end_data as *mut usize {
         *dest = 0;
-        dest = ((dest as u32) + 4) as *mut u32;
+        dest = ((dest as usize) + 4) as *mut usize;
     }
 
     // Set up clock
     {
-        let mut rcc: u32 = volatile_load(lm4f120h5qr::SYSCTL_RCC_R);
+        let mut rcc: usize = volatile_load(lm4f120h5qr::SYSCTL_RCC_R);
         // RCC SYSDIV field = 0x0
         rcc &= !lm4f120h5qr::SYSCTL_RCC_SYSDIV_M;
         // XTAL field = 0x15 (=> 16MHz)

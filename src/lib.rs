@@ -1,4 +1,4 @@
-#![feature(asm,core_intrinsics)]
+#![feature(unique,asm,core_intrinsics)]
 #![no_std]
 #![crate_type="staticlib"]
 
