@@ -96,11 +96,29 @@ pub fn set_direction(pinport: PinPort, mode: PinMode) {
 }
 
 pub fn set(pinport: PinPort, level: Level) {
-    unimplemented!();
+    let mut registers = get_port_registers(pinport);
+    let mask = get_pin_mask(pinport);
+    unsafe {
+        //register_map[port]->DATA[mask] = level ? 0xFF : 0x00;
+        match level {
+            Level::Low => registers.get_mut().data_mask[mask] = 0,
+            Level::High => registers.get_mut().data_mask[mask] = 0xFF,
+        }
+    }
 }
 
 pub fn read(pinport: PinPort) -> Level {
-    unimplemented!();
+    let mut registers = get_port_registers(pinport);
+    let mask = get_pin_mask(pinport);
+    unsafe {
+        let reg:usize = registers.get_mut().data_mask[mask];
+        if reg == 0 {
+            Level::Low
+        }
+        else {
+            Level::High
+        }
+    }
 }
 
 fn get_port_mask(port: PinPort) -> usize {
@@ -135,10 +153,31 @@ fn get_pin_mask(pinport: PinPort) -> usize {
     }
 }
 
+fn get_pctl_mask(pinport: PinPort) -> usize {
+    let pin = match pinport {
+        PinPort::PortA(ref x) => x,
+        PinPort::PortB(ref x) => x,
+        PinPort::PortC(ref x) => x,
+        PinPort::PortD(ref x) => x,
+        PinPort::PortE(ref x) => x,
+        PinPort::PortF(ref x) => x,
+    };
+    match *pin {
+        Pin::Pin0 => 7<<0 as usize,
+        Pin::Pin1 => 7<<4 as usize,
+        Pin::Pin2 => 7<<8 as usize,
+        Pin::Pin3 => 7<<12 as usize,
+        Pin::Pin4 => 7<<16 as usize,
+        Pin::Pin5 => 7<<20 as usize,
+        Pin::Pin6 => 7<<24 as usize,
+        Pin::Pin7 => 7<<28 as usize,
+    }
+}
+
 fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
-        let mut reg:usize = volatile_load(SYSCTL_RCGCGPIO_R);
+        let mut reg = volatile_load(SYSCTL_RCGCGPIO_R);
         if (reg & mask) == 0 {
             reg |= mask;
             volatile_store(SYSCTL_RCGCGPIO_R, reg);
@@ -151,7 +190,13 @@ fn enable_port(port: PinPort) {
 }
 
 fn force_gpio_periph(pinport: PinPort) {
-    unimplemented!();
+    let mut registers = get_port_registers(pinport);
+    let mask = get_pin_mask(pinport);
+    let pctl_mask = get_pctl_mask(pinport);
+    unsafe {
+        registers.get_mut().afsel &= !mask;
+        registers.get_mut().pctl &= !pctl_mask;
+    }
 }
 
 fn make_input(pinport: PinPort) {
