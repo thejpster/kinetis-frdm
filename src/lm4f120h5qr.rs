@@ -41,27 +41,27 @@
 
 #![allow(dead_code)]
 
-// *****************************************************************************
+// ****
 //
 // Watchdog Timer registers (WATCHDOG0)
 //
 // *****************************************************************************
 
-pub const WATCHDOG0_LOAD_R:*mut usize = 0x40000000 as *mut usize;
+pub const WATCHDOG0_LOAD_R: *mut usize = 0x40000000 as *mut usize;
 
-pub const WATCHDOG0_VALUE_R:*mut usize = 0x40000004 as *mut usize;
+pub const WATCHDOG0_VALUE_R: *mut usize = 0x40000004 as *mut usize;
 
-pub const WATCHDOG0_CTL_R:*mut usize = 0x40000008 as *mut usize;
+pub const WATCHDOG0_CTL_R: *mut usize = 0x40000008 as *mut usize;
 
-pub const WATCHDOG0_ICR_R:*mut usize = 0x4000000C as *mut usize;
+pub const WATCHDOG0_ICR_R: *mut usize = 0x4000000C as *mut usize;
 
-pub const WATCHDOG0_RIS_R:*mut usize = 0x40000010 as *mut usize;
+pub const WATCHDOG0_RIS_R: *mut usize = 0x40000010 as *mut usize;
 
-pub const WATCHDOG0_MIS_R:*mut usize = 0x40000014 as *mut usize;
+pub const WATCHDOG0_MIS_R: *mut usize = 0x40000014 as *mut usize;
 
-pub const WATCHDOG0_TEST_R:*mut usize = 0x40000418 as *mut usize;
+pub const WATCHDOG0_TEST_R: *mut usize = 0x40000418 as *mut usize;
 
-pub const WATCHDOG0_LOCK_R:*mut usize = 0x40000C00 as *mut usize;
+pub const WATCHDOG0_LOCK_R: *mut usize = 0x40000C00 as *mut usize;
 
 // *****************************************************************************
 //
@@ -69,21 +69,21 @@ pub const WATCHDOG0_LOCK_R:*mut usize = 0x40000C00 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WATCHDOG1_LOAD_R:*mut usize = 0x40001000 as *mut usize;
+pub const WATCHDOG1_LOAD_R: *mut usize = 0x40001000 as *mut usize;
 
-pub const WATCHDOG1_VALUE_R:*mut usize = 0x40001004 as *mut usize;
+pub const WATCHDOG1_VALUE_R: *mut usize = 0x40001004 as *mut usize;
 
-pub const WATCHDOG1_CTL_R:*mut usize = 0x40001008 as *mut usize;
+pub const WATCHDOG1_CTL_R: *mut usize = 0x40001008 as *mut usize;
 
-pub const WATCHDOG1_ICR_R:*mut usize = 0x4000100C as *mut usize;
+pub const WATCHDOG1_ICR_R: *mut usize = 0x4000100C as *mut usize;
 
-pub const WATCHDOG1_RIS_R:*mut usize = 0x40001010 as *mut usize;
+pub const WATCHDOG1_RIS_R: *mut usize = 0x40001010 as *mut usize;
 
-pub const WATCHDOG1_MIS_R:*mut usize = 0x40001014 as *mut usize;
+pub const WATCHDOG1_MIS_R: *mut usize = 0x40001014 as *mut usize;
 
-pub const WATCHDOG1_TEST_R:*mut usize = 0x40001418 as *mut usize;
+pub const WATCHDOG1_TEST_R: *mut usize = 0x40001418 as *mut usize;
 
-pub const WATCHDOG1_LOCK_R:*mut usize = 0x40001C00 as *mut usize;
+pub const WATCHDOG1_LOCK_R: *mut usize = 0x40001C00 as *mut usize;
 
 // *****************************************************************************
 //
@@ -91,57 +91,57 @@ pub const WATCHDOG1_LOCK_R:*mut usize = 0x40001C00 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTA_DATA_BITS_R:*mut usize = 0x40004000 as *mut usize;
+pub const GPIO_PORTA_DATA_BITS_R: *mut usize = 0x40004000 as *mut usize;
 
-pub const GPIO_PORTA_DATA_R:*mut usize = 0x400043FC as *mut usize;
+pub const GPIO_PORTA_DATA_R: *mut usize = 0x400043FC as *mut usize;
 
-pub const GPIO_PORTA_DIR_R:*mut usize = 0x40004400 as *mut usize;
+pub const GPIO_PORTA_DIR_R: *mut usize = 0x40004400 as *mut usize;
 
-pub const GPIO_PORTA_IS_R:*mut usize = 0x40004404 as *mut usize;
+pub const GPIO_PORTA_IS_R: *mut usize = 0x40004404 as *mut usize;
 
-pub const GPIO_PORTA_IBE_R:*mut usize = 0x40004408 as *mut usize;
+pub const GPIO_PORTA_IBE_R: *mut usize = 0x40004408 as *mut usize;
 
-pub const GPIO_PORTA_IEV_R:*mut usize = 0x4000440C as *mut usize;
+pub const GPIO_PORTA_IEV_R: *mut usize = 0x4000440C as *mut usize;
 
-pub const GPIO_PORTA_IM_R:*mut usize = 0x40004410 as *mut usize;
+pub const GPIO_PORTA_IM_R: *mut usize = 0x40004410 as *mut usize;
 
-pub const GPIO_PORTA_RIS_R:*mut usize = 0x40004414 as *mut usize;
+pub const GPIO_PORTA_RIS_R: *mut usize = 0x40004414 as *mut usize;
 
-pub const GPIO_PORTA_MIS_R:*mut usize = 0x40004418 as *mut usize;
+pub const GPIO_PORTA_MIS_R: *mut usize = 0x40004418 as *mut usize;
 
-pub const GPIO_PORTA_ICR_R:*mut usize = 0x4000441C as *mut usize;
+pub const GPIO_PORTA_ICR_R: *mut usize = 0x4000441C as *mut usize;
 
-pub const GPIO_PORTA_AFSEL_R:*mut usize = 0x40004420 as *mut usize;
+pub const GPIO_PORTA_AFSEL_R: *mut usize = 0x40004420 as *mut usize;
 
-pub const GPIO_PORTA_DR2R_R:*mut usize = 0x40004500 as *mut usize;
+pub const GPIO_PORTA_DR2R_R: *mut usize = 0x40004500 as *mut usize;
 
-pub const GPIO_PORTA_DR4R_R:*mut usize = 0x40004504 as *mut usize;
+pub const GPIO_PORTA_DR4R_R: *mut usize = 0x40004504 as *mut usize;
 
-pub const GPIO_PORTA_DR8R_R:*mut usize = 0x40004508 as *mut usize;
+pub const GPIO_PORTA_DR8R_R: *mut usize = 0x40004508 as *mut usize;
 
-pub const GPIO_PORTA_ODR_R:*mut usize = 0x4000450C as *mut usize;
+pub const GPIO_PORTA_ODR_R: *mut usize = 0x4000450C as *mut usize;
 
-pub const GPIO_PORTA_PUR_R:*mut usize = 0x40004510 as *mut usize;
+pub const GPIO_PORTA_PUR_R: *mut usize = 0x40004510 as *mut usize;
 
-pub const GPIO_PORTA_PDR_R:*mut usize = 0x40004514 as *mut usize;
+pub const GPIO_PORTA_PDR_R: *mut usize = 0x40004514 as *mut usize;
 
-pub const GPIO_PORTA_SLR_R:*mut usize = 0x40004518 as *mut usize;
+pub const GPIO_PORTA_SLR_R: *mut usize = 0x40004518 as *mut usize;
 
-pub const GPIO_PORTA_DEN_R:*mut usize = 0x4000451C as *mut usize;
+pub const GPIO_PORTA_DEN_R: *mut usize = 0x4000451C as *mut usize;
 
-pub const GPIO_PORTA_LOCK_R:*mut usize = 0x40004520 as *mut usize;
+pub const GPIO_PORTA_LOCK_R: *mut usize = 0x40004520 as *mut usize;
 
-pub const GPIO_PORTA_CR_R:*mut usize = 0x40004524 as *mut usize;
+pub const GPIO_PORTA_CR_R: *mut usize = 0x40004524 as *mut usize;
 
-pub const GPIO_PORTA_AMSEL_R:*mut usize = 0x40004528 as *mut usize;
+pub const GPIO_PORTA_AMSEL_R: *mut usize = 0x40004528 as *mut usize;
 
-pub const GPIO_PORTA_PCTL_R:*mut usize = 0x4000452C as *mut usize;
+pub const GPIO_PORTA_PCTL_R: *mut usize = 0x4000452C as *mut usize;
 
-pub const GPIO_PORTA_ADCCTL_R:*mut usize = 0x40004530 as *mut usize;
+pub const GPIO_PORTA_ADCCTL_R: *mut usize = 0x40004530 as *mut usize;
 
-pub const GPIO_PORTA_DMACTL_R:*mut usize = 0x40004534 as *mut usize;
+pub const GPIO_PORTA_DMACTL_R: *mut usize = 0x40004534 as *mut usize;
 
-pub const GPIO_PORTA_SI_R:*mut usize = 0x40004538 as *mut usize;
+pub const GPIO_PORTA_SI_R: *mut usize = 0x40004538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -149,57 +149,57 @@ pub const GPIO_PORTA_SI_R:*mut usize = 0x40004538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTB_DATA_BITS_R:*mut usize = 0x40005000 as *mut usize;
+pub const GPIO_PORTB_DATA_BITS_R: *mut usize = 0x40005000 as *mut usize;
 
-pub const GPIO_PORTB_DATA_R:*mut usize = 0x400053FC as *mut usize;
+pub const GPIO_PORTB_DATA_R: *mut usize = 0x400053FC as *mut usize;
 
-pub const GPIO_PORTB_DIR_R:*mut usize = 0x40005400 as *mut usize;
+pub const GPIO_PORTB_DIR_R: *mut usize = 0x40005400 as *mut usize;
 
-pub const GPIO_PORTB_IS_R:*mut usize = 0x40005404 as *mut usize;
+pub const GPIO_PORTB_IS_R: *mut usize = 0x40005404 as *mut usize;
 
-pub const GPIO_PORTB_IBE_R:*mut usize = 0x40005408 as *mut usize;
+pub const GPIO_PORTB_IBE_R: *mut usize = 0x40005408 as *mut usize;
 
-pub const GPIO_PORTB_IEV_R:*mut usize = 0x4000540C as *mut usize;
+pub const GPIO_PORTB_IEV_R: *mut usize = 0x4000540C as *mut usize;
 
-pub const GPIO_PORTB_IM_R:*mut usize = 0x40005410 as *mut usize;
+pub const GPIO_PORTB_IM_R: *mut usize = 0x40005410 as *mut usize;
 
-pub const GPIO_PORTB_RIS_R:*mut usize = 0x40005414 as *mut usize;
+pub const GPIO_PORTB_RIS_R: *mut usize = 0x40005414 as *mut usize;
 
-pub const GPIO_PORTB_MIS_R:*mut usize = 0x40005418 as *mut usize;
+pub const GPIO_PORTB_MIS_R: *mut usize = 0x40005418 as *mut usize;
 
-pub const GPIO_PORTB_ICR_R:*mut usize = 0x4000541C as *mut usize;
+pub const GPIO_PORTB_ICR_R: *mut usize = 0x4000541C as *mut usize;
 
-pub const GPIO_PORTB_AFSEL_R:*mut usize = 0x40005420 as *mut usize;
+pub const GPIO_PORTB_AFSEL_R: *mut usize = 0x40005420 as *mut usize;
 
-pub const GPIO_PORTB_DR2R_R:*mut usize = 0x40005500 as *mut usize;
+pub const GPIO_PORTB_DR2R_R: *mut usize = 0x40005500 as *mut usize;
 
-pub const GPIO_PORTB_DR4R_R:*mut usize = 0x40005504 as *mut usize;
+pub const GPIO_PORTB_DR4R_R: *mut usize = 0x40005504 as *mut usize;
 
-pub const GPIO_PORTB_DR8R_R:*mut usize = 0x40005508 as *mut usize;
+pub const GPIO_PORTB_DR8R_R: *mut usize = 0x40005508 as *mut usize;
 
-pub const GPIO_PORTB_ODR_R:*mut usize = 0x4000550C as *mut usize;
+pub const GPIO_PORTB_ODR_R: *mut usize = 0x4000550C as *mut usize;
 
-pub const GPIO_PORTB_PUR_R:*mut usize = 0x40005510 as *mut usize;
+pub const GPIO_PORTB_PUR_R: *mut usize = 0x40005510 as *mut usize;
 
-pub const GPIO_PORTB_PDR_R:*mut usize = 0x40005514 as *mut usize;
+pub const GPIO_PORTB_PDR_R: *mut usize = 0x40005514 as *mut usize;
 
-pub const GPIO_PORTB_SLR_R:*mut usize = 0x40005518 as *mut usize;
+pub const GPIO_PORTB_SLR_R: *mut usize = 0x40005518 as *mut usize;
 
-pub const GPIO_PORTB_DEN_R:*mut usize = 0x4000551C as *mut usize;
+pub const GPIO_PORTB_DEN_R: *mut usize = 0x4000551C as *mut usize;
 
-pub const GPIO_PORTB_LOCK_R:*mut usize = 0x40005520 as *mut usize;
+pub const GPIO_PORTB_LOCK_R: *mut usize = 0x40005520 as *mut usize;
 
-pub const GPIO_PORTB_CR_R:*mut usize = 0x40005524 as *mut usize;
+pub const GPIO_PORTB_CR_R: *mut usize = 0x40005524 as *mut usize;
 
-pub const GPIO_PORTB_AMSEL_R:*mut usize = 0x40005528 as *mut usize;
+pub const GPIO_PORTB_AMSEL_R: *mut usize = 0x40005528 as *mut usize;
 
-pub const GPIO_PORTB_PCTL_R:*mut usize = 0x4000552C as *mut usize;
+pub const GPIO_PORTB_PCTL_R: *mut usize = 0x4000552C as *mut usize;
 
-pub const GPIO_PORTB_ADCCTL_R:*mut usize = 0x40005530 as *mut usize;
+pub const GPIO_PORTB_ADCCTL_R: *mut usize = 0x40005530 as *mut usize;
 
-pub const GPIO_PORTB_DMACTL_R:*mut usize = 0x40005534 as *mut usize;
+pub const GPIO_PORTB_DMACTL_R: *mut usize = 0x40005534 as *mut usize;
 
-pub const GPIO_PORTB_SI_R:*mut usize = 0x40005538 as *mut usize;
+pub const GPIO_PORTB_SI_R: *mut usize = 0x40005538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -207,57 +207,57 @@ pub const GPIO_PORTB_SI_R:*mut usize = 0x40005538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTC_DATA_BITS_R:*mut usize = 0x40006000 as *mut usize;
+pub const GPIO_PORTC_DATA_BITS_R: *mut usize = 0x40006000 as *mut usize;
 
-pub const GPIO_PORTC_DATA_R:*mut usize = 0x400063FC as *mut usize;
+pub const GPIO_PORTC_DATA_R: *mut usize = 0x400063FC as *mut usize;
 
-pub const GPIO_PORTC_DIR_R:*mut usize = 0x40006400 as *mut usize;
+pub const GPIO_PORTC_DIR_R: *mut usize = 0x40006400 as *mut usize;
 
-pub const GPIO_PORTC_IS_R:*mut usize = 0x40006404 as *mut usize;
+pub const GPIO_PORTC_IS_R: *mut usize = 0x40006404 as *mut usize;
 
-pub const GPIO_PORTC_IBE_R:*mut usize = 0x40006408 as *mut usize;
+pub const GPIO_PORTC_IBE_R: *mut usize = 0x40006408 as *mut usize;
 
-pub const GPIO_PORTC_IEV_R:*mut usize = 0x4000640C as *mut usize;
+pub const GPIO_PORTC_IEV_R: *mut usize = 0x4000640C as *mut usize;
 
-pub const GPIO_PORTC_IM_R:*mut usize = 0x40006410 as *mut usize;
+pub const GPIO_PORTC_IM_R: *mut usize = 0x40006410 as *mut usize;
 
-pub const GPIO_PORTC_RIS_R:*mut usize = 0x40006414 as *mut usize;
+pub const GPIO_PORTC_RIS_R: *mut usize = 0x40006414 as *mut usize;
 
-pub const GPIO_PORTC_MIS_R:*mut usize = 0x40006418 as *mut usize;
+pub const GPIO_PORTC_MIS_R: *mut usize = 0x40006418 as *mut usize;
 
-pub const GPIO_PORTC_ICR_R:*mut usize = 0x4000641C as *mut usize;
+pub const GPIO_PORTC_ICR_R: *mut usize = 0x4000641C as *mut usize;
 
-pub const GPIO_PORTC_AFSEL_R:*mut usize = 0x40006420 as *mut usize;
+pub const GPIO_PORTC_AFSEL_R: *mut usize = 0x40006420 as *mut usize;
 
-pub const GPIO_PORTC_DR2R_R:*mut usize = 0x40006500 as *mut usize;
+pub const GPIO_PORTC_DR2R_R: *mut usize = 0x40006500 as *mut usize;
 
-pub const GPIO_PORTC_DR4R_R:*mut usize = 0x40006504 as *mut usize;
+pub const GPIO_PORTC_DR4R_R: *mut usize = 0x40006504 as *mut usize;
 
-pub const GPIO_PORTC_DR8R_R:*mut usize = 0x40006508 as *mut usize;
+pub const GPIO_PORTC_DR8R_R: *mut usize = 0x40006508 as *mut usize;
 
-pub const GPIO_PORTC_ODR_R:*mut usize = 0x4000650C as *mut usize;
+pub const GPIO_PORTC_ODR_R: *mut usize = 0x4000650C as *mut usize;
 
-pub const GPIO_PORTC_PUR_R:*mut usize = 0x40006510 as *mut usize;
+pub const GPIO_PORTC_PUR_R: *mut usize = 0x40006510 as *mut usize;
 
-pub const GPIO_PORTC_PDR_R:*mut usize = 0x40006514 as *mut usize;
+pub const GPIO_PORTC_PDR_R: *mut usize = 0x40006514 as *mut usize;
 
-pub const GPIO_PORTC_SLR_R:*mut usize = 0x40006518 as *mut usize;
+pub const GPIO_PORTC_SLR_R: *mut usize = 0x40006518 as *mut usize;
 
-pub const GPIO_PORTC_DEN_R:*mut usize = 0x4000651C as *mut usize;
+pub const GPIO_PORTC_DEN_R: *mut usize = 0x4000651C as *mut usize;
 
-pub const GPIO_PORTC_LOCK_R:*mut usize = 0x40006520 as *mut usize;
+pub const GPIO_PORTC_LOCK_R: *mut usize = 0x40006520 as *mut usize;
 
-pub const GPIO_PORTC_CR_R:*mut usize = 0x40006524 as *mut usize;
+pub const GPIO_PORTC_CR_R: *mut usize = 0x40006524 as *mut usize;
 
-pub const GPIO_PORTC_AMSEL_R:*mut usize = 0x40006528 as *mut usize;
+pub const GPIO_PORTC_AMSEL_R: *mut usize = 0x40006528 as *mut usize;
 
-pub const GPIO_PORTC_PCTL_R:*mut usize = 0x4000652C as *mut usize;
+pub const GPIO_PORTC_PCTL_R: *mut usize = 0x4000652C as *mut usize;
 
-pub const GPIO_PORTC_ADCCTL_R:*mut usize = 0x40006530 as *mut usize;
+pub const GPIO_PORTC_ADCCTL_R: *mut usize = 0x40006530 as *mut usize;
 
-pub const GPIO_PORTC_DMACTL_R:*mut usize = 0x40006534 as *mut usize;
+pub const GPIO_PORTC_DMACTL_R: *mut usize = 0x40006534 as *mut usize;
 
-pub const GPIO_PORTC_SI_R:*mut usize = 0x40006538 as *mut usize;
+pub const GPIO_PORTC_SI_R: *mut usize = 0x40006538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -265,57 +265,57 @@ pub const GPIO_PORTC_SI_R:*mut usize = 0x40006538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTD_DATA_BITS_R:*mut usize = 0x40007000 as *mut usize;
+pub const GPIO_PORTD_DATA_BITS_R: *mut usize = 0x40007000 as *mut usize;
 
-pub const GPIO_PORTD_DATA_R:*mut usize = 0x400073FC as *mut usize;
+pub const GPIO_PORTD_DATA_R: *mut usize = 0x400073FC as *mut usize;
 
-pub const GPIO_PORTD_DIR_R:*mut usize = 0x40007400 as *mut usize;
+pub const GPIO_PORTD_DIR_R: *mut usize = 0x40007400 as *mut usize;
 
-pub const GPIO_PORTD_IS_R:*mut usize = 0x40007404 as *mut usize;
+pub const GPIO_PORTD_IS_R: *mut usize = 0x40007404 as *mut usize;
 
-pub const GPIO_PORTD_IBE_R:*mut usize = 0x40007408 as *mut usize;
+pub const GPIO_PORTD_IBE_R: *mut usize = 0x40007408 as *mut usize;
 
-pub const GPIO_PORTD_IEV_R:*mut usize = 0x4000740C as *mut usize;
+pub const GPIO_PORTD_IEV_R: *mut usize = 0x4000740C as *mut usize;
 
-pub const GPIO_PORTD_IM_R:*mut usize = 0x40007410 as *mut usize;
+pub const GPIO_PORTD_IM_R: *mut usize = 0x40007410 as *mut usize;
 
-pub const GPIO_PORTD_RIS_R:*mut usize = 0x40007414 as *mut usize;
+pub const GPIO_PORTD_RIS_R: *mut usize = 0x40007414 as *mut usize;
 
-pub const GPIO_PORTD_MIS_R:*mut usize = 0x40007418 as *mut usize;
+pub const GPIO_PORTD_MIS_R: *mut usize = 0x40007418 as *mut usize;
 
-pub const GPIO_PORTD_ICR_R:*mut usize = 0x4000741C as *mut usize;
+pub const GPIO_PORTD_ICR_R: *mut usize = 0x4000741C as *mut usize;
 
-pub const GPIO_PORTD_AFSEL_R:*mut usize = 0x40007420 as *mut usize;
+pub const GPIO_PORTD_AFSEL_R: *mut usize = 0x40007420 as *mut usize;
 
-pub const GPIO_PORTD_DR2R_R:*mut usize = 0x40007500 as *mut usize;
+pub const GPIO_PORTD_DR2R_R: *mut usize = 0x40007500 as *mut usize;
 
-pub const GPIO_PORTD_DR4R_R:*mut usize = 0x40007504 as *mut usize;
+pub const GPIO_PORTD_DR4R_R: *mut usize = 0x40007504 as *mut usize;
 
-pub const GPIO_PORTD_DR8R_R:*mut usize = 0x40007508 as *mut usize;
+pub const GPIO_PORTD_DR8R_R: *mut usize = 0x40007508 as *mut usize;
 
-pub const GPIO_PORTD_ODR_R:*mut usize = 0x4000750C as *mut usize;
+pub const GPIO_PORTD_ODR_R: *mut usize = 0x4000750C as *mut usize;
 
-pub const GPIO_PORTD_PUR_R:*mut usize = 0x40007510 as *mut usize;
+pub const GPIO_PORTD_PUR_R: *mut usize = 0x40007510 as *mut usize;
 
-pub const GPIO_PORTD_PDR_R:*mut usize = 0x40007514 as *mut usize;
+pub const GPIO_PORTD_PDR_R: *mut usize = 0x40007514 as *mut usize;
 
-pub const GPIO_PORTD_SLR_R:*mut usize = 0x40007518 as *mut usize;
+pub const GPIO_PORTD_SLR_R: *mut usize = 0x40007518 as *mut usize;
 
-pub const GPIO_PORTD_DEN_R:*mut usize = 0x4000751C as *mut usize;
+pub const GPIO_PORTD_DEN_R: *mut usize = 0x4000751C as *mut usize;
 
-pub const GPIO_PORTD_LOCK_R:*mut usize = 0x40007520 as *mut usize;
+pub const GPIO_PORTD_LOCK_R: *mut usize = 0x40007520 as *mut usize;
 
-pub const GPIO_PORTD_CR_R:*mut usize = 0x40007524 as *mut usize;
+pub const GPIO_PORTD_CR_R: *mut usize = 0x40007524 as *mut usize;
 
-pub const GPIO_PORTD_AMSEL_R:*mut usize = 0x40007528 as *mut usize;
+pub const GPIO_PORTD_AMSEL_R: *mut usize = 0x40007528 as *mut usize;
 
-pub const GPIO_PORTD_PCTL_R:*mut usize = 0x4000752C as *mut usize;
+pub const GPIO_PORTD_PCTL_R: *mut usize = 0x4000752C as *mut usize;
 
-pub const GPIO_PORTD_ADCCTL_R:*mut usize = 0x40007530 as *mut usize;
+pub const GPIO_PORTD_ADCCTL_R: *mut usize = 0x40007530 as *mut usize;
 
-pub const GPIO_PORTD_DMACTL_R:*mut usize = 0x40007534 as *mut usize;
+pub const GPIO_PORTD_DMACTL_R: *mut usize = 0x40007534 as *mut usize;
 
-pub const GPIO_PORTD_SI_R:*mut usize = 0x40007538 as *mut usize;
+pub const GPIO_PORTD_SI_R: *mut usize = 0x40007538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -323,27 +323,27 @@ pub const GPIO_PORTD_SI_R:*mut usize = 0x40007538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const SSI0_CR0_R:*mut usize = 0x40008000 as *mut usize;
+pub const SSI0_CR0_R: *mut usize = 0x40008000 as *mut usize;
 
-pub const SSI0_CR1_R:*mut usize = 0x40008004 as *mut usize;
+pub const SSI0_CR1_R: *mut usize = 0x40008004 as *mut usize;
 
-pub const SSI0_DR_R:*mut usize = 0x40008008 as *mut usize;
+pub const SSI0_DR_R: *mut usize = 0x40008008 as *mut usize;
 
-pub const SSI0_SR_R:*mut usize = 0x4000800C as *mut usize;
+pub const SSI0_SR_R: *mut usize = 0x4000800C as *mut usize;
 
-pub const SSI0_CPSR_R:*mut usize = 0x40008010 as *mut usize;
+pub const SSI0_CPSR_R: *mut usize = 0x40008010 as *mut usize;
 
-pub const SSI0_IM_R:*mut usize = 0x40008014 as *mut usize;
+pub const SSI0_IM_R: *mut usize = 0x40008014 as *mut usize;
 
-pub const SSI0_RIS_R:*mut usize = 0x40008018 as *mut usize;
+pub const SSI0_RIS_R: *mut usize = 0x40008018 as *mut usize;
 
-pub const SSI0_MIS_R:*mut usize = 0x4000801C as *mut usize;
+pub const SSI0_MIS_R: *mut usize = 0x4000801C as *mut usize;
 
-pub const SSI0_ICR_R:*mut usize = 0x40008020 as *mut usize;
+pub const SSI0_ICR_R: *mut usize = 0x40008020 as *mut usize;
 
-pub const SSI0_DMACTL_R:*mut usize = 0x40008024 as *mut usize;
+pub const SSI0_DMACTL_R: *mut usize = 0x40008024 as *mut usize;
 
-pub const SSI0_CC_R:*mut usize = 0x40008FC8 as *mut usize;
+pub const SSI0_CC_R: *mut usize = 0x40008FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -351,27 +351,27 @@ pub const SSI0_CC_R:*mut usize = 0x40008FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const SSI1_CR0_R:*mut usize = 0x40009000 as *mut usize;
+pub const SSI1_CR0_R: *mut usize = 0x40009000 as *mut usize;
 
-pub const SSI1_CR1_R:*mut usize = 0x40009004 as *mut usize;
+pub const SSI1_CR1_R: *mut usize = 0x40009004 as *mut usize;
 
-pub const SSI1_DR_R:*mut usize = 0x40009008 as *mut usize;
+pub const SSI1_DR_R: *mut usize = 0x40009008 as *mut usize;
 
-pub const SSI1_SR_R:*mut usize = 0x4000900C as *mut usize;
+pub const SSI1_SR_R: *mut usize = 0x4000900C as *mut usize;
 
-pub const SSI1_CPSR_R:*mut usize = 0x40009010 as *mut usize;
+pub const SSI1_CPSR_R: *mut usize = 0x40009010 as *mut usize;
 
-pub const SSI1_IM_R:*mut usize = 0x40009014 as *mut usize;
+pub const SSI1_IM_R: *mut usize = 0x40009014 as *mut usize;
 
-pub const SSI1_RIS_R:*mut usize = 0x40009018 as *mut usize;
+pub const SSI1_RIS_R: *mut usize = 0x40009018 as *mut usize;
 
-pub const SSI1_MIS_R:*mut usize = 0x4000901C as *mut usize;
+pub const SSI1_MIS_R: *mut usize = 0x4000901C as *mut usize;
 
-pub const SSI1_ICR_R:*mut usize = 0x40009020 as *mut usize;
+pub const SSI1_ICR_R: *mut usize = 0x40009020 as *mut usize;
 
-pub const SSI1_DMACTL_R:*mut usize = 0x40009024 as *mut usize;
+pub const SSI1_DMACTL_R: *mut usize = 0x40009024 as *mut usize;
 
-pub const SSI1_CC_R:*mut usize = 0x40009FC8 as *mut usize;
+pub const SSI1_CC_R: *mut usize = 0x40009FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -379,27 +379,27 @@ pub const SSI1_CC_R:*mut usize = 0x40009FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const SSI2_CR0_R:*mut usize = 0x4000A000 as *mut usize;
+pub const SSI2_CR0_R: *mut usize = 0x4000A000 as *mut usize;
 
-pub const SSI2_CR1_R:*mut usize = 0x4000A004 as *mut usize;
+pub const SSI2_CR1_R: *mut usize = 0x4000A004 as *mut usize;
 
-pub const SSI2_DR_R:*mut usize = 0x4000A008 as *mut usize;
+pub const SSI2_DR_R: *mut usize = 0x4000A008 as *mut usize;
 
-pub const SSI2_SR_R:*mut usize = 0x4000A00C as *mut usize;
+pub const SSI2_SR_R: *mut usize = 0x4000A00C as *mut usize;
 
-pub const SSI2_CPSR_R:*mut usize = 0x4000A010 as *mut usize;
+pub const SSI2_CPSR_R: *mut usize = 0x4000A010 as *mut usize;
 
-pub const SSI2_IM_R:*mut usize = 0x4000A014 as *mut usize;
+pub const SSI2_IM_R: *mut usize = 0x4000A014 as *mut usize;
 
-pub const SSI2_RIS_R:*mut usize = 0x4000A018 as *mut usize;
+pub const SSI2_RIS_R: *mut usize = 0x4000A018 as *mut usize;
 
-pub const SSI2_MIS_R:*mut usize = 0x4000A01C as *mut usize;
+pub const SSI2_MIS_R: *mut usize = 0x4000A01C as *mut usize;
 
-pub const SSI2_ICR_R:*mut usize = 0x4000A020 as *mut usize;
+pub const SSI2_ICR_R: *mut usize = 0x4000A020 as *mut usize;
 
-pub const SSI2_DMACTL_R:*mut usize = 0x4000A024 as *mut usize;
+pub const SSI2_DMACTL_R: *mut usize = 0x4000A024 as *mut usize;
 
-pub const SSI2_CC_R:*mut usize = 0x4000AFC8 as *mut usize;
+pub const SSI2_CC_R: *mut usize = 0x4000AFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -407,27 +407,27 @@ pub const SSI2_CC_R:*mut usize = 0x4000AFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const SSI3_CR0_R:*mut usize = 0x4000B000 as *mut usize;
+pub const SSI3_CR0_R: *mut usize = 0x4000B000 as *mut usize;
 
-pub const SSI3_CR1_R:*mut usize = 0x4000B004 as *mut usize;
+pub const SSI3_CR1_R: *mut usize = 0x4000B004 as *mut usize;
 
-pub const SSI3_DR_R:*mut usize = 0x4000B008 as *mut usize;
+pub const SSI3_DR_R: *mut usize = 0x4000B008 as *mut usize;
 
-pub const SSI3_SR_R:*mut usize = 0x4000B00C as *mut usize;
+pub const SSI3_SR_R: *mut usize = 0x4000B00C as *mut usize;
 
-pub const SSI3_CPSR_R:*mut usize = 0x4000B010 as *mut usize;
+pub const SSI3_CPSR_R: *mut usize = 0x4000B010 as *mut usize;
 
-pub const SSI3_IM_R:*mut usize = 0x4000B014 as *mut usize;
+pub const SSI3_IM_R: *mut usize = 0x4000B014 as *mut usize;
 
-pub const SSI3_RIS_R:*mut usize = 0x4000B018 as *mut usize;
+pub const SSI3_RIS_R: *mut usize = 0x4000B018 as *mut usize;
 
-pub const SSI3_MIS_R:*mut usize = 0x4000B01C as *mut usize;
+pub const SSI3_MIS_R: *mut usize = 0x4000B01C as *mut usize;
 
-pub const SSI3_ICR_R:*mut usize = 0x4000B020 as *mut usize;
+pub const SSI3_ICR_R: *mut usize = 0x4000B020 as *mut usize;
 
-pub const SSI3_DMACTL_R:*mut usize = 0x4000B024 as *mut usize;
+pub const SSI3_DMACTL_R: *mut usize = 0x4000B024 as *mut usize;
 
-pub const SSI3_CC_R:*mut usize = 0x4000BFC8 as *mut usize;
+pub const SSI3_CC_R: *mut usize = 0x4000BFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -435,49 +435,49 @@ pub const SSI3_CC_R:*mut usize = 0x4000BFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART0_DR_R:*mut usize = 0x4000C000 as *mut usize;
+pub const UART0_DR_R: *mut usize = 0x4000C000 as *mut usize;
 
-pub const UART0_RSR_R:*mut usize = 0x4000C004 as *mut usize;
+pub const UART0_RSR_R: *mut usize = 0x4000C004 as *mut usize;
 
-pub const UART0_ECR_R:*mut usize = 0x4000C004 as *mut usize;
+pub const UART0_ECR_R: *mut usize = 0x4000C004 as *mut usize;
 
-pub const UART0_FR_R:*mut usize = 0x4000C018 as *mut usize;
+pub const UART0_FR_R: *mut usize = 0x4000C018 as *mut usize;
 
-pub const UART0_ILPR_R:*mut usize = 0x4000C020 as *mut usize;
+pub const UART0_ILPR_R: *mut usize = 0x4000C020 as *mut usize;
 
-pub const UART0_IBRD_R:*mut usize = 0x4000C024 as *mut usize;
+pub const UART0_IBRD_R: *mut usize = 0x4000C024 as *mut usize;
 
-pub const UART0_FBRD_R:*mut usize = 0x4000C028 as *mut usize;
+pub const UART0_FBRD_R: *mut usize = 0x4000C028 as *mut usize;
 
-pub const UART0_LCRH_R:*mut usize = 0x4000C02C as *mut usize;
+pub const UART0_LCRH_R: *mut usize = 0x4000C02C as *mut usize;
 
-pub const UART0_CTL_R:*mut usize = 0x4000C030 as *mut usize;
+pub const UART0_CTL_R: *mut usize = 0x4000C030 as *mut usize;
 
-pub const UART0_IFLS_R:*mut usize = 0x4000C034 as *mut usize;
+pub const UART0_IFLS_R: *mut usize = 0x4000C034 as *mut usize;
 
-pub const UART0_IM_R:*mut usize = 0x4000C038 as *mut usize;
+pub const UART0_IM_R: *mut usize = 0x4000C038 as *mut usize;
 
-pub const UART0_RIS_R:*mut usize = 0x4000C03C as *mut usize;
+pub const UART0_RIS_R: *mut usize = 0x4000C03C as *mut usize;
 
-pub const UART0_MIS_R:*mut usize = 0x4000C040 as *mut usize;
+pub const UART0_MIS_R: *mut usize = 0x4000C040 as *mut usize;
 
-pub const UART0_ICR_R:*mut usize = 0x4000C044 as *mut usize;
+pub const UART0_ICR_R: *mut usize = 0x4000C044 as *mut usize;
 
-pub const UART0_DMACTL_R:*mut usize = 0x4000C048 as *mut usize;
+pub const UART0_DMACTL_R: *mut usize = 0x4000C048 as *mut usize;
 
-pub const UART0_LCTL_R:*mut usize = 0x4000C090 as *mut usize;
+pub const UART0_LCTL_R: *mut usize = 0x4000C090 as *mut usize;
 
-pub const UART0_LSS_R:*mut usize = 0x4000C094 as *mut usize;
+pub const UART0_LSS_R: *mut usize = 0x4000C094 as *mut usize;
 
-pub const UART0_LTIM_R:*mut usize = 0x4000C098 as *mut usize;
+pub const UART0_LTIM_R: *mut usize = 0x4000C098 as *mut usize;
 
-pub const UART0_9BITADDR_R:*mut usize = 0x4000C0A4 as *mut usize;
+pub const UART0_9BITADDR_R: *mut usize = 0x4000C0A4 as *mut usize;
 
-pub const UART0_9BITAMASK_R:*mut usize = 0x4000C0A8 as *mut usize;
+pub const UART0_9BITAMASK_R: *mut usize = 0x4000C0A8 as *mut usize;
 
-pub const UART0_PP_R:*mut usize = 0x4000CFC0 as *mut usize;
+pub const UART0_PP_R: *mut usize = 0x4000CFC0 as *mut usize;
 
-pub const UART0_CC_R:*mut usize = 0x4000CFC8 as *mut usize;
+pub const UART0_CC_R: *mut usize = 0x4000CFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -485,49 +485,49 @@ pub const UART0_CC_R:*mut usize = 0x4000CFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART1_DR_R:*mut usize = 0x4000D000 as *mut usize;
+pub const UART1_DR_R: *mut usize = 0x4000D000 as *mut usize;
 
-pub const UART1_RSR_R:*mut usize = 0x4000D004 as *mut usize;
+pub const UART1_RSR_R: *mut usize = 0x4000D004 as *mut usize;
 
-pub const UART1_ECR_R:*mut usize = 0x4000D004 as *mut usize;
+pub const UART1_ECR_R: *mut usize = 0x4000D004 as *mut usize;
 
-pub const UART1_FR_R:*mut usize = 0x4000D018 as *mut usize;
+pub const UART1_FR_R: *mut usize = 0x4000D018 as *mut usize;
 
-pub const UART1_ILPR_R:*mut usize = 0x4000D020 as *mut usize;
+pub const UART1_ILPR_R: *mut usize = 0x4000D020 as *mut usize;
 
-pub const UART1_IBRD_R:*mut usize = 0x4000D024 as *mut usize;
+pub const UART1_IBRD_R: *mut usize = 0x4000D024 as *mut usize;
 
-pub const UART1_FBRD_R:*mut usize = 0x4000D028 as *mut usize;
+pub const UART1_FBRD_R: *mut usize = 0x4000D028 as *mut usize;
 
-pub const UART1_LCRH_R:*mut usize = 0x4000D02C as *mut usize;
+pub const UART1_LCRH_R: *mut usize = 0x4000D02C as *mut usize;
 
-pub const UART1_CTL_R:*mut usize = 0x4000D030 as *mut usize;
+pub const UART1_CTL_R: *mut usize = 0x4000D030 as *mut usize;
 
-pub const UART1_IFLS_R:*mut usize = 0x4000D034 as *mut usize;
+pub const UART1_IFLS_R: *mut usize = 0x4000D034 as *mut usize;
 
-pub const UART1_IM_R:*mut usize = 0x4000D038 as *mut usize;
+pub const UART1_IM_R: *mut usize = 0x4000D038 as *mut usize;
 
-pub const UART1_RIS_R:*mut usize = 0x4000D03C as *mut usize;
+pub const UART1_RIS_R: *mut usize = 0x4000D03C as *mut usize;
 
-pub const UART1_MIS_R:*mut usize = 0x4000D040 as *mut usize;
+pub const UART1_MIS_R: *mut usize = 0x4000D040 as *mut usize;
 
-pub const UART1_ICR_R:*mut usize = 0x4000D044 as *mut usize;
+pub const UART1_ICR_R: *mut usize = 0x4000D044 as *mut usize;
 
-pub const UART1_DMACTL_R:*mut usize = 0x4000D048 as *mut usize;
+pub const UART1_DMACTL_R: *mut usize = 0x4000D048 as *mut usize;
 
-pub const UART1_LCTL_R:*mut usize = 0x4000D090 as *mut usize;
+pub const UART1_LCTL_R: *mut usize = 0x4000D090 as *mut usize;
 
-pub const UART1_LSS_R:*mut usize = 0x4000D094 as *mut usize;
+pub const UART1_LSS_R: *mut usize = 0x4000D094 as *mut usize;
 
-pub const UART1_LTIM_R:*mut usize = 0x4000D098 as *mut usize;
+pub const UART1_LTIM_R: *mut usize = 0x4000D098 as *mut usize;
 
-pub const UART1_9BITADDR_R:*mut usize = 0x4000D0A4 as *mut usize;
+pub const UART1_9BITADDR_R: *mut usize = 0x4000D0A4 as *mut usize;
 
-pub const UART1_9BITAMASK_R:*mut usize = 0x4000D0A8 as *mut usize;
+pub const UART1_9BITAMASK_R: *mut usize = 0x4000D0A8 as *mut usize;
 
-pub const UART1_PP_R:*mut usize = 0x4000DFC0 as *mut usize;
+pub const UART1_PP_R: *mut usize = 0x4000DFC0 as *mut usize;
 
-pub const UART1_CC_R:*mut usize = 0x4000DFC8 as *mut usize;
+pub const UART1_CC_R: *mut usize = 0x4000DFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -535,49 +535,49 @@ pub const UART1_CC_R:*mut usize = 0x4000DFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART2_DR_R:*mut usize = 0x4000E000 as *mut usize;
+pub const UART2_DR_R: *mut usize = 0x4000E000 as *mut usize;
 
-pub const UART2_RSR_R:*mut usize = 0x4000E004 as *mut usize;
+pub const UART2_RSR_R: *mut usize = 0x4000E004 as *mut usize;
 
-pub const UART2_ECR_R:*mut usize = 0x4000E004 as *mut usize;
+pub const UART2_ECR_R: *mut usize = 0x4000E004 as *mut usize;
 
-pub const UART2_FR_R:*mut usize = 0x4000E018 as *mut usize;
+pub const UART2_FR_R: *mut usize = 0x4000E018 as *mut usize;
 
-pub const UART2_ILPR_R:*mut usize = 0x4000E020 as *mut usize;
+pub const UART2_ILPR_R: *mut usize = 0x4000E020 as *mut usize;
 
-pub const UART2_IBRD_R:*mut usize = 0x4000E024 as *mut usize;
+pub const UART2_IBRD_R: *mut usize = 0x4000E024 as *mut usize;
 
-pub const UART2_FBRD_R:*mut usize = 0x4000E028 as *mut usize;
+pub const UART2_FBRD_R: *mut usize = 0x4000E028 as *mut usize;
 
-pub const UART2_LCRH_R:*mut usize = 0x4000E02C as *mut usize;
+pub const UART2_LCRH_R: *mut usize = 0x4000E02C as *mut usize;
 
-pub const UART2_CTL_R:*mut usize = 0x4000E030 as *mut usize;
+pub const UART2_CTL_R: *mut usize = 0x4000E030 as *mut usize;
 
-pub const UART2_IFLS_R:*mut usize = 0x4000E034 as *mut usize;
+pub const UART2_IFLS_R: *mut usize = 0x4000E034 as *mut usize;
 
-pub const UART2_IM_R:*mut usize = 0x4000E038 as *mut usize;
+pub const UART2_IM_R: *mut usize = 0x4000E038 as *mut usize;
 
-pub const UART2_RIS_R:*mut usize = 0x4000E03C as *mut usize;
+pub const UART2_RIS_R: *mut usize = 0x4000E03C as *mut usize;
 
-pub const UART2_MIS_R:*mut usize = 0x4000E040 as *mut usize;
+pub const UART2_MIS_R: *mut usize = 0x4000E040 as *mut usize;
 
-pub const UART2_ICR_R:*mut usize = 0x4000E044 as *mut usize;
+pub const UART2_ICR_R: *mut usize = 0x4000E044 as *mut usize;
 
-pub const UART2_DMACTL_R:*mut usize = 0x4000E048 as *mut usize;
+pub const UART2_DMACTL_R: *mut usize = 0x4000E048 as *mut usize;
 
-pub const UART2_LCTL_R:*mut usize = 0x4000E090 as *mut usize;
+pub const UART2_LCTL_R: *mut usize = 0x4000E090 as *mut usize;
 
-pub const UART2_LSS_R:*mut usize = 0x4000E094 as *mut usize;
+pub const UART2_LSS_R: *mut usize = 0x4000E094 as *mut usize;
 
-pub const UART2_LTIM_R:*mut usize = 0x4000E098 as *mut usize;
+pub const UART2_LTIM_R: *mut usize = 0x4000E098 as *mut usize;
 
-pub const UART2_9BITADDR_R:*mut usize = 0x4000E0A4 as *mut usize;
+pub const UART2_9BITADDR_R: *mut usize = 0x4000E0A4 as *mut usize;
 
-pub const UART2_9BITAMASK_R:*mut usize = 0x4000E0A8 as *mut usize;
+pub const UART2_9BITAMASK_R: *mut usize = 0x4000E0A8 as *mut usize;
 
-pub const UART2_PP_R:*mut usize = 0x4000EFC0 as *mut usize;
+pub const UART2_PP_R: *mut usize = 0x4000EFC0 as *mut usize;
 
-pub const UART2_CC_R:*mut usize = 0x4000EFC8 as *mut usize;
+pub const UART2_CC_R: *mut usize = 0x4000EFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -585,49 +585,49 @@ pub const UART2_CC_R:*mut usize = 0x4000EFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART3_DR_R:*mut usize = 0x4000F000 as *mut usize;
+pub const UART3_DR_R: *mut usize = 0x4000F000 as *mut usize;
 
-pub const UART3_RSR_R:*mut usize = 0x4000F004 as *mut usize;
+pub const UART3_RSR_R: *mut usize = 0x4000F004 as *mut usize;
 
-pub const UART3_ECR_R:*mut usize = 0x4000F004 as *mut usize;
+pub const UART3_ECR_R: *mut usize = 0x4000F004 as *mut usize;
 
-pub const UART3_FR_R:*mut usize = 0x4000F018 as *mut usize;
+pub const UART3_FR_R: *mut usize = 0x4000F018 as *mut usize;
 
-pub const UART3_ILPR_R:*mut usize = 0x4000F020 as *mut usize;
+pub const UART3_ILPR_R: *mut usize = 0x4000F020 as *mut usize;
 
-pub const UART3_IBRD_R:*mut usize = 0x4000F024 as *mut usize;
+pub const UART3_IBRD_R: *mut usize = 0x4000F024 as *mut usize;
 
-pub const UART3_FBRD_R:*mut usize = 0x4000F028 as *mut usize;
+pub const UART3_FBRD_R: *mut usize = 0x4000F028 as *mut usize;
 
-pub const UART3_LCRH_R:*mut usize = 0x4000F02C as *mut usize;
+pub const UART3_LCRH_R: *mut usize = 0x4000F02C as *mut usize;
 
-pub const UART3_CTL_R:*mut usize = 0x4000F030 as *mut usize;
+pub const UART3_CTL_R: *mut usize = 0x4000F030 as *mut usize;
 
-pub const UART3_IFLS_R:*mut usize = 0x4000F034 as *mut usize;
+pub const UART3_IFLS_R: *mut usize = 0x4000F034 as *mut usize;
 
-pub const UART3_IM_R:*mut usize = 0x4000F038 as *mut usize;
+pub const UART3_IM_R: *mut usize = 0x4000F038 as *mut usize;
 
-pub const UART3_RIS_R:*mut usize = 0x4000F03C as *mut usize;
+pub const UART3_RIS_R: *mut usize = 0x4000F03C as *mut usize;
 
-pub const UART3_MIS_R:*mut usize = 0x4000F040 as *mut usize;
+pub const UART3_MIS_R: *mut usize = 0x4000F040 as *mut usize;
 
-pub const UART3_ICR_R:*mut usize = 0x4000F044 as *mut usize;
+pub const UART3_ICR_R: *mut usize = 0x4000F044 as *mut usize;
 
-pub const UART3_DMACTL_R:*mut usize = 0x4000F048 as *mut usize;
+pub const UART3_DMACTL_R: *mut usize = 0x4000F048 as *mut usize;
 
-pub const UART3_LCTL_R:*mut usize = 0x4000F090 as *mut usize;
+pub const UART3_LCTL_R: *mut usize = 0x4000F090 as *mut usize;
 
-pub const UART3_LSS_R:*mut usize = 0x4000F094 as *mut usize;
+pub const UART3_LSS_R: *mut usize = 0x4000F094 as *mut usize;
 
-pub const UART3_LTIM_R:*mut usize = 0x4000F098 as *mut usize;
+pub const UART3_LTIM_R: *mut usize = 0x4000F098 as *mut usize;
 
-pub const UART3_9BITADDR_R:*mut usize = 0x4000F0A4 as *mut usize;
+pub const UART3_9BITADDR_R: *mut usize = 0x4000F0A4 as *mut usize;
 
-pub const UART3_9BITAMASK_R:*mut usize = 0x4000F0A8 as *mut usize;
+pub const UART3_9BITAMASK_R: *mut usize = 0x4000F0A8 as *mut usize;
 
-pub const UART3_PP_R:*mut usize = 0x4000FFC0 as *mut usize;
+pub const UART3_PP_R: *mut usize = 0x4000FFC0 as *mut usize;
 
-pub const UART3_CC_R:*mut usize = 0x4000FFC8 as *mut usize;
+pub const UART3_CC_R: *mut usize = 0x4000FFC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -635,49 +635,49 @@ pub const UART3_CC_R:*mut usize = 0x4000FFC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART4_DR_R:*mut usize = 0x40010000 as *mut usize;
+pub const UART4_DR_R: *mut usize = 0x40010000 as *mut usize;
 
-pub const UART4_RSR_R:*mut usize = 0x40010004 as *mut usize;
+pub const UART4_RSR_R: *mut usize = 0x40010004 as *mut usize;
 
-pub const UART4_ECR_R:*mut usize = 0x40010004 as *mut usize;
+pub const UART4_ECR_R: *mut usize = 0x40010004 as *mut usize;
 
-pub const UART4_FR_R:*mut usize = 0x40010018 as *mut usize;
+pub const UART4_FR_R: *mut usize = 0x40010018 as *mut usize;
 
-pub const UART4_ILPR_R:*mut usize = 0x40010020 as *mut usize;
+pub const UART4_ILPR_R: *mut usize = 0x40010020 as *mut usize;
 
-pub const UART4_IBRD_R:*mut usize = 0x40010024 as *mut usize;
+pub const UART4_IBRD_R: *mut usize = 0x40010024 as *mut usize;
 
-pub const UART4_FBRD_R:*mut usize = 0x40010028 as *mut usize;
+pub const UART4_FBRD_R: *mut usize = 0x40010028 as *mut usize;
 
-pub const UART4_LCRH_R:*mut usize = 0x4001002C as *mut usize;
+pub const UART4_LCRH_R: *mut usize = 0x4001002C as *mut usize;
 
-pub const UART4_CTL_R:*mut usize = 0x40010030 as *mut usize;
+pub const UART4_CTL_R: *mut usize = 0x40010030 as *mut usize;
 
-pub const UART4_IFLS_R:*mut usize = 0x40010034 as *mut usize;
+pub const UART4_IFLS_R: *mut usize = 0x40010034 as *mut usize;
 
-pub const UART4_IM_R:*mut usize = 0x40010038 as *mut usize;
+pub const UART4_IM_R: *mut usize = 0x40010038 as *mut usize;
 
-pub const UART4_RIS_R:*mut usize = 0x4001003C as *mut usize;
+pub const UART4_RIS_R: *mut usize = 0x4001003C as *mut usize;
 
-pub const UART4_MIS_R:*mut usize = 0x40010040 as *mut usize;
+pub const UART4_MIS_R: *mut usize = 0x40010040 as *mut usize;
 
-pub const UART4_ICR_R:*mut usize = 0x40010044 as *mut usize;
+pub const UART4_ICR_R: *mut usize = 0x40010044 as *mut usize;
 
-pub const UART4_DMACTL_R:*mut usize = 0x40010048 as *mut usize;
+pub const UART4_DMACTL_R: *mut usize = 0x40010048 as *mut usize;
 
-pub const UART4_LCTL_R:*mut usize = 0x40010090 as *mut usize;
+pub const UART4_LCTL_R: *mut usize = 0x40010090 as *mut usize;
 
-pub const UART4_LSS_R:*mut usize = 0x40010094 as *mut usize;
+pub const UART4_LSS_R: *mut usize = 0x40010094 as *mut usize;
 
-pub const UART4_LTIM_R:*mut usize = 0x40010098 as *mut usize;
+pub const UART4_LTIM_R: *mut usize = 0x40010098 as *mut usize;
 
-pub const UART4_9BITADDR_R:*mut usize = 0x400100A4 as *mut usize;
+pub const UART4_9BITADDR_R: *mut usize = 0x400100A4 as *mut usize;
 
-pub const UART4_9BITAMASK_R:*mut usize = 0x400100A8 as *mut usize;
+pub const UART4_9BITAMASK_R: *mut usize = 0x400100A8 as *mut usize;
 
-pub const UART4_PP_R:*mut usize = 0x40010FC0 as *mut usize;
+pub const UART4_PP_R: *mut usize = 0x40010FC0 as *mut usize;
 
-pub const UART4_CC_R:*mut usize = 0x40010FC8 as *mut usize;
+pub const UART4_CC_R: *mut usize = 0x40010FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -685,49 +685,49 @@ pub const UART4_CC_R:*mut usize = 0x40010FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART5_DR_R:*mut usize = 0x40011000 as *mut usize;
+pub const UART5_DR_R: *mut usize = 0x40011000 as *mut usize;
 
-pub const UART5_RSR_R:*mut usize = 0x40011004 as *mut usize;
+pub const UART5_RSR_R: *mut usize = 0x40011004 as *mut usize;
 
-pub const UART5_ECR_R:*mut usize = 0x40011004 as *mut usize;
+pub const UART5_ECR_R: *mut usize = 0x40011004 as *mut usize;
 
-pub const UART5_FR_R:*mut usize = 0x40011018 as *mut usize;
+pub const UART5_FR_R: *mut usize = 0x40011018 as *mut usize;
 
-pub const UART5_ILPR_R:*mut usize = 0x40011020 as *mut usize;
+pub const UART5_ILPR_R: *mut usize = 0x40011020 as *mut usize;
 
-pub const UART5_IBRD_R:*mut usize = 0x40011024 as *mut usize;
+pub const UART5_IBRD_R: *mut usize = 0x40011024 as *mut usize;
 
-pub const UART5_FBRD_R:*mut usize = 0x40011028 as *mut usize;
+pub const UART5_FBRD_R: *mut usize = 0x40011028 as *mut usize;
 
-pub const UART5_LCRH_R:*mut usize = 0x4001102C as *mut usize;
+pub const UART5_LCRH_R: *mut usize = 0x4001102C as *mut usize;
 
-pub const UART5_CTL_R:*mut usize = 0x40011030 as *mut usize;
+pub const UART5_CTL_R: *mut usize = 0x40011030 as *mut usize;
 
-pub const UART5_IFLS_R:*mut usize = 0x40011034 as *mut usize;
+pub const UART5_IFLS_R: *mut usize = 0x40011034 as *mut usize;
 
-pub const UART5_IM_R:*mut usize = 0x40011038 as *mut usize;
+pub const UART5_IM_R: *mut usize = 0x40011038 as *mut usize;
 
-pub const UART5_RIS_R:*mut usize = 0x4001103C as *mut usize;
+pub const UART5_RIS_R: *mut usize = 0x4001103C as *mut usize;
 
-pub const UART5_MIS_R:*mut usize = 0x40011040 as *mut usize;
+pub const UART5_MIS_R: *mut usize = 0x40011040 as *mut usize;
 
-pub const UART5_ICR_R:*mut usize = 0x40011044 as *mut usize;
+pub const UART5_ICR_R: *mut usize = 0x40011044 as *mut usize;
 
-pub const UART5_DMACTL_R:*mut usize = 0x40011048 as *mut usize;
+pub const UART5_DMACTL_R: *mut usize = 0x40011048 as *mut usize;
 
-pub const UART5_LCTL_R:*mut usize = 0x40011090 as *mut usize;
+pub const UART5_LCTL_R: *mut usize = 0x40011090 as *mut usize;
 
-pub const UART5_LSS_R:*mut usize = 0x40011094 as *mut usize;
+pub const UART5_LSS_R: *mut usize = 0x40011094 as *mut usize;
 
-pub const UART5_LTIM_R:*mut usize = 0x40011098 as *mut usize;
+pub const UART5_LTIM_R: *mut usize = 0x40011098 as *mut usize;
 
-pub const UART5_9BITADDR_R:*mut usize = 0x400110A4 as *mut usize;
+pub const UART5_9BITADDR_R: *mut usize = 0x400110A4 as *mut usize;
 
-pub const UART5_9BITAMASK_R:*mut usize = 0x400110A8 as *mut usize;
+pub const UART5_9BITAMASK_R: *mut usize = 0x400110A8 as *mut usize;
 
-pub const UART5_PP_R:*mut usize = 0x40011FC0 as *mut usize;
+pub const UART5_PP_R: *mut usize = 0x40011FC0 as *mut usize;
 
-pub const UART5_CC_R:*mut usize = 0x40011FC8 as *mut usize;
+pub const UART5_CC_R: *mut usize = 0x40011FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -735,49 +735,49 @@ pub const UART5_CC_R:*mut usize = 0x40011FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART6_DR_R:*mut usize = 0x40012000 as *mut usize;
+pub const UART6_DR_R: *mut usize = 0x40012000 as *mut usize;
 
-pub const UART6_RSR_R:*mut usize = 0x40012004 as *mut usize;
+pub const UART6_RSR_R: *mut usize = 0x40012004 as *mut usize;
 
-pub const UART6_ECR_R:*mut usize = 0x40012004 as *mut usize;
+pub const UART6_ECR_R: *mut usize = 0x40012004 as *mut usize;
 
-pub const UART6_FR_R:*mut usize = 0x40012018 as *mut usize;
+pub const UART6_FR_R: *mut usize = 0x40012018 as *mut usize;
 
-pub const UART6_ILPR_R:*mut usize = 0x40012020 as *mut usize;
+pub const UART6_ILPR_R: *mut usize = 0x40012020 as *mut usize;
 
-pub const UART6_IBRD_R:*mut usize = 0x40012024 as *mut usize;
+pub const UART6_IBRD_R: *mut usize = 0x40012024 as *mut usize;
 
-pub const UART6_FBRD_R:*mut usize = 0x40012028 as *mut usize;
+pub const UART6_FBRD_R: *mut usize = 0x40012028 as *mut usize;
 
-pub const UART6_LCRH_R:*mut usize = 0x4001202C as *mut usize;
+pub const UART6_LCRH_R: *mut usize = 0x4001202C as *mut usize;
 
-pub const UART6_CTL_R:*mut usize = 0x40012030 as *mut usize;
+pub const UART6_CTL_R: *mut usize = 0x40012030 as *mut usize;
 
-pub const UART6_IFLS_R:*mut usize = 0x40012034 as *mut usize;
+pub const UART6_IFLS_R: *mut usize = 0x40012034 as *mut usize;
 
-pub const UART6_IM_R:*mut usize = 0x40012038 as *mut usize;
+pub const UART6_IM_R: *mut usize = 0x40012038 as *mut usize;
 
-pub const UART6_RIS_R:*mut usize = 0x4001203C as *mut usize;
+pub const UART6_RIS_R: *mut usize = 0x4001203C as *mut usize;
 
-pub const UART6_MIS_R:*mut usize = 0x40012040 as *mut usize;
+pub const UART6_MIS_R: *mut usize = 0x40012040 as *mut usize;
 
-pub const UART6_ICR_R:*mut usize = 0x40012044 as *mut usize;
+pub const UART6_ICR_R: *mut usize = 0x40012044 as *mut usize;
 
-pub const UART6_DMACTL_R:*mut usize = 0x40012048 as *mut usize;
+pub const UART6_DMACTL_R: *mut usize = 0x40012048 as *mut usize;
 
-pub const UART6_LCTL_R:*mut usize = 0x40012090 as *mut usize;
+pub const UART6_LCTL_R: *mut usize = 0x40012090 as *mut usize;
 
-pub const UART6_LSS_R:*mut usize = 0x40012094 as *mut usize;
+pub const UART6_LSS_R: *mut usize = 0x40012094 as *mut usize;
 
-pub const UART6_LTIM_R:*mut usize = 0x40012098 as *mut usize;
+pub const UART6_LTIM_R: *mut usize = 0x40012098 as *mut usize;
 
-pub const UART6_9BITADDR_R:*mut usize = 0x400120A4 as *mut usize;
+pub const UART6_9BITADDR_R: *mut usize = 0x400120A4 as *mut usize;
 
-pub const UART6_9BITAMASK_R:*mut usize = 0x400120A8 as *mut usize;
+pub const UART6_9BITAMASK_R: *mut usize = 0x400120A8 as *mut usize;
 
-pub const UART6_PP_R:*mut usize = 0x40012FC0 as *mut usize;
+pub const UART6_PP_R: *mut usize = 0x40012FC0 as *mut usize;
 
-pub const UART6_CC_R:*mut usize = 0x40012FC8 as *mut usize;
+pub const UART6_CC_R: *mut usize = 0x40012FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -785,49 +785,49 @@ pub const UART6_CC_R:*mut usize = 0x40012FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const UART7_DR_R:*mut usize = 0x40013000 as *mut usize;
+pub const UART7_DR_R: *mut usize = 0x40013000 as *mut usize;
 
-pub const UART7_RSR_R:*mut usize = 0x40013004 as *mut usize;
+pub const UART7_RSR_R: *mut usize = 0x40013004 as *mut usize;
 
-pub const UART7_ECR_R:*mut usize = 0x40013004 as *mut usize;
+pub const UART7_ECR_R: *mut usize = 0x40013004 as *mut usize;
 
-pub const UART7_FR_R:*mut usize = 0x40013018 as *mut usize;
+pub const UART7_FR_R: *mut usize = 0x40013018 as *mut usize;
 
-pub const UART7_ILPR_R:*mut usize = 0x40013020 as *mut usize;
+pub const UART7_ILPR_R: *mut usize = 0x40013020 as *mut usize;
 
-pub const UART7_IBRD_R:*mut usize = 0x40013024 as *mut usize;
+pub const UART7_IBRD_R: *mut usize = 0x40013024 as *mut usize;
 
-pub const UART7_FBRD_R:*mut usize = 0x40013028 as *mut usize;
+pub const UART7_FBRD_R: *mut usize = 0x40013028 as *mut usize;
 
-pub const UART7_LCRH_R:*mut usize = 0x4001302C as *mut usize;
+pub const UART7_LCRH_R: *mut usize = 0x4001302C as *mut usize;
 
-pub const UART7_CTL_R:*mut usize = 0x40013030 as *mut usize;
+pub const UART7_CTL_R: *mut usize = 0x40013030 as *mut usize;
 
-pub const UART7_IFLS_R:*mut usize = 0x40013034 as *mut usize;
+pub const UART7_IFLS_R: *mut usize = 0x40013034 as *mut usize;
 
-pub const UART7_IM_R:*mut usize = 0x40013038 as *mut usize;
+pub const UART7_IM_R: *mut usize = 0x40013038 as *mut usize;
 
-pub const UART7_RIS_R:*mut usize = 0x4001303C as *mut usize;
+pub const UART7_RIS_R: *mut usize = 0x4001303C as *mut usize;
 
-pub const UART7_MIS_R:*mut usize = 0x40013040 as *mut usize;
+pub const UART7_MIS_R: *mut usize = 0x40013040 as *mut usize;
 
-pub const UART7_ICR_R:*mut usize = 0x40013044 as *mut usize;
+pub const UART7_ICR_R: *mut usize = 0x40013044 as *mut usize;
 
-pub const UART7_DMACTL_R:*mut usize = 0x40013048 as *mut usize;
+pub const UART7_DMACTL_R: *mut usize = 0x40013048 as *mut usize;
 
-pub const UART7_LCTL_R:*mut usize = 0x40013090 as *mut usize;
+pub const UART7_LCTL_R: *mut usize = 0x40013090 as *mut usize;
 
-pub const UART7_LSS_R:*mut usize = 0x40013094 as *mut usize;
+pub const UART7_LSS_R: *mut usize = 0x40013094 as *mut usize;
 
-pub const UART7_LTIM_R:*mut usize = 0x40013098 as *mut usize;
+pub const UART7_LTIM_R: *mut usize = 0x40013098 as *mut usize;
 
-pub const UART7_9BITADDR_R:*mut usize = 0x400130A4 as *mut usize;
+pub const UART7_9BITADDR_R: *mut usize = 0x400130A4 as *mut usize;
 
-pub const UART7_9BITAMASK_R:*mut usize = 0x400130A8 as *mut usize;
+pub const UART7_9BITAMASK_R: *mut usize = 0x400130A8 as *mut usize;
 
-pub const UART7_PP_R:*mut usize = 0x40013FC0 as *mut usize;
+pub const UART7_PP_R: *mut usize = 0x40013FC0 as *mut usize;
 
-pub const UART7_CC_R:*mut usize = 0x40013FC8 as *mut usize;
+pub const UART7_CC_R: *mut usize = 0x40013FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -835,27 +835,27 @@ pub const UART7_CC_R:*mut usize = 0x40013FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C0_MASTER_MSA_R:*mut usize = 0x40020000 as *mut usize;
+pub const I2C0_MASTER_MSA_R: *mut usize = 0x40020000 as *mut usize;
 
-pub const I2C0_MASTER_MCS_R:*mut usize = 0x40020004 as *mut usize;
+pub const I2C0_MASTER_MCS_R: *mut usize = 0x40020004 as *mut usize;
 
-pub const I2C0_MASTER_MDR_R:*mut usize = 0x40020008 as *mut usize;
+pub const I2C0_MASTER_MDR_R: *mut usize = 0x40020008 as *mut usize;
 
-pub const I2C0_MASTER_MTPR_R:*mut usize = 0x4002000C as *mut usize;
+pub const I2C0_MASTER_MTPR_R: *mut usize = 0x4002000C as *mut usize;
 
-pub const I2C0_MASTER_MIMR_R:*mut usize = 0x40020010 as *mut usize;
+pub const I2C0_MASTER_MIMR_R: *mut usize = 0x40020010 as *mut usize;
 
-pub const I2C0_MASTER_MRIS_R:*mut usize = 0x40020014 as *mut usize;
+pub const I2C0_MASTER_MRIS_R: *mut usize = 0x40020014 as *mut usize;
 
-pub const I2C0_MASTER_MMIS_R:*mut usize = 0x40020018 as *mut usize;
+pub const I2C0_MASTER_MMIS_R: *mut usize = 0x40020018 as *mut usize;
 
-pub const I2C0_MASTER_MICR_R:*mut usize = 0x4002001C as *mut usize;
+pub const I2C0_MASTER_MICR_R: *mut usize = 0x4002001C as *mut usize;
 
-pub const I2C0_MASTER_MCR_R:*mut usize = 0x40020020 as *mut usize;
+pub const I2C0_MASTER_MCR_R: *mut usize = 0x40020020 as *mut usize;
 
-pub const I2C0_MASTER_MCLKOCNT_R:*mut usize = 0x40020024 as *mut usize;
+pub const I2C0_MASTER_MCLKOCNT_R: *mut usize = 0x40020024 as *mut usize;
 
-pub const I2C0_MASTER_MBMON_R:*mut usize = 0x4002002C as *mut usize;
+pub const I2C0_MASTER_MBMON_R: *mut usize = 0x4002002C as *mut usize;
 
 // *****************************************************************************
 //
@@ -863,23 +863,23 @@ pub const I2C0_MASTER_MBMON_R:*mut usize = 0x4002002C as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C0_SLAVE_SOAR_R:*mut usize = 0x40020800 as *mut usize;
+pub const I2C0_SLAVE_SOAR_R: *mut usize = 0x40020800 as *mut usize;
 
-pub const I2C0_SLAVE_SCSR_R:*mut usize = 0x40020804 as *mut usize;
+pub const I2C0_SLAVE_SCSR_R: *mut usize = 0x40020804 as *mut usize;
 
-pub const I2C0_SLAVE_SDR_R:*mut usize = 0x40020808 as *mut usize;
+pub const I2C0_SLAVE_SDR_R: *mut usize = 0x40020808 as *mut usize;
 
-pub const I2C0_SLAVE_SIMR_R:*mut usize = 0x4002080C as *mut usize;
+pub const I2C0_SLAVE_SIMR_R: *mut usize = 0x4002080C as *mut usize;
 
-pub const I2C0_SLAVE_SRIS_R:*mut usize = 0x40020810 as *mut usize;
+pub const I2C0_SLAVE_SRIS_R: *mut usize = 0x40020810 as *mut usize;
 
-pub const I2C0_SLAVE_SMIS_R:*mut usize = 0x40020814 as *mut usize;
+pub const I2C0_SLAVE_SMIS_R: *mut usize = 0x40020814 as *mut usize;
 
-pub const I2C0_SLAVE_SICR_R:*mut usize = 0x40020818 as *mut usize;
+pub const I2C0_SLAVE_SICR_R: *mut usize = 0x40020818 as *mut usize;
 
-pub const I2C0_SLAVE_SOAR2_R:*mut usize = 0x4002081C as *mut usize;
+pub const I2C0_SLAVE_SOAR2_R: *mut usize = 0x4002081C as *mut usize;
 
-pub const I2C0_SLAVE_SACKCTL_R:*mut usize = 0x40020820 as *mut usize;
+pub const I2C0_SLAVE_SACKCTL_R: *mut usize = 0x40020820 as *mut usize;
 
 // *****************************************************************************
 //
@@ -887,27 +887,27 @@ pub const I2C0_SLAVE_SACKCTL_R:*mut usize = 0x40020820 as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C1_MASTER_MSA_R:*mut usize = 0x40021000 as *mut usize;
+pub const I2C1_MASTER_MSA_R: *mut usize = 0x40021000 as *mut usize;
 
-pub const I2C1_MASTER_MCS_R:*mut usize = 0x40021004 as *mut usize;
+pub const I2C1_MASTER_MCS_R: *mut usize = 0x40021004 as *mut usize;
 
-pub const I2C1_MASTER_MDR_R:*mut usize = 0x40021008 as *mut usize;
+pub const I2C1_MASTER_MDR_R: *mut usize = 0x40021008 as *mut usize;
 
-pub const I2C1_MASTER_MTPR_R:*mut usize = 0x4002100C as *mut usize;
+pub const I2C1_MASTER_MTPR_R: *mut usize = 0x4002100C as *mut usize;
 
-pub const I2C1_MASTER_MIMR_R:*mut usize = 0x40021010 as *mut usize;
+pub const I2C1_MASTER_MIMR_R: *mut usize = 0x40021010 as *mut usize;
 
-pub const I2C1_MASTER_MRIS_R:*mut usize = 0x40021014 as *mut usize;
+pub const I2C1_MASTER_MRIS_R: *mut usize = 0x40021014 as *mut usize;
 
-pub const I2C1_MASTER_MMIS_R:*mut usize = 0x40021018 as *mut usize;
+pub const I2C1_MASTER_MMIS_R: *mut usize = 0x40021018 as *mut usize;
 
-pub const I2C1_MASTER_MICR_R:*mut usize = 0x4002101C as *mut usize;
+pub const I2C1_MASTER_MICR_R: *mut usize = 0x4002101C as *mut usize;
 
-pub const I2C1_MASTER_MCR_R:*mut usize = 0x40021020 as *mut usize;
+pub const I2C1_MASTER_MCR_R: *mut usize = 0x40021020 as *mut usize;
 
-pub const I2C1_MASTER_MCLKOCNT_R:*mut usize = 0x40021024 as *mut usize;
+pub const I2C1_MASTER_MCLKOCNT_R: *mut usize = 0x40021024 as *mut usize;
 
-pub const I2C1_MASTER_MBMON_R:*mut usize = 0x4002102C as *mut usize;
+pub const I2C1_MASTER_MBMON_R: *mut usize = 0x4002102C as *mut usize;
 
 // *****************************************************************************
 //
@@ -915,23 +915,23 @@ pub const I2C1_MASTER_MBMON_R:*mut usize = 0x4002102C as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C1_SLAVE_SOAR_R:*mut usize = 0x40021800 as *mut usize;
+pub const I2C1_SLAVE_SOAR_R: *mut usize = 0x40021800 as *mut usize;
 
-pub const I2C1_SLAVE_SCSR_R:*mut usize = 0x40021804 as *mut usize;
+pub const I2C1_SLAVE_SCSR_R: *mut usize = 0x40021804 as *mut usize;
 
-pub const I2C1_SLAVE_SDR_R:*mut usize = 0x40021808 as *mut usize;
+pub const I2C1_SLAVE_SDR_R: *mut usize = 0x40021808 as *mut usize;
 
-pub const I2C1_SLAVE_SIMR_R:*mut usize = 0x4002180C as *mut usize;
+pub const I2C1_SLAVE_SIMR_R: *mut usize = 0x4002180C as *mut usize;
 
-pub const I2C1_SLAVE_SRIS_R:*mut usize = 0x40021810 as *mut usize;
+pub const I2C1_SLAVE_SRIS_R: *mut usize = 0x40021810 as *mut usize;
 
-pub const I2C1_SLAVE_SMIS_R:*mut usize = 0x40021814 as *mut usize;
+pub const I2C1_SLAVE_SMIS_R: *mut usize = 0x40021814 as *mut usize;
 
-pub const I2C1_SLAVE_SICR_R:*mut usize = 0x40021818 as *mut usize;
+pub const I2C1_SLAVE_SICR_R: *mut usize = 0x40021818 as *mut usize;
 
-pub const I2C1_SLAVE_SOAR2_R:*mut usize = 0x4002181C as *mut usize;
+pub const I2C1_SLAVE_SOAR2_R: *mut usize = 0x4002181C as *mut usize;
 
-pub const I2C1_SLAVE_SACKCTL_R:*mut usize = 0x40021820 as *mut usize;
+pub const I2C1_SLAVE_SACKCTL_R: *mut usize = 0x40021820 as *mut usize;
 
 // *****************************************************************************
 //
@@ -939,27 +939,27 @@ pub const I2C1_SLAVE_SACKCTL_R:*mut usize = 0x40021820 as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C2_MASTER_MSA_R:*mut usize = 0x40022000 as *mut usize;
+pub const I2C2_MASTER_MSA_R: *mut usize = 0x40022000 as *mut usize;
 
-pub const I2C2_MASTER_MCS_R:*mut usize = 0x40022004 as *mut usize;
+pub const I2C2_MASTER_MCS_R: *mut usize = 0x40022004 as *mut usize;
 
-pub const I2C2_MASTER_MDR_R:*mut usize = 0x40022008 as *mut usize;
+pub const I2C2_MASTER_MDR_R: *mut usize = 0x40022008 as *mut usize;
 
-pub const I2C2_MASTER_MTPR_R:*mut usize = 0x4002200C as *mut usize;
+pub const I2C2_MASTER_MTPR_R: *mut usize = 0x4002200C as *mut usize;
 
-pub const I2C2_MASTER_MIMR_R:*mut usize = 0x40022010 as *mut usize;
+pub const I2C2_MASTER_MIMR_R: *mut usize = 0x40022010 as *mut usize;
 
-pub const I2C2_MASTER_MRIS_R:*mut usize = 0x40022014 as *mut usize;
+pub const I2C2_MASTER_MRIS_R: *mut usize = 0x40022014 as *mut usize;
 
-pub const I2C2_MASTER_MMIS_R:*mut usize = 0x40022018 as *mut usize;
+pub const I2C2_MASTER_MMIS_R: *mut usize = 0x40022018 as *mut usize;
 
-pub const I2C2_MASTER_MICR_R:*mut usize = 0x4002201C as *mut usize;
+pub const I2C2_MASTER_MICR_R: *mut usize = 0x4002201C as *mut usize;
 
-pub const I2C2_MASTER_MCR_R:*mut usize = 0x40022020 as *mut usize;
+pub const I2C2_MASTER_MCR_R: *mut usize = 0x40022020 as *mut usize;
 
-pub const I2C2_MASTER_MCLKOCNT_R:*mut usize = 0x40022024 as *mut usize;
+pub const I2C2_MASTER_MCLKOCNT_R: *mut usize = 0x40022024 as *mut usize;
 
-pub const I2C2_MASTER_MBMON_R:*mut usize = 0x4002202C as *mut usize;
+pub const I2C2_MASTER_MBMON_R: *mut usize = 0x4002202C as *mut usize;
 
 // *****************************************************************************
 //
@@ -967,23 +967,23 @@ pub const I2C2_MASTER_MBMON_R:*mut usize = 0x4002202C as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C2_SLAVE_SOAR_R:*mut usize = 0x40022800 as *mut usize;
+pub const I2C2_SLAVE_SOAR_R: *mut usize = 0x40022800 as *mut usize;
 
-pub const I2C2_SLAVE_SCSR_R:*mut usize = 0x40022804 as *mut usize;
+pub const I2C2_SLAVE_SCSR_R: *mut usize = 0x40022804 as *mut usize;
 
-pub const I2C2_SLAVE_SDR_R:*mut usize = 0x40022808 as *mut usize;
+pub const I2C2_SLAVE_SDR_R: *mut usize = 0x40022808 as *mut usize;
 
-pub const I2C2_SLAVE_SIMR_R:*mut usize = 0x4002280C as *mut usize;
+pub const I2C2_SLAVE_SIMR_R: *mut usize = 0x4002280C as *mut usize;
 
-pub const I2C2_SLAVE_SRIS_R:*mut usize = 0x40022810 as *mut usize;
+pub const I2C2_SLAVE_SRIS_R: *mut usize = 0x40022810 as *mut usize;
 
-pub const I2C2_SLAVE_SMIS_R:*mut usize = 0x40022814 as *mut usize;
+pub const I2C2_SLAVE_SMIS_R: *mut usize = 0x40022814 as *mut usize;
 
-pub const I2C2_SLAVE_SICR_R:*mut usize = 0x40022818 as *mut usize;
+pub const I2C2_SLAVE_SICR_R: *mut usize = 0x40022818 as *mut usize;
 
-pub const I2C2_SLAVE_SOAR2_R:*mut usize = 0x4002281C as *mut usize;
+pub const I2C2_SLAVE_SOAR2_R: *mut usize = 0x4002281C as *mut usize;
 
-pub const I2C2_SLAVE_SACKCTL_R:*mut usize = 0x40022820 as *mut usize;
+pub const I2C2_SLAVE_SACKCTL_R: *mut usize = 0x40022820 as *mut usize;
 
 // *****************************************************************************
 //
@@ -991,27 +991,27 @@ pub const I2C2_SLAVE_SACKCTL_R:*mut usize = 0x40022820 as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C3_MASTER_MSA_R:*mut usize = 0x40023000 as *mut usize;
+pub const I2C3_MASTER_MSA_R: *mut usize = 0x40023000 as *mut usize;
 
-pub const I2C3_MASTER_MCS_R:*mut usize = 0x40023004 as *mut usize;
+pub const I2C3_MASTER_MCS_R: *mut usize = 0x40023004 as *mut usize;
 
-pub const I2C3_MASTER_MDR_R:*mut usize = 0x40023008 as *mut usize;
+pub const I2C3_MASTER_MDR_R: *mut usize = 0x40023008 as *mut usize;
 
-pub const I2C3_MASTER_MTPR_R:*mut usize = 0x4002300C as *mut usize;
+pub const I2C3_MASTER_MTPR_R: *mut usize = 0x4002300C as *mut usize;
 
-pub const I2C3_MASTER_MIMR_R:*mut usize = 0x40023010 as *mut usize;
+pub const I2C3_MASTER_MIMR_R: *mut usize = 0x40023010 as *mut usize;
 
-pub const I2C3_MASTER_MRIS_R:*mut usize = 0x40023014 as *mut usize;
+pub const I2C3_MASTER_MRIS_R: *mut usize = 0x40023014 as *mut usize;
 
-pub const I2C3_MASTER_MMIS_R:*mut usize = 0x40023018 as *mut usize;
+pub const I2C3_MASTER_MMIS_R: *mut usize = 0x40023018 as *mut usize;
 
-pub const I2C3_MASTER_MICR_R:*mut usize = 0x4002301C as *mut usize;
+pub const I2C3_MASTER_MICR_R: *mut usize = 0x4002301C as *mut usize;
 
-pub const I2C3_MASTER_MCR_R:*mut usize = 0x40023020 as *mut usize;
+pub const I2C3_MASTER_MCR_R: *mut usize = 0x40023020 as *mut usize;
 
-pub const I2C3_MASTER_MCLKOCNT_R:*mut usize = 0x40023024 as *mut usize;
+pub const I2C3_MASTER_MCLKOCNT_R: *mut usize = 0x40023024 as *mut usize;
 
-pub const I2C3_MASTER_MBMON_R:*mut usize = 0x4002302C as *mut usize;
+pub const I2C3_MASTER_MBMON_R: *mut usize = 0x4002302C as *mut usize;
 
 // *****************************************************************************
 //
@@ -1019,23 +1019,23 @@ pub const I2C3_MASTER_MBMON_R:*mut usize = 0x4002302C as *mut usize;
 //
 // *****************************************************************************
 
-pub const I2C3_SLAVE_SOAR_R:*mut usize = 0x40023800 as *mut usize;
+pub const I2C3_SLAVE_SOAR_R: *mut usize = 0x40023800 as *mut usize;
 
-pub const I2C3_SLAVE_SCSR_R:*mut usize = 0x40023804 as *mut usize;
+pub const I2C3_SLAVE_SCSR_R: *mut usize = 0x40023804 as *mut usize;
 
-pub const I2C3_SLAVE_SDR_R:*mut usize = 0x40023808 as *mut usize;
+pub const I2C3_SLAVE_SDR_R: *mut usize = 0x40023808 as *mut usize;
 
-pub const I2C3_SLAVE_SIMR_R:*mut usize = 0x4002380C as *mut usize;
+pub const I2C3_SLAVE_SIMR_R: *mut usize = 0x4002380C as *mut usize;
 
-pub const I2C3_SLAVE_SRIS_R:*mut usize = 0x40023810 as *mut usize;
+pub const I2C3_SLAVE_SRIS_R: *mut usize = 0x40023810 as *mut usize;
 
-pub const I2C3_SLAVE_SMIS_R:*mut usize = 0x40023814 as *mut usize;
+pub const I2C3_SLAVE_SMIS_R: *mut usize = 0x40023814 as *mut usize;
 
-pub const I2C3_SLAVE_SICR_R:*mut usize = 0x40023818 as *mut usize;
+pub const I2C3_SLAVE_SICR_R: *mut usize = 0x40023818 as *mut usize;
 
-pub const I2C3_SLAVE_SOAR2_R:*mut usize = 0x4002381C as *mut usize;
+pub const I2C3_SLAVE_SOAR2_R: *mut usize = 0x4002381C as *mut usize;
 
-pub const I2C3_SLAVE_SACKCTL_R:*mut usize = 0x40023820 as *mut usize;
+pub const I2C3_SLAVE_SACKCTL_R: *mut usize = 0x40023820 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1043,57 +1043,57 @@ pub const I2C3_SLAVE_SACKCTL_R:*mut usize = 0x40023820 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTE_DATA_BITS_R:*mut usize = 0x40024000 as *mut usize;
+pub const GPIO_PORTE_DATA_BITS_R: *mut usize = 0x40024000 as *mut usize;
 
-pub const GPIO_PORTE_DATA_R:*mut usize = 0x400243FC as *mut usize;
+pub const GPIO_PORTE_DATA_R: *mut usize = 0x400243FC as *mut usize;
 
-pub const GPIO_PORTE_DIR_R:*mut usize = 0x40024400 as *mut usize;
+pub const GPIO_PORTE_DIR_R: *mut usize = 0x40024400 as *mut usize;
 
-pub const GPIO_PORTE_IS_R:*mut usize = 0x40024404 as *mut usize;
+pub const GPIO_PORTE_IS_R: *mut usize = 0x40024404 as *mut usize;
 
-pub const GPIO_PORTE_IBE_R:*mut usize = 0x40024408 as *mut usize;
+pub const GPIO_PORTE_IBE_R: *mut usize = 0x40024408 as *mut usize;
 
-pub const GPIO_PORTE_IEV_R:*mut usize = 0x4002440C as *mut usize;
+pub const GPIO_PORTE_IEV_R: *mut usize = 0x4002440C as *mut usize;
 
-pub const GPIO_PORTE_IM_R:*mut usize = 0x40024410 as *mut usize;
+pub const GPIO_PORTE_IM_R: *mut usize = 0x40024410 as *mut usize;
 
-pub const GPIO_PORTE_RIS_R:*mut usize = 0x40024414 as *mut usize;
+pub const GPIO_PORTE_RIS_R: *mut usize = 0x40024414 as *mut usize;
 
-pub const GPIO_PORTE_MIS_R:*mut usize = 0x40024418 as *mut usize;
+pub const GPIO_PORTE_MIS_R: *mut usize = 0x40024418 as *mut usize;
 
-pub const GPIO_PORTE_ICR_R:*mut usize = 0x4002441C as *mut usize;
+pub const GPIO_PORTE_ICR_R: *mut usize = 0x4002441C as *mut usize;
 
-pub const GPIO_PORTE_AFSEL_R:*mut usize = 0x40024420 as *mut usize;
+pub const GPIO_PORTE_AFSEL_R: *mut usize = 0x40024420 as *mut usize;
 
-pub const GPIO_PORTE_DR2R_R:*mut usize = 0x40024500 as *mut usize;
+pub const GPIO_PORTE_DR2R_R: *mut usize = 0x40024500 as *mut usize;
 
-pub const GPIO_PORTE_DR4R_R:*mut usize = 0x40024504 as *mut usize;
+pub const GPIO_PORTE_DR4R_R: *mut usize = 0x40024504 as *mut usize;
 
-pub const GPIO_PORTE_DR8R_R:*mut usize = 0x40024508 as *mut usize;
+pub const GPIO_PORTE_DR8R_R: *mut usize = 0x40024508 as *mut usize;
 
-pub const GPIO_PORTE_ODR_R:*mut usize = 0x4002450C as *mut usize;
+pub const GPIO_PORTE_ODR_R: *mut usize = 0x4002450C as *mut usize;
 
-pub const GPIO_PORTE_PUR_R:*mut usize = 0x40024510 as *mut usize;
+pub const GPIO_PORTE_PUR_R: *mut usize = 0x40024510 as *mut usize;
 
-pub const GPIO_PORTE_PDR_R:*mut usize = 0x40024514 as *mut usize;
+pub const GPIO_PORTE_PDR_R: *mut usize = 0x40024514 as *mut usize;
 
-pub const GPIO_PORTE_SLR_R:*mut usize = 0x40024518 as *mut usize;
+pub const GPIO_PORTE_SLR_R: *mut usize = 0x40024518 as *mut usize;
 
-pub const GPIO_PORTE_DEN_R:*mut usize = 0x4002451C as *mut usize;
+pub const GPIO_PORTE_DEN_R: *mut usize = 0x4002451C as *mut usize;
 
-pub const GPIO_PORTE_LOCK_R:*mut usize = 0x40024520 as *mut usize;
+pub const GPIO_PORTE_LOCK_R: *mut usize = 0x40024520 as *mut usize;
 
-pub const GPIO_PORTE_CR_R:*mut usize = 0x40024524 as *mut usize;
+pub const GPIO_PORTE_CR_R: *mut usize = 0x40024524 as *mut usize;
 
-pub const GPIO_PORTE_AMSEL_R:*mut usize = 0x40024528 as *mut usize;
+pub const GPIO_PORTE_AMSEL_R: *mut usize = 0x40024528 as *mut usize;
 
-pub const GPIO_PORTE_PCTL_R:*mut usize = 0x4002452C as *mut usize;
+pub const GPIO_PORTE_PCTL_R: *mut usize = 0x4002452C as *mut usize;
 
-pub const GPIO_PORTE_ADCCTL_R:*mut usize = 0x40024530 as *mut usize;
+pub const GPIO_PORTE_ADCCTL_R: *mut usize = 0x40024530 as *mut usize;
 
-pub const GPIO_PORTE_DMACTL_R:*mut usize = 0x40024534 as *mut usize;
+pub const GPIO_PORTE_DMACTL_R: *mut usize = 0x40024534 as *mut usize;
 
-pub const GPIO_PORTE_SI_R:*mut usize = 0x40024538 as *mut usize;
+pub const GPIO_PORTE_SI_R: *mut usize = 0x40024538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1101,57 +1101,57 @@ pub const GPIO_PORTE_SI_R:*mut usize = 0x40024538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTF_DATA_BITS_R:*mut usize = 0x40025000 as *mut usize;
+pub const GPIO_PORTF_DATA_BITS_R: *mut usize = 0x40025000 as *mut usize;
 
-pub const GPIO_PORTF_DATA_R:*mut usize = 0x400253FC as *mut usize;
+pub const GPIO_PORTF_DATA_R: *mut usize = 0x400253FC as *mut usize;
 
-pub const GPIO_PORTF_DIR_R:*mut usize = 0x40025400 as *mut usize;
+pub const GPIO_PORTF_DIR_R: *mut usize = 0x40025400 as *mut usize;
 
-pub const GPIO_PORTF_IS_R:*mut usize = 0x40025404 as *mut usize;
+pub const GPIO_PORTF_IS_R: *mut usize = 0x40025404 as *mut usize;
 
-pub const GPIO_PORTF_IBE_R:*mut usize = 0x40025408 as *mut usize;
+pub const GPIO_PORTF_IBE_R: *mut usize = 0x40025408 as *mut usize;
 
-pub const GPIO_PORTF_IEV_R:*mut usize = 0x4002540C as *mut usize;
+pub const GPIO_PORTF_IEV_R: *mut usize = 0x4002540C as *mut usize;
 
-pub const GPIO_PORTF_IM_R:*mut usize = 0x40025410 as *mut usize;
+pub const GPIO_PORTF_IM_R: *mut usize = 0x40025410 as *mut usize;
 
-pub const GPIO_PORTF_RIS_R:*mut usize = 0x40025414 as *mut usize;
+pub const GPIO_PORTF_RIS_R: *mut usize = 0x40025414 as *mut usize;
 
-pub const GPIO_PORTF_MIS_R:*mut usize = 0x40025418 as *mut usize;
+pub const GPIO_PORTF_MIS_R: *mut usize = 0x40025418 as *mut usize;
 
-pub const GPIO_PORTF_ICR_R:*mut usize = 0x4002541C as *mut usize;
+pub const GPIO_PORTF_ICR_R: *mut usize = 0x4002541C as *mut usize;
 
-pub const GPIO_PORTF_AFSEL_R:*mut usize = 0x40025420 as *mut usize;
+pub const GPIO_PORTF_AFSEL_R: *mut usize = 0x40025420 as *mut usize;
 
-pub const GPIO_PORTF_DR2R_R:*mut usize = 0x40025500 as *mut usize;
+pub const GPIO_PORTF_DR2R_R: *mut usize = 0x40025500 as *mut usize;
 
-pub const GPIO_PORTF_DR4R_R:*mut usize = 0x40025504 as *mut usize;
+pub const GPIO_PORTF_DR4R_R: *mut usize = 0x40025504 as *mut usize;
 
-pub const GPIO_PORTF_DR8R_R:*mut usize = 0x40025508 as *mut usize;
+pub const GPIO_PORTF_DR8R_R: *mut usize = 0x40025508 as *mut usize;
 
-pub const GPIO_PORTF_ODR_R:*mut usize = 0x4002550C as *mut usize;
+pub const GPIO_PORTF_ODR_R: *mut usize = 0x4002550C as *mut usize;
 
-pub const GPIO_PORTF_PUR_R:*mut usize = 0x40025510 as *mut usize;
+pub const GPIO_PORTF_PUR_R: *mut usize = 0x40025510 as *mut usize;
 
-pub const GPIO_PORTF_PDR_R:*mut usize = 0x40025514 as *mut usize;
+pub const GPIO_PORTF_PDR_R: *mut usize = 0x40025514 as *mut usize;
 
-pub const GPIO_PORTF_SLR_R:*mut usize = 0x40025518 as *mut usize;
+pub const GPIO_PORTF_SLR_R: *mut usize = 0x40025518 as *mut usize;
 
-pub const GPIO_PORTF_DEN_R:*mut usize = 0x4002551C as *mut usize;
+pub const GPIO_PORTF_DEN_R: *mut usize = 0x4002551C as *mut usize;
 
-pub const GPIO_PORTF_LOCK_R:*mut usize = 0x40025520 as *mut usize;
+pub const GPIO_PORTF_LOCK_R: *mut usize = 0x40025520 as *mut usize;
 
-pub const GPIO_PORTF_CR_R:*mut usize = 0x40025524 as *mut usize;
+pub const GPIO_PORTF_CR_R: *mut usize = 0x40025524 as *mut usize;
 
-pub const GPIO_PORTF_AMSEL_R:*mut usize = 0x40025528 as *mut usize;
+pub const GPIO_PORTF_AMSEL_R: *mut usize = 0x40025528 as *mut usize;
 
-pub const GPIO_PORTF_PCTL_R:*mut usize = 0x4002552C as *mut usize;
+pub const GPIO_PORTF_PCTL_R: *mut usize = 0x4002552C as *mut usize;
 
-pub const GPIO_PORTF_ADCCTL_R:*mut usize = 0x40025530 as *mut usize;
+pub const GPIO_PORTF_ADCCTL_R: *mut usize = 0x40025530 as *mut usize;
 
-pub const GPIO_PORTF_DMACTL_R:*mut usize = 0x40025534 as *mut usize;
+pub const GPIO_PORTF_DMACTL_R: *mut usize = 0x40025534 as *mut usize;
 
-pub const GPIO_PORTF_SI_R:*mut usize = 0x40025538 as *mut usize;
+pub const GPIO_PORTF_SI_R: *mut usize = 0x40025538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1159,59 +1159,59 @@ pub const GPIO_PORTF_SI_R:*mut usize = 0x40025538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER0_CFG_R:*mut usize = 0x40030000 as *mut usize;
+pub const TIMER0_CFG_R: *mut usize = 0x40030000 as *mut usize;
 
-pub const TIMER0_TAMR_R:*mut usize = 0x40030004 as *mut usize;
+pub const TIMER0_TAMR_R: *mut usize = 0x40030004 as *mut usize;
 
-pub const TIMER0_TBMR_R:*mut usize = 0x40030008 as *mut usize;
+pub const TIMER0_TBMR_R: *mut usize = 0x40030008 as *mut usize;
 
-pub const TIMER0_CTL_R:*mut usize = 0x4003000C as *mut usize;
+pub const TIMER0_CTL_R: *mut usize = 0x4003000C as *mut usize;
 
-pub const TIMER0_SYNC_R:*mut usize = 0x40030010 as *mut usize;
+pub const TIMER0_SYNC_R: *mut usize = 0x40030010 as *mut usize;
 
-pub const TIMER0_IMR_R:*mut usize = 0x40030018 as *mut usize;
+pub const TIMER0_IMR_R: *mut usize = 0x40030018 as *mut usize;
 
-pub const TIMER0_RIS_R:*mut usize = 0x4003001C as *mut usize;
+pub const TIMER0_RIS_R: *mut usize = 0x4003001C as *mut usize;
 
-pub const TIMER0_MIS_R:*mut usize = 0x40030020 as *mut usize;
+pub const TIMER0_MIS_R: *mut usize = 0x40030020 as *mut usize;
 
-pub const TIMER0_ICR_R:*mut usize = 0x40030024 as *mut usize;
+pub const TIMER0_ICR_R: *mut usize = 0x40030024 as *mut usize;
 
-pub const TIMER0_TAILR_R:*mut usize = 0x40030028 as *mut usize;
+pub const TIMER0_TAILR_R: *mut usize = 0x40030028 as *mut usize;
 
-pub const TIMER0_TBILR_R:*mut usize = 0x4003002C as *mut usize;
+pub const TIMER0_TBILR_R: *mut usize = 0x4003002C as *mut usize;
 
-pub const TIMER0_TAMATCHR_R:*mut usize = 0x40030030 as *mut usize;
+pub const TIMER0_TAMATCHR_R: *mut usize = 0x40030030 as *mut usize;
 
-pub const TIMER0_TBMATCHR_R:*mut usize = 0x40030034 as *mut usize;
+pub const TIMER0_TBMATCHR_R: *mut usize = 0x40030034 as *mut usize;
 
-pub const TIMER0_TAPR_R:*mut usize = 0x40030038 as *mut usize;
+pub const TIMER0_TAPR_R: *mut usize = 0x40030038 as *mut usize;
 
-pub const TIMER0_TBPR_R:*mut usize = 0x4003003C as *mut usize;
+pub const TIMER0_TBPR_R: *mut usize = 0x4003003C as *mut usize;
 
-pub const TIMER0_TAPMR_R:*mut usize = 0x40030040 as *mut usize;
+pub const TIMER0_TAPMR_R: *mut usize = 0x40030040 as *mut usize;
 
-pub const TIMER0_TBPMR_R:*mut usize = 0x40030044 as *mut usize;
+pub const TIMER0_TBPMR_R: *mut usize = 0x40030044 as *mut usize;
 
-pub const TIMER0_TAR_R:*mut usize = 0x40030048 as *mut usize;
+pub const TIMER0_TAR_R: *mut usize = 0x40030048 as *mut usize;
 
-pub const TIMER0_TBR_R:*mut usize = 0x4003004C as *mut usize;
+pub const TIMER0_TBR_R: *mut usize = 0x4003004C as *mut usize;
 
-pub const TIMER0_TAV_R:*mut usize = 0x40030050 as *mut usize;
+pub const TIMER0_TAV_R: *mut usize = 0x40030050 as *mut usize;
 
-pub const TIMER0_TBV_R:*mut usize = 0x40030054 as *mut usize;
+pub const TIMER0_TBV_R: *mut usize = 0x40030054 as *mut usize;
 
-pub const TIMER0_RTCPD_R:*mut usize = 0x40030058 as *mut usize;
+pub const TIMER0_RTCPD_R: *mut usize = 0x40030058 as *mut usize;
 
-pub const TIMER0_TAPS_R:*mut usize = 0x4003005C as *mut usize;
+pub const TIMER0_TAPS_R: *mut usize = 0x4003005C as *mut usize;
 
-pub const TIMER0_TBPS_R:*mut usize = 0x40030060 as *mut usize;
+pub const TIMER0_TBPS_R: *mut usize = 0x40030060 as *mut usize;
 
-pub const TIMER0_TAPV_R:*mut usize = 0x40030064 as *mut usize;
+pub const TIMER0_TAPV_R: *mut usize = 0x40030064 as *mut usize;
 
-pub const TIMER0_TBPV_R:*mut usize = 0x40030068 as *mut usize;
+pub const TIMER0_TBPV_R: *mut usize = 0x40030068 as *mut usize;
 
-pub const TIMER0_PP_R:*mut usize = 0x40030FC0 as *mut usize;
+pub const TIMER0_PP_R: *mut usize = 0x40030FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1219,59 +1219,59 @@ pub const TIMER0_PP_R:*mut usize = 0x40030FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER1_CFG_R:*mut usize = 0x40031000 as *mut usize;
+pub const TIMER1_CFG_R: *mut usize = 0x40031000 as *mut usize;
 
-pub const TIMER1_TAMR_R:*mut usize = 0x40031004 as *mut usize;
+pub const TIMER1_TAMR_R: *mut usize = 0x40031004 as *mut usize;
 
-pub const TIMER1_TBMR_R:*mut usize = 0x40031008 as *mut usize;
+pub const TIMER1_TBMR_R: *mut usize = 0x40031008 as *mut usize;
 
-pub const TIMER1_CTL_R:*mut usize = 0x4003100C as *mut usize;
+pub const TIMER1_CTL_R: *mut usize = 0x4003100C as *mut usize;
 
-pub const TIMER1_SYNC_R:*mut usize = 0x40031010 as *mut usize;
+pub const TIMER1_SYNC_R: *mut usize = 0x40031010 as *mut usize;
 
-pub const TIMER1_IMR_R:*mut usize = 0x40031018 as *mut usize;
+pub const TIMER1_IMR_R: *mut usize = 0x40031018 as *mut usize;
 
-pub const TIMER1_RIS_R:*mut usize = 0x4003101C as *mut usize;
+pub const TIMER1_RIS_R: *mut usize = 0x4003101C as *mut usize;
 
-pub const TIMER1_MIS_R:*mut usize = 0x40031020 as *mut usize;
+pub const TIMER1_MIS_R: *mut usize = 0x40031020 as *mut usize;
 
-pub const TIMER1_ICR_R:*mut usize = 0x40031024 as *mut usize;
+pub const TIMER1_ICR_R: *mut usize = 0x40031024 as *mut usize;
 
-pub const TIMER1_TAILR_R:*mut usize = 0x40031028 as *mut usize;
+pub const TIMER1_TAILR_R: *mut usize = 0x40031028 as *mut usize;
 
-pub const TIMER1_TBILR_R:*mut usize = 0x4003102C as *mut usize;
+pub const TIMER1_TBILR_R: *mut usize = 0x4003102C as *mut usize;
 
-pub const TIMER1_TAMATCHR_R:*mut usize = 0x40031030 as *mut usize;
+pub const TIMER1_TAMATCHR_R: *mut usize = 0x40031030 as *mut usize;
 
-pub const TIMER1_TBMATCHR_R:*mut usize = 0x40031034 as *mut usize;
+pub const TIMER1_TBMATCHR_R: *mut usize = 0x40031034 as *mut usize;
 
-pub const TIMER1_TAPR_R:*mut usize = 0x40031038 as *mut usize;
+pub const TIMER1_TAPR_R: *mut usize = 0x40031038 as *mut usize;
 
-pub const TIMER1_TBPR_R:*mut usize = 0x4003103C as *mut usize;
+pub const TIMER1_TBPR_R: *mut usize = 0x4003103C as *mut usize;
 
-pub const TIMER1_TAPMR_R:*mut usize = 0x40031040 as *mut usize;
+pub const TIMER1_TAPMR_R: *mut usize = 0x40031040 as *mut usize;
 
-pub const TIMER1_TBPMR_R:*mut usize = 0x40031044 as *mut usize;
+pub const TIMER1_TBPMR_R: *mut usize = 0x40031044 as *mut usize;
 
-pub const TIMER1_TAR_R:*mut usize = 0x40031048 as *mut usize;
+pub const TIMER1_TAR_R: *mut usize = 0x40031048 as *mut usize;
 
-pub const TIMER1_TBR_R:*mut usize = 0x4003104C as *mut usize;
+pub const TIMER1_TBR_R: *mut usize = 0x4003104C as *mut usize;
 
-pub const TIMER1_TAV_R:*mut usize = 0x40031050 as *mut usize;
+pub const TIMER1_TAV_R: *mut usize = 0x40031050 as *mut usize;
 
-pub const TIMER1_TBV_R:*mut usize = 0x40031054 as *mut usize;
+pub const TIMER1_TBV_R: *mut usize = 0x40031054 as *mut usize;
 
-pub const TIMER1_RTCPD_R:*mut usize = 0x40031058 as *mut usize;
+pub const TIMER1_RTCPD_R: *mut usize = 0x40031058 as *mut usize;
 
-pub const TIMER1_TAPS_R:*mut usize = 0x4003105C as *mut usize;
+pub const TIMER1_TAPS_R: *mut usize = 0x4003105C as *mut usize;
 
-pub const TIMER1_TBPS_R:*mut usize = 0x40031060 as *mut usize;
+pub const TIMER1_TBPS_R: *mut usize = 0x40031060 as *mut usize;
 
-pub const TIMER1_TAPV_R:*mut usize = 0x40031064 as *mut usize;
+pub const TIMER1_TAPV_R: *mut usize = 0x40031064 as *mut usize;
 
-pub const TIMER1_TBPV_R:*mut usize = 0x40031068 as *mut usize;
+pub const TIMER1_TBPV_R: *mut usize = 0x40031068 as *mut usize;
 
-pub const TIMER1_PP_R:*mut usize = 0x40031FC0 as *mut usize;
+pub const TIMER1_PP_R: *mut usize = 0x40031FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1279,59 +1279,59 @@ pub const TIMER1_PP_R:*mut usize = 0x40031FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER2_CFG_R:*mut usize = 0x40032000 as *mut usize;
+pub const TIMER2_CFG_R: *mut usize = 0x40032000 as *mut usize;
 
-pub const TIMER2_TAMR_R:*mut usize = 0x40032004 as *mut usize;
+pub const TIMER2_TAMR_R: *mut usize = 0x40032004 as *mut usize;
 
-pub const TIMER2_TBMR_R:*mut usize = 0x40032008 as *mut usize;
+pub const TIMER2_TBMR_R: *mut usize = 0x40032008 as *mut usize;
 
-pub const TIMER2_CTL_R:*mut usize = 0x4003200C as *mut usize;
+pub const TIMER2_CTL_R: *mut usize = 0x4003200C as *mut usize;
 
-pub const TIMER2_SYNC_R:*mut usize = 0x40032010 as *mut usize;
+pub const TIMER2_SYNC_R: *mut usize = 0x40032010 as *mut usize;
 
-pub const TIMER2_IMR_R:*mut usize = 0x40032018 as *mut usize;
+pub const TIMER2_IMR_R: *mut usize = 0x40032018 as *mut usize;
 
-pub const TIMER2_RIS_R:*mut usize = 0x4003201C as *mut usize;
+pub const TIMER2_RIS_R: *mut usize = 0x4003201C as *mut usize;
 
-pub const TIMER2_MIS_R:*mut usize = 0x40032020 as *mut usize;
+pub const TIMER2_MIS_R: *mut usize = 0x40032020 as *mut usize;
 
-pub const TIMER2_ICR_R:*mut usize = 0x40032024 as *mut usize;
+pub const TIMER2_ICR_R: *mut usize = 0x40032024 as *mut usize;
 
-pub const TIMER2_TAILR_R:*mut usize = 0x40032028 as *mut usize;
+pub const TIMER2_TAILR_R: *mut usize = 0x40032028 as *mut usize;
 
-pub const TIMER2_TBILR_R:*mut usize = 0x4003202C as *mut usize;
+pub const TIMER2_TBILR_R: *mut usize = 0x4003202C as *mut usize;
 
-pub const TIMER2_TAMATCHR_R:*mut usize = 0x40032030 as *mut usize;
+pub const TIMER2_TAMATCHR_R: *mut usize = 0x40032030 as *mut usize;
 
-pub const TIMER2_TBMATCHR_R:*mut usize = 0x40032034 as *mut usize;
+pub const TIMER2_TBMATCHR_R: *mut usize = 0x40032034 as *mut usize;
 
-pub const TIMER2_TAPR_R:*mut usize = 0x40032038 as *mut usize;
+pub const TIMER2_TAPR_R: *mut usize = 0x40032038 as *mut usize;
 
-pub const TIMER2_TBPR_R:*mut usize = 0x4003203C as *mut usize;
+pub const TIMER2_TBPR_R: *mut usize = 0x4003203C as *mut usize;
 
-pub const TIMER2_TAPMR_R:*mut usize = 0x40032040 as *mut usize;
+pub const TIMER2_TAPMR_R: *mut usize = 0x40032040 as *mut usize;
 
-pub const TIMER2_TBPMR_R:*mut usize = 0x40032044 as *mut usize;
+pub const TIMER2_TBPMR_R: *mut usize = 0x40032044 as *mut usize;
 
-pub const TIMER2_TAR_R:*mut usize = 0x40032048 as *mut usize;
+pub const TIMER2_TAR_R: *mut usize = 0x40032048 as *mut usize;
 
-pub const TIMER2_TBR_R:*mut usize = 0x4003204C as *mut usize;
+pub const TIMER2_TBR_R: *mut usize = 0x4003204C as *mut usize;
 
-pub const TIMER2_TAV_R:*mut usize = 0x40032050 as *mut usize;
+pub const TIMER2_TAV_R: *mut usize = 0x40032050 as *mut usize;
 
-pub const TIMER2_TBV_R:*mut usize = 0x40032054 as *mut usize;
+pub const TIMER2_TBV_R: *mut usize = 0x40032054 as *mut usize;
 
-pub const TIMER2_RTCPD_R:*mut usize = 0x40032058 as *mut usize;
+pub const TIMER2_RTCPD_R: *mut usize = 0x40032058 as *mut usize;
 
-pub const TIMER2_TAPS_R:*mut usize = 0x4003205C as *mut usize;
+pub const TIMER2_TAPS_R: *mut usize = 0x4003205C as *mut usize;
 
-pub const TIMER2_TBPS_R:*mut usize = 0x40032060 as *mut usize;
+pub const TIMER2_TBPS_R: *mut usize = 0x40032060 as *mut usize;
 
-pub const TIMER2_TAPV_R:*mut usize = 0x40032064 as *mut usize;
+pub const TIMER2_TAPV_R: *mut usize = 0x40032064 as *mut usize;
 
-pub const TIMER2_TBPV_R:*mut usize = 0x40032068 as *mut usize;
+pub const TIMER2_TBPV_R: *mut usize = 0x40032068 as *mut usize;
 
-pub const TIMER2_PP_R:*mut usize = 0x40032FC0 as *mut usize;
+pub const TIMER2_PP_R: *mut usize = 0x40032FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1339,59 +1339,59 @@ pub const TIMER2_PP_R:*mut usize = 0x40032FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER3_CFG_R:*mut usize = 0x40033000 as *mut usize;
+pub const TIMER3_CFG_R: *mut usize = 0x40033000 as *mut usize;
 
-pub const TIMER3_TAMR_R:*mut usize = 0x40033004 as *mut usize;
+pub const TIMER3_TAMR_R: *mut usize = 0x40033004 as *mut usize;
 
-pub const TIMER3_TBMR_R:*mut usize = 0x40033008 as *mut usize;
+pub const TIMER3_TBMR_R: *mut usize = 0x40033008 as *mut usize;
 
-pub const TIMER3_CTL_R:*mut usize = 0x4003300C as *mut usize;
+pub const TIMER3_CTL_R: *mut usize = 0x4003300C as *mut usize;
 
-pub const TIMER3_SYNC_R:*mut usize = 0x40033010 as *mut usize;
+pub const TIMER3_SYNC_R: *mut usize = 0x40033010 as *mut usize;
 
-pub const TIMER3_IMR_R:*mut usize = 0x40033018 as *mut usize;
+pub const TIMER3_IMR_R: *mut usize = 0x40033018 as *mut usize;
 
-pub const TIMER3_RIS_R:*mut usize = 0x4003301C as *mut usize;
+pub const TIMER3_RIS_R: *mut usize = 0x4003301C as *mut usize;
 
-pub const TIMER3_MIS_R:*mut usize = 0x40033020 as *mut usize;
+pub const TIMER3_MIS_R: *mut usize = 0x40033020 as *mut usize;
 
-pub const TIMER3_ICR_R:*mut usize = 0x40033024 as *mut usize;
+pub const TIMER3_ICR_R: *mut usize = 0x40033024 as *mut usize;
 
-pub const TIMER3_TAILR_R:*mut usize = 0x40033028 as *mut usize;
+pub const TIMER3_TAILR_R: *mut usize = 0x40033028 as *mut usize;
 
-pub const TIMER3_TBILR_R:*mut usize = 0x4003302C as *mut usize;
+pub const TIMER3_TBILR_R: *mut usize = 0x4003302C as *mut usize;
 
-pub const TIMER3_TAMATCHR_R:*mut usize = 0x40033030 as *mut usize;
+pub const TIMER3_TAMATCHR_R: *mut usize = 0x40033030 as *mut usize;
 
-pub const TIMER3_TBMATCHR_R:*mut usize = 0x40033034 as *mut usize;
+pub const TIMER3_TBMATCHR_R: *mut usize = 0x40033034 as *mut usize;
 
-pub const TIMER3_TAPR_R:*mut usize = 0x40033038 as *mut usize;
+pub const TIMER3_TAPR_R: *mut usize = 0x40033038 as *mut usize;
 
-pub const TIMER3_TBPR_R:*mut usize = 0x4003303C as *mut usize;
+pub const TIMER3_TBPR_R: *mut usize = 0x4003303C as *mut usize;
 
-pub const TIMER3_TAPMR_R:*mut usize = 0x40033040 as *mut usize;
+pub const TIMER3_TAPMR_R: *mut usize = 0x40033040 as *mut usize;
 
-pub const TIMER3_TBPMR_R:*mut usize = 0x40033044 as *mut usize;
+pub const TIMER3_TBPMR_R: *mut usize = 0x40033044 as *mut usize;
 
-pub const TIMER3_TAR_R:*mut usize = 0x40033048 as *mut usize;
+pub const TIMER3_TAR_R: *mut usize = 0x40033048 as *mut usize;
 
-pub const TIMER3_TBR_R:*mut usize = 0x4003304C as *mut usize;
+pub const TIMER3_TBR_R: *mut usize = 0x4003304C as *mut usize;
 
-pub const TIMER3_TAV_R:*mut usize = 0x40033050 as *mut usize;
+pub const TIMER3_TAV_R: *mut usize = 0x40033050 as *mut usize;
 
-pub const TIMER3_TBV_R:*mut usize = 0x40033054 as *mut usize;
+pub const TIMER3_TBV_R: *mut usize = 0x40033054 as *mut usize;
 
-pub const TIMER3_RTCPD_R:*mut usize = 0x40033058 as *mut usize;
+pub const TIMER3_RTCPD_R: *mut usize = 0x40033058 as *mut usize;
 
-pub const TIMER3_TAPS_R:*mut usize = 0x4003305C as *mut usize;
+pub const TIMER3_TAPS_R: *mut usize = 0x4003305C as *mut usize;
 
-pub const TIMER3_TBPS_R:*mut usize = 0x40033060 as *mut usize;
+pub const TIMER3_TBPS_R: *mut usize = 0x40033060 as *mut usize;
 
-pub const TIMER3_TAPV_R:*mut usize = 0x40033064 as *mut usize;
+pub const TIMER3_TAPV_R: *mut usize = 0x40033064 as *mut usize;
 
-pub const TIMER3_TBPV_R:*mut usize = 0x40033068 as *mut usize;
+pub const TIMER3_TBPV_R: *mut usize = 0x40033068 as *mut usize;
 
-pub const TIMER3_PP_R:*mut usize = 0x40033FC0 as *mut usize;
+pub const TIMER3_PP_R: *mut usize = 0x40033FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1399,59 +1399,59 @@ pub const TIMER3_PP_R:*mut usize = 0x40033FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER4_CFG_R:*mut usize = 0x40034000 as *mut usize;
+pub const TIMER4_CFG_R: *mut usize = 0x40034000 as *mut usize;
 
-pub const TIMER4_TAMR_R:*mut usize = 0x40034004 as *mut usize;
+pub const TIMER4_TAMR_R: *mut usize = 0x40034004 as *mut usize;
 
-pub const TIMER4_TBMR_R:*mut usize = 0x40034008 as *mut usize;
+pub const TIMER4_TBMR_R: *mut usize = 0x40034008 as *mut usize;
 
-pub const TIMER4_CTL_R:*mut usize = 0x4003400C as *mut usize;
+pub const TIMER4_CTL_R: *mut usize = 0x4003400C as *mut usize;
 
-pub const TIMER4_SYNC_R:*mut usize = 0x40034010 as *mut usize;
+pub const TIMER4_SYNC_R: *mut usize = 0x40034010 as *mut usize;
 
-pub const TIMER4_IMR_R:*mut usize = 0x40034018 as *mut usize;
+pub const TIMER4_IMR_R: *mut usize = 0x40034018 as *mut usize;
 
-pub const TIMER4_RIS_R:*mut usize = 0x4003401C as *mut usize;
+pub const TIMER4_RIS_R: *mut usize = 0x4003401C as *mut usize;
 
-pub const TIMER4_MIS_R:*mut usize = 0x40034020 as *mut usize;
+pub const TIMER4_MIS_R: *mut usize = 0x40034020 as *mut usize;
 
-pub const TIMER4_ICR_R:*mut usize = 0x40034024 as *mut usize;
+pub const TIMER4_ICR_R: *mut usize = 0x40034024 as *mut usize;
 
-pub const TIMER4_TAILR_R:*mut usize = 0x40034028 as *mut usize;
+pub const TIMER4_TAILR_R: *mut usize = 0x40034028 as *mut usize;
 
-pub const TIMER4_TBILR_R:*mut usize = 0x4003402C as *mut usize;
+pub const TIMER4_TBILR_R: *mut usize = 0x4003402C as *mut usize;
 
-pub const TIMER4_TAMATCHR_R:*mut usize = 0x40034030 as *mut usize;
+pub const TIMER4_TAMATCHR_R: *mut usize = 0x40034030 as *mut usize;
 
-pub const TIMER4_TBMATCHR_R:*mut usize = 0x40034034 as *mut usize;
+pub const TIMER4_TBMATCHR_R: *mut usize = 0x40034034 as *mut usize;
 
-pub const TIMER4_TAPR_R:*mut usize = 0x40034038 as *mut usize;
+pub const TIMER4_TAPR_R: *mut usize = 0x40034038 as *mut usize;
 
-pub const TIMER4_TBPR_R:*mut usize = 0x4003403C as *mut usize;
+pub const TIMER4_TBPR_R: *mut usize = 0x4003403C as *mut usize;
 
-pub const TIMER4_TAPMR_R:*mut usize = 0x40034040 as *mut usize;
+pub const TIMER4_TAPMR_R: *mut usize = 0x40034040 as *mut usize;
 
-pub const TIMER4_TBPMR_R:*mut usize = 0x40034044 as *mut usize;
+pub const TIMER4_TBPMR_R: *mut usize = 0x40034044 as *mut usize;
 
-pub const TIMER4_TAR_R:*mut usize = 0x40034048 as *mut usize;
+pub const TIMER4_TAR_R: *mut usize = 0x40034048 as *mut usize;
 
-pub const TIMER4_TBR_R:*mut usize = 0x4003404C as *mut usize;
+pub const TIMER4_TBR_R: *mut usize = 0x4003404C as *mut usize;
 
-pub const TIMER4_TAV_R:*mut usize = 0x40034050 as *mut usize;
+pub const TIMER4_TAV_R: *mut usize = 0x40034050 as *mut usize;
 
-pub const TIMER4_TBV_R:*mut usize = 0x40034054 as *mut usize;
+pub const TIMER4_TBV_R: *mut usize = 0x40034054 as *mut usize;
 
-pub const TIMER4_RTCPD_R:*mut usize = 0x40034058 as *mut usize;
+pub const TIMER4_RTCPD_R: *mut usize = 0x40034058 as *mut usize;
 
-pub const TIMER4_TAPS_R:*mut usize = 0x4003405C as *mut usize;
+pub const TIMER4_TAPS_R: *mut usize = 0x4003405C as *mut usize;
 
-pub const TIMER4_TBPS_R:*mut usize = 0x40034060 as *mut usize;
+pub const TIMER4_TBPS_R: *mut usize = 0x40034060 as *mut usize;
 
-pub const TIMER4_TAPV_R:*mut usize = 0x40034064 as *mut usize;
+pub const TIMER4_TAPV_R: *mut usize = 0x40034064 as *mut usize;
 
-pub const TIMER4_TBPV_R:*mut usize = 0x40034068 as *mut usize;
+pub const TIMER4_TBPV_R: *mut usize = 0x40034068 as *mut usize;
 
-pub const TIMER4_PP_R:*mut usize = 0x40034FC0 as *mut usize;
+pub const TIMER4_PP_R: *mut usize = 0x40034FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1459,59 +1459,59 @@ pub const TIMER4_PP_R:*mut usize = 0x40034FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const TIMER5_CFG_R:*mut usize = 0x40035000 as *mut usize;
+pub const TIMER5_CFG_R: *mut usize = 0x40035000 as *mut usize;
 
-pub const TIMER5_TAMR_R:*mut usize = 0x40035004 as *mut usize;
+pub const TIMER5_TAMR_R: *mut usize = 0x40035004 as *mut usize;
 
-pub const TIMER5_TBMR_R:*mut usize = 0x40035008 as *mut usize;
+pub const TIMER5_TBMR_R: *mut usize = 0x40035008 as *mut usize;
 
-pub const TIMER5_CTL_R:*mut usize = 0x4003500C as *mut usize;
+pub const TIMER5_CTL_R: *mut usize = 0x4003500C as *mut usize;
 
-pub const TIMER5_SYNC_R:*mut usize = 0x40035010 as *mut usize;
+pub const TIMER5_SYNC_R: *mut usize = 0x40035010 as *mut usize;
 
-pub const TIMER5_IMR_R:*mut usize = 0x40035018 as *mut usize;
+pub const TIMER5_IMR_R: *mut usize = 0x40035018 as *mut usize;
 
-pub const TIMER5_RIS_R:*mut usize = 0x4003501C as *mut usize;
+pub const TIMER5_RIS_R: *mut usize = 0x4003501C as *mut usize;
 
-pub const TIMER5_MIS_R:*mut usize = 0x40035020 as *mut usize;
+pub const TIMER5_MIS_R: *mut usize = 0x40035020 as *mut usize;
 
-pub const TIMER5_ICR_R:*mut usize = 0x40035024 as *mut usize;
+pub const TIMER5_ICR_R: *mut usize = 0x40035024 as *mut usize;
 
-pub const TIMER5_TAILR_R:*mut usize = 0x40035028 as *mut usize;
+pub const TIMER5_TAILR_R: *mut usize = 0x40035028 as *mut usize;
 
-pub const TIMER5_TBILR_R:*mut usize = 0x4003502C as *mut usize;
+pub const TIMER5_TBILR_R: *mut usize = 0x4003502C as *mut usize;
 
-pub const TIMER5_TAMATCHR_R:*mut usize = 0x40035030 as *mut usize;
+pub const TIMER5_TAMATCHR_R: *mut usize = 0x40035030 as *mut usize;
 
-pub const TIMER5_TBMATCHR_R:*mut usize = 0x40035034 as *mut usize;
+pub const TIMER5_TBMATCHR_R: *mut usize = 0x40035034 as *mut usize;
 
-pub const TIMER5_TAPR_R:*mut usize = 0x40035038 as *mut usize;
+pub const TIMER5_TAPR_R: *mut usize = 0x40035038 as *mut usize;
 
-pub const TIMER5_TBPR_R:*mut usize = 0x4003503C as *mut usize;
+pub const TIMER5_TBPR_R: *mut usize = 0x4003503C as *mut usize;
 
-pub const TIMER5_TAPMR_R:*mut usize = 0x40035040 as *mut usize;
+pub const TIMER5_TAPMR_R: *mut usize = 0x40035040 as *mut usize;
 
-pub const TIMER5_TBPMR_R:*mut usize = 0x40035044 as *mut usize;
+pub const TIMER5_TBPMR_R: *mut usize = 0x40035044 as *mut usize;
 
-pub const TIMER5_TAR_R:*mut usize = 0x40035048 as *mut usize;
+pub const TIMER5_TAR_R: *mut usize = 0x40035048 as *mut usize;
 
-pub const TIMER5_TBR_R:*mut usize = 0x4003504C as *mut usize;
+pub const TIMER5_TBR_R: *mut usize = 0x4003504C as *mut usize;
 
-pub const TIMER5_TAV_R:*mut usize = 0x40035050 as *mut usize;
+pub const TIMER5_TAV_R: *mut usize = 0x40035050 as *mut usize;
 
-pub const TIMER5_TBV_R:*mut usize = 0x40035054 as *mut usize;
+pub const TIMER5_TBV_R: *mut usize = 0x40035054 as *mut usize;
 
-pub const TIMER5_RTCPD_R:*mut usize = 0x40035058 as *mut usize;
+pub const TIMER5_RTCPD_R: *mut usize = 0x40035058 as *mut usize;
 
-pub const TIMER5_TAPS_R:*mut usize = 0x4003505C as *mut usize;
+pub const TIMER5_TAPS_R: *mut usize = 0x4003505C as *mut usize;
 
-pub const TIMER5_TBPS_R:*mut usize = 0x40035060 as *mut usize;
+pub const TIMER5_TBPS_R: *mut usize = 0x40035060 as *mut usize;
 
-pub const TIMER5_TAPV_R:*mut usize = 0x40035064 as *mut usize;
+pub const TIMER5_TAPV_R: *mut usize = 0x40035064 as *mut usize;
 
-pub const TIMER5_TBPV_R:*mut usize = 0x40035068 as *mut usize;
+pub const TIMER5_TBPV_R: *mut usize = 0x40035068 as *mut usize;
 
-pub const TIMER5_PP_R:*mut usize = 0x40035FC0 as *mut usize;
+pub const TIMER5_PP_R: *mut usize = 0x40035FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1519,59 +1519,59 @@ pub const TIMER5_PP_R:*mut usize = 0x40035FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER0_CFG_R:*mut usize = 0x40036000 as *mut usize;
+pub const WTIMER0_CFG_R: *mut usize = 0x40036000 as *mut usize;
 
-pub const WTIMER0_TAMR_R:*mut usize = 0x40036004 as *mut usize;
+pub const WTIMER0_TAMR_R: *mut usize = 0x40036004 as *mut usize;
 
-pub const WTIMER0_TBMR_R:*mut usize = 0x40036008 as *mut usize;
+pub const WTIMER0_TBMR_R: *mut usize = 0x40036008 as *mut usize;
 
-pub const WTIMER0_CTL_R:*mut usize = 0x4003600C as *mut usize;
+pub const WTIMER0_CTL_R: *mut usize = 0x4003600C as *mut usize;
 
-pub const WTIMER0_SYNC_R:*mut usize = 0x40036010 as *mut usize;
+pub const WTIMER0_SYNC_R: *mut usize = 0x40036010 as *mut usize;
 
-pub const WTIMER0_IMR_R:*mut usize = 0x40036018 as *mut usize;
+pub const WTIMER0_IMR_R: *mut usize = 0x40036018 as *mut usize;
 
-pub const WTIMER0_RIS_R:*mut usize = 0x4003601C as *mut usize;
+pub const WTIMER0_RIS_R: *mut usize = 0x4003601C as *mut usize;
 
-pub const WTIMER0_MIS_R:*mut usize = 0x40036020 as *mut usize;
+pub const WTIMER0_MIS_R: *mut usize = 0x40036020 as *mut usize;
 
-pub const WTIMER0_ICR_R:*mut usize = 0x40036024 as *mut usize;
+pub const WTIMER0_ICR_R: *mut usize = 0x40036024 as *mut usize;
 
-pub const WTIMER0_TAILR_R:*mut usize = 0x40036028 as *mut usize;
+pub const WTIMER0_TAILR_R: *mut usize = 0x40036028 as *mut usize;
 
-pub const WTIMER0_TBILR_R:*mut usize = 0x4003602C as *mut usize;
+pub const WTIMER0_TBILR_R: *mut usize = 0x4003602C as *mut usize;
 
-pub const WTIMER0_TAMATCHR_R:*mut usize = 0x40036030 as *mut usize;
+pub const WTIMER0_TAMATCHR_R: *mut usize = 0x40036030 as *mut usize;
 
-pub const WTIMER0_TBMATCHR_R:*mut usize = 0x40036034 as *mut usize;
+pub const WTIMER0_TBMATCHR_R: *mut usize = 0x40036034 as *mut usize;
 
-pub const WTIMER0_TAPR_R:*mut usize = 0x40036038 as *mut usize;
+pub const WTIMER0_TAPR_R: *mut usize = 0x40036038 as *mut usize;
 
-pub const WTIMER0_TBPR_R:*mut usize = 0x4003603C as *mut usize;
+pub const WTIMER0_TBPR_R: *mut usize = 0x4003603C as *mut usize;
 
-pub const WTIMER0_TAPMR_R:*mut usize = 0x40036040 as *mut usize;
+pub const WTIMER0_TAPMR_R: *mut usize = 0x40036040 as *mut usize;
 
-pub const WTIMER0_TBPMR_R:*mut usize = 0x40036044 as *mut usize;
+pub const WTIMER0_TBPMR_R: *mut usize = 0x40036044 as *mut usize;
 
-pub const WTIMER0_TAR_R:*mut usize = 0x40036048 as *mut usize;
+pub const WTIMER0_TAR_R: *mut usize = 0x40036048 as *mut usize;
 
-pub const WTIMER0_TBR_R:*mut usize = 0x4003604C as *mut usize;
+pub const WTIMER0_TBR_R: *mut usize = 0x4003604C as *mut usize;
 
-pub const WTIMER0_TAV_R:*mut usize = 0x40036050 as *mut usize;
+pub const WTIMER0_TAV_R: *mut usize = 0x40036050 as *mut usize;
 
-pub const WTIMER0_TBV_R:*mut usize = 0x40036054 as *mut usize;
+pub const WTIMER0_TBV_R: *mut usize = 0x40036054 as *mut usize;
 
-pub const WTIMER0_RTCPD_R:*mut usize = 0x40036058 as *mut usize;
+pub const WTIMER0_RTCPD_R: *mut usize = 0x40036058 as *mut usize;
 
-pub const WTIMER0_TAPS_R:*mut usize = 0x4003605C as *mut usize;
+pub const WTIMER0_TAPS_R: *mut usize = 0x4003605C as *mut usize;
 
-pub const WTIMER0_TBPS_R:*mut usize = 0x40036060 as *mut usize;
+pub const WTIMER0_TBPS_R: *mut usize = 0x40036060 as *mut usize;
 
-pub const WTIMER0_TAPV_R:*mut usize = 0x40036064 as *mut usize;
+pub const WTIMER0_TAPV_R: *mut usize = 0x40036064 as *mut usize;
 
-pub const WTIMER0_TBPV_R:*mut usize = 0x40036068 as *mut usize;
+pub const WTIMER0_TBPV_R: *mut usize = 0x40036068 as *mut usize;
 
-pub const WTIMER0_PP_R:*mut usize = 0x40036FC0 as *mut usize;
+pub const WTIMER0_PP_R: *mut usize = 0x40036FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1579,59 +1579,59 @@ pub const WTIMER0_PP_R:*mut usize = 0x40036FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER1_CFG_R:*mut usize = 0x40037000 as *mut usize;
+pub const WTIMER1_CFG_R: *mut usize = 0x40037000 as *mut usize;
 
-pub const WTIMER1_TAMR_R:*mut usize = 0x40037004 as *mut usize;
+pub const WTIMER1_TAMR_R: *mut usize = 0x40037004 as *mut usize;
 
-pub const WTIMER1_TBMR_R:*mut usize = 0x40037008 as *mut usize;
+pub const WTIMER1_TBMR_R: *mut usize = 0x40037008 as *mut usize;
 
-pub const WTIMER1_CTL_R:*mut usize = 0x4003700C as *mut usize;
+pub const WTIMER1_CTL_R: *mut usize = 0x4003700C as *mut usize;
 
-pub const WTIMER1_SYNC_R:*mut usize = 0x40037010 as *mut usize;
+pub const WTIMER1_SYNC_R: *mut usize = 0x40037010 as *mut usize;
 
-pub const WTIMER1_IMR_R:*mut usize = 0x40037018 as *mut usize;
+pub const WTIMER1_IMR_R: *mut usize = 0x40037018 as *mut usize;
 
-pub const WTIMER1_RIS_R:*mut usize = 0x4003701C as *mut usize;
+pub const WTIMER1_RIS_R: *mut usize = 0x4003701C as *mut usize;
 
-pub const WTIMER1_MIS_R:*mut usize = 0x40037020 as *mut usize;
+pub const WTIMER1_MIS_R: *mut usize = 0x40037020 as *mut usize;
 
-pub const WTIMER1_ICR_R:*mut usize = 0x40037024 as *mut usize;
+pub const WTIMER1_ICR_R: *mut usize = 0x40037024 as *mut usize;
 
-pub const WTIMER1_TAILR_R:*mut usize = 0x40037028 as *mut usize;
+pub const WTIMER1_TAILR_R: *mut usize = 0x40037028 as *mut usize;
 
-pub const WTIMER1_TBILR_R:*mut usize = 0x4003702C as *mut usize;
+pub const WTIMER1_TBILR_R: *mut usize = 0x4003702C as *mut usize;
 
-pub const WTIMER1_TAMATCHR_R:*mut usize = 0x40037030 as *mut usize;
+pub const WTIMER1_TAMATCHR_R: *mut usize = 0x40037030 as *mut usize;
 
-pub const WTIMER1_TBMATCHR_R:*mut usize = 0x40037034 as *mut usize;
+pub const WTIMER1_TBMATCHR_R: *mut usize = 0x40037034 as *mut usize;
 
-pub const WTIMER1_TAPR_R:*mut usize = 0x40037038 as *mut usize;
+pub const WTIMER1_TAPR_R: *mut usize = 0x40037038 as *mut usize;
 
-pub const WTIMER1_TBPR_R:*mut usize = 0x4003703C as *mut usize;
+pub const WTIMER1_TBPR_R: *mut usize = 0x4003703C as *mut usize;
 
-pub const WTIMER1_TAPMR_R:*mut usize = 0x40037040 as *mut usize;
+pub const WTIMER1_TAPMR_R: *mut usize = 0x40037040 as *mut usize;
 
-pub const WTIMER1_TBPMR_R:*mut usize = 0x40037044 as *mut usize;
+pub const WTIMER1_TBPMR_R: *mut usize = 0x40037044 as *mut usize;
 
-pub const WTIMER1_TAR_R:*mut usize = 0x40037048 as *mut usize;
+pub const WTIMER1_TAR_R: *mut usize = 0x40037048 as *mut usize;
 
-pub const WTIMER1_TBR_R:*mut usize = 0x4003704C as *mut usize;
+pub const WTIMER1_TBR_R: *mut usize = 0x4003704C as *mut usize;
 
-pub const WTIMER1_TAV_R:*mut usize = 0x40037050 as *mut usize;
+pub const WTIMER1_TAV_R: *mut usize = 0x40037050 as *mut usize;
 
-pub const WTIMER1_TBV_R:*mut usize = 0x40037054 as *mut usize;
+pub const WTIMER1_TBV_R: *mut usize = 0x40037054 as *mut usize;
 
-pub const WTIMER1_RTCPD_R:*mut usize = 0x40037058 as *mut usize;
+pub const WTIMER1_RTCPD_R: *mut usize = 0x40037058 as *mut usize;
 
-pub const WTIMER1_TAPS_R:*mut usize = 0x4003705C as *mut usize;
+pub const WTIMER1_TAPS_R: *mut usize = 0x4003705C as *mut usize;
 
-pub const WTIMER1_TBPS_R:*mut usize = 0x40037060 as *mut usize;
+pub const WTIMER1_TBPS_R: *mut usize = 0x40037060 as *mut usize;
 
-pub const WTIMER1_TAPV_R:*mut usize = 0x40037064 as *mut usize;
+pub const WTIMER1_TAPV_R: *mut usize = 0x40037064 as *mut usize;
 
-pub const WTIMER1_TBPV_R:*mut usize = 0x40037068 as *mut usize;
+pub const WTIMER1_TBPV_R: *mut usize = 0x40037068 as *mut usize;
 
-pub const WTIMER1_PP_R:*mut usize = 0x40037FC0 as *mut usize;
+pub const WTIMER1_PP_R: *mut usize = 0x40037FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1639,117 +1639,117 @@ pub const WTIMER1_PP_R:*mut usize = 0x40037FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const ADC0_ACTSS_R:*mut usize = 0x40038000 as *mut usize;
+pub const ADC0_ACTSS_R: *mut usize = 0x40038000 as *mut usize;
 
-pub const ADC0_RIS_R:*mut usize = 0x40038004 as *mut usize;
+pub const ADC0_RIS_R: *mut usize = 0x40038004 as *mut usize;
 
-pub const ADC0_IM_R:*mut usize = 0x40038008 as *mut usize;
+pub const ADC0_IM_R: *mut usize = 0x40038008 as *mut usize;
 
-pub const ADC0_ISC_R:*mut usize = 0x4003800C as *mut usize;
+pub const ADC0_ISC_R: *mut usize = 0x4003800C as *mut usize;
 
-pub const ADC0_OSTAT_R:*mut usize = 0x40038010 as *mut usize;
+pub const ADC0_OSTAT_R: *mut usize = 0x40038010 as *mut usize;
 
-pub const ADC0_EMUX_R:*mut usize = 0x40038014 as *mut usize;
+pub const ADC0_EMUX_R: *mut usize = 0x40038014 as *mut usize;
 
-pub const ADC0_USTAT_R:*mut usize = 0x40038018 as *mut usize;
+pub const ADC0_USTAT_R: *mut usize = 0x40038018 as *mut usize;
 
-pub const ADC0_SSPRI_R:*mut usize = 0x40038020 as *mut usize;
+pub const ADC0_SSPRI_R: *mut usize = 0x40038020 as *mut usize;
 
-pub const ADC0_SPC_R:*mut usize = 0x40038024 as *mut usize;
+pub const ADC0_SPC_R: *mut usize = 0x40038024 as *mut usize;
 
-pub const ADC0_PSSI_R:*mut usize = 0x40038028 as *mut usize;
+pub const ADC0_PSSI_R: *mut usize = 0x40038028 as *mut usize;
 
-pub const ADC0_SAC_R:*mut usize = 0x40038030 as *mut usize;
+pub const ADC0_SAC_R: *mut usize = 0x40038030 as *mut usize;
 
-pub const ADC0_DCISC_R:*mut usize = 0x40038034 as *mut usize;
+pub const ADC0_DCISC_R: *mut usize = 0x40038034 as *mut usize;
 
-pub const ADC0_SSMUX0_R:*mut usize = 0x40038040 as *mut usize;
+pub const ADC0_SSMUX0_R: *mut usize = 0x40038040 as *mut usize;
 
-pub const ADC0_SSCTL0_R:*mut usize = 0x40038044 as *mut usize;
+pub const ADC0_SSCTL0_R: *mut usize = 0x40038044 as *mut usize;
 
-pub const ADC0_SSFIFO0_R:*mut usize = 0x40038048 as *mut usize;
+pub const ADC0_SSFIFO0_R: *mut usize = 0x40038048 as *mut usize;
 
-pub const ADC0_SSFSTAT0_R:*mut usize = 0x4003804C as *mut usize;
+pub const ADC0_SSFSTAT0_R: *mut usize = 0x4003804C as *mut usize;
 
-pub const ADC0_SSOP0_R:*mut usize = 0x40038050 as *mut usize;
+pub const ADC0_SSOP0_R: *mut usize = 0x40038050 as *mut usize;
 
-pub const ADC0_SSDC0_R:*mut usize = 0x40038054 as *mut usize;
+pub const ADC0_SSDC0_R: *mut usize = 0x40038054 as *mut usize;
 
-pub const ADC0_SSMUX1_R:*mut usize = 0x40038060 as *mut usize;
+pub const ADC0_SSMUX1_R: *mut usize = 0x40038060 as *mut usize;
 
-pub const ADC0_SSCTL1_R:*mut usize = 0x40038064 as *mut usize;
+pub const ADC0_SSCTL1_R: *mut usize = 0x40038064 as *mut usize;
 
-pub const ADC0_SSFIFO1_R:*mut usize = 0x40038068 as *mut usize;
+pub const ADC0_SSFIFO1_R: *mut usize = 0x40038068 as *mut usize;
 
-pub const ADC0_SSFSTAT1_R:*mut usize = 0x4003806C as *mut usize;
+pub const ADC0_SSFSTAT1_R: *mut usize = 0x4003806C as *mut usize;
 
-pub const ADC0_SSOP1_R:*mut usize = 0x40038070 as *mut usize;
+pub const ADC0_SSOP1_R: *mut usize = 0x40038070 as *mut usize;
 
-pub const ADC0_SSDC1_R:*mut usize = 0x40038074 as *mut usize;
+pub const ADC0_SSDC1_R: *mut usize = 0x40038074 as *mut usize;
 
-pub const ADC0_SSMUX2_R:*mut usize = 0x40038080 as *mut usize;
+pub const ADC0_SSMUX2_R: *mut usize = 0x40038080 as *mut usize;
 
-pub const ADC0_SSCTL2_R:*mut usize = 0x40038084 as *mut usize;
+pub const ADC0_SSCTL2_R: *mut usize = 0x40038084 as *mut usize;
 
-pub const ADC0_SSFIFO2_R:*mut usize = 0x40038088 as *mut usize;
+pub const ADC0_SSFIFO2_R: *mut usize = 0x40038088 as *mut usize;
 
-pub const ADC0_SSFSTAT2_R:*mut usize = 0x4003808C as *mut usize;
+pub const ADC0_SSFSTAT2_R: *mut usize = 0x4003808C as *mut usize;
 
-pub const ADC0_SSOP2_R:*mut usize = 0x40038090 as *mut usize;
+pub const ADC0_SSOP2_R: *mut usize = 0x40038090 as *mut usize;
 
-pub const ADC0_SSDC2_R:*mut usize = 0x40038094 as *mut usize;
+pub const ADC0_SSDC2_R: *mut usize = 0x40038094 as *mut usize;
 
-pub const ADC0_SSMUX3_R:*mut usize = 0x400380A0 as *mut usize;
+pub const ADC0_SSMUX3_R: *mut usize = 0x400380A0 as *mut usize;
 
-pub const ADC0_SSCTL3_R:*mut usize = 0x400380A4 as *mut usize;
+pub const ADC0_SSCTL3_R: *mut usize = 0x400380A4 as *mut usize;
 
-pub const ADC0_SSFIFO3_R:*mut usize = 0x400380A8 as *mut usize;
+pub const ADC0_SSFIFO3_R: *mut usize = 0x400380A8 as *mut usize;
 
-pub const ADC0_SSFSTAT3_R:*mut usize = 0x400380AC as *mut usize;
+pub const ADC0_SSFSTAT3_R: *mut usize = 0x400380AC as *mut usize;
 
-pub const ADC0_SSOP3_R:*mut usize = 0x400380B0 as *mut usize;
+pub const ADC0_SSOP3_R: *mut usize = 0x400380B0 as *mut usize;
 
-pub const ADC0_SSDC3_R:*mut usize = 0x400380B4 as *mut usize;
+pub const ADC0_SSDC3_R: *mut usize = 0x400380B4 as *mut usize;
 
-pub const ADC0_DCRIC_R:*mut usize = 0x40038D00 as *mut usize;
+pub const ADC0_DCRIC_R: *mut usize = 0x40038D00 as *mut usize;
 
-pub const ADC0_DCCTL0_R:*mut usize = 0x40038E00 as *mut usize;
+pub const ADC0_DCCTL0_R: *mut usize = 0x40038E00 as *mut usize;
 
-pub const ADC0_DCCTL1_R:*mut usize = 0x40038E04 as *mut usize;
+pub const ADC0_DCCTL1_R: *mut usize = 0x40038E04 as *mut usize;
 
-pub const ADC0_DCCTL2_R:*mut usize = 0x40038E08 as *mut usize;
+pub const ADC0_DCCTL2_R: *mut usize = 0x40038E08 as *mut usize;
 
-pub const ADC0_DCCTL3_R:*mut usize = 0x40038E0C as *mut usize;
+pub const ADC0_DCCTL3_R: *mut usize = 0x40038E0C as *mut usize;
 
-pub const ADC0_DCCTL4_R:*mut usize = 0x40038E10 as *mut usize;
+pub const ADC0_DCCTL4_R: *mut usize = 0x40038E10 as *mut usize;
 
-pub const ADC0_DCCTL5_R:*mut usize = 0x40038E14 as *mut usize;
+pub const ADC0_DCCTL5_R: *mut usize = 0x40038E14 as *mut usize;
 
-pub const ADC0_DCCTL6_R:*mut usize = 0x40038E18 as *mut usize;
+pub const ADC0_DCCTL6_R: *mut usize = 0x40038E18 as *mut usize;
 
-pub const ADC0_DCCTL7_R:*mut usize = 0x40038E1C as *mut usize;
+pub const ADC0_DCCTL7_R: *mut usize = 0x40038E1C as *mut usize;
 
-pub const ADC0_DCCMP0_R:*mut usize = 0x40038E40 as *mut usize;
+pub const ADC0_DCCMP0_R: *mut usize = 0x40038E40 as *mut usize;
 
-pub const ADC0_DCCMP1_R:*mut usize = 0x40038E44 as *mut usize;
+pub const ADC0_DCCMP1_R: *mut usize = 0x40038E44 as *mut usize;
 
-pub const ADC0_DCCMP2_R:*mut usize = 0x40038E48 as *mut usize;
+pub const ADC0_DCCMP2_R: *mut usize = 0x40038E48 as *mut usize;
 
-pub const ADC0_DCCMP3_R:*mut usize = 0x40038E4C as *mut usize;
+pub const ADC0_DCCMP3_R: *mut usize = 0x40038E4C as *mut usize;
 
-pub const ADC0_DCCMP4_R:*mut usize = 0x40038E50 as *mut usize;
+pub const ADC0_DCCMP4_R: *mut usize = 0x40038E50 as *mut usize;
 
-pub const ADC0_DCCMP5_R:*mut usize = 0x40038E54 as *mut usize;
+pub const ADC0_DCCMP5_R: *mut usize = 0x40038E54 as *mut usize;
 
-pub const ADC0_DCCMP6_R:*mut usize = 0x40038E58 as *mut usize;
+pub const ADC0_DCCMP6_R: *mut usize = 0x40038E58 as *mut usize;
 
-pub const ADC0_DCCMP7_R:*mut usize = 0x40038E5C as *mut usize;
+pub const ADC0_DCCMP7_R: *mut usize = 0x40038E5C as *mut usize;
 
-pub const ADC0_PP_R:*mut usize = 0x40038FC0 as *mut usize;
+pub const ADC0_PP_R: *mut usize = 0x40038FC0 as *mut usize;
 
-pub const ADC0_PC_R:*mut usize = 0x40038FC4 as *mut usize;
+pub const ADC0_PC_R: *mut usize = 0x40038FC4 as *mut usize;
 
-pub const ADC0_CC_R:*mut usize = 0x40038FC8 as *mut usize;
+pub const ADC0_CC_R: *mut usize = 0x40038FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1757,117 +1757,117 @@ pub const ADC0_CC_R:*mut usize = 0x40038FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const ADC1_ACTSS_R:*mut usize = 0x40039000 as *mut usize;
+pub const ADC1_ACTSS_R: *mut usize = 0x40039000 as *mut usize;
 
-pub const ADC1_RIS_R:*mut usize = 0x40039004 as *mut usize;
+pub const ADC1_RIS_R: *mut usize = 0x40039004 as *mut usize;
 
-pub const ADC1_IM_R:*mut usize = 0x40039008 as *mut usize;
+pub const ADC1_IM_R: *mut usize = 0x40039008 as *mut usize;
 
-pub const ADC1_ISC_R:*mut usize = 0x4003900C as *mut usize;
+pub const ADC1_ISC_R: *mut usize = 0x4003900C as *mut usize;
 
-pub const ADC1_OSTAT_R:*mut usize = 0x40039010 as *mut usize;
+pub const ADC1_OSTAT_R: *mut usize = 0x40039010 as *mut usize;
 
-pub const ADC1_EMUX_R:*mut usize = 0x40039014 as *mut usize;
+pub const ADC1_EMUX_R: *mut usize = 0x40039014 as *mut usize;
 
-pub const ADC1_USTAT_R:*mut usize = 0x40039018 as *mut usize;
+pub const ADC1_USTAT_R: *mut usize = 0x40039018 as *mut usize;
 
-pub const ADC1_SSPRI_R:*mut usize = 0x40039020 as *mut usize;
+pub const ADC1_SSPRI_R: *mut usize = 0x40039020 as *mut usize;
 
-pub const ADC1_SPC_R:*mut usize = 0x40039024 as *mut usize;
+pub const ADC1_SPC_R: *mut usize = 0x40039024 as *mut usize;
 
-pub const ADC1_PSSI_R:*mut usize = 0x40039028 as *mut usize;
+pub const ADC1_PSSI_R: *mut usize = 0x40039028 as *mut usize;
 
-pub const ADC1_SAC_R:*mut usize = 0x40039030 as *mut usize;
+pub const ADC1_SAC_R: *mut usize = 0x40039030 as *mut usize;
 
-pub const ADC1_DCISC_R:*mut usize = 0x40039034 as *mut usize;
+pub const ADC1_DCISC_R: *mut usize = 0x40039034 as *mut usize;
 
-pub const ADC1_SSMUX0_R:*mut usize = 0x40039040 as *mut usize;
+pub const ADC1_SSMUX0_R: *mut usize = 0x40039040 as *mut usize;
 
-pub const ADC1_SSCTL0_R:*mut usize = 0x40039044 as *mut usize;
+pub const ADC1_SSCTL0_R: *mut usize = 0x40039044 as *mut usize;
 
-pub const ADC1_SSFIFO0_R:*mut usize = 0x40039048 as *mut usize;
+pub const ADC1_SSFIFO0_R: *mut usize = 0x40039048 as *mut usize;
 
-pub const ADC1_SSFSTAT0_R:*mut usize = 0x4003904C as *mut usize;
+pub const ADC1_SSFSTAT0_R: *mut usize = 0x4003904C as *mut usize;
 
-pub const ADC1_SSOP0_R:*mut usize = 0x40039050 as *mut usize;
+pub const ADC1_SSOP0_R: *mut usize = 0x40039050 as *mut usize;
 
-pub const ADC1_SSDC0_R:*mut usize = 0x40039054 as *mut usize;
+pub const ADC1_SSDC0_R: *mut usize = 0x40039054 as *mut usize;
 
-pub const ADC1_SSMUX1_R:*mut usize = 0x40039060 as *mut usize;
+pub const ADC1_SSMUX1_R: *mut usize = 0x40039060 as *mut usize;
 
-pub const ADC1_SSCTL1_R:*mut usize = 0x40039064 as *mut usize;
+pub const ADC1_SSCTL1_R: *mut usize = 0x40039064 as *mut usize;
 
-pub const ADC1_SSFIFO1_R:*mut usize = 0x40039068 as *mut usize;
+pub const ADC1_SSFIFO1_R: *mut usize = 0x40039068 as *mut usize;
 
-pub const ADC1_SSFSTAT1_R:*mut usize = 0x4003906C as *mut usize;
+pub const ADC1_SSFSTAT1_R: *mut usize = 0x4003906C as *mut usize;
 
-pub const ADC1_SSOP1_R:*mut usize = 0x40039070 as *mut usize;
+pub const ADC1_SSOP1_R: *mut usize = 0x40039070 as *mut usize;
 
-pub const ADC1_SSDC1_R:*mut usize = 0x40039074 as *mut usize;
+pub const ADC1_SSDC1_R: *mut usize = 0x40039074 as *mut usize;
 
-pub const ADC1_SSMUX2_R:*mut usize = 0x40039080 as *mut usize;
+pub const ADC1_SSMUX2_R: *mut usize = 0x40039080 as *mut usize;
 
-pub const ADC1_SSCTL2_R:*mut usize = 0x40039084 as *mut usize;
+pub const ADC1_SSCTL2_R: *mut usize = 0x40039084 as *mut usize;
 
-pub const ADC1_SSFIFO2_R:*mut usize = 0x40039088 as *mut usize;
+pub const ADC1_SSFIFO2_R: *mut usize = 0x40039088 as *mut usize;
 
-pub const ADC1_SSFSTAT2_R:*mut usize = 0x4003908C as *mut usize;
+pub const ADC1_SSFSTAT2_R: *mut usize = 0x4003908C as *mut usize;
 
-pub const ADC1_SSOP2_R:*mut usize = 0x40039090 as *mut usize;
+pub const ADC1_SSOP2_R: *mut usize = 0x40039090 as *mut usize;
 
-pub const ADC1_SSDC2_R:*mut usize = 0x40039094 as *mut usize;
+pub const ADC1_SSDC2_R: *mut usize = 0x40039094 as *mut usize;
 
-pub const ADC1_SSMUX3_R:*mut usize = 0x400390A0 as *mut usize;
+pub const ADC1_SSMUX3_R: *mut usize = 0x400390A0 as *mut usize;
 
-pub const ADC1_SSCTL3_R:*mut usize = 0x400390A4 as *mut usize;
+pub const ADC1_SSCTL3_R: *mut usize = 0x400390A4 as *mut usize;
 
-pub const ADC1_SSFIFO3_R:*mut usize = 0x400390A8 as *mut usize;
+pub const ADC1_SSFIFO3_R: *mut usize = 0x400390A8 as *mut usize;
 
-pub const ADC1_SSFSTAT3_R:*mut usize = 0x400390AC as *mut usize;
+pub const ADC1_SSFSTAT3_R: *mut usize = 0x400390AC as *mut usize;
 
-pub const ADC1_SSOP3_R:*mut usize = 0x400390B0 as *mut usize;
+pub const ADC1_SSOP3_R: *mut usize = 0x400390B0 as *mut usize;
 
-pub const ADC1_SSDC3_R:*mut usize = 0x400390B4 as *mut usize;
+pub const ADC1_SSDC3_R: *mut usize = 0x400390B4 as *mut usize;
 
-pub const ADC1_DCRIC_R:*mut usize = 0x40039D00 as *mut usize;
+pub const ADC1_DCRIC_R: *mut usize = 0x40039D00 as *mut usize;
 
-pub const ADC1_DCCTL0_R:*mut usize = 0x40039E00 as *mut usize;
+pub const ADC1_DCCTL0_R: *mut usize = 0x40039E00 as *mut usize;
 
-pub const ADC1_DCCTL1_R:*mut usize = 0x40039E04 as *mut usize;
+pub const ADC1_DCCTL1_R: *mut usize = 0x40039E04 as *mut usize;
 
-pub const ADC1_DCCTL2_R:*mut usize = 0x40039E08 as *mut usize;
+pub const ADC1_DCCTL2_R: *mut usize = 0x40039E08 as *mut usize;
 
-pub const ADC1_DCCTL3_R:*mut usize = 0x40039E0C as *mut usize;
+pub const ADC1_DCCTL3_R: *mut usize = 0x40039E0C as *mut usize;
 
-pub const ADC1_DCCTL4_R:*mut usize = 0x40039E10 as *mut usize;
+pub const ADC1_DCCTL4_R: *mut usize = 0x40039E10 as *mut usize;
 
-pub const ADC1_DCCTL5_R:*mut usize = 0x40039E14 as *mut usize;
+pub const ADC1_DCCTL5_R: *mut usize = 0x40039E14 as *mut usize;
 
-pub const ADC1_DCCTL6_R:*mut usize = 0x40039E18 as *mut usize;
+pub const ADC1_DCCTL6_R: *mut usize = 0x40039E18 as *mut usize;
 
-pub const ADC1_DCCTL7_R:*mut usize = 0x40039E1C as *mut usize;
+pub const ADC1_DCCTL7_R: *mut usize = 0x40039E1C as *mut usize;
 
-pub const ADC1_DCCMP0_R:*mut usize = 0x40039E40 as *mut usize;
+pub const ADC1_DCCMP0_R: *mut usize = 0x40039E40 as *mut usize;
 
-pub const ADC1_DCCMP1_R:*mut usize = 0x40039E44 as *mut usize;
+pub const ADC1_DCCMP1_R: *mut usize = 0x40039E44 as *mut usize;
 
-pub const ADC1_DCCMP2_R:*mut usize = 0x40039E48 as *mut usize;
+pub const ADC1_DCCMP2_R: *mut usize = 0x40039E48 as *mut usize;
 
-pub const ADC1_DCCMP3_R:*mut usize = 0x40039E4C as *mut usize;
+pub const ADC1_DCCMP3_R: *mut usize = 0x40039E4C as *mut usize;
 
-pub const ADC1_DCCMP4_R:*mut usize = 0x40039E50 as *mut usize;
+pub const ADC1_DCCMP4_R: *mut usize = 0x40039E50 as *mut usize;
 
-pub const ADC1_DCCMP5_R:*mut usize = 0x40039E54 as *mut usize;
+pub const ADC1_DCCMP5_R: *mut usize = 0x40039E54 as *mut usize;
 
-pub const ADC1_DCCMP6_R:*mut usize = 0x40039E58 as *mut usize;
+pub const ADC1_DCCMP6_R: *mut usize = 0x40039E58 as *mut usize;
 
-pub const ADC1_DCCMP7_R:*mut usize = 0x40039E5C as *mut usize;
+pub const ADC1_DCCMP7_R: *mut usize = 0x40039E5C as *mut usize;
 
-pub const ADC1_PP_R:*mut usize = 0x40039FC0 as *mut usize;
+pub const ADC1_PP_R: *mut usize = 0x40039FC0 as *mut usize;
 
-pub const ADC1_PC_R:*mut usize = 0x40039FC4 as *mut usize;
+pub const ADC1_PC_R: *mut usize = 0x40039FC4 as *mut usize;
 
-pub const ADC1_CC_R:*mut usize = 0x40039FC8 as *mut usize;
+pub const ADC1_CC_R: *mut usize = 0x40039FC8 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1875,23 +1875,23 @@ pub const ADC1_CC_R:*mut usize = 0x40039FC8 as *mut usize;
 //
 // *****************************************************************************
 
-pub const COMP_ACMIS_R:*mut usize = 0x4003C000 as *mut usize;
+pub const COMP_ACMIS_R: *mut usize = 0x4003C000 as *mut usize;
 
-pub const COMP_ACRIS_R:*mut usize = 0x4003C004 as *mut usize;
+pub const COMP_ACRIS_R: *mut usize = 0x4003C004 as *mut usize;
 
-pub const COMP_ACINTEN_R:*mut usize = 0x4003C008 as *mut usize;
+pub const COMP_ACINTEN_R: *mut usize = 0x4003C008 as *mut usize;
 
-pub const COMP_ACREFCTL_R:*mut usize = 0x4003C010 as *mut usize;
+pub const COMP_ACREFCTL_R: *mut usize = 0x4003C010 as *mut usize;
 
-pub const COMP_ACSTAT0_R:*mut usize = 0x4003C020 as *mut usize;
+pub const COMP_ACSTAT0_R: *mut usize = 0x4003C020 as *mut usize;
 
-pub const COMP_ACCTL0_R:*mut usize = 0x4003C024 as *mut usize;
+pub const COMP_ACCTL0_R: *mut usize = 0x4003C024 as *mut usize;
 
-pub const COMP_ACSTAT1_R:*mut usize = 0x4003C040 as *mut usize;
+pub const COMP_ACSTAT1_R: *mut usize = 0x4003C040 as *mut usize;
 
-pub const COMP_ACCTL1_R:*mut usize = 0x4003C044 as *mut usize;
+pub const COMP_ACCTL1_R: *mut usize = 0x4003C044 as *mut usize;
 
-pub const COMP_PP_R:*mut usize = 0x4003CFC0 as *mut usize;
+pub const COMP_PP_R: *mut usize = 0x4003CFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1899,79 +1899,79 @@ pub const COMP_PP_R:*mut usize = 0x4003CFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const CAN0_CTL_R:*mut usize = 0x40040000 as *mut usize;
+pub const CAN0_CTL_R: *mut usize = 0x40040000 as *mut usize;
 
-pub const CAN0_STS_R:*mut usize = 0x40040004 as *mut usize;
+pub const CAN0_STS_R: *mut usize = 0x40040004 as *mut usize;
 
-pub const CAN0_ERR_R:*mut usize = 0x40040008 as *mut usize;
+pub const CAN0_ERR_R: *mut usize = 0x40040008 as *mut usize;
 
-pub const CAN0_BIT_R:*mut usize = 0x4004000C as *mut usize;
+pub const CAN0_BIT_R: *mut usize = 0x4004000C as *mut usize;
 
-pub const CAN0_INT_R:*mut usize = 0x40040010 as *mut usize;
+pub const CAN0_INT_R: *mut usize = 0x40040010 as *mut usize;
 
-pub const CAN0_TST_R:*mut usize = 0x40040014 as *mut usize;
+pub const CAN0_TST_R: *mut usize = 0x40040014 as *mut usize;
 
-pub const CAN0_BRPE_R:*mut usize = 0x40040018 as *mut usize;
+pub const CAN0_BRPE_R: *mut usize = 0x40040018 as *mut usize;
 
-pub const CAN0_IF1CRQ_R:*mut usize = 0x40040020 as *mut usize;
+pub const CAN0_IF1CRQ_R: *mut usize = 0x40040020 as *mut usize;
 
-pub const CAN0_IF1CMSK_R:*mut usize = 0x40040024 as *mut usize;
+pub const CAN0_IF1CMSK_R: *mut usize = 0x40040024 as *mut usize;
 
-pub const CAN0_IF1MSK1_R:*mut usize = 0x40040028 as *mut usize;
+pub const CAN0_IF1MSK1_R: *mut usize = 0x40040028 as *mut usize;
 
-pub const CAN0_IF1MSK2_R:*mut usize = 0x4004002C as *mut usize;
+pub const CAN0_IF1MSK2_R: *mut usize = 0x4004002C as *mut usize;
 
-pub const CAN0_IF1ARB1_R:*mut usize = 0x40040030 as *mut usize;
+pub const CAN0_IF1ARB1_R: *mut usize = 0x40040030 as *mut usize;
 
-pub const CAN0_IF1ARB2_R:*mut usize = 0x40040034 as *mut usize;
+pub const CAN0_IF1ARB2_R: *mut usize = 0x40040034 as *mut usize;
 
-pub const CAN0_IF1MCTL_R:*mut usize = 0x40040038 as *mut usize;
+pub const CAN0_IF1MCTL_R: *mut usize = 0x40040038 as *mut usize;
 
-pub const CAN0_IF1DA1_R:*mut usize = 0x4004003C as *mut usize;
+pub const CAN0_IF1DA1_R: *mut usize = 0x4004003C as *mut usize;
 
-pub const CAN0_IF1DA2_R:*mut usize = 0x40040040 as *mut usize;
+pub const CAN0_IF1DA2_R: *mut usize = 0x40040040 as *mut usize;
 
-pub const CAN0_IF1DB1_R:*mut usize = 0x40040044 as *mut usize;
+pub const CAN0_IF1DB1_R: *mut usize = 0x40040044 as *mut usize;
 
-pub const CAN0_IF1DB2_R:*mut usize = 0x40040048 as *mut usize;
+pub const CAN0_IF1DB2_R: *mut usize = 0x40040048 as *mut usize;
 
-pub const CAN0_IF2CRQ_R:*mut usize = 0x40040080 as *mut usize;
+pub const CAN0_IF2CRQ_R: *mut usize = 0x40040080 as *mut usize;
 
-pub const CAN0_IF2CMSK_R:*mut usize = 0x40040084 as *mut usize;
+pub const CAN0_IF2CMSK_R: *mut usize = 0x40040084 as *mut usize;
 
-pub const CAN0_IF2MSK1_R:*mut usize = 0x40040088 as *mut usize;
+pub const CAN0_IF2MSK1_R: *mut usize = 0x40040088 as *mut usize;
 
-pub const CAN0_IF2MSK2_R:*mut usize = 0x4004008C as *mut usize;
+pub const CAN0_IF2MSK2_R: *mut usize = 0x4004008C as *mut usize;
 
-pub const CAN0_IF2ARB1_R:*mut usize = 0x40040090 as *mut usize;
+pub const CAN0_IF2ARB1_R: *mut usize = 0x40040090 as *mut usize;
 
-pub const CAN0_IF2ARB2_R:*mut usize = 0x40040094 as *mut usize;
+pub const CAN0_IF2ARB2_R: *mut usize = 0x40040094 as *mut usize;
 
-pub const CAN0_IF2MCTL_R:*mut usize = 0x40040098 as *mut usize;
+pub const CAN0_IF2MCTL_R: *mut usize = 0x40040098 as *mut usize;
 
-pub const CAN0_IF2DA1_R:*mut usize = 0x4004009C as *mut usize;
+pub const CAN0_IF2DA1_R: *mut usize = 0x4004009C as *mut usize;
 
-pub const CAN0_IF2DA2_R:*mut usize = 0x400400A0 as *mut usize;
+pub const CAN0_IF2DA2_R: *mut usize = 0x400400A0 as *mut usize;
 
-pub const CAN0_IF2DB1_R:*mut usize = 0x400400A4 as *mut usize;
+pub const CAN0_IF2DB1_R: *mut usize = 0x400400A4 as *mut usize;
 
-pub const CAN0_IF2DB2_R:*mut usize = 0x400400A8 as *mut usize;
+pub const CAN0_IF2DB2_R: *mut usize = 0x400400A8 as *mut usize;
 
-pub const CAN0_TXRQ1_R:*mut usize = 0x40040100 as *mut usize;
+pub const CAN0_TXRQ1_R: *mut usize = 0x40040100 as *mut usize;
 
-pub const CAN0_TXRQ2_R:*mut usize = 0x40040104 as *mut usize;
+pub const CAN0_TXRQ2_R: *mut usize = 0x40040104 as *mut usize;
 
-pub const CAN0_NWDA1_R:*mut usize = 0x40040120 as *mut usize;
+pub const CAN0_NWDA1_R: *mut usize = 0x40040120 as *mut usize;
 
-pub const CAN0_NWDA2_R:*mut usize = 0x40040124 as *mut usize;
+pub const CAN0_NWDA2_R: *mut usize = 0x40040124 as *mut usize;
 
-pub const CAN0_MSG1INT_R:*mut usize = 0x40040140 as *mut usize;
+pub const CAN0_MSG1INT_R: *mut usize = 0x40040140 as *mut usize;
 
-pub const CAN0_MSG2INT_R:*mut usize = 0x40040144 as *mut usize;
+pub const CAN0_MSG2INT_R: *mut usize = 0x40040144 as *mut usize;
 
-pub const CAN0_MSG1VAL_R:*mut usize = 0x40040160 as *mut usize;
+pub const CAN0_MSG1VAL_R: *mut usize = 0x40040160 as *mut usize;
 
-pub const CAN0_MSG2VAL_R:*mut usize = 0x40040164 as *mut usize;
+pub const CAN0_MSG2VAL_R: *mut usize = 0x40040164 as *mut usize;
 
 // *****************************************************************************
 //
@@ -1979,59 +1979,59 @@ pub const CAN0_MSG2VAL_R:*mut usize = 0x40040164 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER2_CFG_R:*mut usize = 0x4004C000 as *mut usize;
+pub const WTIMER2_CFG_R: *mut usize = 0x4004C000 as *mut usize;
 
-pub const WTIMER2_TAMR_R:*mut usize = 0x4004C004 as *mut usize;
+pub const WTIMER2_TAMR_R: *mut usize = 0x4004C004 as *mut usize;
 
-pub const WTIMER2_TBMR_R:*mut usize = 0x4004C008 as *mut usize;
+pub const WTIMER2_TBMR_R: *mut usize = 0x4004C008 as *mut usize;
 
-pub const WTIMER2_CTL_R:*mut usize = 0x4004C00C as *mut usize;
+pub const WTIMER2_CTL_R: *mut usize = 0x4004C00C as *mut usize;
 
-pub const WTIMER2_SYNC_R:*mut usize = 0x4004C010 as *mut usize;
+pub const WTIMER2_SYNC_R: *mut usize = 0x4004C010 as *mut usize;
 
-pub const WTIMER2_IMR_R:*mut usize = 0x4004C018 as *mut usize;
+pub const WTIMER2_IMR_R: *mut usize = 0x4004C018 as *mut usize;
 
-pub const WTIMER2_RIS_R:*mut usize = 0x4004C01C as *mut usize;
+pub const WTIMER2_RIS_R: *mut usize = 0x4004C01C as *mut usize;
 
-pub const WTIMER2_MIS_R:*mut usize = 0x4004C020 as *mut usize;
+pub const WTIMER2_MIS_R: *mut usize = 0x4004C020 as *mut usize;
 
-pub const WTIMER2_ICR_R:*mut usize = 0x4004C024 as *mut usize;
+pub const WTIMER2_ICR_R: *mut usize = 0x4004C024 as *mut usize;
 
-pub const WTIMER2_TAILR_R:*mut usize = 0x4004C028 as *mut usize;
+pub const WTIMER2_TAILR_R: *mut usize = 0x4004C028 as *mut usize;
 
-pub const WTIMER2_TBILR_R:*mut usize = 0x4004C02C as *mut usize;
+pub const WTIMER2_TBILR_R: *mut usize = 0x4004C02C as *mut usize;
 
-pub const WTIMER2_TAMATCHR_R:*mut usize = 0x4004C030 as *mut usize;
+pub const WTIMER2_TAMATCHR_R: *mut usize = 0x4004C030 as *mut usize;
 
-pub const WTIMER2_TBMATCHR_R:*mut usize = 0x4004C034 as *mut usize;
+pub const WTIMER2_TBMATCHR_R: *mut usize = 0x4004C034 as *mut usize;
 
-pub const WTIMER2_TAPR_R:*mut usize = 0x4004C038 as *mut usize;
+pub const WTIMER2_TAPR_R: *mut usize = 0x4004C038 as *mut usize;
 
-pub const WTIMER2_TBPR_R:*mut usize = 0x4004C03C as *mut usize;
+pub const WTIMER2_TBPR_R: *mut usize = 0x4004C03C as *mut usize;
 
-pub const WTIMER2_TAPMR_R:*mut usize = 0x4004C040 as *mut usize;
+pub const WTIMER2_TAPMR_R: *mut usize = 0x4004C040 as *mut usize;
 
-pub const WTIMER2_TBPMR_R:*mut usize = 0x4004C044 as *mut usize;
+pub const WTIMER2_TBPMR_R: *mut usize = 0x4004C044 as *mut usize;
 
-pub const WTIMER2_TAR_R:*mut usize = 0x4004C048 as *mut usize;
+pub const WTIMER2_TAR_R: *mut usize = 0x4004C048 as *mut usize;
 
-pub const WTIMER2_TBR_R:*mut usize = 0x4004C04C as *mut usize;
+pub const WTIMER2_TBR_R: *mut usize = 0x4004C04C as *mut usize;
 
-pub const WTIMER2_TAV_R:*mut usize = 0x4004C050 as *mut usize;
+pub const WTIMER2_TAV_R: *mut usize = 0x4004C050 as *mut usize;
 
-pub const WTIMER2_TBV_R:*mut usize = 0x4004C054 as *mut usize;
+pub const WTIMER2_TBV_R: *mut usize = 0x4004C054 as *mut usize;
 
-pub const WTIMER2_RTCPD_R:*mut usize = 0x4004C058 as *mut usize;
+pub const WTIMER2_RTCPD_R: *mut usize = 0x4004C058 as *mut usize;
 
-pub const WTIMER2_TAPS_R:*mut usize = 0x4004C05C as *mut usize;
+pub const WTIMER2_TAPS_R: *mut usize = 0x4004C05C as *mut usize;
 
-pub const WTIMER2_TBPS_R:*mut usize = 0x4004C060 as *mut usize;
+pub const WTIMER2_TBPS_R: *mut usize = 0x4004C060 as *mut usize;
 
-pub const WTIMER2_TAPV_R:*mut usize = 0x4004C064 as *mut usize;
+pub const WTIMER2_TAPV_R: *mut usize = 0x4004C064 as *mut usize;
 
-pub const WTIMER2_TBPV_R:*mut usize = 0x4004C068 as *mut usize;
+pub const WTIMER2_TBPV_R: *mut usize = 0x4004C068 as *mut usize;
 
-pub const WTIMER2_PP_R:*mut usize = 0x4004CFC0 as *mut usize;
+pub const WTIMER2_PP_R: *mut usize = 0x4004CFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2039,59 +2039,59 @@ pub const WTIMER2_PP_R:*mut usize = 0x4004CFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER3_CFG_R:*mut usize = 0x4004D000 as *mut usize;
+pub const WTIMER3_CFG_R: *mut usize = 0x4004D000 as *mut usize;
 
-pub const WTIMER3_TAMR_R:*mut usize = 0x4004D004 as *mut usize;
+pub const WTIMER3_TAMR_R: *mut usize = 0x4004D004 as *mut usize;
 
-pub const WTIMER3_TBMR_R:*mut usize = 0x4004D008 as *mut usize;
+pub const WTIMER3_TBMR_R: *mut usize = 0x4004D008 as *mut usize;
 
-pub const WTIMER3_CTL_R:*mut usize = 0x4004D00C as *mut usize;
+pub const WTIMER3_CTL_R: *mut usize = 0x4004D00C as *mut usize;
 
-pub const WTIMER3_SYNC_R:*mut usize = 0x4004D010 as *mut usize;
+pub const WTIMER3_SYNC_R: *mut usize = 0x4004D010 as *mut usize;
 
-pub const WTIMER3_IMR_R:*mut usize = 0x4004D018 as *mut usize;
+pub const WTIMER3_IMR_R: *mut usize = 0x4004D018 as *mut usize;
 
-pub const WTIMER3_RIS_R:*mut usize = 0x4004D01C as *mut usize;
+pub const WTIMER3_RIS_R: *mut usize = 0x4004D01C as *mut usize;
 
-pub const WTIMER3_MIS_R:*mut usize = 0x4004D020 as *mut usize;
+pub const WTIMER3_MIS_R: *mut usize = 0x4004D020 as *mut usize;
 
-pub const WTIMER3_ICR_R:*mut usize = 0x4004D024 as *mut usize;
+pub const WTIMER3_ICR_R: *mut usize = 0x4004D024 as *mut usize;
 
-pub const WTIMER3_TAILR_R:*mut usize = 0x4004D028 as *mut usize;
+pub const WTIMER3_TAILR_R: *mut usize = 0x4004D028 as *mut usize;
 
-pub const WTIMER3_TBILR_R:*mut usize = 0x4004D02C as *mut usize;
+pub const WTIMER3_TBILR_R: *mut usize = 0x4004D02C as *mut usize;
 
-pub const WTIMER3_TAMATCHR_R:*mut usize = 0x4004D030 as *mut usize;
+pub const WTIMER3_TAMATCHR_R: *mut usize = 0x4004D030 as *mut usize;
 
-pub const WTIMER3_TBMATCHR_R:*mut usize = 0x4004D034 as *mut usize;
+pub const WTIMER3_TBMATCHR_R: *mut usize = 0x4004D034 as *mut usize;
 
-pub const WTIMER3_TAPR_R:*mut usize = 0x4004D038 as *mut usize;
+pub const WTIMER3_TAPR_R: *mut usize = 0x4004D038 as *mut usize;
 
-pub const WTIMER3_TBPR_R:*mut usize = 0x4004D03C as *mut usize;
+pub const WTIMER3_TBPR_R: *mut usize = 0x4004D03C as *mut usize;
 
-pub const WTIMER3_TAPMR_R:*mut usize = 0x4004D040 as *mut usize;
+pub const WTIMER3_TAPMR_R: *mut usize = 0x4004D040 as *mut usize;
 
-pub const WTIMER3_TBPMR_R:*mut usize = 0x4004D044 as *mut usize;
+pub const WTIMER3_TBPMR_R: *mut usize = 0x4004D044 as *mut usize;
 
-pub const WTIMER3_TAR_R:*mut usize = 0x4004D048 as *mut usize;
+pub const WTIMER3_TAR_R: *mut usize = 0x4004D048 as *mut usize;
 
-pub const WTIMER3_TBR_R:*mut usize = 0x4004D04C as *mut usize;
+pub const WTIMER3_TBR_R: *mut usize = 0x4004D04C as *mut usize;
 
-pub const WTIMER3_TAV_R:*mut usize = 0x4004D050 as *mut usize;
+pub const WTIMER3_TAV_R: *mut usize = 0x4004D050 as *mut usize;
 
-pub const WTIMER3_TBV_R:*mut usize = 0x4004D054 as *mut usize;
+pub const WTIMER3_TBV_R: *mut usize = 0x4004D054 as *mut usize;
 
-pub const WTIMER3_RTCPD_R:*mut usize = 0x4004D058 as *mut usize;
+pub const WTIMER3_RTCPD_R: *mut usize = 0x4004D058 as *mut usize;
 
-pub const WTIMER3_TAPS_R:*mut usize = 0x4004D05C as *mut usize;
+pub const WTIMER3_TAPS_R: *mut usize = 0x4004D05C as *mut usize;
 
-pub const WTIMER3_TBPS_R:*mut usize = 0x4004D060 as *mut usize;
+pub const WTIMER3_TBPS_R: *mut usize = 0x4004D060 as *mut usize;
 
-pub const WTIMER3_TAPV_R:*mut usize = 0x4004D064 as *mut usize;
+pub const WTIMER3_TAPV_R: *mut usize = 0x4004D064 as *mut usize;
 
-pub const WTIMER3_TBPV_R:*mut usize = 0x4004D068 as *mut usize;
+pub const WTIMER3_TBPV_R: *mut usize = 0x4004D068 as *mut usize;
 
-pub const WTIMER3_PP_R:*mut usize = 0x4004DFC0 as *mut usize;
+pub const WTIMER3_PP_R: *mut usize = 0x4004DFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2099,59 +2099,59 @@ pub const WTIMER3_PP_R:*mut usize = 0x4004DFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER4_CFG_R:*mut usize = 0x4004E000 as *mut usize;
+pub const WTIMER4_CFG_R: *mut usize = 0x4004E000 as *mut usize;
 
-pub const WTIMER4_TAMR_R:*mut usize = 0x4004E004 as *mut usize;
+pub const WTIMER4_TAMR_R: *mut usize = 0x4004E004 as *mut usize;
 
-pub const WTIMER4_TBMR_R:*mut usize = 0x4004E008 as *mut usize;
+pub const WTIMER4_TBMR_R: *mut usize = 0x4004E008 as *mut usize;
 
-pub const WTIMER4_CTL_R:*mut usize = 0x4004E00C as *mut usize;
+pub const WTIMER4_CTL_R: *mut usize = 0x4004E00C as *mut usize;
 
-pub const WTIMER4_SYNC_R:*mut usize = 0x4004E010 as *mut usize;
+pub const WTIMER4_SYNC_R: *mut usize = 0x4004E010 as *mut usize;
 
-pub const WTIMER4_IMR_R:*mut usize = 0x4004E018 as *mut usize;
+pub const WTIMER4_IMR_R: *mut usize = 0x4004E018 as *mut usize;
 
-pub const WTIMER4_RIS_R:*mut usize = 0x4004E01C as *mut usize;
+pub const WTIMER4_RIS_R: *mut usize = 0x4004E01C as *mut usize;
 
-pub const WTIMER4_MIS_R:*mut usize = 0x4004E020 as *mut usize;
+pub const WTIMER4_MIS_R: *mut usize = 0x4004E020 as *mut usize;
 
-pub const WTIMER4_ICR_R:*mut usize = 0x4004E024 as *mut usize;
+pub const WTIMER4_ICR_R: *mut usize = 0x4004E024 as *mut usize;
 
-pub const WTIMER4_TAILR_R:*mut usize = 0x4004E028 as *mut usize;
+pub const WTIMER4_TAILR_R: *mut usize = 0x4004E028 as *mut usize;
 
-pub const WTIMER4_TBILR_R:*mut usize = 0x4004E02C as *mut usize;
+pub const WTIMER4_TBILR_R: *mut usize = 0x4004E02C as *mut usize;
 
-pub const WTIMER4_TAMATCHR_R:*mut usize = 0x4004E030 as *mut usize;
+pub const WTIMER4_TAMATCHR_R: *mut usize = 0x4004E030 as *mut usize;
 
-pub const WTIMER4_TBMATCHR_R:*mut usize = 0x4004E034 as *mut usize;
+pub const WTIMER4_TBMATCHR_R: *mut usize = 0x4004E034 as *mut usize;
 
-pub const WTIMER4_TAPR_R:*mut usize = 0x4004E038 as *mut usize;
+pub const WTIMER4_TAPR_R: *mut usize = 0x4004E038 as *mut usize;
 
-pub const WTIMER4_TBPR_R:*mut usize = 0x4004E03C as *mut usize;
+pub const WTIMER4_TBPR_R: *mut usize = 0x4004E03C as *mut usize;
 
-pub const WTIMER4_TAPMR_R:*mut usize = 0x4004E040 as *mut usize;
+pub const WTIMER4_TAPMR_R: *mut usize = 0x4004E040 as *mut usize;
 
-pub const WTIMER4_TBPMR_R:*mut usize = 0x4004E044 as *mut usize;
+pub const WTIMER4_TBPMR_R: *mut usize = 0x4004E044 as *mut usize;
 
-pub const WTIMER4_TAR_R:*mut usize = 0x4004E048 as *mut usize;
+pub const WTIMER4_TAR_R: *mut usize = 0x4004E048 as *mut usize;
 
-pub const WTIMER4_TBR_R:*mut usize = 0x4004E04C as *mut usize;
+pub const WTIMER4_TBR_R: *mut usize = 0x4004E04C as *mut usize;
 
-pub const WTIMER4_TAV_R:*mut usize = 0x4004E050 as *mut usize;
+pub const WTIMER4_TAV_R: *mut usize = 0x4004E050 as *mut usize;
 
-pub const WTIMER4_TBV_R:*mut usize = 0x4004E054 as *mut usize;
+pub const WTIMER4_TBV_R: *mut usize = 0x4004E054 as *mut usize;
 
-pub const WTIMER4_RTCPD_R:*mut usize = 0x4004E058 as *mut usize;
+pub const WTIMER4_RTCPD_R: *mut usize = 0x4004E058 as *mut usize;
 
-pub const WTIMER4_TAPS_R:*mut usize = 0x4004E05C as *mut usize;
+pub const WTIMER4_TAPS_R: *mut usize = 0x4004E05C as *mut usize;
 
-pub const WTIMER4_TBPS_R:*mut usize = 0x4004E060 as *mut usize;
+pub const WTIMER4_TBPS_R: *mut usize = 0x4004E060 as *mut usize;
 
-pub const WTIMER4_TAPV_R:*mut usize = 0x4004E064 as *mut usize;
+pub const WTIMER4_TAPV_R: *mut usize = 0x4004E064 as *mut usize;
 
-pub const WTIMER4_TBPV_R:*mut usize = 0x4004E068 as *mut usize;
+pub const WTIMER4_TBPV_R: *mut usize = 0x4004E068 as *mut usize;
 
-pub const WTIMER4_PP_R:*mut usize = 0x4004EFC0 as *mut usize;
+pub const WTIMER4_PP_R: *mut usize = 0x4004EFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2159,59 +2159,59 @@ pub const WTIMER4_PP_R:*mut usize = 0x4004EFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const WTIMER5_CFG_R:*mut usize = 0x4004F000 as *mut usize;
+pub const WTIMER5_CFG_R: *mut usize = 0x4004F000 as *mut usize;
 
-pub const WTIMER5_TAMR_R:*mut usize = 0x4004F004 as *mut usize;
+pub const WTIMER5_TAMR_R: *mut usize = 0x4004F004 as *mut usize;
 
-pub const WTIMER5_TBMR_R:*mut usize = 0x4004F008 as *mut usize;
+pub const WTIMER5_TBMR_R: *mut usize = 0x4004F008 as *mut usize;
 
-pub const WTIMER5_CTL_R:*mut usize = 0x4004F00C as *mut usize;
+pub const WTIMER5_CTL_R: *mut usize = 0x4004F00C as *mut usize;
 
-pub const WTIMER5_SYNC_R:*mut usize = 0x4004F010 as *mut usize;
+pub const WTIMER5_SYNC_R: *mut usize = 0x4004F010 as *mut usize;
 
-pub const WTIMER5_IMR_R:*mut usize = 0x4004F018 as *mut usize;
+pub const WTIMER5_IMR_R: *mut usize = 0x4004F018 as *mut usize;
 
-pub const WTIMER5_RIS_R:*mut usize = 0x4004F01C as *mut usize;
+pub const WTIMER5_RIS_R: *mut usize = 0x4004F01C as *mut usize;
 
-pub const WTIMER5_MIS_R:*mut usize = 0x4004F020 as *mut usize;
+pub const WTIMER5_MIS_R: *mut usize = 0x4004F020 as *mut usize;
 
-pub const WTIMER5_ICR_R:*mut usize = 0x4004F024 as *mut usize;
+pub const WTIMER5_ICR_R: *mut usize = 0x4004F024 as *mut usize;
 
-pub const WTIMER5_TAILR_R:*mut usize = 0x4004F028 as *mut usize;
+pub const WTIMER5_TAILR_R: *mut usize = 0x4004F028 as *mut usize;
 
-pub const WTIMER5_TBILR_R:*mut usize = 0x4004F02C as *mut usize;
+pub const WTIMER5_TBILR_R: *mut usize = 0x4004F02C as *mut usize;
 
-pub const WTIMER5_TAMATCHR_R:*mut usize = 0x4004F030 as *mut usize;
+pub const WTIMER5_TAMATCHR_R: *mut usize = 0x4004F030 as *mut usize;
 
-pub const WTIMER5_TBMATCHR_R:*mut usize = 0x4004F034 as *mut usize;
+pub const WTIMER5_TBMATCHR_R: *mut usize = 0x4004F034 as *mut usize;
 
-pub const WTIMER5_TAPR_R:*mut usize = 0x4004F038 as *mut usize;
+pub const WTIMER5_TAPR_R: *mut usize = 0x4004F038 as *mut usize;
 
-pub const WTIMER5_TBPR_R:*mut usize = 0x4004F03C as *mut usize;
+pub const WTIMER5_TBPR_R: *mut usize = 0x4004F03C as *mut usize;
 
-pub const WTIMER5_TAPMR_R:*mut usize = 0x4004F040 as *mut usize;
+pub const WTIMER5_TAPMR_R: *mut usize = 0x4004F040 as *mut usize;
 
-pub const WTIMER5_TBPMR_R:*mut usize = 0x4004F044 as *mut usize;
+pub const WTIMER5_TBPMR_R: *mut usize = 0x4004F044 as *mut usize;
 
-pub const WTIMER5_TAR_R:*mut usize = 0x4004F048 as *mut usize;
+pub const WTIMER5_TAR_R: *mut usize = 0x4004F048 as *mut usize;
 
-pub const WTIMER5_TBR_R:*mut usize = 0x4004F04C as *mut usize;
+pub const WTIMER5_TBR_R: *mut usize = 0x4004F04C as *mut usize;
 
-pub const WTIMER5_TAV_R:*mut usize = 0x4004F050 as *mut usize;
+pub const WTIMER5_TAV_R: *mut usize = 0x4004F050 as *mut usize;
 
-pub const WTIMER5_TBV_R:*mut usize = 0x4004F054 as *mut usize;
+pub const WTIMER5_TBV_R: *mut usize = 0x4004F054 as *mut usize;
 
-pub const WTIMER5_RTCPD_R:*mut usize = 0x4004F058 as *mut usize;
+pub const WTIMER5_RTCPD_R: *mut usize = 0x4004F058 as *mut usize;
 
-pub const WTIMER5_TAPS_R:*mut usize = 0x4004F05C as *mut usize;
+pub const WTIMER5_TAPS_R: *mut usize = 0x4004F05C as *mut usize;
 
-pub const WTIMER5_TBPS_R:*mut usize = 0x4004F060 as *mut usize;
+pub const WTIMER5_TBPS_R: *mut usize = 0x4004F060 as *mut usize;
 
-pub const WTIMER5_TAPV_R:*mut usize = 0x4004F064 as *mut usize;
+pub const WTIMER5_TAPV_R: *mut usize = 0x4004F064 as *mut usize;
 
-pub const WTIMER5_TBPV_R:*mut usize = 0x4004F068 as *mut usize;
+pub const WTIMER5_TBPV_R: *mut usize = 0x4004F068 as *mut usize;
 
-pub const WTIMER5_PP_R:*mut usize = 0x4004FFC0 as *mut usize;
+pub const WTIMER5_PP_R: *mut usize = 0x4004FFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2219,175 +2219,175 @@ pub const WTIMER5_PP_R:*mut usize = 0x4004FFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const USB0_FADDR_R:*mut u8 = 0x40050000 as *mut u8;
+pub const USB0_FADDR_R: *mut u8 = 0x40050000 as *mut u8;
 
-pub const USB0_POWER_R:*mut u8 = 0x40050001 as *mut u8;
+pub const USB0_POWER_R: *mut u8 = 0x40050001 as *mut u8;
 
-pub const USB0_TXIS_R:*mut u16 = 0x40050002 as *mut u16;
+pub const USB0_TXIS_R: *mut u16 = 0x40050002 as *mut u16;
 
-pub const USB0_RXIS_R:*mut u16 = 0x40050004 as *mut u16;
+pub const USB0_RXIS_R: *mut u16 = 0x40050004 as *mut u16;
 
-pub const USB0_TXIE_R:*mut u16 = 0x40050006 as *mut u16;
+pub const USB0_TXIE_R: *mut u16 = 0x40050006 as *mut u16;
 
-pub const USB0_RXIE_R:*mut u16 = 0x40050008 as *mut u16;
+pub const USB0_RXIE_R: *mut u16 = 0x40050008 as *mut u16;
 
-pub const USB0_IS_R:*mut u8 = 0x4005000A as *mut u8;
+pub const USB0_IS_R: *mut u8 = 0x4005000A as *mut u8;
 
-pub const USB0_IE_R:*mut u8 = 0x4005000B as *mut u8;
+pub const USB0_IE_R: *mut u8 = 0x4005000B as *mut u8;
 
-pub const USB0_FRAME_R:*mut u16 = 0x4005000C as *mut u16;
+pub const USB0_FRAME_R: *mut u16 = 0x4005000C as *mut u16;
 
-pub const USB0_EPIDX_R:*mut u8 = 0x4005000E as *mut u8;
+pub const USB0_EPIDX_R: *mut u8 = 0x4005000E as *mut u8;
 
-pub const USB0_TEST_R:*mut u8 = 0x4005000F as *mut u8;
+pub const USB0_TEST_R: *mut u8 = 0x4005000F as *mut u8;
 
-pub const USB0_FIFO0_R:*mut usize = 0x40050020 as *mut usize;
+pub const USB0_FIFO0_R: *mut usize = 0x40050020 as *mut usize;
 
-pub const USB0_FIFO1_R:*mut usize = 0x40050024 as *mut usize;
+pub const USB0_FIFO1_R: *mut usize = 0x40050024 as *mut usize;
 
-pub const USB0_FIFO2_R:*mut usize = 0x40050028 as *mut usize;
+pub const USB0_FIFO2_R: *mut usize = 0x40050028 as *mut usize;
 
-pub const USB0_FIFO3_R:*mut usize = 0x4005002C as *mut usize;
+pub const USB0_FIFO3_R: *mut usize = 0x4005002C as *mut usize;
 
-pub const USB0_FIFO4_R:*mut usize = 0x40050030 as *mut usize;
+pub const USB0_FIFO4_R: *mut usize = 0x40050030 as *mut usize;
 
-pub const USB0_FIFO5_R:*mut usize = 0x40050034 as *mut usize;
+pub const USB0_FIFO5_R: *mut usize = 0x40050034 as *mut usize;
 
-pub const USB0_FIFO6_R:*mut usize = 0x40050038 as *mut usize;
+pub const USB0_FIFO6_R: *mut usize = 0x40050038 as *mut usize;
 
-pub const USB0_FIFO7_R:*mut usize = 0x4005003C as *mut usize;
+pub const USB0_FIFO7_R: *mut usize = 0x4005003C as *mut usize;
 
-pub const USB0_TXFIFOSZ_R:*mut u8 = 0x40050062 as *mut u8;
+pub const USB0_TXFIFOSZ_R: *mut u8 = 0x40050062 as *mut u8;
 
-pub const USB0_RXFIFOSZ_R:*mut u8 = 0x40050063 as *mut u8;
+pub const USB0_RXFIFOSZ_R: *mut u8 = 0x40050063 as *mut u8;
 
-pub const USB0_TXFIFOADD_R:*mut u16 = 0x40050064 as *mut u16;
+pub const USB0_TXFIFOADD_R: *mut u16 = 0x40050064 as *mut u16;
 
-pub const USB0_RXFIFOADD_R:*mut u16 = 0x40050066 as *mut u16;
+pub const USB0_RXFIFOADD_R: *mut u16 = 0x40050066 as *mut u16;
 
-pub const USB0_CONTIM_R:*mut u8 = 0x4005007A as *mut u8;
+pub const USB0_CONTIM_R: *mut u8 = 0x4005007A as *mut u8;
 
-pub const USB0_FSEOF_R:*mut u8 = 0x4005007D as *mut u8;
+pub const USB0_FSEOF_R: *mut u8 = 0x4005007D as *mut u8;
 
-pub const USB0_LSEOF_R:*mut u8 = 0x4005007E as *mut u8;
+pub const USB0_LSEOF_R: *mut u8 = 0x4005007E as *mut u8;
 
-pub const USB0_CSRL0_R:*mut u8 = 0x40050102 as *mut u8;
+pub const USB0_CSRL0_R: *mut u8 = 0x40050102 as *mut u8;
 
-pub const USB0_CSRH0_R:*mut u8 = 0x40050103 as *mut u8;
+pub const USB0_CSRH0_R: *mut u8 = 0x40050103 as *mut u8;
 
-pub const USB0_COUNT0_R:*mut u8 = 0x40050108 as *mut u8;
+pub const USB0_COUNT0_R: *mut u8 = 0x40050108 as *mut u8;
 
-pub const USB0_TXMAXP1_R:*mut u16 = 0x40050110 as *mut u16;
+pub const USB0_TXMAXP1_R: *mut u16 = 0x40050110 as *mut u16;
 
-pub const USB0_TXCSRL1_R:*mut u8 = 0x40050112 as *mut u8;
+pub const USB0_TXCSRL1_R: *mut u8 = 0x40050112 as *mut u8;
 
-pub const USB0_TXCSRH1_R:*mut u8 = 0x40050113 as *mut u8;
+pub const USB0_TXCSRH1_R: *mut u8 = 0x40050113 as *mut u8;
 
-pub const USB0_RXMAXP1_R:*mut u16 = 0x40050114 as *mut u16;
+pub const USB0_RXMAXP1_R: *mut u16 = 0x40050114 as *mut u16;
 
-pub const USB0_RXCSRL1_R:*mut u8 = 0x40050116 as *mut u8;
+pub const USB0_RXCSRL1_R: *mut u8 = 0x40050116 as *mut u8;
 
-pub const USB0_RXCSRH1_R:*mut u8 = 0x40050117 as *mut u8;
+pub const USB0_RXCSRH1_R: *mut u8 = 0x40050117 as *mut u8;
 
-pub const USB0_RXCOUNT1_R:*mut u16 = 0x40050118 as *mut u16;
+pub const USB0_RXCOUNT1_R: *mut u16 = 0x40050118 as *mut u16;
 
-pub const USB0_TXMAXP2_R:*mut u16 = 0x40050120 as *mut u16;
+pub const USB0_TXMAXP2_R: *mut u16 = 0x40050120 as *mut u16;
 
-pub const USB0_TXCSRL2_R:*mut u8 = 0x40050122 as *mut u8;
+pub const USB0_TXCSRL2_R: *mut u8 = 0x40050122 as *mut u8;
 
-pub const USB0_TXCSRH2_R:*mut u8 = 0x40050123 as *mut u8;
+pub const USB0_TXCSRH2_R: *mut u8 = 0x40050123 as *mut u8;
 
-pub const USB0_RXMAXP2_R:*mut u16 = 0x40050124 as *mut u16;
+pub const USB0_RXMAXP2_R: *mut u16 = 0x40050124 as *mut u16;
 
-pub const USB0_RXCSRL2_R:*mut u8 = 0x40050126 as *mut u8;
+pub const USB0_RXCSRL2_R: *mut u8 = 0x40050126 as *mut u8;
 
-pub const USB0_RXCSRH2_R:*mut u8 = 0x40050127 as *mut u8;
+pub const USB0_RXCSRH2_R: *mut u8 = 0x40050127 as *mut u8;
 
-pub const USB0_RXCOUNT2_R:*mut u16 = 0x40050128 as *mut u16;
+pub const USB0_RXCOUNT2_R: *mut u16 = 0x40050128 as *mut u16;
 
-pub const USB0_TXMAXP3_R:*mut u16 = 0x40050130 as *mut u16;
+pub const USB0_TXMAXP3_R: *mut u16 = 0x40050130 as *mut u16;
 
-pub const USB0_TXCSRL3_R:*mut u8 = 0x40050132 as *mut u8;
+pub const USB0_TXCSRL3_R: *mut u8 = 0x40050132 as *mut u8;
 
-pub const USB0_TXCSRH3_R:*mut u8 = 0x40050133 as *mut u8;
+pub const USB0_TXCSRH3_R: *mut u8 = 0x40050133 as *mut u8;
 
-pub const USB0_RXMAXP3_R:*mut u16 = 0x40050134 as *mut u16;
+pub const USB0_RXMAXP3_R: *mut u16 = 0x40050134 as *mut u16;
 
-pub const USB0_RXCSRL3_R:*mut u8 = 0x40050136 as *mut u8;
+pub const USB0_RXCSRL3_R: *mut u8 = 0x40050136 as *mut u8;
 
-pub const USB0_RXCSRH3_R:*mut u8 = 0x40050137 as *mut u8;
+pub const USB0_RXCSRH3_R: *mut u8 = 0x40050137 as *mut u8;
 
-pub const USB0_RXCOUNT3_R:*mut u16 = 0x40050138 as *mut u16;
+pub const USB0_RXCOUNT3_R: *mut u16 = 0x40050138 as *mut u16;
 
-pub const USB0_TXMAXP4_R:*mut u16 = 0x40050140 as *mut u16;
+pub const USB0_TXMAXP4_R: *mut u16 = 0x40050140 as *mut u16;
 
-pub const USB0_TXCSRL4_R:*mut u8 = 0x40050142 as *mut u8;
+pub const USB0_TXCSRL4_R: *mut u8 = 0x40050142 as *mut u8;
 
-pub const USB0_TXCSRH4_R:*mut u8 = 0x40050143 as *mut u8;
+pub const USB0_TXCSRH4_R: *mut u8 = 0x40050143 as *mut u8;
 
-pub const USB0_RXMAXP4_R:*mut u16 = 0x40050144 as *mut u16;
+pub const USB0_RXMAXP4_R: *mut u16 = 0x40050144 as *mut u16;
 
-pub const USB0_RXCSRL4_R:*mut u8 = 0x40050146 as *mut u8;
+pub const USB0_RXCSRL4_R: *mut u8 = 0x40050146 as *mut u8;
 
-pub const USB0_RXCSRH4_R:*mut u8 = 0x40050147 as *mut u8;
+pub const USB0_RXCSRH4_R: *mut u8 = 0x40050147 as *mut u8;
 
-pub const USB0_RXCOUNT4_R:*mut u16 = 0x40050148 as *mut u16;
+pub const USB0_RXCOUNT4_R: *mut u16 = 0x40050148 as *mut u16;
 
-pub const USB0_TXMAXP5_R:*mut u16 = 0x40050150 as *mut u16;
+pub const USB0_TXMAXP5_R: *mut u16 = 0x40050150 as *mut u16;
 
-pub const USB0_TXCSRL5_R:*mut u8 = 0x40050152 as *mut u8;
+pub const USB0_TXCSRL5_R: *mut u8 = 0x40050152 as *mut u8;
 
-pub const USB0_TXCSRH5_R:*mut u8 = 0x40050153 as *mut u8;
+pub const USB0_TXCSRH5_R: *mut u8 = 0x40050153 as *mut u8;
 
-pub const USB0_RXMAXP5_R:*mut u16 = 0x40050154 as *mut u16;
+pub const USB0_RXMAXP5_R: *mut u16 = 0x40050154 as *mut u16;
 
-pub const USB0_RXCSRL5_R:*mut u8 = 0x40050156 as *mut u8;
+pub const USB0_RXCSRL5_R: *mut u8 = 0x40050156 as *mut u8;
 
-pub const USB0_RXCSRH5_R:*mut u8 = 0x40050157 as *mut u8;
+pub const USB0_RXCSRH5_R: *mut u8 = 0x40050157 as *mut u8;
 
-pub const USB0_RXCOUNT5_R:*mut u16 = 0x40050158 as *mut u16;
+pub const USB0_RXCOUNT5_R: *mut u16 = 0x40050158 as *mut u16;
 
-pub const USB0_TXMAXP6_R:*mut u16 = 0x40050160 as *mut u16;
+pub const USB0_TXMAXP6_R: *mut u16 = 0x40050160 as *mut u16;
 
-pub const USB0_TXCSRL6_R:*mut u8 = 0x40050162 as *mut u8;
+pub const USB0_TXCSRL6_R: *mut u8 = 0x40050162 as *mut u8;
 
-pub const USB0_TXCSRH6_R:*mut u8 = 0x40050163 as *mut u8;
+pub const USB0_TXCSRH6_R: *mut u8 = 0x40050163 as *mut u8;
 
-pub const USB0_RXMAXP6_R:*mut u16 = 0x40050164 as *mut u16;
+pub const USB0_RXMAXP6_R: *mut u16 = 0x40050164 as *mut u16;
 
-pub const USB0_RXCSRL6_R:*mut u8 = 0x40050166 as *mut u8;
+pub const USB0_RXCSRL6_R: *mut u8 = 0x40050166 as *mut u8;
 
-pub const USB0_RXCSRH6_R:*mut u8 = 0x40050167 as *mut u8;
+pub const USB0_RXCSRH6_R: *mut u8 = 0x40050167 as *mut u8;
 
-pub const USB0_RXCOUNT6_R:*mut u16 = 0x40050168 as *mut u16;
+pub const USB0_RXCOUNT6_R: *mut u16 = 0x40050168 as *mut u16;
 
-pub const USB0_TXMAXP7_R:*mut u16 = 0x40050170 as *mut u16;
+pub const USB0_TXMAXP7_R: *mut u16 = 0x40050170 as *mut u16;
 
-pub const USB0_TXCSRL7_R:*mut u8 = 0x40050172 as *mut u8;
+pub const USB0_TXCSRL7_R: *mut u8 = 0x40050172 as *mut u8;
 
-pub const USB0_TXCSRH7_R:*mut u8 = 0x40050173 as *mut u8;
+pub const USB0_TXCSRH7_R: *mut u8 = 0x40050173 as *mut u8;
 
-pub const USB0_RXMAXP7_R:*mut u16 = 0x40050174 as *mut u16;
+pub const USB0_RXMAXP7_R: *mut u16 = 0x40050174 as *mut u16;
 
-pub const USB0_RXCSRL7_R:*mut u8 = 0x40050176 as *mut u8;
+pub const USB0_RXCSRL7_R: *mut u8 = 0x40050176 as *mut u8;
 
-pub const USB0_RXCSRH7_R:*mut u8 = 0x40050177 as *mut u8;
+pub const USB0_RXCSRH7_R: *mut u8 = 0x40050177 as *mut u8;
 
-pub const USB0_RXCOUNT7_R:*mut u16 = 0x40050178 as *mut u16;
+pub const USB0_RXCOUNT7_R: *mut u16 = 0x40050178 as *mut u16;
 
-pub const USB0_RXDPKTBUFDIS_R:*mut u16 = 0x40050340 as *mut u16;
+pub const USB0_RXDPKTBUFDIS_R: *mut u16 = 0x40050340 as *mut u16;
 
-pub const USB0_TXDPKTBUFDIS_R:*mut u16 = 0x40050342 as *mut u16;
+pub const USB0_TXDPKTBUFDIS_R: *mut u16 = 0x40050342 as *mut u16;
 
-pub const USB0_DRRIS_R:*mut usize = 0x40050410 as *mut usize;
+pub const USB0_DRRIS_R: *mut usize = 0x40050410 as *mut usize;
 
-pub const USB0_DRIM_R:*mut usize = 0x40050414 as *mut usize;
+pub const USB0_DRIM_R: *mut usize = 0x40050414 as *mut usize;
 
-pub const USB0_DRISC_R:*mut usize = 0x40050418 as *mut usize;
+pub const USB0_DRISC_R: *mut usize = 0x40050418 as *mut usize;
 
-pub const USB0_DMASEL_R:*mut usize = 0x40050450 as *mut usize;
+pub const USB0_DMASEL_R: *mut usize = 0x40050450 as *mut usize;
 
-pub const USB0_PP_R:*mut usize = 0x40050FC0 as *mut usize;
+pub const USB0_PP_R: *mut usize = 0x40050FC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2395,57 +2395,57 @@ pub const USB0_PP_R:*mut usize = 0x40050FC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTA_AHB_DATA_BITS_R:*mut usize = 0x40058000 as *mut usize;
+pub const GPIO_PORTA_AHB_DATA_BITS_R: *mut usize = 0x40058000 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DATA_R:*mut usize = 0x400583FC as *mut usize;
+pub const GPIO_PORTA_AHB_DATA_R: *mut usize = 0x400583FC as *mut usize;
 
-pub const GPIO_PORTA_AHB_DIR_R:*mut usize = 0x40058400 as *mut usize;
+pub const GPIO_PORTA_AHB_DIR_R: *mut usize = 0x40058400 as *mut usize;
 
-pub const GPIO_PORTA_AHB_IS_R:*mut usize = 0x40058404 as *mut usize;
+pub const GPIO_PORTA_AHB_IS_R: *mut usize = 0x40058404 as *mut usize;
 
-pub const GPIO_PORTA_AHB_IBE_R:*mut usize = 0x40058408 as *mut usize;
+pub const GPIO_PORTA_AHB_IBE_R: *mut usize = 0x40058408 as *mut usize;
 
-pub const GPIO_PORTA_AHB_IEV_R:*mut usize = 0x4005840C as *mut usize;
+pub const GPIO_PORTA_AHB_IEV_R: *mut usize = 0x4005840C as *mut usize;
 
-pub const GPIO_PORTA_AHB_IM_R:*mut usize = 0x40058410 as *mut usize;
+pub const GPIO_PORTA_AHB_IM_R: *mut usize = 0x40058410 as *mut usize;
 
-pub const GPIO_PORTA_AHB_RIS_R:*mut usize = 0x40058414 as *mut usize;
+pub const GPIO_PORTA_AHB_RIS_R: *mut usize = 0x40058414 as *mut usize;
 
-pub const GPIO_PORTA_AHB_MIS_R:*mut usize = 0x40058418 as *mut usize;
+pub const GPIO_PORTA_AHB_MIS_R: *mut usize = 0x40058418 as *mut usize;
 
-pub const GPIO_PORTA_AHB_ICR_R:*mut usize = 0x4005841C as *mut usize;
+pub const GPIO_PORTA_AHB_ICR_R: *mut usize = 0x4005841C as *mut usize;
 
-pub const GPIO_PORTA_AHB_AFSEL_R:*mut usize = 0x40058420 as *mut usize;
+pub const GPIO_PORTA_AHB_AFSEL_R: *mut usize = 0x40058420 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DR2R_R:*mut usize = 0x40058500 as *mut usize;
+pub const GPIO_PORTA_AHB_DR2R_R: *mut usize = 0x40058500 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DR4R_R:*mut usize = 0x40058504 as *mut usize;
+pub const GPIO_PORTA_AHB_DR4R_R: *mut usize = 0x40058504 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DR8R_R:*mut usize = 0x40058508 as *mut usize;
+pub const GPIO_PORTA_AHB_DR8R_R: *mut usize = 0x40058508 as *mut usize;
 
-pub const GPIO_PORTA_AHB_ODR_R:*mut usize = 0x4005850C as *mut usize;
+pub const GPIO_PORTA_AHB_ODR_R: *mut usize = 0x4005850C as *mut usize;
 
-pub const GPIO_PORTA_AHB_PUR_R:*mut usize = 0x40058510 as *mut usize;
+pub const GPIO_PORTA_AHB_PUR_R: *mut usize = 0x40058510 as *mut usize;
 
-pub const GPIO_PORTA_AHB_PDR_R:*mut usize = 0x40058514 as *mut usize;
+pub const GPIO_PORTA_AHB_PDR_R: *mut usize = 0x40058514 as *mut usize;
 
-pub const GPIO_PORTA_AHB_SLR_R:*mut usize = 0x40058518 as *mut usize;
+pub const GPIO_PORTA_AHB_SLR_R: *mut usize = 0x40058518 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DEN_R:*mut usize = 0x4005851C as *mut usize;
+pub const GPIO_PORTA_AHB_DEN_R: *mut usize = 0x4005851C as *mut usize;
 
-pub const GPIO_PORTA_AHB_LOCK_R:*mut usize = 0x40058520 as *mut usize;
+pub const GPIO_PORTA_AHB_LOCK_R: *mut usize = 0x40058520 as *mut usize;
 
-pub const GPIO_PORTA_AHB_CR_R:*mut usize = 0x40058524 as *mut usize;
+pub const GPIO_PORTA_AHB_CR_R: *mut usize = 0x40058524 as *mut usize;
 
-pub const GPIO_PORTA_AHB_AMSEL_R:*mut usize = 0x40058528 as *mut usize;
+pub const GPIO_PORTA_AHB_AMSEL_R: *mut usize = 0x40058528 as *mut usize;
 
-pub const GPIO_PORTA_AHB_PCTL_R:*mut usize = 0x4005852C as *mut usize;
+pub const GPIO_PORTA_AHB_PCTL_R: *mut usize = 0x4005852C as *mut usize;
 
-pub const GPIO_PORTA_AHB_ADCCTL_R:*mut usize = 0x40058530 as *mut usize;
+pub const GPIO_PORTA_AHB_ADCCTL_R: *mut usize = 0x40058530 as *mut usize;
 
-pub const GPIO_PORTA_AHB_DMACTL_R:*mut usize = 0x40058534 as *mut usize;
+pub const GPIO_PORTA_AHB_DMACTL_R: *mut usize = 0x40058534 as *mut usize;
 
-pub const GPIO_PORTA_AHB_SI_R:*mut usize = 0x40058538 as *mut usize;
+pub const GPIO_PORTA_AHB_SI_R: *mut usize = 0x40058538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2453,57 +2453,57 @@ pub const GPIO_PORTA_AHB_SI_R:*mut usize = 0x40058538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTB_AHB_DATA_BITS_R:*mut usize = 0x40059000 as *mut usize;
+pub const GPIO_PORTB_AHB_DATA_BITS_R: *mut usize = 0x40059000 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DATA_R:*mut usize = 0x400593FC as *mut usize;
+pub const GPIO_PORTB_AHB_DATA_R: *mut usize = 0x400593FC as *mut usize;
 
-pub const GPIO_PORTB_AHB_DIR_R:*mut usize = 0x40059400 as *mut usize;
+pub const GPIO_PORTB_AHB_DIR_R: *mut usize = 0x40059400 as *mut usize;
 
-pub const GPIO_PORTB_AHB_IS_R:*mut usize = 0x40059404 as *mut usize;
+pub const GPIO_PORTB_AHB_IS_R: *mut usize = 0x40059404 as *mut usize;
 
-pub const GPIO_PORTB_AHB_IBE_R:*mut usize = 0x40059408 as *mut usize;
+pub const GPIO_PORTB_AHB_IBE_R: *mut usize = 0x40059408 as *mut usize;
 
-pub const GPIO_PORTB_AHB_IEV_R:*mut usize = 0x4005940C as *mut usize;
+pub const GPIO_PORTB_AHB_IEV_R: *mut usize = 0x4005940C as *mut usize;
 
-pub const GPIO_PORTB_AHB_IM_R:*mut usize = 0x40059410 as *mut usize;
+pub const GPIO_PORTB_AHB_IM_R: *mut usize = 0x40059410 as *mut usize;
 
-pub const GPIO_PORTB_AHB_RIS_R:*mut usize = 0x40059414 as *mut usize;
+pub const GPIO_PORTB_AHB_RIS_R: *mut usize = 0x40059414 as *mut usize;
 
-pub const GPIO_PORTB_AHB_MIS_R:*mut usize = 0x40059418 as *mut usize;
+pub const GPIO_PORTB_AHB_MIS_R: *mut usize = 0x40059418 as *mut usize;
 
-pub const GPIO_PORTB_AHB_ICR_R:*mut usize = 0x4005941C as *mut usize;
+pub const GPIO_PORTB_AHB_ICR_R: *mut usize = 0x4005941C as *mut usize;
 
-pub const GPIO_PORTB_AHB_AFSEL_R:*mut usize = 0x40059420 as *mut usize;
+pub const GPIO_PORTB_AHB_AFSEL_R: *mut usize = 0x40059420 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DR2R_R:*mut usize = 0x40059500 as *mut usize;
+pub const GPIO_PORTB_AHB_DR2R_R: *mut usize = 0x40059500 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DR4R_R:*mut usize = 0x40059504 as *mut usize;
+pub const GPIO_PORTB_AHB_DR4R_R: *mut usize = 0x40059504 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DR8R_R:*mut usize = 0x40059508 as *mut usize;
+pub const GPIO_PORTB_AHB_DR8R_R: *mut usize = 0x40059508 as *mut usize;
 
-pub const GPIO_PORTB_AHB_ODR_R:*mut usize = 0x4005950C as *mut usize;
+pub const GPIO_PORTB_AHB_ODR_R: *mut usize = 0x4005950C as *mut usize;
 
-pub const GPIO_PORTB_AHB_PUR_R:*mut usize = 0x40059510 as *mut usize;
+pub const GPIO_PORTB_AHB_PUR_R: *mut usize = 0x40059510 as *mut usize;
 
-pub const GPIO_PORTB_AHB_PDR_R:*mut usize = 0x40059514 as *mut usize;
+pub const GPIO_PORTB_AHB_PDR_R: *mut usize = 0x40059514 as *mut usize;
 
-pub const GPIO_PORTB_AHB_SLR_R:*mut usize = 0x40059518 as *mut usize;
+pub const GPIO_PORTB_AHB_SLR_R: *mut usize = 0x40059518 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DEN_R:*mut usize = 0x4005951C as *mut usize;
+pub const GPIO_PORTB_AHB_DEN_R: *mut usize = 0x4005951C as *mut usize;
 
-pub const GPIO_PORTB_AHB_LOCK_R:*mut usize = 0x40059520 as *mut usize;
+pub const GPIO_PORTB_AHB_LOCK_R: *mut usize = 0x40059520 as *mut usize;
 
-pub const GPIO_PORTB_AHB_CR_R:*mut usize = 0x40059524 as *mut usize;
+pub const GPIO_PORTB_AHB_CR_R: *mut usize = 0x40059524 as *mut usize;
 
-pub const GPIO_PORTB_AHB_AMSEL_R:*mut usize = 0x40059528 as *mut usize;
+pub const GPIO_PORTB_AHB_AMSEL_R: *mut usize = 0x40059528 as *mut usize;
 
-pub const GPIO_PORTB_AHB_PCTL_R:*mut usize = 0x4005952C as *mut usize;
+pub const GPIO_PORTB_AHB_PCTL_R: *mut usize = 0x4005952C as *mut usize;
 
-pub const GPIO_PORTB_AHB_ADCCTL_R:*mut usize = 0x40059530 as *mut usize;
+pub const GPIO_PORTB_AHB_ADCCTL_R: *mut usize = 0x40059530 as *mut usize;
 
-pub const GPIO_PORTB_AHB_DMACTL_R:*mut usize = 0x40059534 as *mut usize;
+pub const GPIO_PORTB_AHB_DMACTL_R: *mut usize = 0x40059534 as *mut usize;
 
-pub const GPIO_PORTB_AHB_SI_R:*mut usize = 0x40059538 as *mut usize;
+pub const GPIO_PORTB_AHB_SI_R: *mut usize = 0x40059538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2511,57 +2511,57 @@ pub const GPIO_PORTB_AHB_SI_R:*mut usize = 0x40059538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTC_AHB_DATA_BITS_R:*mut usize = 0x4005A000 as *mut usize;
+pub const GPIO_PORTC_AHB_DATA_BITS_R: *mut usize = 0x4005A000 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DATA_R:*mut usize = 0x4005A3FC as *mut usize;
+pub const GPIO_PORTC_AHB_DATA_R: *mut usize = 0x4005A3FC as *mut usize;
 
-pub const GPIO_PORTC_AHB_DIR_R:*mut usize = 0x4005A400 as *mut usize;
+pub const GPIO_PORTC_AHB_DIR_R: *mut usize = 0x4005A400 as *mut usize;
 
-pub const GPIO_PORTC_AHB_IS_R:*mut usize = 0x4005A404 as *mut usize;
+pub const GPIO_PORTC_AHB_IS_R: *mut usize = 0x4005A404 as *mut usize;
 
-pub const GPIO_PORTC_AHB_IBE_R:*mut usize = 0x4005A408 as *mut usize;
+pub const GPIO_PORTC_AHB_IBE_R: *mut usize = 0x4005A408 as *mut usize;
 
-pub const GPIO_PORTC_AHB_IEV_R:*mut usize = 0x4005A40C as *mut usize;
+pub const GPIO_PORTC_AHB_IEV_R: *mut usize = 0x4005A40C as *mut usize;
 
-pub const GPIO_PORTC_AHB_IM_R:*mut usize = 0x4005A410 as *mut usize;
+pub const GPIO_PORTC_AHB_IM_R: *mut usize = 0x4005A410 as *mut usize;
 
-pub const GPIO_PORTC_AHB_RIS_R:*mut usize = 0x4005A414 as *mut usize;
+pub const GPIO_PORTC_AHB_RIS_R: *mut usize = 0x4005A414 as *mut usize;
 
-pub const GPIO_PORTC_AHB_MIS_R:*mut usize = 0x4005A418 as *mut usize;
+pub const GPIO_PORTC_AHB_MIS_R: *mut usize = 0x4005A418 as *mut usize;
 
-pub const GPIO_PORTC_AHB_ICR_R:*mut usize = 0x4005A41C as *mut usize;
+pub const GPIO_PORTC_AHB_ICR_R: *mut usize = 0x4005A41C as *mut usize;
 
-pub const GPIO_PORTC_AHB_AFSEL_R:*mut usize = 0x4005A420 as *mut usize;
+pub const GPIO_PORTC_AHB_AFSEL_R: *mut usize = 0x4005A420 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DR2R_R:*mut usize = 0x4005A500 as *mut usize;
+pub const GPIO_PORTC_AHB_DR2R_R: *mut usize = 0x4005A500 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DR4R_R:*mut usize = 0x4005A504 as *mut usize;
+pub const GPIO_PORTC_AHB_DR4R_R: *mut usize = 0x4005A504 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DR8R_R:*mut usize = 0x4005A508 as *mut usize;
+pub const GPIO_PORTC_AHB_DR8R_R: *mut usize = 0x4005A508 as *mut usize;
 
-pub const GPIO_PORTC_AHB_ODR_R:*mut usize = 0x4005A50C as *mut usize;
+pub const GPIO_PORTC_AHB_ODR_R: *mut usize = 0x4005A50C as *mut usize;
 
-pub const GPIO_PORTC_AHB_PUR_R:*mut usize = 0x4005A510 as *mut usize;
+pub const GPIO_PORTC_AHB_PUR_R: *mut usize = 0x4005A510 as *mut usize;
 
-pub const GPIO_PORTC_AHB_PDR_R:*mut usize = 0x4005A514 as *mut usize;
+pub const GPIO_PORTC_AHB_PDR_R: *mut usize = 0x4005A514 as *mut usize;
 
-pub const GPIO_PORTC_AHB_SLR_R:*mut usize = 0x4005A518 as *mut usize;
+pub const GPIO_PORTC_AHB_SLR_R: *mut usize = 0x4005A518 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DEN_R:*mut usize = 0x4005A51C as *mut usize;
+pub const GPIO_PORTC_AHB_DEN_R: *mut usize = 0x4005A51C as *mut usize;
 
-pub const GPIO_PORTC_AHB_LOCK_R:*mut usize = 0x4005A520 as *mut usize;
+pub const GPIO_PORTC_AHB_LOCK_R: *mut usize = 0x4005A520 as *mut usize;
 
-pub const GPIO_PORTC_AHB_CR_R:*mut usize = 0x4005A524 as *mut usize;
+pub const GPIO_PORTC_AHB_CR_R: *mut usize = 0x4005A524 as *mut usize;
 
-pub const GPIO_PORTC_AHB_AMSEL_R:*mut usize = 0x4005A528 as *mut usize;
+pub const GPIO_PORTC_AHB_AMSEL_R: *mut usize = 0x4005A528 as *mut usize;
 
-pub const GPIO_PORTC_AHB_PCTL_R:*mut usize = 0x4005A52C as *mut usize;
+pub const GPIO_PORTC_AHB_PCTL_R: *mut usize = 0x4005A52C as *mut usize;
 
-pub const GPIO_PORTC_AHB_ADCCTL_R:*mut usize = 0x4005A530 as *mut usize;
+pub const GPIO_PORTC_AHB_ADCCTL_R: *mut usize = 0x4005A530 as *mut usize;
 
-pub const GPIO_PORTC_AHB_DMACTL_R:*mut usize = 0x4005A534 as *mut usize;
+pub const GPIO_PORTC_AHB_DMACTL_R: *mut usize = 0x4005A534 as *mut usize;
 
-pub const GPIO_PORTC_AHB_SI_R:*mut usize = 0x4005A538 as *mut usize;
+pub const GPIO_PORTC_AHB_SI_R: *mut usize = 0x4005A538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2569,57 +2569,57 @@ pub const GPIO_PORTC_AHB_SI_R:*mut usize = 0x4005A538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTD_AHB_DATA_BITS_R:*mut usize = 0x4005B000 as *mut usize;
+pub const GPIO_PORTD_AHB_DATA_BITS_R: *mut usize = 0x4005B000 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DATA_R:*mut usize = 0x4005B3FC as *mut usize;
+pub const GPIO_PORTD_AHB_DATA_R: *mut usize = 0x4005B3FC as *mut usize;
 
-pub const GPIO_PORTD_AHB_DIR_R:*mut usize = 0x4005B400 as *mut usize;
+pub const GPIO_PORTD_AHB_DIR_R: *mut usize = 0x4005B400 as *mut usize;
 
-pub const GPIO_PORTD_AHB_IS_R:*mut usize = 0x4005B404 as *mut usize;
+pub const GPIO_PORTD_AHB_IS_R: *mut usize = 0x4005B404 as *mut usize;
 
-pub const GPIO_PORTD_AHB_IBE_R:*mut usize = 0x4005B408 as *mut usize;
+pub const GPIO_PORTD_AHB_IBE_R: *mut usize = 0x4005B408 as *mut usize;
 
-pub const GPIO_PORTD_AHB_IEV_R:*mut usize = 0x4005B40C as *mut usize;
+pub const GPIO_PORTD_AHB_IEV_R: *mut usize = 0x4005B40C as *mut usize;
 
-pub const GPIO_PORTD_AHB_IM_R:*mut usize = 0x4005B410 as *mut usize;
+pub const GPIO_PORTD_AHB_IM_R: *mut usize = 0x4005B410 as *mut usize;
 
-pub const GPIO_PORTD_AHB_RIS_R:*mut usize = 0x4005B414 as *mut usize;
+pub const GPIO_PORTD_AHB_RIS_R: *mut usize = 0x4005B414 as *mut usize;
 
-pub const GPIO_PORTD_AHB_MIS_R:*mut usize = 0x4005B418 as *mut usize;
+pub const GPIO_PORTD_AHB_MIS_R: *mut usize = 0x4005B418 as *mut usize;
 
-pub const GPIO_PORTD_AHB_ICR_R:*mut usize = 0x4005B41C as *mut usize;
+pub const GPIO_PORTD_AHB_ICR_R: *mut usize = 0x4005B41C as *mut usize;
 
-pub const GPIO_PORTD_AHB_AFSEL_R:*mut usize = 0x4005B420 as *mut usize;
+pub const GPIO_PORTD_AHB_AFSEL_R: *mut usize = 0x4005B420 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DR2R_R:*mut usize = 0x4005B500 as *mut usize;
+pub const GPIO_PORTD_AHB_DR2R_R: *mut usize = 0x4005B500 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DR4R_R:*mut usize = 0x4005B504 as *mut usize;
+pub const GPIO_PORTD_AHB_DR4R_R: *mut usize = 0x4005B504 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DR8R_R:*mut usize = 0x4005B508 as *mut usize;
+pub const GPIO_PORTD_AHB_DR8R_R: *mut usize = 0x4005B508 as *mut usize;
 
-pub const GPIO_PORTD_AHB_ODR_R:*mut usize = 0x4005B50C as *mut usize;
+pub const GPIO_PORTD_AHB_ODR_R: *mut usize = 0x4005B50C as *mut usize;
 
-pub const GPIO_PORTD_AHB_PUR_R:*mut usize = 0x4005B510 as *mut usize;
+pub const GPIO_PORTD_AHB_PUR_R: *mut usize = 0x4005B510 as *mut usize;
 
-pub const GPIO_PORTD_AHB_PDR_R:*mut usize = 0x4005B514 as *mut usize;
+pub const GPIO_PORTD_AHB_PDR_R: *mut usize = 0x4005B514 as *mut usize;
 
-pub const GPIO_PORTD_AHB_SLR_R:*mut usize = 0x4005B518 as *mut usize;
+pub const GPIO_PORTD_AHB_SLR_R: *mut usize = 0x4005B518 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DEN_R:*mut usize = 0x4005B51C as *mut usize;
+pub const GPIO_PORTD_AHB_DEN_R: *mut usize = 0x4005B51C as *mut usize;
 
-pub const GPIO_PORTD_AHB_LOCK_R:*mut usize = 0x4005B520 as *mut usize;
+pub const GPIO_PORTD_AHB_LOCK_R: *mut usize = 0x4005B520 as *mut usize;
 
-pub const GPIO_PORTD_AHB_CR_R:*mut usize = 0x4005B524 as *mut usize;
+pub const GPIO_PORTD_AHB_CR_R: *mut usize = 0x4005B524 as *mut usize;
 
-pub const GPIO_PORTD_AHB_AMSEL_R:*mut usize = 0x4005B528 as *mut usize;
+pub const GPIO_PORTD_AHB_AMSEL_R: *mut usize = 0x4005B528 as *mut usize;
 
-pub const GPIO_PORTD_AHB_PCTL_R:*mut usize = 0x4005B52C as *mut usize;
+pub const GPIO_PORTD_AHB_PCTL_R: *mut usize = 0x4005B52C as *mut usize;
 
-pub const GPIO_PORTD_AHB_ADCCTL_R:*mut usize = 0x4005B530 as *mut usize;
+pub const GPIO_PORTD_AHB_ADCCTL_R: *mut usize = 0x4005B530 as *mut usize;
 
-pub const GPIO_PORTD_AHB_DMACTL_R:*mut usize = 0x4005B534 as *mut usize;
+pub const GPIO_PORTD_AHB_DMACTL_R: *mut usize = 0x4005B534 as *mut usize;
 
-pub const GPIO_PORTD_AHB_SI_R:*mut usize = 0x4005B538 as *mut usize;
+pub const GPIO_PORTD_AHB_SI_R: *mut usize = 0x4005B538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2627,57 +2627,57 @@ pub const GPIO_PORTD_AHB_SI_R:*mut usize = 0x4005B538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTE_AHB_DATA_BITS_R:*mut usize = 0x4005C000 as *mut usize;
+pub const GPIO_PORTE_AHB_DATA_BITS_R: *mut usize = 0x4005C000 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DATA_R:*mut usize = 0x4005C3FC as *mut usize;
+pub const GPIO_PORTE_AHB_DATA_R: *mut usize = 0x4005C3FC as *mut usize;
 
-pub const GPIO_PORTE_AHB_DIR_R:*mut usize = 0x4005C400 as *mut usize;
+pub const GPIO_PORTE_AHB_DIR_R: *mut usize = 0x4005C400 as *mut usize;
 
-pub const GPIO_PORTE_AHB_IS_R:*mut usize = 0x4005C404 as *mut usize;
+pub const GPIO_PORTE_AHB_IS_R: *mut usize = 0x4005C404 as *mut usize;
 
-pub const GPIO_PORTE_AHB_IBE_R:*mut usize = 0x4005C408 as *mut usize;
+pub const GPIO_PORTE_AHB_IBE_R: *mut usize = 0x4005C408 as *mut usize;
 
-pub const GPIO_PORTE_AHB_IEV_R:*mut usize = 0x4005C40C as *mut usize;
+pub const GPIO_PORTE_AHB_IEV_R: *mut usize = 0x4005C40C as *mut usize;
 
-pub const GPIO_PORTE_AHB_IM_R:*mut usize = 0x4005C410 as *mut usize;
+pub const GPIO_PORTE_AHB_IM_R: *mut usize = 0x4005C410 as *mut usize;
 
-pub const GPIO_PORTE_AHB_RIS_R:*mut usize = 0x4005C414 as *mut usize;
+pub const GPIO_PORTE_AHB_RIS_R: *mut usize = 0x4005C414 as *mut usize;
 
-pub const GPIO_PORTE_AHB_MIS_R:*mut usize = 0x4005C418 as *mut usize;
+pub const GPIO_PORTE_AHB_MIS_R: *mut usize = 0x4005C418 as *mut usize;
 
-pub const GPIO_PORTE_AHB_ICR_R:*mut usize = 0x4005C41C as *mut usize;
+pub const GPIO_PORTE_AHB_ICR_R: *mut usize = 0x4005C41C as *mut usize;
 
-pub const GPIO_PORTE_AHB_AFSEL_R:*mut usize = 0x4005C420 as *mut usize;
+pub const GPIO_PORTE_AHB_AFSEL_R: *mut usize = 0x4005C420 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DR2R_R:*mut usize = 0x4005C500 as *mut usize;
+pub const GPIO_PORTE_AHB_DR2R_R: *mut usize = 0x4005C500 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DR4R_R:*mut usize = 0x4005C504 as *mut usize;
+pub const GPIO_PORTE_AHB_DR4R_R: *mut usize = 0x4005C504 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DR8R_R:*mut usize = 0x4005C508 as *mut usize;
+pub const GPIO_PORTE_AHB_DR8R_R: *mut usize = 0x4005C508 as *mut usize;
 
-pub const GPIO_PORTE_AHB_ODR_R:*mut usize = 0x4005C50C as *mut usize;
+pub const GPIO_PORTE_AHB_ODR_R: *mut usize = 0x4005C50C as *mut usize;
 
-pub const GPIO_PORTE_AHB_PUR_R:*mut usize = 0x4005C510 as *mut usize;
+pub const GPIO_PORTE_AHB_PUR_R: *mut usize = 0x4005C510 as *mut usize;
 
-pub const GPIO_PORTE_AHB_PDR_R:*mut usize = 0x4005C514 as *mut usize;
+pub const GPIO_PORTE_AHB_PDR_R: *mut usize = 0x4005C514 as *mut usize;
 
-pub const GPIO_PORTE_AHB_SLR_R:*mut usize = 0x4005C518 as *mut usize;
+pub const GPIO_PORTE_AHB_SLR_R: *mut usize = 0x4005C518 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DEN_R:*mut usize = 0x4005C51C as *mut usize;
+pub const GPIO_PORTE_AHB_DEN_R: *mut usize = 0x4005C51C as *mut usize;
 
-pub const GPIO_PORTE_AHB_LOCK_R:*mut usize = 0x4005C520 as *mut usize;
+pub const GPIO_PORTE_AHB_LOCK_R: *mut usize = 0x4005C520 as *mut usize;
 
-pub const GPIO_PORTE_AHB_CR_R:*mut usize = 0x4005C524 as *mut usize;
+pub const GPIO_PORTE_AHB_CR_R: *mut usize = 0x4005C524 as *mut usize;
 
-pub const GPIO_PORTE_AHB_AMSEL_R:*mut usize = 0x4005C528 as *mut usize;
+pub const GPIO_PORTE_AHB_AMSEL_R: *mut usize = 0x4005C528 as *mut usize;
 
-pub const GPIO_PORTE_AHB_PCTL_R:*mut usize = 0x4005C52C as *mut usize;
+pub const GPIO_PORTE_AHB_PCTL_R: *mut usize = 0x4005C52C as *mut usize;
 
-pub const GPIO_PORTE_AHB_ADCCTL_R:*mut usize = 0x4005C530 as *mut usize;
+pub const GPIO_PORTE_AHB_ADCCTL_R: *mut usize = 0x4005C530 as *mut usize;
 
-pub const GPIO_PORTE_AHB_DMACTL_R:*mut usize = 0x4005C534 as *mut usize;
+pub const GPIO_PORTE_AHB_DMACTL_R: *mut usize = 0x4005C534 as *mut usize;
 
-pub const GPIO_PORTE_AHB_SI_R:*mut usize = 0x4005C538 as *mut usize;
+pub const GPIO_PORTE_AHB_SI_R: *mut usize = 0x4005C538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2685,57 +2685,57 @@ pub const GPIO_PORTE_AHB_SI_R:*mut usize = 0x4005C538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const GPIO_PORTF_AHB_DATA_BITS_R:*mut usize = 0x4005D000 as *mut usize;
+pub const GPIO_PORTF_AHB_DATA_BITS_R: *mut usize = 0x4005D000 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DATA_R:*mut usize = 0x4005D3FC as *mut usize;
+pub const GPIO_PORTF_AHB_DATA_R: *mut usize = 0x4005D3FC as *mut usize;
 
-pub const GPIO_PORTF_AHB_DIR_R:*mut usize = 0x4005D400 as *mut usize;
+pub const GPIO_PORTF_AHB_DIR_R: *mut usize = 0x4005D400 as *mut usize;
 
-pub const GPIO_PORTF_AHB_IS_R:*mut usize = 0x4005D404 as *mut usize;
+pub const GPIO_PORTF_AHB_IS_R: *mut usize = 0x4005D404 as *mut usize;
 
-pub const GPIO_PORTF_AHB_IBE_R:*mut usize = 0x4005D408 as *mut usize;
+pub const GPIO_PORTF_AHB_IBE_R: *mut usize = 0x4005D408 as *mut usize;
 
-pub const GPIO_PORTF_AHB_IEV_R:*mut usize = 0x4005D40C as *mut usize;
+pub const GPIO_PORTF_AHB_IEV_R: *mut usize = 0x4005D40C as *mut usize;
 
-pub const GPIO_PORTF_AHB_IM_R:*mut usize = 0x4005D410 as *mut usize;
+pub const GPIO_PORTF_AHB_IM_R: *mut usize = 0x4005D410 as *mut usize;
 
-pub const GPIO_PORTF_AHB_RIS_R:*mut usize = 0x4005D414 as *mut usize;
+pub const GPIO_PORTF_AHB_RIS_R: *mut usize = 0x4005D414 as *mut usize;
 
-pub const GPIO_PORTF_AHB_MIS_R:*mut usize = 0x4005D418 as *mut usize;
+pub const GPIO_PORTF_AHB_MIS_R: *mut usize = 0x4005D418 as *mut usize;
 
-pub const GPIO_PORTF_AHB_ICR_R:*mut usize = 0x4005D41C as *mut usize;
+pub const GPIO_PORTF_AHB_ICR_R: *mut usize = 0x4005D41C as *mut usize;
 
-pub const GPIO_PORTF_AHB_AFSEL_R:*mut usize = 0x4005D420 as *mut usize;
+pub const GPIO_PORTF_AHB_AFSEL_R: *mut usize = 0x4005D420 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DR2R_R:*mut usize = 0x4005D500 as *mut usize;
+pub const GPIO_PORTF_AHB_DR2R_R: *mut usize = 0x4005D500 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DR4R_R:*mut usize = 0x4005D504 as *mut usize;
+pub const GPIO_PORTF_AHB_DR4R_R: *mut usize = 0x4005D504 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DR8R_R:*mut usize = 0x4005D508 as *mut usize;
+pub const GPIO_PORTF_AHB_DR8R_R: *mut usize = 0x4005D508 as *mut usize;
 
-pub const GPIO_PORTF_AHB_ODR_R:*mut usize = 0x4005D50C as *mut usize;
+pub const GPIO_PORTF_AHB_ODR_R: *mut usize = 0x4005D50C as *mut usize;
 
-pub const GPIO_PORTF_AHB_PUR_R:*mut usize = 0x4005D510 as *mut usize;
+pub const GPIO_PORTF_AHB_PUR_R: *mut usize = 0x4005D510 as *mut usize;
 
-pub const GPIO_PORTF_AHB_PDR_R:*mut usize = 0x4005D514 as *mut usize;
+pub const GPIO_PORTF_AHB_PDR_R: *mut usize = 0x4005D514 as *mut usize;
 
-pub const GPIO_PORTF_AHB_SLR_R:*mut usize = 0x4005D518 as *mut usize;
+pub const GPIO_PORTF_AHB_SLR_R: *mut usize = 0x4005D518 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DEN_R:*mut usize = 0x4005D51C as *mut usize;
+pub const GPIO_PORTF_AHB_DEN_R: *mut usize = 0x4005D51C as *mut usize;
 
-pub const GPIO_PORTF_AHB_LOCK_R:*mut usize = 0x4005D520 as *mut usize;
+pub const GPIO_PORTF_AHB_LOCK_R: *mut usize = 0x4005D520 as *mut usize;
 
-pub const GPIO_PORTF_AHB_CR_R:*mut usize = 0x4005D524 as *mut usize;
+pub const GPIO_PORTF_AHB_CR_R: *mut usize = 0x4005D524 as *mut usize;
 
-pub const GPIO_PORTF_AHB_AMSEL_R:*mut usize = 0x4005D528 as *mut usize;
+pub const GPIO_PORTF_AHB_AMSEL_R: *mut usize = 0x4005D528 as *mut usize;
 
-pub const GPIO_PORTF_AHB_PCTL_R:*mut usize = 0x4005D52C as *mut usize;
+pub const GPIO_PORTF_AHB_PCTL_R: *mut usize = 0x4005D52C as *mut usize;
 
-pub const GPIO_PORTF_AHB_ADCCTL_R:*mut usize = 0x4005D530 as *mut usize;
+pub const GPIO_PORTF_AHB_ADCCTL_R: *mut usize = 0x4005D530 as *mut usize;
 
-pub const GPIO_PORTF_AHB_DMACTL_R:*mut usize = 0x4005D534 as *mut usize;
+pub const GPIO_PORTF_AHB_DMACTL_R: *mut usize = 0x4005D534 as *mut usize;
 
-pub const GPIO_PORTF_AHB_SI_R:*mut usize = 0x4005D538 as *mut usize;
+pub const GPIO_PORTF_AHB_SI_R: *mut usize = 0x4005D538 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2743,37 +2743,37 @@ pub const GPIO_PORTF_AHB_SI_R:*mut usize = 0x4005D538 as *mut usize;
 //
 // *****************************************************************************
 
-pub const EEPROM_EESIZE_R:*mut usize = 0x400AF000 as *mut usize;
+pub const EEPROM_EESIZE_R: *mut usize = 0x400AF000 as *mut usize;
 
-pub const EEPROM_EEBLOCK_R:*mut usize = 0x400AF004 as *mut usize;
+pub const EEPROM_EEBLOCK_R: *mut usize = 0x400AF004 as *mut usize;
 
-pub const EEPROM_EEOFFSET_R:*mut usize = 0x400AF008 as *mut usize;
+pub const EEPROM_EEOFFSET_R: *mut usize = 0x400AF008 as *mut usize;
 
-pub const EEPROM_EERDWR_R:*mut usize = 0x400AF010 as *mut usize;
+pub const EEPROM_EERDWR_R: *mut usize = 0x400AF010 as *mut usize;
 
-pub const EEPROM_EERDWRINC_R:*mut usize = 0x400AF014 as *mut usize;
+pub const EEPROM_EERDWRINC_R: *mut usize = 0x400AF014 as *mut usize;
 
-pub const EEPROM_EEDONE_R:*mut usize = 0x400AF018 as *mut usize;
+pub const EEPROM_EEDONE_R: *mut usize = 0x400AF018 as *mut usize;
 
-pub const EEPROM_EESUPP_R:*mut usize = 0x400AF01C as *mut usize;
+pub const EEPROM_EESUPP_R: *mut usize = 0x400AF01C as *mut usize;
 
-pub const EEPROM_EEUNLOCK_R:*mut usize = 0x400AF020 as *mut usize;
+pub const EEPROM_EEUNLOCK_R: *mut usize = 0x400AF020 as *mut usize;
 
-pub const EEPROM_EEPROT_R:*mut usize = 0x400AF030 as *mut usize;
+pub const EEPROM_EEPROT_R: *mut usize = 0x400AF030 as *mut usize;
 
-pub const EEPROM_EEPASS0_R:*mut usize = 0x400AF034 as *mut usize;
+pub const EEPROM_EEPASS0_R: *mut usize = 0x400AF034 as *mut usize;
 
-pub const EEPROM_EEPASS1_R:*mut usize = 0x400AF038 as *mut usize;
+pub const EEPROM_EEPASS1_R: *mut usize = 0x400AF038 as *mut usize;
 
-pub const EEPROM_EEPASS2_R:*mut usize = 0x400AF03C as *mut usize;
+pub const EEPROM_EEPASS2_R: *mut usize = 0x400AF03C as *mut usize;
 
-pub const EEPROM_EEINT_R:*mut usize = 0x400AF040 as *mut usize;
+pub const EEPROM_EEINT_R: *mut usize = 0x400AF040 as *mut usize;
 
-pub const EEPROM_EEHIDE_R:*mut usize = 0x400AF050 as *mut usize;
+pub const EEPROM_EEHIDE_R: *mut usize = 0x400AF050 as *mut usize;
 
-pub const EEPROM_EEDBGME_R:*mut usize = 0x400AF080 as *mut usize;
+pub const EEPROM_EEDBGME_R: *mut usize = 0x400AF080 as *mut usize;
 
-pub const EEPROM_PP_R:*mut usize = 0x400AFFC0 as *mut usize;
+pub const EEPROM_PP_R: *mut usize = 0x400AFFC0 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2781,13 +2781,13 @@ pub const EEPROM_PP_R:*mut usize = 0x400AFFC0 as *mut usize;
 //
 // *****************************************************************************
 
-pub const SYSEXC_RIS_R:*mut usize = 0x400F9000 as *mut usize;
+pub const SYSEXC_RIS_R: *mut usize = 0x400F9000 as *mut usize;
 
-pub const SYSEXC_IM_R:*mut usize = 0x400F9004 as *mut usize;
+pub const SYSEXC_IM_R: *mut usize = 0x400F9004 as *mut usize;
 
-pub const SYSEXC_MIS_R:*mut usize = 0x400F9008 as *mut usize;
+pub const SYSEXC_MIS_R: *mut usize = 0x400F9008 as *mut usize;
 
-pub const SYSEXC_IC_R:*mut usize = 0x400F900C as *mut usize;
+pub const SYSEXC_IC_R: *mut usize = 0x400F900C as *mut usize;
 
 // *****************************************************************************
 //
@@ -2795,27 +2795,27 @@ pub const SYSEXC_IC_R:*mut usize = 0x400F900C as *mut usize;
 //
 // *****************************************************************************
 
-pub const HIB_RTCC_R:*mut usize = 0x400FC000 as *mut usize;
+pub const HIB_RTCC_R: *mut usize = 0x400FC000 as *mut usize;
 
-pub const HIB_RTCM0_R:*mut usize = 0x400FC004 as *mut usize;
+pub const HIB_RTCM0_R: *mut usize = 0x400FC004 as *mut usize;
 
-pub const HIB_RTCLD_R:*mut usize = 0x400FC00C as *mut usize;
+pub const HIB_RTCLD_R: *mut usize = 0x400FC00C as *mut usize;
 
-pub const HIB_CTL_R:*mut usize = 0x400FC010 as *mut usize;
+pub const HIB_CTL_R: *mut usize = 0x400FC010 as *mut usize;
 
-pub const HIB_IM_R:*mut usize = 0x400FC014 as *mut usize;
+pub const HIB_IM_R: *mut usize = 0x400FC014 as *mut usize;
 
-pub const HIB_RIS_R:*mut usize = 0x400FC018 as *mut usize;
+pub const HIB_RIS_R: *mut usize = 0x400FC018 as *mut usize;
 
-pub const HIB_MIS_R:*mut usize = 0x400FC01C as *mut usize;
+pub const HIB_MIS_R: *mut usize = 0x400FC01C as *mut usize;
 
-pub const HIB_IC_R:*mut usize = 0x400FC020 as *mut usize;
+pub const HIB_IC_R: *mut usize = 0x400FC020 as *mut usize;
 
-pub const HIB_RTCT_R:*mut usize = 0x400FC024 as *mut usize;
+pub const HIB_RTCT_R: *mut usize = 0x400FC024 as *mut usize;
 
-pub const HIB_RTCSS_R:*mut usize = 0x400FC028 as *mut usize;
+pub const HIB_RTCSS_R: *mut usize = 0x400FC028 as *mut usize;
 
-pub const HIB_DATA_R:*mut usize = 0x400FC030 as *mut usize;
+pub const HIB_DATA_R: *mut usize = 0x400FC030 as *mut usize;
 
 // *****************************************************************************
 //
@@ -2823,57 +2823,57 @@ pub const HIB_DATA_R:*mut usize = 0x400FC030 as *mut usize;
 //
 // *****************************************************************************
 
-pub const FLASH_FMA_R:*mut usize = 0x400FD000 as *mut usize;
+pub const FLASH_FMA_R: *mut usize = 0x400FD000 as *mut usize;
 
-pub const FLASH_FMD_R:*mut usize = 0x400FD004 as *mut usize;
+pub const FLASH_FMD_R: *mut usize = 0x400FD004 as *mut usize;
 
-pub const FLASH_FMC_R:*mut usize = 0x400FD008 as *mut usize;
+pub const FLASH_FMC_R: *mut usize = 0x400FD008 as *mut usize;
 
-pub const FLASH_FCRIS_R:*mut usize = 0x400FD00C as *mut usize;
+pub const FLASH_FCRIS_R: *mut usize = 0x400FD00C as *mut usize;
 
-pub const FLASH_FCIM_R:*mut usize = 0x400FD010 as *mut usize;
+pub const FLASH_FCIM_R: *mut usize = 0x400FD010 as *mut usize;
 
-pub const FLASH_FCMISC_R:*mut usize = 0x400FD014 as *mut usize;
+pub const FLASH_FCMISC_R: *mut usize = 0x400FD014 as *mut usize;
 
-pub const FLASH_FMC2_R:*mut usize = 0x400FD020 as *mut usize;
+pub const FLASH_FMC2_R: *mut usize = 0x400FD020 as *mut usize;
 
-pub const FLASH_FWBVAL_R:*mut usize = 0x400FD030 as *mut usize;
+pub const FLASH_FWBVAL_R: *mut usize = 0x400FD030 as *mut usize;
 
-pub const FLASH_FWBN_R:*mut usize = 0x400FD100 as *mut usize;
+pub const FLASH_FWBN_R: *mut usize = 0x400FD100 as *mut usize;
 
-pub const FLASH_FSIZE_R:*mut usize = 0x400FDFC0 as *mut usize;
+pub const FLASH_FSIZE_R: *mut usize = 0x400FDFC0 as *mut usize;
 
-pub const FLASH_SSIZE_R:*mut usize = 0x400FDFC4 as *mut usize;
+pub const FLASH_SSIZE_R: *mut usize = 0x400FDFC4 as *mut usize;
 
-pub const FLASH_ROMSWMAP_R:*mut usize = 0x400FDFCC as *mut usize;
+pub const FLASH_ROMSWMAP_R: *mut usize = 0x400FDFCC as *mut usize;
 
-pub const FLASH_RMCTL_R:*mut usize = 0x400FE0F0 as *mut usize;
+pub const FLASH_RMCTL_R: *mut usize = 0x400FE0F0 as *mut usize;
 
-pub const FLASH_BOOTCFG_R:*mut usize = 0x400FE1D0 as *mut usize;
+pub const FLASH_BOOTCFG_R: *mut usize = 0x400FE1D0 as *mut usize;
 
-pub const FLASH_USERREG0_R:*mut usize = 0x400FE1E0 as *mut usize;
+pub const FLASH_USERREG0_R: *mut usize = 0x400FE1E0 as *mut usize;
 
-pub const FLASH_USERREG1_R:*mut usize = 0x400FE1E4 as *mut usize;
+pub const FLASH_USERREG1_R: *mut usize = 0x400FE1E4 as *mut usize;
 
-pub const FLASH_USERREG2_R:*mut usize = 0x400FE1E8 as *mut usize;
+pub const FLASH_USERREG2_R: *mut usize = 0x400FE1E8 as *mut usize;
 
-pub const FLASH_USERREG3_R:*mut usize = 0x400FE1EC as *mut usize;
+pub const FLASH_USERREG3_R: *mut usize = 0x400FE1EC as *mut usize;
 
-pub const FLASH_FMPRE0_R:*mut usize = 0x400FE200 as *mut usize;
+pub const FLASH_FMPRE0_R: *mut usize = 0x400FE200 as *mut usize;
 
-pub const FLASH_FMPRE1_R:*mut usize = 0x400FE204 as *mut usize;
+pub const FLASH_FMPRE1_R: *mut usize = 0x400FE204 as *mut usize;
 
-pub const FLASH_FMPRE2_R:*mut usize = 0x400FE208 as *mut usize;
+pub const FLASH_FMPRE2_R: *mut usize = 0x400FE208 as *mut usize;
 
-pub const FLASH_FMPRE3_R:*mut usize = 0x400FE20C as *mut usize;
+pub const FLASH_FMPRE3_R: *mut usize = 0x400FE20C as *mut usize;
 
-pub const FLASH_FMPPE0_R:*mut usize = 0x400FE400 as *mut usize;
+pub const FLASH_FMPPE0_R: *mut usize = 0x400FE400 as *mut usize;
 
-pub const FLASH_FMPPE1_R:*mut usize = 0x400FE404 as *mut usize;
+pub const FLASH_FMPPE1_R: *mut usize = 0x400FE404 as *mut usize;
 
-pub const FLASH_FMPPE2_R:*mut usize = 0x400FE408 as *mut usize;
+pub const FLASH_FMPPE2_R: *mut usize = 0x400FE408 as *mut usize;
 
-pub const FLASH_FMPPE3_R:*mut usize = 0x400FE40C as *mut usize;
+pub const FLASH_FMPPE3_R: *mut usize = 0x400FE40C as *mut usize;
 
 // *****************************************************************************
 //
@@ -2881,287 +2881,287 @@ pub const FLASH_FMPPE3_R:*mut usize = 0x400FE40C as *mut usize;
 //
 // *****************************************************************************
 
-pub const SYSCTL_DID0_R:*mut usize = 0x400FE000 as *mut usize;
+pub const SYSCTL_DID0_R: *mut usize = 0x400FE000 as *mut usize;
 
-pub const SYSCTL_DID1_R:*mut usize = 0x400FE004 as *mut usize;
+pub const SYSCTL_DID1_R: *mut usize = 0x400FE004 as *mut usize;
 
-pub const SYSCTL_DC0_R:*mut usize = 0x400FE008 as *mut usize;
+pub const SYSCTL_DC0_R: *mut usize = 0x400FE008 as *mut usize;
 
-pub const SYSCTL_DC1_R:*mut usize = 0x400FE010 as *mut usize;
+pub const SYSCTL_DC1_R: *mut usize = 0x400FE010 as *mut usize;
 
-pub const SYSCTL_DC2_R:*mut usize = 0x400FE014 as *mut usize;
+pub const SYSCTL_DC2_R: *mut usize = 0x400FE014 as *mut usize;
 
-pub const SYSCTL_DC3_R:*mut usize = 0x400FE018 as *mut usize;
+pub const SYSCTL_DC3_R: *mut usize = 0x400FE018 as *mut usize;
 
-pub const SYSCTL_DC4_R:*mut usize = 0x400FE01C as *mut usize;
+pub const SYSCTL_DC4_R: *mut usize = 0x400FE01C as *mut usize;
 
-pub const SYSCTL_DC5_R:*mut usize = 0x400FE020 as *mut usize;
+pub const SYSCTL_DC5_R: *mut usize = 0x400FE020 as *mut usize;
 
-pub const SYSCTL_DC6_R:*mut usize = 0x400FE024 as *mut usize;
+pub const SYSCTL_DC6_R: *mut usize = 0x400FE024 as *mut usize;
 
-pub const SYSCTL_DC7_R:*mut usize = 0x400FE028 as *mut usize;
+pub const SYSCTL_DC7_R: *mut usize = 0x400FE028 as *mut usize;
 
-pub const SYSCTL_DC8_R:*mut usize = 0x400FE02C as *mut usize;
+pub const SYSCTL_DC8_R: *mut usize = 0x400FE02C as *mut usize;
 
-pub const SYSCTL_PBORCTL_R:*mut usize = 0x400FE030 as *mut usize;
+pub const SYSCTL_PBORCTL_R: *mut usize = 0x400FE030 as *mut usize;
 
-pub const SYSCTL_SRCR0_R:*mut usize = 0x400FE040 as *mut usize;
+pub const SYSCTL_SRCR0_R: *mut usize = 0x400FE040 as *mut usize;
 
-pub const SYSCTL_SRCR1_R:*mut usize = 0x400FE044 as *mut usize;
+pub const SYSCTL_SRCR1_R: *mut usize = 0x400FE044 as *mut usize;
 
-pub const SYSCTL_SRCR2_R:*mut usize = 0x400FE048 as *mut usize;
+pub const SYSCTL_SRCR2_R: *mut usize = 0x400FE048 as *mut usize;
 
-pub const SYSCTL_RIS_R:*mut usize = 0x400FE050 as *mut usize;
+pub const SYSCTL_RIS_R: *mut usize = 0x400FE050 as *mut usize;
 
-pub const SYSCTL_IMC_R:*mut usize = 0x400FE054 as *mut usize;
+pub const SYSCTL_IMC_R: *mut usize = 0x400FE054 as *mut usize;
 
-pub const SYSCTL_MISC_R:*mut usize = 0x400FE058 as *mut usize;
+pub const SYSCTL_MISC_R: *mut usize = 0x400FE058 as *mut usize;
 
-pub const SYSCTL_RESC_R:*mut usize = 0x400FE05C as *mut usize;
+pub const SYSCTL_RESC_R: *mut usize = 0x400FE05C as *mut usize;
 
-pub const SYSCTL_RCC_R:*mut usize = 0x400FE060 as *mut usize;
+pub const SYSCTL_RCC_R: *mut usize = 0x400FE060 as *mut usize;
 
-pub const SYSCTL_GPIOHBCTL_R:*mut usize = 0x400FE06C as *mut usize;
+pub const SYSCTL_GPIOHBCTL_R: *mut usize = 0x400FE06C as *mut usize;
 
-pub const SYSCTL_RCC2_R:*mut usize = 0x400FE070 as *mut usize;
+pub const SYSCTL_RCC2_R: *mut usize = 0x400FE070 as *mut usize;
 
-pub const SYSCTL_MOSCCTL_R:*mut usize = 0x400FE07C as *mut usize;
+pub const SYSCTL_MOSCCTL_R: *mut usize = 0x400FE07C as *mut usize;
 
-pub const SYSCTL_RCGC0_R:*mut usize = 0x400FE100 as *mut usize;
+pub const SYSCTL_RCGC0_R: *mut usize = 0x400FE100 as *mut usize;
 
-pub const SYSCTL_RCGC1_R:*mut usize = 0x400FE104 as *mut usize;
+pub const SYSCTL_RCGC1_R: *mut usize = 0x400FE104 as *mut usize;
 
-pub const SYSCTL_RCGC2_R:*mut usize = 0x400FE108 as *mut usize;
+pub const SYSCTL_RCGC2_R: *mut usize = 0x400FE108 as *mut usize;
 
-pub const SYSCTL_SCGC0_R:*mut usize = 0x400FE110 as *mut usize;
+pub const SYSCTL_SCGC0_R: *mut usize = 0x400FE110 as *mut usize;
 
-pub const SYSCTL_SCGC1_R:*mut usize = 0x400FE114 as *mut usize;
+pub const SYSCTL_SCGC1_R: *mut usize = 0x400FE114 as *mut usize;
 
-pub const SYSCTL_SCGC2_R:*mut usize = 0x400FE118 as *mut usize;
+pub const SYSCTL_SCGC2_R: *mut usize = 0x400FE118 as *mut usize;
 
-pub const SYSCTL_DCGC0_R:*mut usize = 0x400FE120 as *mut usize;
+pub const SYSCTL_DCGC0_R: *mut usize = 0x400FE120 as *mut usize;
 
-pub const SYSCTL_DCGC1_R:*mut usize = 0x400FE124 as *mut usize;
+pub const SYSCTL_DCGC1_R: *mut usize = 0x400FE124 as *mut usize;
 
-pub const SYSCTL_DCGC2_R:*mut usize = 0x400FE128 as *mut usize;
+pub const SYSCTL_DCGC2_R: *mut usize = 0x400FE128 as *mut usize;
 
-pub const SYSCTL_DSLPCLKCFG_R:*mut usize = 0x400FE144 as *mut usize;
+pub const SYSCTL_DSLPCLKCFG_R: *mut usize = 0x400FE144 as *mut usize;
 
-pub const SYSCTL_SYSPROP_R:*mut usize = 0x400FE14C as *mut usize;
+pub const SYSCTL_SYSPROP_R: *mut usize = 0x400FE14C as *mut usize;
 
-pub const SYSCTL_PIOSCCAL_R:*mut usize = 0x400FE150 as *mut usize;
+pub const SYSCTL_PIOSCCAL_R: *mut usize = 0x400FE150 as *mut usize;
 
-pub const SYSCTL_PIOSCSTAT_R:*mut usize = 0x400FE154 as *mut usize;
+pub const SYSCTL_PIOSCSTAT_R: *mut usize = 0x400FE154 as *mut usize;
 
-pub const SYSCTL_PLLFREQ0_R:*mut usize = 0x400FE160 as *mut usize;
+pub const SYSCTL_PLLFREQ0_R: *mut usize = 0x400FE160 as *mut usize;
 
-pub const SYSCTL_PLLFREQ1_R:*mut usize = 0x400FE164 as *mut usize;
+pub const SYSCTL_PLLFREQ1_R: *mut usize = 0x400FE164 as *mut usize;
 
-pub const SYSCTL_PLLSTAT_R:*mut usize = 0x400FE168 as *mut usize;
+pub const SYSCTL_PLLSTAT_R: *mut usize = 0x400FE168 as *mut usize;
 
-pub const SYSCTL_DC9_R:*mut usize = 0x400FE190 as *mut usize;
+pub const SYSCTL_DC9_R: *mut usize = 0x400FE190 as *mut usize;
 
-pub const SYSCTL_NVMSTAT_R:*mut usize = 0x400FE1A0 as *mut usize;
+pub const SYSCTL_NVMSTAT_R: *mut usize = 0x400FE1A0 as *mut usize;
 
-pub const SYSCTL_PPWD_R:*mut usize = 0x400FE300 as *mut usize;
+pub const SYSCTL_PPWD_R: *mut usize = 0x400FE300 as *mut usize;
 
-pub const SYSCTL_PPTIMER_R:*mut usize = 0x400FE304 as *mut usize;
+pub const SYSCTL_PPTIMER_R: *mut usize = 0x400FE304 as *mut usize;
 
-pub const SYSCTL_PPGPIO_R:*mut usize = 0x400FE308 as *mut usize;
+pub const SYSCTL_PPGPIO_R: *mut usize = 0x400FE308 as *mut usize;
 
-pub const SYSCTL_PPDMA_R:*mut usize = 0x400FE30C as *mut usize;
+pub const SYSCTL_PPDMA_R: *mut usize = 0x400FE30C as *mut usize;
 
-pub const SYSCTL_PPHIB_R:*mut usize = 0x400FE314 as *mut usize;
+pub const SYSCTL_PPHIB_R: *mut usize = 0x400FE314 as *mut usize;
 
-pub const SYSCTL_PPUART_R:*mut usize = 0x400FE318 as *mut usize;
+pub const SYSCTL_PPUART_R: *mut usize = 0x400FE318 as *mut usize;
 
-pub const SYSCTL_PPSSI_R:*mut usize = 0x400FE31C as *mut usize;
+pub const SYSCTL_PPSSI_R: *mut usize = 0x400FE31C as *mut usize;
 
-pub const SYSCTL_PPI2C_R:*mut usize = 0x400FE320 as *mut usize;
+pub const SYSCTL_PPI2C_R: *mut usize = 0x400FE320 as *mut usize;
 
-pub const SYSCTL_PPUSB_R:*mut usize = 0x400FE328 as *mut usize;
+pub const SYSCTL_PPUSB_R: *mut usize = 0x400FE328 as *mut usize;
 
-pub const SYSCTL_PPCAN_R:*mut usize = 0x400FE334 as *mut usize;
+pub const SYSCTL_PPCAN_R: *mut usize = 0x400FE334 as *mut usize;
 
-pub const SYSCTL_PPADC_R:*mut usize = 0x400FE338 as *mut usize;
+pub const SYSCTL_PPADC_R: *mut usize = 0x400FE338 as *mut usize;
 
-pub const SYSCTL_PPACMP_R:*mut usize = 0x400FE33C as *mut usize;
+pub const SYSCTL_PPACMP_R: *mut usize = 0x400FE33C as *mut usize;
 
-pub const SYSCTL_PPPWM_R:*mut usize = 0x400FE340 as *mut usize;
+pub const SYSCTL_PPPWM_R: *mut usize = 0x400FE340 as *mut usize;
 
-pub const SYSCTL_PPQEI_R:*mut usize = 0x400FE344 as *mut usize;
+pub const SYSCTL_PPQEI_R: *mut usize = 0x400FE344 as *mut usize;
 
-pub const SYSCTL_PPEEPROM_R:*mut usize = 0x400FE358 as *mut usize;
+pub const SYSCTL_PPEEPROM_R: *mut usize = 0x400FE358 as *mut usize;
 
-pub const SYSCTL_PPWTIMER_R:*mut usize = 0x400FE35C as *mut usize;
+pub const SYSCTL_PPWTIMER_R: *mut usize = 0x400FE35C as *mut usize;
 
-pub const SYSCTL_SRWD_R:*mut usize = 0x400FE500 as *mut usize;
+pub const SYSCTL_SRWD_R: *mut usize = 0x400FE500 as *mut usize;
 
-pub const SYSCTL_SRTIMER_R:*mut usize = 0x400FE504 as *mut usize;
+pub const SYSCTL_SRTIMER_R: *mut usize = 0x400FE504 as *mut usize;
 
-pub const SYSCTL_SRGPIO_R:*mut usize = 0x400FE508 as *mut usize;
+pub const SYSCTL_SRGPIO_R: *mut usize = 0x400FE508 as *mut usize;
 
-pub const SYSCTL_SRDMA_R:*mut usize = 0x400FE50C as *mut usize;
+pub const SYSCTL_SRDMA_R: *mut usize = 0x400FE50C as *mut usize;
 
-pub const SYSCTL_SRHIB_R:*mut usize = 0x400FE514 as *mut usize;
+pub const SYSCTL_SRHIB_R: *mut usize = 0x400FE514 as *mut usize;
 
-pub const SYSCTL_SRUART_R:*mut usize = 0x400FE518 as *mut usize;
+pub const SYSCTL_SRUART_R: *mut usize = 0x400FE518 as *mut usize;
 
-pub const SYSCTL_SRSSI_R:*mut usize = 0x400FE51C as *mut usize;
+pub const SYSCTL_SRSSI_R: *mut usize = 0x400FE51C as *mut usize;
 
-pub const SYSCTL_SRI2C_R:*mut usize = 0x400FE520 as *mut usize;
+pub const SYSCTL_SRI2C_R: *mut usize = 0x400FE520 as *mut usize;
 
-pub const SYSCTL_SRUSB_R:*mut usize = 0x400FE528 as *mut usize;
+pub const SYSCTL_SRUSB_R: *mut usize = 0x400FE528 as *mut usize;
 
-pub const SYSCTL_SRCAN_R:*mut usize = 0x400FE534 as *mut usize;
+pub const SYSCTL_SRCAN_R: *mut usize = 0x400FE534 as *mut usize;
 
-pub const SYSCTL_SRADC_R:*mut usize = 0x400FE538 as *mut usize;
+pub const SYSCTL_SRADC_R: *mut usize = 0x400FE538 as *mut usize;
 
-pub const SYSCTL_SRACMP_R:*mut usize = 0x400FE53C as *mut usize;
+pub const SYSCTL_SRACMP_R: *mut usize = 0x400FE53C as *mut usize;
 
-pub const SYSCTL_SREEPROM_R:*mut usize = 0x400FE558 as *mut usize;
+pub const SYSCTL_SREEPROM_R: *mut usize = 0x400FE558 as *mut usize;
 
-pub const SYSCTL_SRWTIMER_R:*mut usize = 0x400FE55C as *mut usize;
+pub const SYSCTL_SRWTIMER_R: *mut usize = 0x400FE55C as *mut usize;
 
-pub const SYSCTL_RCGCWD_R:*mut usize = 0x400FE600 as *mut usize;
+pub const SYSCTL_RCGCWD_R: *mut usize = 0x400FE600 as *mut usize;
 
-pub const SYSCTL_RCGCTIMER_R:*mut usize = 0x400FE604 as *mut usize;
+pub const SYSCTL_RCGCTIMER_R: *mut usize = 0x400FE604 as *mut usize;
 
-pub const SYSCTL_RCGCGPIO_R:*mut usize = 0x400FE608 as *mut usize;
+pub const SYSCTL_RCGCGPIO_R: *mut usize = 0x400FE608 as *mut usize;
 
-pub const SYSCTL_RCGCDMA_R:*mut usize = 0x400FE60C as *mut usize;
+pub const SYSCTL_RCGCDMA_R: *mut usize = 0x400FE60C as *mut usize;
 
-pub const SYSCTL_RCGCHIB_R:*mut usize = 0x400FE614 as *mut usize;
+pub const SYSCTL_RCGCHIB_R: *mut usize = 0x400FE614 as *mut usize;
 
-pub const SYSCTL_RCGCUART_R:*mut usize = 0x400FE618 as *mut usize;
+pub const SYSCTL_RCGCUART_R: *mut usize = 0x400FE618 as *mut usize;
 
-pub const SYSCTL_RCGCSSI_R:*mut usize = 0x400FE61C as *mut usize;
+pub const SYSCTL_RCGCSSI_R: *mut usize = 0x400FE61C as *mut usize;
 
-pub const SYSCTL_RCGCI2C_R:*mut usize = 0x400FE620 as *mut usize;
+pub const SYSCTL_RCGCI2C_R: *mut usize = 0x400FE620 as *mut usize;
 
-pub const SYSCTL_RCGCUSB_R:*mut usize = 0x400FE628 as *mut usize;
+pub const SYSCTL_RCGCUSB_R: *mut usize = 0x400FE628 as *mut usize;
 
-pub const SYSCTL_RCGCCAN_R:*mut usize = 0x400FE634 as *mut usize;
+pub const SYSCTL_RCGCCAN_R: *mut usize = 0x400FE634 as *mut usize;
 
-pub const SYSCTL_RCGCADC_R:*mut usize = 0x400FE638 as *mut usize;
+pub const SYSCTL_RCGCADC_R: *mut usize = 0x400FE638 as *mut usize;
 
-pub const SYSCTL_RCGCACMP_R:*mut usize = 0x400FE63C as *mut usize;
+pub const SYSCTL_RCGCACMP_R: *mut usize = 0x400FE63C as *mut usize;
 
-pub const SYSCTL_RCGCEEPROM_R:*mut usize = 0x400FE658 as *mut usize;
+pub const SYSCTL_RCGCEEPROM_R: *mut usize = 0x400FE658 as *mut usize;
 
-pub const SYSCTL_RCGCWTIMER_R:*mut usize = 0x400FE65C as *mut usize;
+pub const SYSCTL_RCGCWTIMER_R: *mut usize = 0x400FE65C as *mut usize;
 
-pub const SYSCTL_SCGCWD_R:*mut usize = 0x400FE700 as *mut usize;
+pub const SYSCTL_SCGCWD_R: *mut usize = 0x400FE700 as *mut usize;
 
-pub const SYSCTL_SCGCTIMER_R:*mut usize = 0x400FE704 as *mut usize;
+pub const SYSCTL_SCGCTIMER_R: *mut usize = 0x400FE704 as *mut usize;
 
-pub const SYSCTL_SCGCGPIO_R:*mut usize = 0x400FE708 as *mut usize;
+pub const SYSCTL_SCGCGPIO_R: *mut usize = 0x400FE708 as *mut usize;
 
-pub const SYSCTL_SCGCDMA_R:*mut usize = 0x400FE70C as *mut usize;
+pub const SYSCTL_SCGCDMA_R: *mut usize = 0x400FE70C as *mut usize;
 
-pub const SYSCTL_SCGCHIB_R:*mut usize = 0x400FE714 as *mut usize;
+pub const SYSCTL_SCGCHIB_R: *mut usize = 0x400FE714 as *mut usize;
 
-pub const SYSCTL_SCGCUART_R:*mut usize = 0x400FE718 as *mut usize;
+pub const SYSCTL_SCGCUART_R: *mut usize = 0x400FE718 as *mut usize;
 
-pub const SYSCTL_SCGCSSI_R:*mut usize = 0x400FE71C as *mut usize;
+pub const SYSCTL_SCGCSSI_R: *mut usize = 0x400FE71C as *mut usize;
 
-pub const SYSCTL_SCGCI2C_R:*mut usize = 0x400FE720 as *mut usize;
+pub const SYSCTL_SCGCI2C_R: *mut usize = 0x400FE720 as *mut usize;
 
-pub const SYSCTL_SCGCUSB_R:*mut usize = 0x400FE728 as *mut usize;
+pub const SYSCTL_SCGCUSB_R: *mut usize = 0x400FE728 as *mut usize;
 
-pub const SYSCTL_SCGCCAN_R:*mut usize = 0x400FE734 as *mut usize;
+pub const SYSCTL_SCGCCAN_R: *mut usize = 0x400FE734 as *mut usize;
 
-pub const SYSCTL_SCGCADC_R:*mut usize = 0x400FE738 as *mut usize;
+pub const SYSCTL_SCGCADC_R: *mut usize = 0x400FE738 as *mut usize;
 
-pub const SYSCTL_SCGCACMP_R:*mut usize = 0x400FE73C as *mut usize;
+pub const SYSCTL_SCGCACMP_R: *mut usize = 0x400FE73C as *mut usize;
 
-pub const SYSCTL_SCGCEEPROM_R:*mut usize = 0x400FE758 as *mut usize;
+pub const SYSCTL_SCGCEEPROM_R: *mut usize = 0x400FE758 as *mut usize;
 
-pub const SYSCTL_SCGCWTIMER_R:*mut usize = 0x400FE75C as *mut usize;
+pub const SYSCTL_SCGCWTIMER_R: *mut usize = 0x400FE75C as *mut usize;
 
-pub const SYSCTL_DCGCWD_R:*mut usize = 0x400FE800 as *mut usize;
+pub const SYSCTL_DCGCWD_R: *mut usize = 0x400FE800 as *mut usize;
 
-pub const SYSCTL_DCGCTIMER_R:*mut usize = 0x400FE804 as *mut usize;
+pub const SYSCTL_DCGCTIMER_R: *mut usize = 0x400FE804 as *mut usize;
 
-pub const SYSCTL_DCGCGPIO_R:*mut usize = 0x400FE808 as *mut usize;
+pub const SYSCTL_DCGCGPIO_R: *mut usize = 0x400FE808 as *mut usize;
 
-pub const SYSCTL_DCGCDMA_R:*mut usize = 0x400FE80C as *mut usize;
+pub const SYSCTL_DCGCDMA_R: *mut usize = 0x400FE80C as *mut usize;
 
-pub const SYSCTL_DCGCHIB_R:*mut usize = 0x400FE814 as *mut usize;
+pub const SYSCTL_DCGCHIB_R: *mut usize = 0x400FE814 as *mut usize;
 
-pub const SYSCTL_DCGCUART_R:*mut usize = 0x400FE818 as *mut usize;
+pub const SYSCTL_DCGCUART_R: *mut usize = 0x400FE818 as *mut usize;
 
-pub const SYSCTL_DCGCSSI_R:*mut usize = 0x400FE81C as *mut usize;
+pub const SYSCTL_DCGCSSI_R: *mut usize = 0x400FE81C as *mut usize;
 
-pub const SYSCTL_DCGCI2C_R:*mut usize = 0x400FE820 as *mut usize;
+pub const SYSCTL_DCGCI2C_R: *mut usize = 0x400FE820 as *mut usize;
 
-pub const SYSCTL_DCGCUSB_R:*mut usize = 0x400FE828 as *mut usize;
+pub const SYSCTL_DCGCUSB_R: *mut usize = 0x400FE828 as *mut usize;
 
-pub const SYSCTL_DCGCCAN_R:*mut usize = 0x400FE834 as *mut usize;
+pub const SYSCTL_DCGCCAN_R: *mut usize = 0x400FE834 as *mut usize;
 
-pub const SYSCTL_DCGCADC_R:*mut usize = 0x400FE838 as *mut usize;
+pub const SYSCTL_DCGCADC_R: *mut usize = 0x400FE838 as *mut usize;
 
-pub const SYSCTL_DCGCACMP_R:*mut usize = 0x400FE83C as *mut usize;
+pub const SYSCTL_DCGCACMP_R: *mut usize = 0x400FE83C as *mut usize;
 
-pub const SYSCTL_DCGCEEPROM_R:*mut usize = 0x400FE858 as *mut usize;
+pub const SYSCTL_DCGCEEPROM_R: *mut usize = 0x400FE858 as *mut usize;
 
-pub const SYSCTL_DCGCWTIMER_R:*mut usize = 0x400FE85C as *mut usize;
+pub const SYSCTL_DCGCWTIMER_R: *mut usize = 0x400FE85C as *mut usize;
 
-pub const SYSCTL_PCWD_R:*mut usize = 0x400FE900 as *mut usize;
+pub const SYSCTL_PCWD_R: *mut usize = 0x400FE900 as *mut usize;
 
-pub const SYSCTL_PCTIMER_R:*mut usize = 0x400FE904 as *mut usize;
+pub const SYSCTL_PCTIMER_R: *mut usize = 0x400FE904 as *mut usize;
 
-pub const SYSCTL_PCGPIO_R:*mut usize = 0x400FE908 as *mut usize;
+pub const SYSCTL_PCGPIO_R: *mut usize = 0x400FE908 as *mut usize;
 
-pub const SYSCTL_PCDMA_R:*mut usize = 0x400FE90C as *mut usize;
+pub const SYSCTL_PCDMA_R: *mut usize = 0x400FE90C as *mut usize;
 
-pub const SYSCTL_PCHIB_R:*mut usize = 0x400FE914 as *mut usize;
+pub const SYSCTL_PCHIB_R: *mut usize = 0x400FE914 as *mut usize;
 
-pub const SYSCTL_PCUART_R:*mut usize = 0x400FE918 as *mut usize;
+pub const SYSCTL_PCUART_R: *mut usize = 0x400FE918 as *mut usize;
 
-pub const SYSCTL_PCSSI_R:*mut usize = 0x400FE91C as *mut usize;
+pub const SYSCTL_PCSSI_R: *mut usize = 0x400FE91C as *mut usize;
 
-pub const SYSCTL_PCI2C_R:*mut usize = 0x400FE920 as *mut usize;
+pub const SYSCTL_PCI2C_R: *mut usize = 0x400FE920 as *mut usize;
 
-pub const SYSCTL_PCUSB_R:*mut usize = 0x400FE928 as *mut usize;
+pub const SYSCTL_PCUSB_R: *mut usize = 0x400FE928 as *mut usize;
 
-pub const SYSCTL_PCCAN_R:*mut usize = 0x400FE934 as *mut usize;
+pub const SYSCTL_PCCAN_R: *mut usize = 0x400FE934 as *mut usize;
 
-pub const SYSCTL_PCADC_R:*mut usize = 0x400FE938 as *mut usize;
+pub const SYSCTL_PCADC_R: *mut usize = 0x400FE938 as *mut usize;
 
-pub const SYSCTL_PCACMP_R:*mut usize = 0x400FE93C as *mut usize;
+pub const SYSCTL_PCACMP_R: *mut usize = 0x400FE93C as *mut usize;
 
-pub const SYSCTL_PCEEPROM_R:*mut usize = 0x400FE958 as *mut usize;
+pub const SYSCTL_PCEEPROM_R: *mut usize = 0x400FE958 as *mut usize;
 
-pub const SYSCTL_PCWTIMER_R:*mut usize = 0x400FE95C as *mut usize;
+pub const SYSCTL_PCWTIMER_R: *mut usize = 0x400FE95C as *mut usize;
 
-pub const SYSCTL_PRWD_R:*mut usize = 0x400FEA00 as *mut usize;
+pub const SYSCTL_PRWD_R: *mut usize = 0x400FEA00 as *mut usize;
 
-pub const SYSCTL_PRTIMER_R:*mut usize = 0x400FEA04 as *mut usize;
+pub const SYSCTL_PRTIMER_R: *mut usize = 0x400FEA04 as *mut usize;
 
-pub const SYSCTL_PRGPIO_R:*mut usize = 0x400FEA08 as *mut usize;
+pub const SYSCTL_PRGPIO_R: *mut usize = 0x400FEA08 as *mut usize;
 
-pub const SYSCTL_PRDMA_R:*mut usize = 0x400FEA0C as *mut usize;
+pub const SYSCTL_PRDMA_R: *mut usize = 0x400FEA0C as *mut usize;
 
-pub const SYSCTL_PRHIB_R:*mut usize = 0x400FEA14 as *mut usize;
+pub const SYSCTL_PRHIB_R: *mut usize = 0x400FEA14 as *mut usize;
 
-pub const SYSCTL_PRUART_R:*mut usize = 0x400FEA18 as *mut usize;
+pub const SYSCTL_PRUART_R: *mut usize = 0x400FEA18 as *mut usize;
 
-pub const SYSCTL_PRSSI_R:*mut usize = 0x400FEA1C as *mut usize;
+pub const SYSCTL_PRSSI_R: *mut usize = 0x400FEA1C as *mut usize;
 
-pub const SYSCTL_PRI2C_R:*mut usize = 0x400FEA20 as *mut usize;
+pub const SYSCTL_PRI2C_R: *mut usize = 0x400FEA20 as *mut usize;
 
-pub const SYSCTL_PRUSB_R:*mut usize = 0x400FEA28 as *mut usize;
+pub const SYSCTL_PRUSB_R: *mut usize = 0x400FEA28 as *mut usize;
 
-pub const SYSCTL_PRCAN_R:*mut usize = 0x400FEA34 as *mut usize;
+pub const SYSCTL_PRCAN_R: *mut usize = 0x400FEA34 as *mut usize;
 
-pub const SYSCTL_PRADC_R:*mut usize = 0x400FEA38 as *mut usize;
+pub const SYSCTL_PRADC_R: *mut usize = 0x400FEA38 as *mut usize;
 
-pub const SYSCTL_PRACMP_R:*mut usize = 0x400FEA3C as *mut usize;
+pub const SYSCTL_PRACMP_R: *mut usize = 0x400FEA3C as *mut usize;
 
-pub const SYSCTL_PREEPROM_R:*mut usize = 0x400FEA58 as *mut usize;
+pub const SYSCTL_PREEPROM_R: *mut usize = 0x400FEA58 as *mut usize;
 
-pub const SYSCTL_PRWTIMER_R:*mut usize = 0x400FEA5C as *mut usize;
+pub const SYSCTL_PRWTIMER_R: *mut usize = 0x400FEA5C as *mut usize;
 
 // *****************************************************************************
 //
@@ -3169,51 +3169,51 @@ pub const SYSCTL_PRWTIMER_R:*mut usize = 0x400FEA5C as *mut usize;
 //
 // *****************************************************************************
 
-pub const UDMA_STAT_R:*mut usize = 0x400FF000 as *mut usize;
+pub const UDMA_STAT_R: *mut usize = 0x400FF000 as *mut usize;
 
-pub const UDMA_CFG_R:*mut usize = 0x400FF004 as *mut usize;
+pub const UDMA_CFG_R: *mut usize = 0x400FF004 as *mut usize;
 
-pub const UDMA_CTLBASE_R:*mut usize = 0x400FF008 as *mut usize;
+pub const UDMA_CTLBASE_R: *mut usize = 0x400FF008 as *mut usize;
 
-pub const UDMA_ALTBASE_R:*mut usize = 0x400FF00C as *mut usize;
+pub const UDMA_ALTBASE_R: *mut usize = 0x400FF00C as *mut usize;
 
-pub const UDMA_WAITSTAT_R:*mut usize = 0x400FF010 as *mut usize;
+pub const UDMA_WAITSTAT_R: *mut usize = 0x400FF010 as *mut usize;
 
-pub const UDMA_SWREQ_R:*mut usize = 0x400FF014 as *mut usize;
+pub const UDMA_SWREQ_R: *mut usize = 0x400FF014 as *mut usize;
 
-pub const UDMA_USEBURSTSET_R:*mut usize = 0x400FF018 as *mut usize;
+pub const UDMA_USEBURSTSET_R: *mut usize = 0x400FF018 as *mut usize;
 
-pub const UDMA_USEBURSTCLR_R:*mut usize = 0x400FF01C as *mut usize;
+pub const UDMA_USEBURSTCLR_R: *mut usize = 0x400FF01C as *mut usize;
 
-pub const UDMA_REQMASKSET_R:*mut usize = 0x400FF020 as *mut usize;
+pub const UDMA_REQMASKSET_R: *mut usize = 0x400FF020 as *mut usize;
 
-pub const UDMA_REQMASKCLR_R:*mut usize = 0x400FF024 as *mut usize;
+pub const UDMA_REQMASKCLR_R: *mut usize = 0x400FF024 as *mut usize;
 
-pub const UDMA_ENASET_R:*mut usize = 0x400FF028 as *mut usize;
+pub const UDMA_ENASET_R: *mut usize = 0x400FF028 as *mut usize;
 
-pub const UDMA_ENACLR_R:*mut usize = 0x400FF02C as *mut usize;
+pub const UDMA_ENACLR_R: *mut usize = 0x400FF02C as *mut usize;
 
-pub const UDMA_ALTSET_R:*mut usize = 0x400FF030 as *mut usize;
+pub const UDMA_ALTSET_R: *mut usize = 0x400FF030 as *mut usize;
 
-pub const UDMA_ALTCLR_R:*mut usize = 0x400FF034 as *mut usize;
+pub const UDMA_ALTCLR_R: *mut usize = 0x400FF034 as *mut usize;
 
-pub const UDMA_PRIOSET_R:*mut usize = 0x400FF038 as *mut usize;
+pub const UDMA_PRIOSET_R: *mut usize = 0x400FF038 as *mut usize;
 
-pub const UDMA_PRIOCLR_R:*mut usize = 0x400FF03C as *mut usize;
+pub const UDMA_PRIOCLR_R: *mut usize = 0x400FF03C as *mut usize;
 
-pub const UDMA_ERRCLR_R:*mut usize = 0x400FF04C as *mut usize;
+pub const UDMA_ERRCLR_R: *mut usize = 0x400FF04C as *mut usize;
 
-pub const UDMA_CHASGN_R:*mut usize = 0x400FF500 as *mut usize;
+pub const UDMA_CHASGN_R: *mut usize = 0x400FF500 as *mut usize;
 
-pub const UDMA_CHIS_R:*mut usize = 0x400FF504 as *mut usize;
+pub const UDMA_CHIS_R: *mut usize = 0x400FF504 as *mut usize;
 
-pub const UDMA_CHMAP0_R:*mut usize = 0x400FF510 as *mut usize;
+pub const UDMA_CHMAP0_R: *mut usize = 0x400FF510 as *mut usize;
 
-pub const UDMA_CHMAP1_R:*mut usize = 0x400FF514 as *mut usize;
+pub const UDMA_CHMAP1_R: *mut usize = 0x400FF514 as *mut usize;
 
-pub const UDMA_CHMAP2_R:*mut usize = 0x400FF518 as *mut usize;
+pub const UDMA_CHMAP2_R: *mut usize = 0x400FF518 as *mut usize;
 
-pub const UDMA_CHMAP3_R:*mut usize = 0x400FF51C as *mut usize;
+pub const UDMA_CHMAP3_R: *mut usize = 0x400FF51C as *mut usize;
 
 // *****************************************************************************
 //
@@ -3230,207 +3230,207 @@ pub const UDMA_CHCTL: usize = 0x00000008; // DMA Channel Control Word
 //
 // *****************************************************************************
 
-pub const NVIC_INT_TYPE_R:*mut usize = 0xE000E004 as *mut usize;
+pub const NVIC_INT_TYPE_R: *mut usize = 0xE000E004 as *mut usize;
 
-pub const NVIC_ACTLR_R:*mut usize = 0xE000E008 as *mut usize;
+pub const NVIC_ACTLR_R: *mut usize = 0xE000E008 as *mut usize;
 
-pub const NVIC_ST_CTRL_R:*mut usize = 0xE000E010 as *mut usize;
+pub const NVIC_ST_CTRL_R: *mut usize = 0xE000E010 as *mut usize;
 
-pub const NVIC_ST_RELOAD_R:*mut usize = 0xE000E014 as *mut usize;
+pub const NVIC_ST_RELOAD_R: *mut usize = 0xE000E014 as *mut usize;
 
-pub const NVIC_ST_CURRENT_R:*mut usize = 0xE000E018 as *mut usize;
+pub const NVIC_ST_CURRENT_R: *mut usize = 0xE000E018 as *mut usize;
 
-pub const NVIC_ST_CAL_R:*mut usize = 0xE000E01C as *mut usize;
+pub const NVIC_ST_CAL_R: *mut usize = 0xE000E01C as *mut usize;
 
-pub const NVIC_EN0_R:*mut usize = 0xE000E100 as *mut usize;
+pub const NVIC_EN0_R: *mut usize = 0xE000E100 as *mut usize;
 
-pub const NVIC_EN1_R:*mut usize = 0xE000E104 as *mut usize;
+pub const NVIC_EN1_R: *mut usize = 0xE000E104 as *mut usize;
 
-pub const NVIC_EN2_R:*mut usize = 0xE000E108 as *mut usize;
+pub const NVIC_EN2_R: *mut usize = 0xE000E108 as *mut usize;
 
-pub const NVIC_EN3_R:*mut usize = 0xE000E10C as *mut usize;
+pub const NVIC_EN3_R: *mut usize = 0xE000E10C as *mut usize;
 
-pub const NVIC_EN4_R:*mut usize = 0xE000E110 as *mut usize;
+pub const NVIC_EN4_R: *mut usize = 0xE000E110 as *mut usize;
 
-pub const NVIC_DIS0_R:*mut usize = 0xE000E180 as *mut usize;
+pub const NVIC_DIS0_R: *mut usize = 0xE000E180 as *mut usize;
 
-pub const NVIC_DIS1_R:*mut usize = 0xE000E184 as *mut usize;
+pub const NVIC_DIS1_R: *mut usize = 0xE000E184 as *mut usize;
 
-pub const NVIC_DIS2_R:*mut usize = 0xE000E188 as *mut usize;
+pub const NVIC_DIS2_R: *mut usize = 0xE000E188 as *mut usize;
 
-pub const NVIC_DIS3_R:*mut usize = 0xE000E18C as *mut usize;
+pub const NVIC_DIS3_R: *mut usize = 0xE000E18C as *mut usize;
 
-pub const NVIC_DIS4_R:*mut usize = 0xE000E190 as *mut usize;
+pub const NVIC_DIS4_R: *mut usize = 0xE000E190 as *mut usize;
 
-pub const NVIC_PEND0_R:*mut usize = 0xE000E200 as *mut usize;
+pub const NVIC_PEND0_R: *mut usize = 0xE000E200 as *mut usize;
 
-pub const NVIC_PEND1_R:*mut usize = 0xE000E204 as *mut usize;
+pub const NVIC_PEND1_R: *mut usize = 0xE000E204 as *mut usize;
 
-pub const NVIC_PEND2_R:*mut usize = 0xE000E208 as *mut usize;
+pub const NVIC_PEND2_R: *mut usize = 0xE000E208 as *mut usize;
 
-pub const NVIC_PEND3_R:*mut usize = 0xE000E20C as *mut usize;
+pub const NVIC_PEND3_R: *mut usize = 0xE000E20C as *mut usize;
 
-pub const NVIC_PEND4_R:*mut usize = 0xE000E210 as *mut usize;
+pub const NVIC_PEND4_R: *mut usize = 0xE000E210 as *mut usize;
 
-pub const NVIC_UNPEND0_R:*mut usize = 0xE000E280 as *mut usize;
+pub const NVIC_UNPEND0_R: *mut usize = 0xE000E280 as *mut usize;
 
-pub const NVIC_UNPEND1_R:*mut usize = 0xE000E284 as *mut usize;
+pub const NVIC_UNPEND1_R: *mut usize = 0xE000E284 as *mut usize;
 
-pub const NVIC_UNPEND2_R:*mut usize = 0xE000E288 as *mut usize;
+pub const NVIC_UNPEND2_R: *mut usize = 0xE000E288 as *mut usize;
 
-pub const NVIC_UNPEND3_R:*mut usize = 0xE000E28C as *mut usize;
+pub const NVIC_UNPEND3_R: *mut usize = 0xE000E28C as *mut usize;
 
-pub const NVIC_UNPEND4_R:*mut usize = 0xE000E290 as *mut usize;
+pub const NVIC_UNPEND4_R: *mut usize = 0xE000E290 as *mut usize;
 
-pub const NVIC_ACTIVE0_R:*mut usize = 0xE000E300 as *mut usize;
+pub const NVIC_ACTIVE0_R: *mut usize = 0xE000E300 as *mut usize;
 
-pub const NVIC_ACTIVE1_R:*mut usize = 0xE000E304 as *mut usize;
+pub const NVIC_ACTIVE1_R: *mut usize = 0xE000E304 as *mut usize;
 
-pub const NVIC_ACTIVE2_R:*mut usize = 0xE000E308 as *mut usize;
+pub const NVIC_ACTIVE2_R: *mut usize = 0xE000E308 as *mut usize;
 
-pub const NVIC_ACTIVE3_R:*mut usize = 0xE000E30C as *mut usize;
+pub const NVIC_ACTIVE3_R: *mut usize = 0xE000E30C as *mut usize;
 
-pub const NVIC_ACTIVE4_R:*mut usize = 0xE000E310 as *mut usize;
+pub const NVIC_ACTIVE4_R: *mut usize = 0xE000E310 as *mut usize;
 
-pub const NVIC_PRI0_R:*mut usize = 0xE000E400 as *mut usize;
+pub const NVIC_PRI0_R: *mut usize = 0xE000E400 as *mut usize;
 
-pub const NVIC_PRI1_R:*mut usize = 0xE000E404 as *mut usize;
+pub const NVIC_PRI1_R: *mut usize = 0xE000E404 as *mut usize;
 
-pub const NVIC_PRI2_R:*mut usize = 0xE000E408 as *mut usize;
+pub const NVIC_PRI2_R: *mut usize = 0xE000E408 as *mut usize;
 
-pub const NVIC_PRI3_R:*mut usize = 0xE000E40C as *mut usize;
+pub const NVIC_PRI3_R: *mut usize = 0xE000E40C as *mut usize;
 
-pub const NVIC_PRI4_R:*mut usize = 0xE000E410 as *mut usize;
+pub const NVIC_PRI4_R: *mut usize = 0xE000E410 as *mut usize;
 
-pub const NVIC_PRI5_R:*mut usize = 0xE000E414 as *mut usize;
+pub const NVIC_PRI5_R: *mut usize = 0xE000E414 as *mut usize;
 
-pub const NVIC_PRI6_R:*mut usize = 0xE000E418 as *mut usize;
+pub const NVIC_PRI6_R: *mut usize = 0xE000E418 as *mut usize;
 
-pub const NVIC_PRI7_R:*mut usize = 0xE000E41C as *mut usize;
+pub const NVIC_PRI7_R: *mut usize = 0xE000E41C as *mut usize;
 
-pub const NVIC_PRI8_R:*mut usize = 0xE000E420 as *mut usize;
+pub const NVIC_PRI8_R: *mut usize = 0xE000E420 as *mut usize;
 
-pub const NVIC_PRI9_R:*mut usize = 0xE000E424 as *mut usize;
+pub const NVIC_PRI9_R: *mut usize = 0xE000E424 as *mut usize;
 
-pub const NVIC_PRI10_R:*mut usize = 0xE000E428 as *mut usize;
+pub const NVIC_PRI10_R: *mut usize = 0xE000E428 as *mut usize;
 
-pub const NVIC_PRI11_R:*mut usize = 0xE000E42C as *mut usize;
+pub const NVIC_PRI11_R: *mut usize = 0xE000E42C as *mut usize;
 
-pub const NVIC_PRI12_R:*mut usize = 0xE000E430 as *mut usize;
+pub const NVIC_PRI12_R: *mut usize = 0xE000E430 as *mut usize;
 
-pub const NVIC_PRI13_R:*mut usize = 0xE000E434 as *mut usize;
+pub const NVIC_PRI13_R: *mut usize = 0xE000E434 as *mut usize;
 
-pub const NVIC_PRI14_R:*mut usize = 0xE000E438 as *mut usize;
+pub const NVIC_PRI14_R: *mut usize = 0xE000E438 as *mut usize;
 
-pub const NVIC_PRI15_R:*mut usize = 0xE000E43C as *mut usize;
+pub const NVIC_PRI15_R: *mut usize = 0xE000E43C as *mut usize;
 
-pub const NVIC_PRI16_R:*mut usize = 0xE000E440 as *mut usize;
+pub const NVIC_PRI16_R: *mut usize = 0xE000E440 as *mut usize;
 
-pub const NVIC_PRI17_R:*mut usize = 0xE000E444 as *mut usize;
+pub const NVIC_PRI17_R: *mut usize = 0xE000E444 as *mut usize;
 
-pub const NVIC_PRI18_R:*mut usize = 0xE000E448 as *mut usize;
+pub const NVIC_PRI18_R: *mut usize = 0xE000E448 as *mut usize;
 
-pub const NVIC_PRI19_R:*mut usize = 0xE000E44C as *mut usize;
+pub const NVIC_PRI19_R: *mut usize = 0xE000E44C as *mut usize;
 
-pub const NVIC_PRI20_R:*mut usize = 0xE000E450 as *mut usize;
+pub const NVIC_PRI20_R: *mut usize = 0xE000E450 as *mut usize;
 
-pub const NVIC_PRI21_R:*mut usize = 0xE000E454 as *mut usize;
+pub const NVIC_PRI21_R: *mut usize = 0xE000E454 as *mut usize;
 
-pub const NVIC_PRI22_R:*mut usize = 0xE000E458 as *mut usize;
+pub const NVIC_PRI22_R: *mut usize = 0xE000E458 as *mut usize;
 
-pub const NVIC_PRI23_R:*mut usize = 0xE000E45C as *mut usize;
+pub const NVIC_PRI23_R: *mut usize = 0xE000E45C as *mut usize;
 
-pub const NVIC_PRI24_R:*mut usize = 0xE000E460 as *mut usize;
+pub const NVIC_PRI24_R: *mut usize = 0xE000E460 as *mut usize;
 
-pub const NVIC_PRI25_R:*mut usize = 0xE000E464 as *mut usize;
+pub const NVIC_PRI25_R: *mut usize = 0xE000E464 as *mut usize;
 
-pub const NVIC_PRI26_R:*mut usize = 0xE000E468 as *mut usize;
+pub const NVIC_PRI26_R: *mut usize = 0xE000E468 as *mut usize;
 
-pub const NVIC_PRI27_R:*mut usize = 0xE000E46C as *mut usize;
+pub const NVIC_PRI27_R: *mut usize = 0xE000E46C as *mut usize;
 
-pub const NVIC_PRI28_R:*mut usize = 0xE000E470 as *mut usize;
+pub const NVIC_PRI28_R: *mut usize = 0xE000E470 as *mut usize;
 
-pub const NVIC_PRI29_R:*mut usize = 0xE000E474 as *mut usize;
+pub const NVIC_PRI29_R: *mut usize = 0xE000E474 as *mut usize;
 
-pub const NVIC_PRI30_R:*mut usize = 0xE000E478 as *mut usize;
+pub const NVIC_PRI30_R: *mut usize = 0xE000E478 as *mut usize;
 
-pub const NVIC_PRI31_R:*mut usize = 0xE000E47C as *mut usize;
+pub const NVIC_PRI31_R: *mut usize = 0xE000E47C as *mut usize;
 
-pub const NVIC_PRI32_R:*mut usize = 0xE000E480 as *mut usize;
+pub const NVIC_PRI32_R: *mut usize = 0xE000E480 as *mut usize;
 
-pub const NVIC_PRI33_R:*mut usize = 0xE000E484 as *mut usize;
+pub const NVIC_PRI33_R: *mut usize = 0xE000E484 as *mut usize;
 
-pub const NVIC_PRI34_R:*mut usize = 0xE000E488 as *mut usize;
+pub const NVIC_PRI34_R: *mut usize = 0xE000E488 as *mut usize;
 
-pub const NVIC_CPUID_R:*mut usize = 0xE000ED00 as *mut usize;
+pub const NVIC_CPUID_R: *mut usize = 0xE000ED00 as *mut usize;
 
-pub const NVIC_INT_CTRL_R:*mut usize = 0xE000ED04 as *mut usize;
+pub const NVIC_INT_CTRL_R: *mut usize = 0xE000ED04 as *mut usize;
 
-pub const NVIC_VTABLE_R:*mut usize = 0xE000ED08 as *mut usize;
+pub const NVIC_VTABLE_R: *mut usize = 0xE000ED08 as *mut usize;
 
-pub const NVIC_APINT_R:*mut usize = 0xE000ED0C as *mut usize;
+pub const NVIC_APINT_R: *mut usize = 0xE000ED0C as *mut usize;
 
-pub const NVIC_SYS_CTRL_R:*mut usize = 0xE000ED10 as *mut usize;
+pub const NVIC_SYS_CTRL_R: *mut usize = 0xE000ED10 as *mut usize;
 
-pub const NVIC_CFG_CTRL_R:*mut usize = 0xE000ED14 as *mut usize;
+pub const NVIC_CFG_CTRL_R: *mut usize = 0xE000ED14 as *mut usize;
 
-pub const NVIC_SYS_PRI1_R:*mut usize = 0xE000ED18 as *mut usize;
+pub const NVIC_SYS_PRI1_R: *mut usize = 0xE000ED18 as *mut usize;
 
-pub const NVIC_SYS_PRI2_R:*mut usize = 0xE000ED1C as *mut usize;
+pub const NVIC_SYS_PRI2_R: *mut usize = 0xE000ED1C as *mut usize;
 
-pub const NVIC_SYS_PRI3_R:*mut usize = 0xE000ED20 as *mut usize;
+pub const NVIC_SYS_PRI3_R: *mut usize = 0xE000ED20 as *mut usize;
 
-pub const NVIC_SYS_HND_CTRL_R:*mut usize = 0xE000ED24 as *mut usize;
+pub const NVIC_SYS_HND_CTRL_R: *mut usize = 0xE000ED24 as *mut usize;
 
-pub const NVIC_FAULT_STAT_R:*mut usize = 0xE000ED28 as *mut usize;
+pub const NVIC_FAULT_STAT_R: *mut usize = 0xE000ED28 as *mut usize;
 
-pub const NVIC_HFAULT_STAT_R:*mut usize = 0xE000ED2C as *mut usize;
+pub const NVIC_HFAULT_STAT_R: *mut usize = 0xE000ED2C as *mut usize;
 
-pub const NVIC_DEBUG_STAT_R:*mut usize = 0xE000ED30 as *mut usize;
+pub const NVIC_DEBUG_STAT_R: *mut usize = 0xE000ED30 as *mut usize;
 
-pub const NVIC_MM_ADDR_R:*mut usize = 0xE000ED34 as *mut usize;
+pub const NVIC_MM_ADDR_R: *mut usize = 0xE000ED34 as *mut usize;
 
-pub const NVIC_FAULT_ADDR_R:*mut usize = 0xE000ED38 as *mut usize;
+pub const NVIC_FAULT_ADDR_R: *mut usize = 0xE000ED38 as *mut usize;
 
-pub const NVIC_CPAC_R:*mut usize = 0xE000ED88 as *mut usize;
+pub const NVIC_CPAC_R: *mut usize = 0xE000ED88 as *mut usize;
 
-pub const NVIC_MPU_TYPE_R:*mut usize = 0xE000ED90 as *mut usize;
+pub const NVIC_MPU_TYPE_R: *mut usize = 0xE000ED90 as *mut usize;
 
-pub const NVIC_MPU_CTRL_R:*mut usize = 0xE000ED94 as *mut usize;
+pub const NVIC_MPU_CTRL_R: *mut usize = 0xE000ED94 as *mut usize;
 
-pub const NVIC_MPU_NUMBER_R:*mut usize = 0xE000ED98 as *mut usize;
+pub const NVIC_MPU_NUMBER_R: *mut usize = 0xE000ED98 as *mut usize;
 
-pub const NVIC_MPU_BASE_R:*mut usize = 0xE000ED9C as *mut usize;
+pub const NVIC_MPU_BASE_R: *mut usize = 0xE000ED9C as *mut usize;
 
-pub const NVIC_MPU_ATTR_R:*mut usize = 0xE000EDA0 as *mut usize;
+pub const NVIC_MPU_ATTR_R: *mut usize = 0xE000EDA0 as *mut usize;
 
-pub const NVIC_MPU_BASE1_R:*mut usize = 0xE000EDA4 as *mut usize;
+pub const NVIC_MPU_BASE1_R: *mut usize = 0xE000EDA4 as *mut usize;
 
-pub const NVIC_MPU_ATTR1_R:*mut usize = 0xE000EDA8 as *mut usize;
+pub const NVIC_MPU_ATTR1_R: *mut usize = 0xE000EDA8 as *mut usize;
 
-pub const NVIC_MPU_BASE2_R:*mut usize = 0xE000EDAC as *mut usize;
+pub const NVIC_MPU_BASE2_R: *mut usize = 0xE000EDAC as *mut usize;
 
-pub const NVIC_MPU_ATTR2_R:*mut usize = 0xE000EDB0 as *mut usize;
+pub const NVIC_MPU_ATTR2_R: *mut usize = 0xE000EDB0 as *mut usize;
 
-pub const NVIC_MPU_BASE3_R:*mut usize = 0xE000EDB4 as *mut usize;
+pub const NVIC_MPU_BASE3_R: *mut usize = 0xE000EDB4 as *mut usize;
 
-pub const NVIC_MPU_ATTR3_R:*mut usize = 0xE000EDB8 as *mut usize;
+pub const NVIC_MPU_ATTR3_R: *mut usize = 0xE000EDB8 as *mut usize;
 
-pub const NVIC_DBG_CTRL_R:*mut usize = 0xE000EDF0 as *mut usize;
+pub const NVIC_DBG_CTRL_R: *mut usize = 0xE000EDF0 as *mut usize;
 
-pub const NVIC_DBG_XFER_R:*mut usize = 0xE000EDF4 as *mut usize;
+pub const NVIC_DBG_XFER_R: *mut usize = 0xE000EDF4 as *mut usize;
 
-pub const NVIC_DBG_DATA_R:*mut usize = 0xE000EDF8 as *mut usize;
+pub const NVIC_DBG_DATA_R: *mut usize = 0xE000EDF8 as *mut usize;
 
-pub const NVIC_DBG_INT_R:*mut usize = 0xE000EDFC as *mut usize;
+pub const NVIC_DBG_INT_R: *mut usize = 0xE000EDFC as *mut usize;
 
-pub const NVIC_SW_TRIG_R:*mut usize = 0xE000EF00 as *mut usize;
+pub const NVIC_SW_TRIG_R: *mut usize = 0xE000EF00 as *mut usize;
 
-pub const NVIC_FPCC_R:*mut usize = 0xE000EF34 as *mut usize;
+pub const NVIC_FPCC_R: *mut usize = 0xE000EF34 as *mut usize;
 
-pub const NVIC_FPCA_R:*mut usize = 0xE000EF38 as *mut usize;
+pub const NVIC_FPCA_R: *mut usize = 0xE000EF38 as *mut usize;
 
-pub const NVIC_FPDSC_R:*mut usize = 0xE000EF3C as *mut usize;
+pub const NVIC_FPDSC_R: *mut usize = 0xE000EF3C as *mut usize;
 
 // *****************************************************************************
 //
@@ -10873,3 +10873,9 @@ pub const NVIC_FPDSC_RMODE_RN: usize = 0x00000000; // Round to Nearest (RN) mode
 pub const NVIC_FPDSC_RMODE_RP: usize = 0x00400000; // Round towards Plus Infinity (RP) mode
 pub const NVIC_FPDSC_RMODE_RM: usize = 0x00800000; // Round towards Minus Infinity (RM) mode
 pub const NVIC_FPDSC_RMODE_RZ: usize = 0x00C00000; // Round towards Zero (RZ) mode
+
+// ****************************************************************************
+//
+// End Of File
+//
+// ****************************************************************************
