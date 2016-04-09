@@ -83,7 +83,7 @@ pub enum Level {
 }
 
 pub fn init() {
-    unimplemented!();
+
 }
 
 pub fn set_direction(pinport: PinPort, mode: PinMode) {

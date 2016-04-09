@@ -29,7 +29,6 @@
 * Description:  Linker description file for LM4FXXX microcontrollers.
 */
 
-
 /*
 * Memory definition:
 * FLASH:  start point 0x00,   lenght 0x40000.
@@ -61,26 +60,15 @@ SECTIONS
      *   Look at the LM4F120H5QR datasheet for details. (Table 2-8. Exception Types)
      */
 
+     . = 0x00000000;
+
     .text :
     {
         KEEP(*(.nvic_table))     /* This must be first. It tells the ARM where the stack and IRQ vectors are. */
                                  /* KEEP stops it being removed as we don't refer to it anywhere. */
-        *    (.text .text.*)     /* This contains most of the executable code. */
-        *    (.init)             /* This section is used by the C-library, newlib. */
-        *    (.fini)             /* This section is used by the C-library, newlib. */
-        *    (.glue_7)           /* This section is used by the compiler */
-        *    (.glue_7t)          /* This section is used by the compiler */
-        *    (.vfp11_veneer)     /* This section is used by the compiler */
-        *    (.v4_bx)            /* This section is used by the compiler */
-        *    (.ARM.extab)        /* This section is used by the compiler */
-        *    (.rodata .rodata.*) /* Read only data (const variables) */
-    } > FLASH
-
-    /* This section are used by the compiler and/or the C-library, newlib. */
-    /* It is a 'sorted' section and so must be separate from .text above. */
-    .ARM.exidx :
-    {
-        *(.ARM.exidx)
+        *(.text*)                /* This contains most of the executable code. */
+        *(.rodata*)              /* Read only data (const variables) */
+        . = ALIGN(4);
     } > FLASH
 
     _start_data_flash = ALIGN(8);
@@ -95,8 +83,7 @@ SECTIONS
     .data : AT (_start_data_flash)
     {
         _start_data = .;  /* An index to the beginning of .data segment. */
-        *(.data .data.*)  /* Initialised program data */
-        *(.eh_frame)      /* C++ exception handling data */
+        *(.data*)         /* Initialised program data */
         _end_data = .;    /* And another index to the end of .data segment. */
     } > SRAM
 
@@ -107,15 +94,12 @@ SECTIONS
     .bss :
     {
         _bss_start = .;  /* This is an index to the beginning of .bss segment. */
-        *(.bss .bss.*)      /* The un-initialized data should go there.  */
-        *(COMMON)           /* All the other stuff should be put there */
+        *(.bss*)         /* The un-initialized data should go there.  */
         _bss_end = .;    /* End index for .bss segment */
     } > SRAM
 
     _heap_bottom = .;
     _heap_top = ORIGIN(SRAM) + LENGTH(SRAM) - _stack_size;
-
     _stack_bottom = _heap_top;
     _stack_top = ORIGIN(SRAM) + LENGTH(SRAM);
-
 }
