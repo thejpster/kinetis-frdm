@@ -1,7 +1,6 @@
-# Rust on the teensy 3.1
+# Rust on the Stellaris Launchpad
 
-A bare metal example of blink written in rust for the teensy 3.1
-
+A bare metal example of blink written in rust for the Stellaris Launchpad (LM4F120 dev board)
 ## Requirements
 
 * rustc nightly
@@ -14,8 +13,15 @@ A bare metal example of blink written in rust for the teensy 3.1
 
 ```bash
 cargo build --target thumbv7em-none-eabi
-arm-none-eabi-objcopy -O ihex -R .eeprom target/thumbv7em-none-eabi/debug/blink blink.hex
+arm-none-eabi-objcopy -O binary target/thumbv7em-none-eabi/debug/blink blink.bin
+sudo lm4flash blink.bin
+```
 
-echo "Reset teensy now"
-teensy-loader-cli -w --mcu=mk20dx256 blink.hex
+## You can also debug
+```
+$ sudo openocd -f /usr/share/openocd/scripts/board/ek-lm4f120xl.cfg
+$ arm-none-eabi-gdb ./target/thumbv7em-none-eabi/debug/blink
+(gdb) target remote localhost:3333
+(gdb) monitor reset halt
+(gdb) continue
 ```
