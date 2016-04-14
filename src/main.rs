@@ -10,13 +10,13 @@
 //
 // ****************************************************************************
 
-extern crate blink;
+extern crate primer;
 
 use core::intrinsics::{volatile_store, volatile_load};
 
-use blink::lm4f120h5qr;
-use blink::gpio;
-use blink::launchpad;
+use primer::lm4f120h5qr;
+use primer::gpio;
+use primer::launchpad;
 
 // ****************************************************************************
 //

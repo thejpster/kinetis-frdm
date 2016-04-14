@@ -1,7 +1,10 @@
 [package]
-name = "blink"
-version = "0.1.0"
-authors = ["Michael Daffin <michael@daffin.io>", "Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"]
+name = "bare-metal-arm-rust"
+version = "0.2.0"
+authors = [
+	"Michael Daffin <michael@daffin.io>",
+	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
+]
 build = "build.rs"
 
 [profile.dev]
@@ -15,3 +18,5 @@ debug = false
 [target.thumbv7em-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
 
+[dependencies]
+primer = { path = "primer" }

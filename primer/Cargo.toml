@@ -1,0 +1,9 @@
+[package]
+name = "primer"
+version = "0.1.0"
+authors = ["theJPster <github@thejpster.org.uk>"]
+
+[target.thumbv7em-none-eabi.dependencies.rust-libcore]
+git = "https://github.com/hackndev/rust-libcore"
+
+[dependencies]
