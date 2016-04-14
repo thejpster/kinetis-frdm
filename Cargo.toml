@@ -6,6 +6,9 @@ authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
 ]
 build = "build.rs"
+keywords = ["arm", "bare-metal", "blink"]
+license = "MIT"
+readme = "README.md"
 
 [profile.dev]
 opt-level = 0
