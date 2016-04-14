@@ -25,7 +25,7 @@ extern "C" {
     static mut _bss_start: usize;
     static mut _bss_end: usize;
     fn _stack_top();
-	fn primer_start();
+    fn primer_start();
 }
 
 // ****************************************************************************
@@ -362,7 +362,8 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [
     // Reserved                         153
     None,
     // Reserved                         154
-    None];
+    None
+];
 
 // ****************************************************************************
 //
@@ -423,9 +424,7 @@ pub extern "C" fn __aeabi_unwind_cpp_pr1() -> () {
 
 /// Required by the compiler.
 #[lang="eh_personality"]
-extern "C" fn eh_personality() {
-
-}
+extern "C" fn eh_personality() {}
 
 /// Entry point of panic from the libcore crate.
 ///
@@ -444,42 +443,79 @@ pub extern "C" fn rust_begin_unwind(_fmt: &core::fmt::Arguments,
 //
 // ****************************************************************************
 
+/// A Non Maskable Interrupt (NMI) can be signalled by a peripheral or
+/// triggered by software. This is the highest priority exception other than
+/// reset. It is permanently enabled and has a fixed priority of -2. NMIs
+/// cannot be:
+/// * masked or prevented from activation by any other exception
+/// * preempted by any exception other than Reset.
 unsafe extern "C" fn isr_nmi() {
     loop {}
 }
 
+/// A HardFault is an exception that occurs because of an error during
+/// exception processing, or because an exception cannot be managed by any
+/// other exception mechanism. HardFaults have a fixed priority of -1, meaning
+/// they have higher priority than any exception with configurable priority.
 unsafe extern "C" fn isr_hardfault() {
     loop {}
 }
 
+/// A MemManage fault is an exception that occurs because of a memory
+/// protection related fault. The the fixed memory protection constraints
+/// determines this fault, for both instruction and data memory transactions.
+/// This fault is always used to abort instruction accesses to Execute Never
+/// (XN) memory regions.
 unsafe extern "C" fn isr_mmfault() {
     loop {}
 }
 
+/// A BusFault is an exception that occurs because of a memory related fault
+/// for an instruction or data memory transaction. This might be from an error
+/// detected on a bus in the memory system.
 unsafe extern "C" fn isr_busfault() {
     loop {}
 }
 
+/// A UsageFault is an exception that occurs because of a fault related to instruction execution. This includes:
+/// * an undefined instruction
+/// * an illegal unaligned access
+/// * invalid state on instruction execution
+/// * an error on exception return.
+/// The following can cause a UsageFault when the core is configured to report them:
+/// * an unaligned address on word and halfword memory access
+/// * division by zero.
 unsafe extern "C" fn isr_usagefault() {
     loop {}
 }
 
+/// A supervisor call (SVC) is an exception that is triggered by the SVC
+/// instruction. In an OS environment, applications can use SVC instructions
+/// to access OS kernel functions and device drivers.
 unsafe extern "C" fn isr_svcall() {
     loop {}
 }
 
+/// Debug monitor interrupt handler.
 unsafe extern "C" fn isr_debugmon() {
     loop {}
 }
 
+/// PendSV is an interrupt-driven request for system-level service. In an OS
+/// environment, use PendSV for context switching when no other exception is
+/// active.
 unsafe extern "C" fn isr_pendsv() {
     loop {}
 }
 
+/// A SysTick exception is an exception the system timer generates when it
+/// reaches zero. Software can also generate a SysTick exception. In an OS
+/// environment, the processor can use this exception as system tick.
 unsafe extern "C" fn isr_systick() {
     loop {}
 }
 
+/// A place-holder ISR used when we have nothing better to use.
 unsafe extern "C" fn isr_empty_def() {
     loop {}
 }
