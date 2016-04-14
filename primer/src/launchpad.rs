@@ -1,8 +1,36 @@
 //! A board support library for the TI Stellaris Launchpad
 
+// ****************************************************************************
+//
+// Imports
+//
+// ****************************************************************************
+
 use core::intrinsics::{volatile_store, volatile_load};
 use gpio;
 use lm4f120h5qr;
+
+// ****************************************************************************
+//
+// Public Types
+//
+// ****************************************************************************
+
+// None
+
+// ****************************************************************************
+//
+// Private Types
+//
+// ****************************************************************************
+
+// None
+
+// ****************************************************************************
+//
+// Public Data
+//
+// ****************************************************************************
 
 pub const LED_RED: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin1);
 pub const LED_BLUE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin2);
@@ -10,13 +38,24 @@ pub const LED_GREEN: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin3);
 pub const BUTTON_ONE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin0);
 pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 
+// ****************************************************************************
+//
+// Public Functions
+//
+// ****************************************************************************
+
 pub fn init() {
     pll_init();
     gpio::init();
     enable_buttons();
     enable_leds();
-    // gpio_enable_uart(UART_ID_0);
 }
+
+// ****************************************************************************
+//
+// Private Functions
+//
+// ****************************************************************************
 
 fn enable_buttons() {
     gpio::set_direction(BUTTON_ONE, gpio::PinMode::InputPull(gpio::Level::High));

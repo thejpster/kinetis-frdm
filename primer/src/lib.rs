@@ -8,6 +8,12 @@
 #![no_std]
 #![crate_type="staticlib"]
 
+// ****************************************************************************
+//
+// Imports
+//
+// ****************************************************************************
+
 pub mod gpio;
 pub mod lm4f120h5qr;
 pub mod launchpad;
@@ -22,21 +28,31 @@ extern "C" {
 	fn rust_loop();
 }
 
-#[no_mangle]
-pub extern "C" fn __aeabi_unwind_cpp_pr0() -> () {
-    loop {}
-}
+// ****************************************************************************
+//
+// Public Types
+//
+// ****************************************************************************
 
-#[no_mangle]
-pub extern "C" fn __aeabi_unwind_cpp_pr1() -> () {
-    loop {}
-}
+// None
 
+// ****************************************************************************
+//
+// Private Types
+//
+// ****************************************************************************
+
+// None
+
+// ****************************************************************************
+//
+// Public Data
+//
+// ****************************************************************************
 
 #[link_section=".nvic_table"]
-#[allow(non_upper_case_globals)]
 #[no_mangle]
-pub static ISRVectors: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointer
+pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointer
                                                                 Some(_stack_top),
                                                                 // Reset
                                                                 Some(startup),
@@ -346,6 +362,19 @@ pub static ISRVectors: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointer
                                                                 None,
                                                                 // Reserved                         154
                                                                 None];
+// ****************************************************************************
+//
+// Public Functions
+//
+// ****************************************************************************
+
+pub fn delay(ms: i32) {
+    for _ in 0..ms * 150 {
+        unsafe {
+            asm!("NOP");
+        }
+    }
+}
 
 pub unsafe extern "C" fn startup() {
     let mut src: *mut usize = &mut _start_data_flash;
@@ -367,43 +396,60 @@ pub unsafe extern "C" fn startup() {
     rust_loop();
 }
 
-pub unsafe extern "C" fn isr_nmi() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_hardfault() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_mmfault() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_busfault() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_usagefault() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_svcall() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_debugmon() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_pendsv() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_systick() {
-    loop {}
-}
-pub unsafe extern "C" fn isr_empty_def() {
+#[no_mangle]
+pub extern "C" fn __aeabi_unwind_cpp_pr0() -> () {
     loop {}
 }
 
-pub fn delay(ms: i32) {
-    for _ in 0..ms * 150 {
-        unsafe {
-            asm!("NOP");
-        }
-    }
+#[no_mangle]
+pub extern "C" fn __aeabi_unwind_cpp_pr1() -> () {
+    loop {}
+}
+
+// ****************************************************************************
+//
+// Private Functions
+//
+// ****************************************************************************
+
+unsafe extern "C" fn isr_nmi() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_hardfault() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_mmfault() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_busfault() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_usagefault() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_svcall() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_debugmon() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_pendsv() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_systick() {
+    loop {}
+}
+
+unsafe extern "C" fn isr_empty_def() {
+    loop {}
 }
 
 // ****************************************************************************
