@@ -59,9 +59,9 @@ pub extern "C" fn primer_start() {
     launchpad::init();
     loop {
         led_on();
-        primer::delay(100);
+        primer::delay(250);
         led_off();
-        primer::delay(100);
+        primer::delay(250);
     }
 }
 

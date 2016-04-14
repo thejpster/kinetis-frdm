@@ -17,6 +17,7 @@
 pub mod gpio;
 pub mod lm4f120h5qr;
 pub mod launchpad;
+pub mod pll;
 
 extern "C" {
     static mut _start_data_flash: usize;
@@ -378,7 +379,7 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [
 ///
 /// * `ms` - The period to wait, in milliseconds
 pub fn delay(ms: i32) {
-    for _ in 0..ms * 150 {
+    for _ in 0..ms * 250 {
         unsafe {
             asm!("NOP");
         }
