@@ -1,7 +1,6 @@
 //! A blinky-LED example application
 //! This example uses Primer, a library for simple bare-metal ARM programming.
 
-#![feature(lang_items)]
 #![no_std]
 #![no_main]
 #![crate_type="staticlib"]
@@ -56,7 +55,7 @@ pub fn led_off() {
 }
 
 #[no_mangle]
-pub extern "C" fn rust_loop() {
+pub extern "C" fn primer_start() {
     launchpad::init();
     loop {
         led_on();
@@ -64,19 +63,6 @@ pub extern "C" fn rust_loop() {
         led_off();
         primer::delay(100);
     }
-}
-
-#[lang="eh_personality"]
-extern "C" fn eh_personality() {
-
-}
-
-#[lang="panic_fmt"]
-#[no_mangle]
-pub extern "C" fn rust_begin_unwind(_fmt: &core::fmt::Arguments,
-                                    _file_line: &(&'static str, usize))
-                                    -> ! {
-    loop {}
 }
 
 // ****************************************************************************
