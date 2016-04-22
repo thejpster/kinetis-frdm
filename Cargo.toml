@@ -1,6 +1,6 @@
 [package]
 name = "bare-metal-arm-rust"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
 	"Michael Daffin <michael@daffin.io>",
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
@@ -9,14 +9,6 @@ build = "build.rs"
 keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"
 readme = "README.md"
-
-[profile.dev]
-opt-level = 0
-debug = true
-
-[profile.release]
-opt-level = 2
-debug = false
 
 [target.thumbv7em-none-eabi.dependencies.rust-libcore]
 git = "https://github.com/hackndev/rust-libcore"
