@@ -1,5 +1,6 @@
 language: rust
 script: cargo build --target=thumbv7em-none-eabi
+cache: apt
 rust:
   - stable
   - beta
