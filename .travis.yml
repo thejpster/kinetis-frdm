@@ -1,0 +1,9 @@
+language: rust
+script: cargo build --target=thumbv7em-none-eabi
+rust:
+  - stable
+  - beta
+  - nightly
+matrix:
+  allow_failures:
+    - rust: nightly
