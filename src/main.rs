@@ -13,8 +13,8 @@
 
 extern crate primer;
 
-use primer::lm4f120h5qr::gpio;
 use primer::board::launchpad;
+use primer::board::launchpad::gpio;
 
 // ****************************************************************************
 //
