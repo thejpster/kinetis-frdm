@@ -14,10 +14,8 @@
 //
 // ****************************************************************************
 
-pub mod gpio;
+pub mod board;
 pub mod lm4f120h5qr;
-pub mod launchpad;
-pub mod pll;
 
 extern "C" {
     static mut _start_data_flash: usize;

@@ -1,9 +1,4 @@
-//! A blinky-LED example application
-//! This example uses Primer, a library for simple bare-metal ARM programming.
-
-#![no_std]
-#![no_main]
-#![crate_type="staticlib"]
+//! A board support library for the TI Stellaris Launchpad
 
 // ****************************************************************************
 //
@@ -11,10 +6,8 @@
 //
 // ****************************************************************************
 
-extern crate primer;
-
-use primer::lm4f120h5qr::gpio;
-use primer::board::launchpad;
+use lm4f120h5qr::gpio;
+use lm4f120h5qr::pll;
 
 // ****************************************************************************
 //
@@ -38,7 +31,11 @@ use primer::board::launchpad;
 //
 // ****************************************************************************
 
-// None
+pub const LED_RED: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin1);
+pub const LED_BLUE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin2);
+pub const LED_GREEN: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin3);
+pub const BUTTON_ONE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin0);
+pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 
 // ****************************************************************************
 //
@@ -46,23 +43,11 @@ use primer::board::launchpad;
 //
 // ****************************************************************************
 
-pub fn led_on() {
-    gpio::set(launchpad::LED_RED, gpio::Level::High);
-}
-
-pub fn led_off() {
-    gpio::set(launchpad::LED_RED, gpio::Level::Low);
-}
-
-#[no_mangle]
-pub extern "C" fn primer_start() {
-    launchpad::init();
-    loop {
-        led_on();
-        primer::delay(250);
-        led_off();
-        primer::delay(250);
-    }
+pub fn init() {
+    pll::init(pll::ClockSpeed::Speed66MHz);
+    gpio::init();
+    enable_buttons();
+    enable_leds();
 }
 
 // ****************************************************************************
@@ -71,7 +56,16 @@ pub extern "C" fn primer_start() {
 //
 // ****************************************************************************
 
-// None
+fn enable_buttons() {
+    gpio::set_direction(BUTTON_ONE, gpio::PinMode::InputPull(gpio::Level::High));
+    gpio::set_direction(BUTTON_TWO, gpio::PinMode::InputPull(gpio::Level::High));
+}
+
+fn enable_leds() {
+    gpio::set_direction(LED_RED, gpio::PinMode::Output);
+    gpio::set_direction(LED_BLUE, gpio::PinMode::Output);
+    gpio::set_direction(LED_GREEN, gpio::PinMode::Output);
+}
 
 // ****************************************************************************
 //

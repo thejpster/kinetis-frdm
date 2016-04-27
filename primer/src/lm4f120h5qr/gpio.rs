@@ -10,7 +10,7 @@
 
 use core::intrinsics::{volatile_store, volatile_load};
 use core::ptr::Unique;
-use lm4f120h5qr::*;
+use lm4f120h5qr::registers;
 
 // ****************************************************************************
 //
@@ -214,12 +214,12 @@ fn get_pctl_mask(pinport: PinPort) -> usize {
 fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
-        let mut reg = volatile_load(SYSCTL_RCGCGPIO_R);
+        let mut reg = volatile_load(registers::SYSCTL_RCGCGPIO_R);
         if (reg & mask) == 0 {
             reg |= mask;
-            volatile_store(SYSCTL_RCGCGPIO_R, reg);
+            volatile_store(registers::SYSCTL_RCGCGPIO_R, reg);
             // Wait for module to settle
-            while (volatile_load(SYSCTL_RCGCGPIO_R) & mask) == 0 {
+            while (volatile_load(registers::SYSCTL_RCGCGPIO_R) & mask) == 0 {
                 asm!("NOP");
             }
         }
@@ -246,7 +246,7 @@ fn make_input(pinport: PinPort) {
             // The GPIO for button one is multiplexed with NMI so we
             // have to 'unlock' it before we can use it
             //
-            registers.get_mut().lock = GPIO_LOCK_KEY;
+            registers.get_mut().lock = registers::GPIO_LOCK_KEY;
             registers.get_mut().cr |= mask;
             registers.get_mut().lock = 0;
         }
@@ -298,12 +298,12 @@ fn make_output(pinport: PinPort, level: Level) {
 
 fn get_port_registers(port: PinPort) -> Unique<Registers> {
     match port {
-        PinPort::PortA(_) => unsafe { Unique::new(GPIO_PORTA_DATA_BITS_R as *mut _) },
-        PinPort::PortB(_) => unsafe { Unique::new(GPIO_PORTB_DATA_BITS_R as *mut _) },
-        PinPort::PortC(_) => unsafe { Unique::new(GPIO_PORTC_DATA_BITS_R as *mut _) },
-        PinPort::PortD(_) => unsafe { Unique::new(GPIO_PORTD_DATA_BITS_R as *mut _) },
-        PinPort::PortE(_) => unsafe { Unique::new(GPIO_PORTE_DATA_BITS_R as *mut _) },
-        PinPort::PortF(_) => unsafe { Unique::new(GPIO_PORTF_DATA_BITS_R as *mut _) },
+        PinPort::PortA(_) => unsafe { Unique::new(registers::GPIO_PORTA_DATA_BITS_R as *mut _) },
+        PinPort::PortB(_) => unsafe { Unique::new(registers::GPIO_PORTB_DATA_BITS_R as *mut _) },
+        PinPort::PortC(_) => unsafe { Unique::new(registers::GPIO_PORTC_DATA_BITS_R as *mut _) },
+        PinPort::PortD(_) => unsafe { Unique::new(registers::GPIO_PORTD_DATA_BITS_R as *mut _) },
+        PinPort::PortE(_) => unsafe { Unique::new(registers::GPIO_PORTE_DATA_BITS_R as *mut _) },
+        PinPort::PortF(_) => unsafe { Unique::new(registers::GPIO_PORTF_DATA_BITS_R as *mut _) },
     }
 }
 
