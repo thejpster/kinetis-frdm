@@ -2,12 +2,7 @@ language: rust
 script: cargo build --target=thumbv7em-none-eabi
 cache: apt
 rust:
-  - stable
-  - beta
   - nightly
-matrix:
-  allow_failures:
-    - rust: nightly
 before_install:
   - sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded -y
   - sudo apt-get update
