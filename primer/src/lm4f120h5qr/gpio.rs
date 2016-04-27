@@ -10,7 +10,7 @@
 
 use core::intrinsics::{volatile_store, volatile_load};
 use core::ptr::Unique;
-use lm4f120h5qr::registers;
+use super::registers;
 
 // ****************************************************************************
 //
