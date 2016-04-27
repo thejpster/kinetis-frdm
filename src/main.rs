@@ -14,7 +14,6 @@
 extern crate primer;
 
 use primer::board::launchpad;
-use primer::board::launchpad::gpio;
 
 // ****************************************************************************
 //
@@ -46,21 +45,13 @@ use primer::board::launchpad::gpio;
 //
 // ****************************************************************************
 
-pub fn led_on() {
-    gpio::set(launchpad::LED_RED, gpio::Level::High);
-}
-
-pub fn led_off() {
-    gpio::set(launchpad::LED_RED, gpio::Level::Low);
-}
-
 #[no_mangle]
 pub extern "C" fn primer_start() {
     launchpad::init();
     loop {
-        led_on();
+        launchpad::led_on(launchpad::Led::Red);
         primer::delay(250);
-        led_off();
+        launchpad::led_off(launchpad::Led::Red);
         primer::delay(250);
     }
 }

@@ -6,7 +6,9 @@
 //
 // ****************************************************************************
 
+/// Bring in GPIO appropriate for this board
 pub use lm4f120h5qr::gpio;
+
 use lm4f120h5qr::pll;
 
 // ****************************************************************************
@@ -15,7 +17,18 @@ use lm4f120h5qr::pll;
 //
 // ****************************************************************************
 
-// None
+#[derive(PartialEq, Clone, Copy)]
+pub enum Led {
+    Red,
+    Blue,
+    Green
+}
+
+#[derive(PartialEq, Clone, Copy)]
+pub enum Button {
+    One,
+    Two
+}
 
 // ****************************************************************************
 //
@@ -48,6 +61,29 @@ pub fn init() {
     gpio::init();
     enable_buttons();
     enable_leds();
+}
+
+pub fn led_on(led: Led) {
+    match led {
+        Led::Red => gpio::set(LED_RED, gpio::Level::High),
+        Led::Blue => gpio::set(LED_BLUE, gpio::Level::High),
+        Led::Green => gpio::set(LED_GREEN, gpio::Level::High),
+    }
+}
+
+pub fn led_off(led: Led) {
+    match led {
+        Led::Red => gpio::set(LED_RED, gpio::Level::Low),
+        Led::Blue => gpio::set(LED_BLUE, gpio::Level::Low),
+        Led::Green => gpio::set(LED_GREEN, gpio::Level::Low),
+    }
+}
+
+pub fn read_button(button: Button) -> gpio::Level {
+    match button {
+        Button::One => gpio::read(BUTTON_ONE),
+        Button::Two => gpio::read(BUTTON_TWO)
+    }
 }
 
 // ****************************************************************************
