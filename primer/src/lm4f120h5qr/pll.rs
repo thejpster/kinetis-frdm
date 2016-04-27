@@ -17,8 +17,8 @@ use lm4f120h5qr::registers;
 
 #[derive(PartialEq)]
 pub enum ClockSpeed {
-	Speed66MHz,
-	Speed16MHz
+    Speed66MHz,
+    Speed16MHz,
 }
 
 // ****************************************************************************
@@ -67,36 +67,35 @@ pub fn init(speed: ClockSpeed) {
         // Write to register
         volatile_store(registers::SYSCTL_RCC_R, rcc);
 
-        //
         // Now we're going to run at 66.67 MHz which is a ratio of 1:6 with the 400MHz PLL.
         // As the PLL is divided down by two, we need a divisor of 3.
         //
         // We could get 80MHz if we danced with RCC2 instead and got 400MHz / 5.
         //
-	    if speed == ClockSpeed::Speed66MHz {
+        if speed == ClockSpeed::Speed66MHz {
 
-	        // Clear PLL lock status
-	        // MISC = Masked Interrupt Status & Clear, not miscellaneous
-	        volatile_store(registers::SYSCTL_MISC_R, registers::SYSCTL_MISC_PLLLMIS);
+            // Clear PLL lock status
+            // MISC = Masked Interrupt Status & Clear, not miscellaneous
+            volatile_store(registers::SYSCTL_MISC_R, registers::SYSCTL_MISC_PLLLMIS);
 
-	        // Enable the PLL. We're OK, BYPASS is still set
-	        rcc &= !registers::SYSCTL_RCC_PWRDN;
-	        volatile_store(registers::SYSCTL_RCC_R, rcc);
+            // Enable the PLL. We're OK, BYPASS is still set
+            rcc &= !registers::SYSCTL_RCC_PWRDN;
+            volatile_store(registers::SYSCTL_RCC_R, rcc);
 
-	        // Wait for PLL to lock
-	        while (volatile_load(registers::SYSCTL_RIS_R) & registers::SYSCTL_MISC_PLLLMIS) == 0 {
-	            asm!("NOP");
-	        }
+            // Wait for PLL to lock
+            while (volatile_load(registers::SYSCTL_RIS_R) & registers::SYSCTL_MISC_PLLLMIS) == 0 {
+                asm!("NOP");
+            }
 
-	        // Set up a /3 divider (by putting 0x02 in the bitfield)
-	        rcc &= !registers::SYSCTL_RCC_SYSDIV_M;
-	        rcc |= 2 << registers::SYSCTL_RCC_SYSDIV_S;
-	        // Enable use of divider
-	        rcc |= registers::SYSCTL_RCC_USESYSDIV;
-	        // Switch to PLL
-	        rcc &= !registers::SYSCTL_RCC_BYPASS;
-	        volatile_store(registers::SYSCTL_RCC_R, rcc);
-	    }
+            // Set up a /3 divider (by putting 0x02 in the bitfield)
+            rcc &= !registers::SYSCTL_RCC_SYSDIV_M;
+            rcc |= 2 << registers::SYSCTL_RCC_SYSDIV_S;
+            // Enable use of divider
+            rcc |= registers::SYSCTL_RCC_USESYSDIV;
+            // Switch to PLL
+            rcc &= !registers::SYSCTL_RCC_BYPASS;
+            volatile_store(registers::SYSCTL_RCC_R, rcc);
+        }
     }
 }
 

@@ -19,6 +19,7 @@ use lm4f120h5qr::registers;
 // ****************************************************************************
 
 /// Describes a pin within a port
+/// This chip has 8 pins per port.
 #[derive(PartialEq, Clone, Copy)]
 pub enum Pin {
     Pin0,
@@ -63,48 +64,7 @@ pub enum Level {
 //
 // ****************************************************************************
 
-/// Matches the memory-mapped GPIO register definitions for each port
-struct Registers {
-    data_mask: [usize; 255], // reg_t DATA[255]; /* Data - offset sets pin mask */
-    data: usize, // reg_t DATA_R; /* Data register - sets all pins */
-    dir: usize, // reg_t DIR_R; /* Direction */
-    is: usize, // reg_t IS_R; /* Interrupt Sense */
-    ibe: usize, // reg_t IBE_R; /* Interrupt Both Edges */
-    iev: usize, // reg_t IEV_R; /* Interrupt Event */
-    im: usize, // reg_t IM_R; /* Interrupt Mask */
-    ris: usize, // const reg_t RIS_R; /* Raw Interrupt Status */
-    mis: usize, // const reg_t MIS_R; /* Masked Interrupt Status */
-    icr: usize, // reg_t ICR_R; /* Interrupt Clear */
-    afsel: usize, // reg_t AFSEL_R; /* Alternate function Select */
-    _padding: [usize; 55], // const reg_t _padding[55];
-    dr2r: usize, // reg_t DR2R_R; /* 2mA drive select */
-    dr4r: usize, // reg_t DR4R_R; /* 4mA drive select */
-    dr8r: usize, // reg_t DR8R_R; /* 8mA drive select */
-    odr: usize, // reg_t ODR_R; /* Open-drain select */
-    pur: usize, // reg_t PUR_R; /* Pull-up select */
-    pdr: usize, // reg_t PDR_R; /* Pull-down select */
-    slr: usize, // reg_t SLR_R; /* Slew-rate control */
-    den: usize, // reg_t DEN_R; /* Digital enable */
-    lock: usize, // reg_t LOCK_R; /* Lock */
-    cr: usize, // reg_t CR_R; /* Commit */
-    amsel: usize, // reg_t AMSEL_R; /* Analog mode select */
-    pctl: usize, // reg_t PCTL_R; /* Port Control */
-    adcctl: usize, // reg_t ADCCTL_R; /* ADC Control */
-    dmactl: usize, // reg_t DMACTL_R; /* DMA Control */
-    _padding2: [usize; 678], // const reg_t _padding2[678];
-    periphid4: usize, // const reg_t PeriphID4_R; /* Peripheral ID 4 */
-    periphid5: usize, // const reg_t PeriphID5_R; /* Peripheral ID 5 */
-    periphid6: usize, // const reg_t PeriphID6_R; /* Peripheral ID 6 */
-    periphid7: usize, // const reg_t PeriphID7_R; /* Peripheral ID 7 */
-    periphid0: usize, // const reg_t PeriphID0_R; /* Peripheral ID 0 */
-    periphid1: usize, // const reg_t PeriphID1_R; /* Peripheral ID 1 */
-    periphid2: usize, // const reg_t PeriphID2_R; /* Peripheral ID 2 */
-    periphid3: usize, // const reg_t PeriphID3_R; /* Peripheral ID 3 */
-    pcelld0: usize, // const reg_t PCellD0_R; /* PrimeCell ID 0 */
-    pcelld1: usize, // const reg_t PCellD1_R; /* PrimeCell ID 1 */
-    pcelld2: usize, // const reg_t PCellD2_R; /* PrimeCell ID 2 */
-    pcelld3: usize, // const reg_t PCellD3_R; /* PrimeCell ID 3 */
-}
+// None
 
 // ****************************************************************************
 //
@@ -158,6 +118,8 @@ pub fn read(pinport: PinPort) -> Level {
 //
 // ****************************************************************************
 
+/// Convert a port to a bit mask
+/// Port A is 1, PortF is 32
 fn get_port_mask(port: PinPort) -> usize {
     match port {
         PinPort::PortA(_) => 1 << 0,
@@ -169,6 +131,8 @@ fn get_port_mask(port: PinPort) -> usize {
     }
 }
 
+/// Convert a pin to a bit mask
+/// Pin0 is 0, Pin7 is 128
 fn get_pin_mask(pinport: PinPort) -> usize {
     let pin = match pinport {
         PinPort::PortA(ref x) => x,
@@ -245,14 +209,11 @@ fn make_input(pinport: PinPort) {
         if pinport == PinPort::PortF(Pin::Pin0) {
             // The GPIO for button one is multiplexed with NMI so we
             // have to 'unlock' it before we can use it
-            //
             registers.get_mut().lock = registers::GPIO_LOCK_KEY;
             registers.get_mut().cr |= mask;
             registers.get_mut().lock = 0;
         }
-        // register_map[port]->DEN_R |= mask;
         registers.get_mut().den |= mask;
-        // register_map[port]->DIR_R &= ~mask;
         registers.get_mut().dir &= mask;
     }
     force_gpio_periph(pinport);
@@ -284,19 +245,16 @@ fn make_output(pinport: PinPort, level: Level) {
     let mut registers = get_port_registers(pinport);
     let mask = get_pin_mask(pinport);
     unsafe {
-        // register_map[port]->DATA[mask] = level ? 0xFF : 0x00;
         match level {
             Level::Low => registers.get_mut().data_mask[mask] = 0,
             Level::High => registers.get_mut().data_mask[mask] = 0xFF,
         }
-        // register_map[port]->DIR_R |= mask;
         registers.get_mut().dir |= mask;
-        // register_map[port]->DEN_R |= mask;
         registers.get_mut().den |= mask;
     }
 }
 
-fn get_port_registers(port: PinPort) -> Unique<Registers> {
+fn get_port_registers(port: PinPort) -> Unique<registers::GpioRegisters> {
     match port {
         PinPort::PortA(_) => unsafe { Unique::new(registers::GPIO_PORTA_DATA_BITS_R as *mut _) },
         PinPort::PortB(_) => unsafe { Unique::new(registers::GPIO_PORTB_DATA_BITS_R as *mut _) },

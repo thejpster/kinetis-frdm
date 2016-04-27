@@ -10874,6 +10874,53 @@ pub const NVIC_FPDSC_RMODE_RP: usize = 0x00400000; // Round towards Plus Infinit
 pub const NVIC_FPDSC_RMODE_RM: usize = 0x00800000; // Round towards Minus Infinity (RM) mode
 pub const NVIC_FPDSC_RMODE_RZ: usize = 0x00C00000; // Round towards Zero (RZ) mode
 
+// *****************************************************************************
+//
+// The following are defines for the a GPIO register. See GPIO_PORTx_DATA_BITS_R.
+//
+// *****************************************************************************
+pub struct GpioRegisters {
+    pub data_mask: [usize; 255], // Data - offset sets pin mask
+    pub data: usize, // Data register - sets all pins
+    pub dir: usize, // Direction
+    pub is: usize, // Interrupt Sense
+    pub ibe: usize, // Interrupt Both Edges
+    pub iev: usize, // Interrupt Event
+    pub im: usize, // Interrupt Mask
+    pub ris: usize, // Raw Interrupt Status
+    pub mis: usize, // Masked Interrupt Status
+    pub icr: usize, // Interrupt Clear
+    pub afsel: usize, // Alternate function Select
+    pub _padding: [usize; 55],
+    pub dr2r: usize, // 2mA drive select
+    pub dr4r: usize, // 4mA drive select
+    pub dr8r: usize, // 8mA drive select
+    pub odr: usize, // Open-drain select
+    pub pur: usize, // Pull-up select
+    pub pdr: usize, // Pull-down select
+    pub slr: usize, // Slew-rate control
+    pub den: usize, // Digital enable
+    pub lock: usize, // Lock
+    pub cr: usize, // Commit
+    pub amsel: usize, // Analog mode select
+    pub pctl: usize, // Port Control
+    pub adcctl: usize, // ADC Control
+    pub dmactl: usize, // DMA Control
+    pub _padding2: [usize; 678],
+    pub periphid4: usize, // Peripheral ID 4
+    pub periphid5: usize, // Peripheral ID 5
+    pub periphid6: usize, // Peripheral ID 6
+    pub periphid7: usize, // Peripheral ID 7
+    pub periphid0: usize, // Peripheral ID 0
+    pub periphid1: usize, // Peripheral ID 1
+    pub periphid2: usize, // Peripheral ID 2
+    pub periphid3: usize, // Peripheral ID 3
+    pub pcelld0: usize, // PrimeCell ID 0
+    pub pcelld1: usize, // PrimeCell ID 1
+    pub pcelld2: usize, // PrimeCell ID 2
+    pub pcelld3: usize, // PrimeCell ID 3
+}
+
 // ****************************************************************************
 //
 // End Of File
