@@ -5,3 +5,5 @@
 *.bk
 target
 Cargo.lock
+*.sublime-workspace
+
