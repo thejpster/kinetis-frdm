@@ -1,4 +1,12 @@
 {
+	"build_systems":
+	[
+		{
+			"name": "build.sh",
+			"cmd": ["./build.sh"],
+			"working_dir": "$project_path"
+		}
+	],
 	"folders":
 	[
 		{
