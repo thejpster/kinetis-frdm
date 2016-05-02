@@ -14,6 +14,8 @@
 extern crate primer;
 
 use primer::board::launchpad;
+use primer::lm4f120h5qr::uart;
+use core::fmt::Write;
 
 // ****************************************************************************
 //
@@ -47,8 +49,12 @@ use primer::board::launchpad;
 
 #[no_mangle]
 pub extern "C" fn primer_start() {
+    let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200);
     launchpad::init();
+    let mut loops = 0;
     loop {
+        writeln!(uart, "Hello, world! Loops = {}", loops).unwrap();
+        loops = loops + 1;
         launchpad::led_on(launchpad::Led::Red);
         primer::delay(250);
         launchpad::led_off(launchpad::Led::Red);

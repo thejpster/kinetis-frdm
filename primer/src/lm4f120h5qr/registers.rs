@@ -435,48 +435,71 @@ pub const SSI3_CC_R: *mut usize = 0x4000BFC8 as *mut usize;
 //
 // *****************************************************************************
 
+/// The data register. Data written here is added to the FIFO.
+/// Reading here reads data + 4-bit status from the FIFO.
 pub const UART0_DR_R: *mut usize = 0x4000C000 as *mut usize;
 
+/// UART Receive Status
 pub const UART0_RSR_R: *mut usize = 0x4000C004 as *mut usize;
 
+/// UART Error Clear
 pub const UART0_ECR_R: *mut usize = 0x4000C004 as *mut usize;
 
+/// UART Flags
 pub const UART0_FR_R: *mut usize = 0x4000C018 as *mut usize;
 
+/// UART IrDA Low-Power Register
 pub const UART0_ILPR_R: *mut usize = 0x4000C020 as *mut usize;
 
+/// UART Integer Baud-Rate Divisor
 pub const UART0_IBRD_R: *mut usize = 0x4000C024 as *mut usize;
 
+/// UART Fractional Baud-Rate Divisor
 pub const UART0_FBRD_R: *mut usize = 0x4000C028 as *mut usize;
 
+/// UART Line Control
 pub const UART0_LCRH_R: *mut usize = 0x4000C02C as *mut usize;
 
+/// UART Control
 pub const UART0_CTL_R: *mut usize = 0x4000C030 as *mut usize;
 
+/// UART Interrupt FIFO Level Select
 pub const UART0_IFLS_R: *mut usize = 0x4000C034 as *mut usize;
 
+/// UART Interrupt Mask
 pub const UART0_IM_R: *mut usize = 0x4000C038 as *mut usize;
 
+/// UART Raw Interrupt Status
 pub const UART0_RIS_R: *mut usize = 0x4000C03C as *mut usize;
 
+/// UART Masked Interrupt Status
 pub const UART0_MIS_R: *mut usize = 0x4000C040 as *mut usize;
 
+/// UART Interrupt Clear
 pub const UART0_ICR_R: *mut usize = 0x4000C044 as *mut usize;
 
+/// UART DMA Control
 pub const UART0_DMACTL_R: *mut usize = 0x4000C048 as *mut usize;
 
+/// ??? - Not in datasheet
 pub const UART0_LCTL_R: *mut usize = 0x4000C090 as *mut usize;
 
+/// ??? - Not in datasheet
 pub const UART0_LSS_R: *mut usize = 0x4000C094 as *mut usize;
 
+/// ??? - Not in datasheet
 pub const UART0_LTIM_R: *mut usize = 0x4000C098 as *mut usize;
 
+/// UART 9-bit Self Address
 pub const UART0_9BITADDR_R: *mut usize = 0x4000C0A4 as *mut usize;
 
+/// UART 9-bit Self Address Mask
 pub const UART0_9BITAMASK_R: *mut usize = 0x4000C0A8 as *mut usize;
 
+/// UART Peripheral Properties
 pub const UART0_PP_R: *mut usize = 0x4000CFC0 as *mut usize;
 
+/// UART Clock Configuration
 pub const UART0_CC_R: *mut usize = 0x4000CFC8 as *mut usize;
 
 // *****************************************************************************
@@ -10919,6 +10942,25 @@ pub struct GpioRegisters {
     pub pcelld1: usize, // PrimeCell ID 1
     pub pcelld2: usize, // PrimeCell ID 2
     pub pcelld3: usize, // PrimeCell ID 3
+}
+
+pub struct UartRegisters {
+    pub data: usize, // Data Register
+    pub rsr: usize, // Receive Status
+    pub _padding: [usize; 4],
+    pub rf: usize, // Flags
+    pub _padding2: usize,
+    pub ilpr: usize, // IrDA Low-Power Register
+    pub ibrd: usize, // Integer Baud-Rate Divisor
+    pub fbrd: usize, // Fractional Baud-Rate Divisor
+    pub lcrh: usize, // Line Control
+    pub ctl: usize, // Control
+    pub ifls: usize, // Interrupt FIFO Level Select
+    pub im: usize, // Interrupt Mask
+    pub ris: usize, // UARTx_RIS_R
+    pub mis: usize, // UARTx_MIS_R
+    pub icr: usize, // UARTx_ICR_R
+    pub dmactl: usize, // UARTx_DMACTL_R
 }
 
 // ****************************************************************************

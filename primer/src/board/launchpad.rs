@@ -21,13 +21,13 @@ use lm4f120h5qr::pll;
 pub enum Led {
     Red,
     Blue,
-    Green
+    Green,
 }
 
 #[derive(PartialEq, Clone, Copy)]
 pub enum Button {
     One,
-    Two
+    Two,
 }
 
 // ****************************************************************************
@@ -82,7 +82,7 @@ pub fn led_off(led: Led) {
 pub fn read_button(button: Button) -> gpio::Level {
     match button {
         Button::One => gpio::read(BUTTON_ONE),
-        Button::Two => gpio::read(BUTTON_TWO)
+        Button::Two => gpio::read(BUTTON_TWO),
     }
 }
 

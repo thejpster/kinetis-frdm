@@ -9,6 +9,7 @@
 pub mod gpio;
 pub mod pll;
 pub mod registers;
+pub mod uart;
 
 // ****************************************************************************
 //
