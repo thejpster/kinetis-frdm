@@ -1,5 +1,5 @@
 language: rust
-script: cargo build --target=thumbv7em-none-eabi
+script: ./build.sh
 cache: apt
 rust:
   - nightly
