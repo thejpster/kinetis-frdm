@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
-cargo build --target=thumbv7em-none-eabi
+PRIMER_TARGET=lm4f120
+cargo build --target=$PRIMER_TARGET
 echo "Converting elf -> bin"
-arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabi/debug/bare-metal-arm-rust ./target/thumbv7em-none-eabi/debug/bare-metal-arm-rust.bin
-ls -l ./target/thumbv7em-none-eabi/debug/bare-metal-arm-rust*
+arm-none-eabi-objcopy -O binary ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust.bin
+ls -l ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust*
