@@ -9,7 +9,5 @@ keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"
 readme = "README.md"
 
-[target.thumbv7em-none-eabi.dependencies.rust-libcore]
-git = "https://github.com/hackndev/rust-libcore"
-
 [dependencies]
+rust-libcore = { git = "https://github.com/hackndev/rust-libcore" }

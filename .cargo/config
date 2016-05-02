@@ -1,5 +1,3 @@
-[target.thumbv7em-none-eabi]
+[target.lm4f120]
 linker = "arm-none-eabi-gcc"
 ar = "arm-none-eabi-ar"
-[build]
-target = "thumbv7em-none-eabi"
