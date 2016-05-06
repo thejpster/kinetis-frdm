@@ -270,8 +270,7 @@ fn make_output(pinport: PinPort, level: Level) {
     gpio_reg.den |= mask;
 }
 
-/// Return a Unique wrapper around a pointer to the relevant Uart
-/// memory-mapped IO control structure.
+/// Convert a GPIO port into a reference to the registers which control that port
 fn get_port_registers(port: PinPort) -> &'static mut registers::GpioRegisters {
     unsafe {
         let p_reg = match port {
