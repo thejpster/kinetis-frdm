@@ -86,54 +86,51 @@ impl Uart {
         gpio::enable_uart(self.id);
         // Enable UART module in RCGUART register p306
         unsafe {
-            let mut reg: usize = volatile_load(registers::SYSCTL_RCGCUART_R);
-            reg |= match self.id {
-                UartId::Uart0 => 1 << 0,
-                UartId::Uart1 => 1 << 1,
-                UartId::Uart2 => 1 << 2,
-                UartId::Uart3 => 1 << 3,
-                UartId::Uart4 => 1 << 4,
-                UartId::Uart5 => 1 << 5,
-                UartId::Uart6 => 1 << 6,
-                UartId::Uart7 => 1 << 7,
-            };
-            volatile_store(registers::SYSCTL_RCGCUART_R, reg);
-        }
-        // Disable UART and all features
-        unsafe {
-            self.reg.get_mut().ctl = 0;
-        }
-        // Calculate the baud rate values
-        unsafe {
+            self.enable_uart();
+            let uart_reg = self.reg.get_mut();
+
+            // Disable UART and all features
+            uart_reg.ctl = 0;
+            // Calculate the baud rate values
             // baud_div = CLOCK_RATE / (16 * baud_rate);
             // baud_int = round(baud_div * 64)
             let baud_int: u32 = (((66000000 * 8) / self.baud) + 1) / 2;
             // Store the upper and lower parts of the divider
-            self.reg.get_mut().ibrd = (baud_int / 64) as usize;
-            self.reg.get_mut().fbrd = (baud_int % 64) as usize;
-        }
-        // Calculate the UART Line Control register value
-        unsafe {
+            uart_reg.ibrd = (baud_int / 64) as usize;
+            uart_reg.fbrd = (baud_int % 64) as usize;
+            // Calculate the UART Line Control register value
             // 8N1
-            self.reg.get_mut().lcrh = registers::UART_LCRH_WLEN_8;
+            uart_reg.lcrh = registers::UART_LCRH_WLEN_8;
+            // Clear the flags
+            uart_reg.rf = 0;
+            // Enable
+            uart_reg.ctl = registers::UART_CTL_RXE | registers::UART_CTL_TXE |
+                           registers::UART_CTL_UARTEN;
         }
-        // Clear the flags
-        unsafe {
-            self.reg.get_mut().rf = 0;
-        }
-        // Enable
-        unsafe {
-            self.reg.get_mut().ctl = registers::UART_CTL_RXE | registers::UART_CTL_TXE |
-                                     registers::UART_CTL_UARTEN;
-        }
+    }
+
+    unsafe fn enable_uart(&mut self) {
+        let mut reg: usize = volatile_load(registers::SYSCTL_RCGCUART_R);
+        reg |= match self.id {
+            UartId::Uart0 => 1 << 0,
+            UartId::Uart1 => 1 << 1,
+            UartId::Uart2 => 1 << 2,
+            UartId::Uart3 => 1 << 3,
+            UartId::Uart4 => 1 << 4,
+            UartId::Uart5 => 1 << 5,
+            UartId::Uart6 => 1 << 6,
+            UartId::Uart7 => 1 << 7,
+        };
+        volatile_store(registers::SYSCTL_RCGCUART_R, reg);
     }
 
     fn putc(&mut self, value: u8) {
         unsafe {
-            while (self.reg.get_mut().rf & registers::UART_FR_TXFF) != 0 {
+            let uart_reg = self.reg.get_mut();
+            while (uart_reg.rf & registers::UART_FR_TXFF) != 0 {
                 asm!("NOP");
             }
-            self.reg.get_mut().data = value as usize;
+            uart_reg.data = value as usize;
         }
     }
 }

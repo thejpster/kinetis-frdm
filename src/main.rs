@@ -49,10 +49,7 @@ use core::fmt::Write;
 
 #[no_mangle]
 pub extern "C" fn primer_start() {
-    let mut uart = uart::Uart::new(
-        uart::UartId::Uart0,
-        115200,
-        uart::NewlineMode::SwapLFtoCRLF);
+    let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     launchpad::init();
     let mut loops = 0;
     loop {
