@@ -11,7 +11,7 @@
 use core::intrinsics::{volatile_store, volatile_load};
 use core::ptr::Unique;
 use super::registers;
-use super::uart::{UartId};
+use super::uart::UartId;
 
 // ****************************************************************************
 //
@@ -121,16 +121,32 @@ pub fn enable_uart(id: UartId) {
                 let mut registers = get_port_registers(PinPort::PortA(Pin::Pin1));
                 registers.get_mut().afsel |= (1 << 1) | (1 << 0);
                 registers.get_mut().den |= (1 << 1) | (1 << 0);
-                registers.get_mut().pctl &= !(registers::GPIO_PCTL_PA0_M | registers::GPIO_PCTL_PA1_M);
-                registers.get_mut().pctl |= registers::GPIO_PCTL_PA0_U0RX | registers::GPIO_PCTL_PA1_U0TX;
+                registers.get_mut().pctl &= !(registers::GPIO_PCTL_PA0_M |
+                                              registers::GPIO_PCTL_PA1_M);
+                registers.get_mut().pctl |= registers::GPIO_PCTL_PA0_U0RX |
+                                            registers::GPIO_PCTL_PA1_U0TX;
             }
-            UartId::Uart1 => { unimplemented!(); },
-            UartId::Uart2 => { unimplemented!(); },
-            UartId::Uart3 => { unimplemented!(); },
-            UartId::Uart4 => { unimplemented!(); },
-            UartId::Uart5 => { unimplemented!(); },
-            UartId::Uart6 => { unimplemented!(); },
-            UartId::Uart7 => { unimplemented!(); },
+            UartId::Uart1 => {
+                unimplemented!();
+            }
+            UartId::Uart2 => {
+                unimplemented!();
+            }
+            UartId::Uart3 => {
+                unimplemented!();
+            }
+            UartId::Uart4 => {
+                unimplemented!();
+            }
+            UartId::Uart5 => {
+                unimplemented!();
+            }
+            UartId::Uart6 => {
+                unimplemented!();
+            }
+            UartId::Uart7 => {
+                unimplemented!();
+            }
         }
     }
 }
