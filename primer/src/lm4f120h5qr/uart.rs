@@ -81,7 +81,7 @@ impl Uart {
         uart
     }
 
-    pub fn init(&mut self) -> () {
+    fn init(&mut self) -> () {
         // Do GPIO pin muxing
         gpio::enable_uart(self.id);
         // Enable UART module in RCGUART register p306
