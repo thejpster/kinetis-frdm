@@ -163,6 +163,9 @@ impl ::core::fmt::Write for Uart {
 //
 // ****************************************************************************
 
+/// Get a Unique<> wrapped pointer to the UART control registers in the chip.
+/// We use the Unique<> wrapper to make it easier to store the pointer in our
+/// object.
 fn get_uart_registers(uart: UartId) -> Unique<registers::UartRegisters> {
     match uart {
         UartId::Uart0 => unsafe { Unique::new(registers::UART0_DR_R as *mut _) },
