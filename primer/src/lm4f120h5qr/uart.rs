@@ -35,7 +35,16 @@ pub enum UartId {
 pub struct Uart {
     id: UartId,
     baud: u32,
+    nl_mode: NewlineMode,
     reg: Unique<registers::UartRegisters>,
+}
+
+/// writeln!() emits LF chars, so this is useful
+/// if you're writing text with your UART
+#[derive(PartialEq, Clone, Copy)]
+pub enum NewlineMode {
+    Binary,
+    SwapLFtoCRLF,
 }
 
 // ****************************************************************************
@@ -61,10 +70,11 @@ pub struct Uart {
 // ****************************************************************************
 
 impl Uart {
-    pub fn new(id: UartId, baud: u32) -> Uart {
+    pub fn new(id: UartId, baud: u32, nl_mode: NewlineMode) -> Uart {
         let mut uart = Uart {
             id: id,
             baud: baud,
+            nl_mode: nl_mode,
             reg: get_uart_registers(id),
         };
         uart.init();
@@ -130,8 +140,21 @@ impl Uart {
 
 impl ::core::fmt::Write for Uart {
     fn write_str(&mut self, s: &str) -> ::core::fmt::Result {
-        for byte in s.bytes() {
-            self.putc(byte)
+        match self.nl_mode {
+            NewlineMode::Binary => {
+                for byte in s.bytes() {
+                    self.putc(byte)
+                }
+            }
+            NewlineMode::SwapLFtoCRLF => {
+                for byte in s.bytes() {
+                    if byte == 0x0A {
+                        // Prefix every \n with a \r
+                        self.putc(0x0D)
+                    }
+                    self.putc(byte)
+                }
+            }
         }
         Ok(())
     }
