@@ -88,19 +88,18 @@ pub fn set_direction(pinport: PinPort, mode: PinMode) {
 /// Set the output value for an output pin
 pub fn set(pinport: PinPort, level: Level) {
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
+    let gpio_reg = get_port_registers(pinport);
     match level {
-        Level::Low => gpio_mmio.data_mask[mask] = 0,
-        Level::High => gpio_mmio.data_mask[mask] = 0xFF,
+        Level::Low => gpio_reg.data_mask[mask] = 0,
+        Level::High => gpio_reg.data_mask[mask] = 0xFF,
     }
 }
 
 /// Read the level of an input pin
 pub fn read(pinport: PinPort) -> Level {
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
-    let reg: usize = gpio_mmio.data_mask[mask];
-    if reg == 0 {
+    let gpio_reg = get_port_registers(pinport);
+    if gpio_reg.data_mask[mask] == 0 {
         Level::Low
     } else {
         Level::High
@@ -111,13 +110,11 @@ pub fn enable_uart(id: UartId) {
     match id {
         UartId::Uart0 => {
             enable_port(PinPort::PortA(Pin::Pin0));
-            let gpio_mmio = get_port_registers(PinPort::PortA(Pin::Pin1));
-            gpio_mmio.afsel |= (1 << 1) | (1 << 0);
-            gpio_mmio.den |= (1 << 1) | (1 << 0);
-            gpio_mmio.pctl &= !(registers::GPIO_PCTL_PA0_M |
-                                          registers::GPIO_PCTL_PA1_M);
-            gpio_mmio.pctl |= registers::GPIO_PCTL_PA0_U0RX |
-                                        registers::GPIO_PCTL_PA1_U0TX;
+            let gpio_reg = get_port_registers(PinPort::PortA(Pin::Pin1));
+            gpio_reg.afsel |= (1 << 1) | (1 << 0);
+            gpio_reg.den |= (1 << 1) | (1 << 0);
+            gpio_reg.pctl &= !(registers::GPIO_PCTL_PA0_M | registers::GPIO_PCTL_PA1_M);
+            gpio_reg.pctl |= registers::GPIO_PCTL_PA0_U0RX | registers::GPIO_PCTL_PA1_U0TX;
         }
         UartId::Uart1 => {
             unimplemented!();
@@ -209,10 +206,10 @@ fn get_pctl_mask(pinport: PinPort) -> usize {
 fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
-        let mut reg = volatile_load(registers::SYSCTL_RCGCGPIO_R);
-        if (reg & mask) == 0 {
-            reg |= mask;
-            volatile_store(registers::SYSCTL_RCGCGPIO_R, reg);
+        let mut value = volatile_load(registers::SYSCTL_RCGCGPIO_R);
+        if (value & mask) == 0 {
+            value |= mask;
+            volatile_store(registers::SYSCTL_RCGCGPIO_R, value);
             // Wait for module to settle
             while (volatile_load(registers::SYSCTL_RCGCGPIO_R) & mask) == 0 {
                 asm!("NOP");
@@ -221,58 +218,56 @@ fn enable_port(port: PinPort) {
     }
 }
 
-fn force_gpio_periph(pinport: PinPort) {
+fn force_gpio_periph(pinport: PinPort, gpio_reg: &mut registers::GpioRegisters) {
     let mask = get_pin_mask(pinport);
     let pctl_mask = get_pctl_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
-    gpio_mmio.afsel &= !mask;
-    gpio_mmio.pctl &= !pctl_mask;
+    gpio_reg.afsel &= !mask;
+    gpio_reg.pctl &= !pctl_mask;
 }
 
 fn make_input(pinport: PinPort) {
     enable_port(pinport);
-    force_gpio_periph(pinport);
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
+    let gpio_reg = get_port_registers(pinport);
+    force_gpio_periph(pinport, gpio_reg);
     if pinport == PinPort::PortF(Pin::Pin0) {
         // The GPIO for button one is multiplexed with NMI so we
         // have to 'unlock' it before we can use it
-        gpio_mmio.lock = registers::GPIO_LOCK_KEY;
-        gpio_mmio.cr |= mask;
-        gpio_mmio.lock = 0;
+        gpio_reg.lock = registers::GPIO_LOCK_KEY;
+        gpio_reg.cr |= mask;
+        gpio_reg.lock = 0;
     }
-    gpio_mmio.den |= mask;
-    gpio_mmio.dir &= mask;
-    force_gpio_periph(pinport);
+    gpio_reg.den |= mask;
+    gpio_reg.dir &= mask;
 }
 
 fn make_input_pullup(pinport: PinPort) {
     make_input(pinport);
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
-    gpio_mmio.dr2r |= mask;
-    gpio_mmio.pur |= mask;
+    let gpio_reg = get_port_registers(pinport);
+    gpio_reg.dr2r |= mask;
+    gpio_reg.pur |= mask;
 }
 
 fn make_input_pulldown(pinport: PinPort) {
     make_input(pinport);
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
-    gpio_mmio.dr2r |= mask;
-    gpio_mmio.pur &= !mask;
+    let gpio_reg = get_port_registers(pinport);
+    gpio_reg.dr2r |= mask;
+    gpio_reg.pur &= !mask;
 }
 
 fn make_output(pinport: PinPort, level: Level) {
     enable_port(pinport);
-    force_gpio_periph(pinport);
     let mask = get_pin_mask(pinport);
-    let gpio_mmio = get_port_registers(pinport);
+    let gpio_reg = get_port_registers(pinport);
+    force_gpio_periph(pinport, gpio_reg);
     match level {
-        Level::Low => gpio_mmio.data_mask[mask] = 0,
-        Level::High => gpio_mmio.data_mask[mask] = 0xFF,
+        Level::Low => gpio_reg.data_mask[mask] = 0,
+        Level::High => gpio_reg.data_mask[mask] = 0xFF,
     }
-    gpio_mmio.dir |= mask;
-    gpio_mmio.den |= mask;
+    gpio_reg.dir |= mask;
+    gpio_reg.den |= mask;
 }
 
 /// Return a Unique wrapper around a pointer to the relevant Uart
