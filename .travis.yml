@@ -7,4 +7,5 @@ before_install:
   - sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded -y
   - sudo apt-get update
 install:
-  - sudo apt-get install gcc-arm-none-eabi
+  - sudo apt-get install gcc-arm-none-eabi -y --force-yes
+
