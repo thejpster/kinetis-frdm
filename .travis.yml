@@ -1,6 +1,7 @@
 language: rust
 script: ./build.sh
 cache: apt
+dist: trusty
 rust:
   - nightly
 before_install:
