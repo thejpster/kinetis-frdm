@@ -11,7 +11,7 @@ license = "MIT"
 readme = "README.md"
 
 [dependencies]
-primer = { path = "primer" }
+primer = { path = "libs/primer" }
 
 # The development profile, used for `cargo build`.
 [profile.dev]
