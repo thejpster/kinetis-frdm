@@ -1,53 +1,5 @@
-//! Implements basic memory allocation.
-
-use spin::Mutex;
-
-extern "C" {
-    static _heap_bottom: usize;
-    static _heap_top: usize;
-}
-
-static BUMP_ALLOCATOR: Mutex<BumpAllocator> = Mutex::new(
-    BumpAllocator::new(&_heap_top, &_heap_bottom));
-
-#[no_mangle]
-pub extern fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
-    BUMP_ALLOCATOR.lock().allocate(size, align).expect("out of memory")
-}
-
-#[no_mangle]
-pub extern fn __rust_deallocate(_ptr: *mut u8, _size: usize,
-    _align: usize)
-{
-    // just leak it
-}
-
-#[no_mangle]
-pub extern fn __rust_reallocate(ptr: *mut u8, size: usize, new_size: usize,
-                                align: usize) -> *mut u8 {
-    use core::{ptr, cmp};
-
-    // from: https://github.com/rust-lang/rust/blob/
-    //     c66d2380a810c9a2b3dbb4f93a830b101ee49cc2/
-    //     src/liballoc_system/lib.rs#L98-L101
-
-    let new_ptr = __rust_allocate(new_size, align);
-    unsafe { ptr::copy(ptr, new_ptr, cmp::min(size, new_size)) };
-    __rust_deallocate(ptr, size, align);
-    new_ptr
-}
-
-#[no_mangle]
-pub extern fn __rust_reallocate_inplace(_ptr: *mut u8, size: usize,
-    _new_size: usize, _align: usize) -> usize
-{
-    size
-}
-
-#[no_mangle]
-pub extern fn __rust_usable_size(size: usize, _align: usize) -> usize {
-    size
-}
+//! Implements basic memory allocation. Taken from Phil Opperman's excellent blog
+//! http://os.phil-opp.com/kernel-heap.html
 
 // ****************************************************************************
 //
@@ -55,7 +7,14 @@ pub extern fn __rust_usable_size(size: usize, _align: usize) -> usize {
 //
 // ****************************************************************************
 
-// None
+use spin::Mutex;
+
+extern "C" {
+    // From the linker script. The address of _heap_bottom is the start of the heap.
+    static _heap_bottom: usize;
+    // From the linker script. The address of _heap_top is the end of the heap.
+    static _heap_top: usize;
+}
 
 // ****************************************************************************
 //
@@ -92,13 +51,57 @@ struct BumpAllocator {
 //
 // ****************************************************************************
 
-// None
+static BUMP_ALLOCATOR: Mutex<BumpAllocator> = Mutex::new(
+    BumpAllocator::new(&_heap_bottom, &_heap_top));
 
 // ****************************************************************************
 //
 // Public Functions
 //
 // ****************************************************************************
+
+#[no_mangle]
+pub extern fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
+    BUMP_ALLOCATOR.lock().allocate(size, align).expect("out of memory")
+}
+
+pub fn test_alloc(size: usize, align: usize) -> Option<*mut u8> {
+    BUMP_ALLOCATOR.lock().allocate(size, align)
+}
+
+#[no_mangle]
+pub extern fn __rust_deallocate(_ptr: *mut u8, _size: usize,
+    _align: usize)
+{
+    // just leak it
+}
+
+#[no_mangle]
+pub extern fn __rust_reallocate(ptr: *mut u8, size: usize, new_size: usize,
+                                align: usize) -> *mut u8 {
+    use core::{ptr, cmp};
+
+    // from: https://github.com/rust-lang/rust/blob/
+    //     c66d2380a810c9a2b3dbb4f93a830b101ee49cc2/
+    //     src/liballoc_system/lib.rs#L98-L101
+
+    let new_ptr = __rust_allocate(new_size, align);
+    unsafe { ptr::copy(ptr, new_ptr, cmp::min(size, new_size)) };
+    __rust_deallocate(ptr, size, align);
+    new_ptr
+}
+
+#[no_mangle]
+pub extern fn __rust_reallocate_inplace(_ptr: *mut u8, size: usize,
+    _new_size: usize, _align: usize) -> usize
+{
+    size
+}
+
+#[no_mangle]
+pub extern fn __rust_usable_size(size: usize, _align: usize) -> usize {
+    size
+}
 
 impl BumpAllocator {
     /// Create a new allocator, which uses the memory in the

@@ -5,8 +5,6 @@
 #![no_main]
 #![feature(alloc, collections)]
 #![crate_type="staticlib"]
-extern crate alloc;
-#[macro_use] extern crate collections;
 
 // ****************************************************************************
 //
@@ -15,10 +13,14 @@ extern crate alloc;
 // ****************************************************************************
 
 extern crate primer;
+extern crate alloc;
+#[macro_use]
+extern crate collections;
 
+use core::fmt::Write;
+use collections::vec::Vec;
 use primer::board::launchpad;
 use primer::lm4f120h5qr::uart;
-use core::fmt::Write;
 
 // ****************************************************************************
 //
@@ -52,14 +54,19 @@ use core::fmt::Write;
 
 #[no_mangle]
 pub extern "C" fn primer_start() {
-    use alloc::boxed::Box;
-    let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     launchpad::init();
+    let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
     loop {
-        writeln!(uart, "Hello, world! Loops = {}", loops).unwrap();
-        let heap_test = Box::new(42);
-        writeln!(uart, "Heap test says {}", heap_test).unwrap();
+        let mut v = Vec::new();
+        for i in 0..100 {
+            v.push(i);
+        }
+        let mut total = 0;
+        for i in v {
+            total = total + i;
+        }
+        writeln!(uart, "Hello, world! Loops = {}, total = {}", loops, total).unwrap();
         loops = loops + 1;
         launchpad::led_on(launchpad::Led::Red);
         primer::delay(250);

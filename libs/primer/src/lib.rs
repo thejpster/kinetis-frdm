@@ -23,6 +23,7 @@ pub mod lm4f120h5qr;
 pub mod common;
 
 extern crate spin;
+extern crate rlibc;
 
 pub use lm4f120h5qr::delay;
 
@@ -113,6 +114,17 @@ pub extern "C" fn _Unwind_Resume() -> ! {
 /// Required by the compiler.
 #[lang="eh_personality"]
 extern "C" fn eh_personality() {}
+
+// Seemingly required by LLVM
+#[no_mangle]
+pub unsafe extern "C" fn __aeabi_memclr4(s: *mut u8, n: usize) -> *mut u8 {
+    rlibc::memset(s, 0, n)
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn __aeabi_memmove(dest: *mut u8, src: *mut u8, n: usize) {
+    rlibc::memmove(dest, src, n);
+}
 
 /// Entry point of panic from the libcore crate.
 ///
