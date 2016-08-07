@@ -1,5 +1,9 @@
 [package]
-authors = ["Michael Daffin <michael@daffin.io>", "Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"]
+authors = [
+	"Michael Daffin <michael@daffin.io>",
+	"Philipp Oppermann <dev@phil-opp.com>",
+	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
+]
 keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"
 name = "primer"
@@ -7,12 +11,12 @@ readme = "README.md"
 version = "0.2.0"
 
 [dependencies]
-linked_list_allocator = "*"
-spin = "*"
+linked_list_allocator = "^0.2"
+spin = "^0.4"
 
 [dependencies.lazy_static]
 features = ["spin_no_std"]
-version = "0.2.*"
+version = "^0.2"
 
 [dependencies.rlibc]
 version = "^1.0"
