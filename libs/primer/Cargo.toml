@@ -1,20 +1,17 @@
 [package]
-name = "primer"
-version = "0.2.0"
-authors = [
-	"Michael Daffin <michael@daffin.io>",
-	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
-]
+authors = ["Michael Daffin <michael@daffin.io>", "Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"]
 keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"
+name = "primer"
 readme = "README.md"
+version = "0.2.0"
 
-# [dependencies.compiler-rt]
-# git = "https://github.com/japaric/compiler-rt.rs"
+[dependencies]
+spin = "*"
+
+[dependencies.lazy_static]
+features = ["spin_no_std"]
+version = "0.2.*"
 
 [dependencies.rlibc]
 version = "^1.0"
-
-[dependencies.lazy_static]
-version = "0.2.*"
-features = ["spin_no_std"]

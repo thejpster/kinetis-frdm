@@ -1,10 +1,13 @@
 //! Primer is a library for simple bare-metal ARM programming.
 
+#![feature(allocator)]
+#![feature(asm)]
+#![feature(const_fn)]
+#![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![feature(start)]
 #![feature(unique)]
-#![feature(asm)]
-#![feature(core_intrinsics)]
+#![allocator]
 #![no_std]
 #![warn(dead_code)]
 #![crate_type="staticlib"]
@@ -17,6 +20,9 @@
 
 pub mod board;
 pub mod lm4f120h5qr;
+pub mod common;
+
+extern crate spin;
 
 pub use lm4f120h5qr::delay;
 
