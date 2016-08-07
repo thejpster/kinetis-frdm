@@ -24,6 +24,8 @@ pub mod common;
 
 extern crate spin;
 extern crate rlibc;
+extern crate linked_list_allocator;
+#[macro_use] extern crate lazy_static;
 
 pub use lm4f120h5qr::delay;
 

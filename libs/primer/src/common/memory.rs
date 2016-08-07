@@ -8,6 +8,7 @@
 // ****************************************************************************
 
 use spin::Mutex;
+use linked_list_allocator::Heap;
 
 extern "C" {
     // From the linker script. The address of _heap_bottom is the start of the heap.
@@ -22,12 +23,7 @@ extern "C" {
 //
 // ****************************************************************************
 
-#[derive(Debug)]
-struct BumpAllocator {
-    heap_start: &'static usize,
-    heap_end: &'static usize,
-    next: usize
-}
+// None
 
 // ****************************************************************************
 //
@@ -51,8 +47,14 @@ struct BumpAllocator {
 //
 // ****************************************************************************
 
-static BUMP_ALLOCATOR: Mutex<BumpAllocator> = Mutex::new(
-    BumpAllocator::new(&_heap_bottom, &_heap_top));
+lazy_static! {
+    static ref HEAP: Mutex<Heap> = {
+        let start = &_heap_bottom as *const _ as usize;
+        let end = &_heap_top as *const _ as usize;
+        let size = (end - start) - 1;
+        Mutex::new(unsafe { Heap::new(start, size) })
+    };
+}
 
 // ****************************************************************************
 //
@@ -62,18 +64,13 @@ static BUMP_ALLOCATOR: Mutex<BumpAllocator> = Mutex::new(
 
 #[no_mangle]
 pub extern fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
-    BUMP_ALLOCATOR.lock().allocate(size, align).expect("out of memory")
-}
-
-pub fn test_alloc(size: usize, align: usize) -> Option<*mut u8> {
-    BUMP_ALLOCATOR.lock().allocate(size, align)
+    HEAP.lock().allocate_first_fit(size, align).expect("out of memory")
 }
 
 #[no_mangle]
-pub extern fn __rust_deallocate(_ptr: *mut u8, _size: usize,
-    _align: usize)
+pub extern fn __rust_deallocate(ptr: *mut u8, size: usize, align: usize)
 {
-    // just leak it
+    unsafe { HEAP.lock().deallocate(ptr, size, align) };
 }
 
 #[no_mangle]
@@ -103,59 +100,13 @@ pub extern fn __rust_usable_size(size: usize, _align: usize) -> usize {
     size
 }
 
-impl BumpAllocator {
-    /// Create a new allocator, which uses the memory in the
-    /// range [heap_start, heap_end).
-    const fn new(heap_start: &'static usize, heap_end: &'static usize) -> BumpAllocator {
-        BumpAllocator {
-            heap_start: heap_start,
-            heap_end: heap_end,
-            next: 0,
-        }
-    }
-
-    /// Allocates a block of memory with the given size and alignment.
-    fn allocate(&mut self, size: usize, align: usize) -> Option<*mut u8> {
-        if self.next == 0 {
-            self.next = self.heap_start as *const usize as usize;
-        }
-
-        let alloc_start = align_up(self.next, align);
-        let alloc_end = alloc_start + size;
-        let heap_end = self.heap_end as *const usize as usize;
-
-        if alloc_end < heap_end {
-            self.next = alloc_end;
-            Some(alloc_start as *mut u8)
-        } else {
-            None
-        }
-    }
-}
-
 // ****************************************************************************
 //
 // Private Functions
 //
 // ****************************************************************************
 
-/// Align downwards. Returns the greatest x with alignment `align`
-/// so that x <= addr. The alignment must be a power of 2.
-pub fn align_down(addr: usize, align: usize) -> usize {
-    if align.is_power_of_two() {
-        addr & !(align - 1)
-    } else if align == 0 {
-        addr
-    } else {
-        panic!("`align` must be a power of 2");
-    }
-}
-
-/// Align upwards. Returns the smallest x with alignment `align`
-/// so that x >= addr. The alignment must be a power of 2.
-pub fn align_up(addr: usize, align: usize) -> usize {
-    align_down(addr + align - 1, align)
-}
+// None
 
 // ****************************************************************************
 //
