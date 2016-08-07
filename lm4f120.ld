@@ -71,6 +71,12 @@ SECTIONS
         . = ALIGN(4);
     } > FLASH
 
+    .ARM.exidx : {
+        __exidx_start = .;
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+        __exidx_end = .;
+    } > FLASH
+
     _start_data_flash = ALIGN(8);
 
     /*
