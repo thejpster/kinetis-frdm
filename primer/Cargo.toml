@@ -9,5 +9,12 @@ keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"
 readme = "README.md"
 
-[dependencies]
-rust-libcore = { git = "https://github.com/hackndev/rust-libcore" }
+# [dependencies.compiler-rt]
+# git = "https://github.com/japaric/compiler-rt.rs"
+
+[dependencies.rlibc]
+version = "^1.0"
+
+[dependencies.lazy_static]
+version = "0.2.*"
+features = ["spin_no_std"]

@@ -85,16 +85,22 @@ pub unsafe extern "C" fn startup() {
     primer_start();
 }
 
-
 /// Required by the compiler.
 #[no_mangle]
-pub extern "C" fn __aeabi_unwind_cpp_pr0() -> () {
+pub extern "C" fn __aeabi_unwind_cpp_pr0() -> ! {
     loop {}
 }
 
 /// Required by the compiler.
 #[no_mangle]
-pub extern "C" fn __aeabi_unwind_cpp_pr1() -> () {
+pub extern "C" fn __aeabi_unwind_cpp_pr1() -> ! {
+    loop {}
+}
+
+/// Required by modules that haven't been build with panic = "abort"
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "C" fn _Unwind_Resume() -> ! {
     loop {}
 }
 
