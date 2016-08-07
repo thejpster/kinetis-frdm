@@ -15,11 +15,19 @@ use super::registers;
 //
 // ****************************************************************************
 
-#[derive(PartialEq)]
+#[derive(PartialEq, Clone)]
 pub enum ClockSpeed {
     Speed66MHz,
     Speed16MHz,
 }
+
+// ****************************************************************************
+//
+// Public Data
+//
+// ****************************************************************************
+
+// None
 
 // ****************************************************************************
 //
@@ -31,11 +39,11 @@ pub enum ClockSpeed {
 
 // ****************************************************************************
 //
-// Public Data
+// Private Data
 //
 // ****************************************************************************
 
-// None
+static mut g_clockspeed: ClockSpeed = ClockSpeed::Speed16MHz;
 
 // ****************************************************************************
 //
@@ -96,6 +104,16 @@ pub fn init(speed: ClockSpeed) {
             rcc &= !registers::SYSCTL_RCC_BYPASS;
             volatile_store(registers::SYSCTL_RCC_R, rcc);
         }
+
+        g_clockspeed = speed;
+    }
+}
+
+pub fn get_clock_hz() -> u32 {
+    let speed = unsafe { g_clockspeed.clone() };
+    match speed {
+        ClockSpeed::Speed16MHz => 16_000_000,
+        ClockSpeed::Speed66MHz => 400_000_000 / 6
     }
 }
 

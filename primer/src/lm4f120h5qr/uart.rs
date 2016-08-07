@@ -10,6 +10,7 @@ use core::intrinsics::{volatile_store, volatile_load};
 use core::ptr::Unique;
 use super::registers;
 use super::gpio;
+use super::pll;
 
 // ****************************************************************************
 //
@@ -94,7 +95,7 @@ impl Uart {
             // Calculate the baud rate values
             // baud_div = CLOCK_RATE / (16 * baud_rate);
             // baud_int = round(baud_div * 64)
-            let baud_int: u32 = (((66000000 * 8) / self.baud) + 1) / 2;
+            let baud_int: u32 = (((pll::get_clock_hz() * 8) / self.baud) + 1) / 2;
             // Store the upper and lower parts of the divider
             uart_reg.ibrd = (baud_int / 64) as usize;
             uart_reg.fbrd = (baud_int % 64) as usize;
