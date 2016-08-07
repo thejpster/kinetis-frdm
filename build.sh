@@ -7,7 +7,7 @@ then
 	if [ -d /home/travis/.cargo/bin ];
 	then
 		echo "Yes - setting path for travis"
-		export /home/travis/.cargo/bin:$PATH
+		export PATH=/home/travis/.cargo/bin:$PATH
 	else
 		echo "Xargo not found"
 		exit 1
