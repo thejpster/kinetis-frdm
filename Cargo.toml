@@ -1,6 +1,6 @@
 [package]
 name = "bare-metal-arm-rust"
-version = "0.2.2"
+version = "0.3.0"
 authors = [
 	"Michael Daffin <michael@daffin.io>",
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>"
