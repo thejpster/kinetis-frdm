@@ -57,7 +57,14 @@ pub struct SysTick {
 pub const SYSTICK_MAX:usize = (1 << 24) - 1;
 
 lazy_static! {
-    pub static ref SYSTICK: Mutex<SysTick> = Mutex::new(SysTick::new(registers::NVIC_ST_CTRL_R as usize, registers::NVIC_ST_RELOAD_R as usize, registers::NVIC_ST_CURRENT_R as usize, SYSTICK_MAX));
+    pub static ref SYSTICK: Mutex<SysTick> = Mutex::new(
+        SysTick::new(
+            registers::NVIC_ST_CTRL_R as usize,
+            registers::NVIC_ST_RELOAD_R as usize,
+            registers::NVIC_ST_CURRENT_R as usize,
+            SYSTICK_MAX
+        )
+    );
 }
 
 // ****************************************************************************

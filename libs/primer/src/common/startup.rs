@@ -16,6 +16,8 @@ extern "C" {
     fn primer_start();
 }
 
+use ::board::launchpad;
+
 // ****************************************************************************
 //
 // Public Types
@@ -96,8 +98,12 @@ pub unsafe extern "C" fn isr_nmi() {
 /// they have higher priority than any exception with configurable priority.
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault() {
-    asm!("bkpt");
-    loop { }
+    loop {
+        launchpad::led_on(launchpad::Led::Green);
+        ::delay(200);
+        launchpad::led_off(launchpad::Led::Green);
+        ::delay(200);
+    }
 }
 
 /// A MemManage fault is an exception that occurs because of a memory
@@ -107,8 +113,12 @@ pub unsafe extern "C" fn isr_hardfault() {
 /// (XN) memory regions.
 #[no_mangle]
 pub unsafe extern "C" fn isr_mmfault() {
-    asm!("bkpt");
-    loop { }
+    loop {
+        launchpad::led_on(launchpad::Led::Green);
+        ::delay(200);
+        launchpad::led_off(launchpad::Led::Green);
+        ::delay(200);
+    }
 }
 
 /// A BusFault is an exception that occurs because of a memory related fault
@@ -116,8 +126,12 @@ pub unsafe extern "C" fn isr_mmfault() {
 /// detected on a bus in the memory system.
 #[no_mangle]
 pub unsafe extern "C" fn isr_busfault() {
-    asm!("bkpt");
-    loop { }
+    loop {
+        launchpad::led_on(launchpad::Led::Green);
+        ::delay(200);
+        launchpad::led_off(launchpad::Led::Green);
+        ::delay(200);
+    }
 }
 
 /// A UsageFault is an exception that occurs because of a fault related to instruction execution. This includes:
@@ -130,8 +144,12 @@ pub unsafe extern "C" fn isr_busfault() {
 /// * division by zero.
 #[no_mangle]
 pub unsafe extern "C" fn isr_usagefault() {
-    asm!("bkpt");
-    loop { }
+    loop {
+        launchpad::led_on(launchpad::Led::Green);
+        ::delay(200);
+        launchpad::led_off(launchpad::Led::Green);
+        ::delay(200);
+    }
 }
 
 /// A supervisor call (SVC) is an exception that is triggered by the SVC
@@ -139,13 +157,13 @@ pub unsafe extern "C" fn isr_usagefault() {
 /// to access OS kernel functions and device drivers.
 #[no_mangle]
 pub unsafe extern "C" fn isr_svcall() {
-    asm!("bkpt");
+    // Nothing
 }
 
 /// Debug monitor interrupt handler.
 #[no_mangle]
 pub unsafe extern "C" fn isr_debugmon() {
-    asm!("bkpt");
+    // Nothing
 }
 
 /// PendSV is an interrupt-driven request for system-level service. In an OS
@@ -153,7 +171,7 @@ pub unsafe extern "C" fn isr_debugmon() {
 /// active.
 #[no_mangle]
 pub unsafe extern "C" fn isr_pendsv() {
-    asm!("bkpt");
+    // Nothing
 }
 
 /// A SysTick exception is an exception the system timer generates when it
@@ -161,13 +179,18 @@ pub unsafe extern "C" fn isr_pendsv() {
 /// environment, the processor can use this exception as system tick.
 #[no_mangle]
 pub unsafe extern "C" fn isr_systick() {
-    asm!("bkpt");
+    // Nothing
 }
 
 /// A place-holder ISR used when we have nothing better to use.
 #[no_mangle]
 pub unsafe extern "C" fn isr_empty_def() {
-    // Nothing
+    loop {
+        launchpad::led_on(launchpad::Led::Green);
+        ::delay(200);
+        launchpad::led_off(launchpad::Led::Green);
+        ::delay(200);
+    }
 }
 
 // ****************************************************************************

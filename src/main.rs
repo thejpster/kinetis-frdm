@@ -57,11 +57,11 @@ pub extern "C" fn primer_start() {
     launchpad::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
-    let mut ticks_last:usize = timer::SYSTICK_MAX;
+    let mut ticks_last: usize = timer::SYSTICK_MAX;
     loop {
         writeln!(uart, "A").unwrap();
         let ticks = timer::SYSTICK.lock().get();
-        let delta = ticks_last - ticks;
+        let delta = ticks_last.wrapping_sub(ticks);
         ticks_last = ticks;
         writeln!(uart, "B").unwrap();
         let mut v = Vec::new();
@@ -74,7 +74,12 @@ pub extern "C" fn primer_start() {
             total = total + i;
         }
         writeln!(uart, "Ca").unwrap();
-        writeln!(uart, "Hello, world! Loops = {}, total = {}, elapsed = {}", loops, total, pll::ticks_to_usecs(delta)).unwrap();
+        writeln!(uart,
+                 "Hello, world! Loops = {}, total = {}, elapsed = {}",
+                 loops,
+                 total,
+                 pll::ticks_to_usecs(delta))
+            .unwrap();
         loops = loops + 1;
         writeln!(uart, "D").unwrap();
         launchpad::led_on(launchpad::Led::Red);
