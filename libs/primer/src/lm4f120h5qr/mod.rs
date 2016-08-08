@@ -16,7 +16,7 @@ extern "C" {
     fn _stack_top();
 }
 
-use ::common::startup;
+use ::board::launchpad as board;
 
 // ****************************************************************************
 //
@@ -45,17 +45,17 @@ use ::common::startup;
 pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointer
                                                                  Some(_stack_top),
                                                                  // Reset
-                                                                 Some(startup::startup),
+                                                                 Some(::common::startup::startup),
                                                                  // NMI
-                                                                 Some(startup::isr_nmi),
+                                                                 Some(isr_nmi),
                                                                  // Hard Fault
-                                                                 Some(startup::isr_hardfault),
+                                                                 Some(isr_hardfault),
                                                                  // CM3 Memory Management Fault
-                                                                 Some(startup::isr_mmfault),
+                                                                 Some(isr_mmfault),
                                                                  // CM3 Bus Fault
-                                                                 Some(startup::isr_busfault),
+                                                                 Some(isr_busfault),
                                                                  // CM3 Usage Fault
-                                                                 Some(startup::isr_usagefault),
+                                                                 Some(isr_usagefault),
                                                                  // Reserved - Used as NXP Checksum
                                                                  None,
                                                                  // Reserved
@@ -65,33 +65,33 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved
                                                                  None,
                                                                  // SVCall
-                                                                 Some(startup::isr_svcall),
+                                                                 Some(isr_svcall),
                                                                  // Reserved for debug
-                                                                 Some(startup::isr_debugmon),
+                                                                 Some(isr_debugmon),
                                                                  // Reserved
                                                                  None,
                                                                  // PendSV
-                                                                 Some(startup::isr_pendsv),
+                                                                 Some(isr_pendsv),
                                                                  // SysTick
-                                                                 Some(startup::isr_systick),
+                                                                 Some(isr_systick),
                                                                  // GPIO Port A                      16
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // GPIO Port B                      17
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // GPIO Port C                      18
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // GPIO Port D                      19
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // GPIO Port E                      20
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 0                           21
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 1                           22
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // SSI 0                            23
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // I2C 0                            24
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         25
                                                                  None,
                                                                  // Reserved                         26
@@ -103,57 +103,57 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved                         29
                                                                  None,
                                                                  // ADC 0 Seq 0                      30
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 0 Seq 1                      31
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 0 Seq 2                      32
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 0 Seq 3                      33
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // WDT 0 and 1                      34
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 0 A              35
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 0 B              36
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 1 A              37
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 1 B              38
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 2 A              39
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 2 B              40
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Analog comparator 0              41
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Analog comparator 1              42
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         43
                                                                  None,
                                                                  // System control                   44
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Flash + EEPROM control           45
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // GPIO Port F                      46
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         47
                                                                  None,
                                                                  // Reserved                         48
                                                                  None,
                                                                  // UART 2                           49
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // SSI 1                            50
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 3 A              51
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 3 B              52
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // I2C 1                            53
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         54
                                                                  None,
                                                                  // CAN 0                            55
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         56
                                                                  None,
                                                                  // Reserved                         57
@@ -161,23 +161,23 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved                         58
                                                                  None,
                                                                  // Hibernation module               59
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // USB                              60
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         61
                                                                  None,
                                                                  // UDMA SW                          62
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UDMA Error                       63
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 1 Seq 0                      64
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 1 Seq 1                      65
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 1 Seq 2                      66
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // ADC 1 Seq 3                      67
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         68
                                                                  None,
                                                                  // Reserved                         69
@@ -189,19 +189,19 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved                         72
                                                                  None,
                                                                  // SSI 2                            73
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // SSI 2                            74
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 3                           75
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 4                           76
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 5                           77
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 6                           78
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // UART 7                           79
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         80
                                                                  None,
                                                                  // Reserved                         81
@@ -211,13 +211,13 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved                         83
                                                                  None,
                                                                  // I2C 2                            84
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // I2C 4                            85
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 4 A              86
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 4 B              87
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         88
                                                                  None,
                                                                  // Reserved                         89
@@ -259,35 +259,35 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // Reserved                         107
                                                                  None,
                                                                  // 16/32 bit timer 5 A              108
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 16/32 bit timer 5 B              109
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 0 A              110
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 0 B              111
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 1 A              112
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 1 B              113
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 2 A              114
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 2 B              115
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 3 A              116
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 3 B              117
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 4 A              118
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 4 B              119
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 5 A              120
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // 32/64 bit timer 5 B              121
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // System Exception                 122
-                                                                 Some(startup::isr_empty_def),
+                                                                 Some(isr_empty_def),
                                                                  // Reserved                         123
                                                                  None,
                                                                  // Reserved                         124
@@ -379,7 +379,92 @@ pub fn delay(ms: i32) {
 //
 // ****************************************************************************
 
-// None
+/// A Non Maskable Interrupt (NMI) can be signalled by a peripheral or
+/// triggered by software. This is the highest priority exception other than
+/// reset. It is permanently enabled and has a fixed priority of -2. NMIs
+/// cannot be:
+/// * masked or prevented from activation by any other exception
+/// * preempted by any exception other than Reset.
+#[no_mangle]
+pub unsafe extern "C" fn isr_nmi() {
+    // Do nothing
+}
+
+/// A HardFault is an exception that occurs because of an error during
+/// exception processing, or because an exception cannot be managed by any
+/// other exception mechanism. HardFaults have a fixed priority of -1, meaning
+/// they have higher priority than any exception with configurable priority.
+#[no_mangle]
+pub unsafe extern "C" fn isr_hardfault() {
+    board::panic();
+}
+
+/// A MemManage fault is an exception that occurs because of a memory
+/// protection related fault. The the fixed memory protection constraints
+/// determines this fault, for both instruction and data memory transactions.
+/// This fault is always used to abort instruction accesses to Execute Never
+/// (XN) memory regions.
+#[no_mangle]
+pub unsafe extern "C" fn isr_mmfault() {
+    board::panic();
+}
+
+/// A BusFault is an exception that occurs because of a memory related fault
+/// for an instruction or data memory transaction. This might be from an error
+/// detected on a bus in the memory system.
+#[no_mangle]
+pub unsafe extern "C" fn isr_busfault() {
+    board::panic();
+}
+
+/// A UsageFault is an exception that occurs because of a fault related to instruction execution. This includes:
+/// * an undefined instruction
+/// * an illegal unaligned access
+/// * invalid state on instruction execution
+/// * an error on exception return.
+/// The following can cause a UsageFault when the core is configured to report them:
+/// * an unaligned address on word and halfword memory access
+/// * division by zero.
+#[no_mangle]
+pub unsafe extern "C" fn isr_usagefault() {
+    board::panic();
+}
+
+/// A supervisor call (SVC) is an exception that is triggered by the SVC
+/// instruction. In an OS environment, applications can use SVC instructions
+/// to access OS kernel functions and device drivers.
+#[no_mangle]
+pub unsafe extern "C" fn isr_svcall() {
+    // Nothing
+}
+
+/// Debug monitor interrupt handler.
+#[no_mangle]
+pub unsafe extern "C" fn isr_debugmon() {
+    // Nothing
+}
+
+/// PendSV is an interrupt-driven request for system-level service. In an OS
+/// environment, use PendSV for context switching when no other exception is
+/// active.
+#[no_mangle]
+pub unsafe extern "C" fn isr_pendsv() {
+    // Nothing
+}
+
+/// A SysTick exception is an exception the system timer generates when it
+/// reaches zero. Software can also generate a SysTick exception. In an OS
+/// environment, the processor can use this exception as system tick.
+#[no_mangle]
+pub unsafe extern "C" fn isr_systick() {
+    timer::SysTick::isr();
+}
+
+/// A place-holder ISR used when we have nothing better to use.
+#[no_mangle]
+pub unsafe extern "C" fn isr_empty_def() {
+    board::panic();
+}
 
 // ****************************************************************************
 //

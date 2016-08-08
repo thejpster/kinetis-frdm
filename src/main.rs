@@ -58,12 +58,13 @@ pub extern "C" fn primer_start() {
     let mut loops = 0;
     let mut ticks_last = timer::SYSTICK_MAX;
     loop {
-        let delta = timer::SYSTICK.lock().since(ticks_last);
-        ticks_last = timer::SYSTICK.lock().get();
+        let delta = timer::SysTick::get_since(ticks_last);
+        ticks_last = timer::SysTick::get_ticks();
         writeln!(uart,
-                 "Hello, world! Loops = {}, elapsed = {}",
+                 "Hello, world! Loops = {}, elapsed = {}, wraps = {}",
                  loops,
-                 timer::SysTick::ticks_to_usecs(delta))
+                 timer::SysTick::ticks_to_usecs(delta),
+                 timer::SysTick::get_overflows())
             .unwrap();
         loops = loops + 1;
         launchpad::led_on(launchpad::Led::Blue);

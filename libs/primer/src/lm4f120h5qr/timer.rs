@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 use core::intrinsics::{volatile_store, volatile_load};
+use core::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
 use spin::Mutex;
 use super::registers;
 
@@ -70,6 +71,10 @@ lazy_static! {
     );
 }
 
+lazy_static! {
+    pub static ref SYSTICK_WRAP_COUNT:AtomicUsize = ATOMIC_USIZE_INIT;
+}
+
 // ****************************************************************************
 //
 // Private Types
@@ -99,25 +104,25 @@ impl SysTick {
         result
     }
 
-    pub fn set_max(&mut self, max: u32) {
+    fn set_max(&mut self, max: u32) {
         unsafe {
             // SysTick counts down from max to zero
             volatile_store(self.reload as *mut usize, max as usize);
             // A write to current resets the timer
             volatile_store(self.current as *mut usize, 0);
             // Set to multi-shot mode, with interrupts off and on the system clock
-            volatile_store(self.ctrl as *mut usize, registers::NVIC_ST_CTRL_ENABLE);
+            volatile_store(self.ctrl as *mut usize, registers::NVIC_ST_CTRL_ENABLE | registers::NVIC_ST_CTRL_INTEN);
         }
     }
 
-    pub fn get(&self) -> u32 {
+    fn get(&self) -> u32 {
         let result = unsafe {
             volatile_load(self.current as *const usize)
         };
         result as u32
     }
 
-    pub fn since(&self, start: u32) -> u32 {
+    fn since(&self, start: u32) -> u32 {
         let now = self.get();
         // SysTick counts down!
         let delta = start.wrapping_sub(now) & SYSTICK_MAX;
@@ -130,6 +135,22 @@ impl SysTick {
 
     pub fn usecs_to_ticks(usecs: u32) -> u32 {
         usecs * (SYSTICK_CLOCK / 1_000_000)
+    }
+
+    pub fn isr() {
+        SYSTICK_WRAP_COUNT.fetch_add(1, Ordering::Relaxed);
+    }
+
+    pub fn get_overflows() -> usize {
+        SYSTICK_WRAP_COUNT.load(Ordering::Relaxed)
+    }
+
+    pub fn get_ticks() -> u32 {
+        SYSTICK.lock().get()
+    }
+
+    pub fn get_since(start: u32) -> u32 {
+        SYSTICK.lock().since(start)
     }
 
 }
@@ -155,10 +176,10 @@ pub fn delay(ms: u32) {
 /// will overflow.
 pub fn delay_usec(usec: u32)
 {
-    let start = SYSTICK.lock().get();
+    let start = SysTick::get_ticks();
     let ticks = SysTick::usecs_to_ticks(usec);
     loop {
-        if SYSTICK.lock().since(start) >= ticks {
+        if SysTick::get_since(start) >= ticks {
             break
         }
     }
