@@ -68,7 +68,6 @@ SECTIONS
                                  /* KEEP stops it being removed as we don't refer to it anywhere. */
         *(.text*)                /* This contains most of the executable code. */
         *(.rodata*)              /* Read only data (const variables) */
-        *(.ARM.extab*)
         . = ALIGN(4);
     } > FLASH
 
