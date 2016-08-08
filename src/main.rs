@@ -20,7 +20,7 @@ extern crate collections;
 use core::fmt::Write;
 use collections::vec::Vec;
 use primer::board::launchpad;
-use primer::lm4f120h5qr::{uart, timer, pll};
+use primer::lm4f120h5qr::{uart, timer};
 
 // ****************************************************************************
 //
@@ -59,35 +59,28 @@ pub extern "C" fn primer_start() {
     let mut loops = 0;
     let mut ticks_last: usize = timer::SYSTICK_MAX;
     loop {
-        writeln!(uart, "A").unwrap();
         let ticks = timer::SYSTICK.lock().get();
-        let delta = ticks_last.wrapping_sub(ticks);
+        let delta = ticks_last.wrapping_sub(ticks) & 0x00FFFFFF;
         ticks_last = ticks;
-        writeln!(uart, "B").unwrap();
         let mut v = Vec::new();
         for i in 0..100 {
             v.push(i);
         }
-        writeln!(uart, "C").unwrap();
         let mut total = 0;
         for i in v {
             total = total + i;
         }
-        writeln!(uart, "Ca").unwrap();
         writeln!(uart,
-                 "Hello, world! Loops = {}, total = {}, elapsed = {}",
+                 "Hello, world! Loops = {}, total = {}, elapsed = {}, now = {}",
                  loops,
                  total,
-                 pll::ticks_to_usecs(delta))
+                 timer::SysTick::ticks_to_usecs(delta),
+                 ticks)
             .unwrap();
         loops = loops + 1;
-        writeln!(uart, "D").unwrap();
         launchpad::led_on(launchpad::Led::Red);
-        writeln!(uart, "E").unwrap();
         primer::delay(250);
-        writeln!(uart, "F").unwrap();
         launchpad::led_off(launchpad::Led::Red);
-        writeln!(uart, "G").unwrap();
         primer::delay(250);
     }
 }

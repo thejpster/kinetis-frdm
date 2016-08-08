@@ -103,7 +103,7 @@ impl SysTick {
             // A write to current resets the timer
             volatile_store(self.current as *mut usize, 0);
             // Set to multi-shot mode, with interrupts off and on the system clock
-            volatile_store(self.ctrl as *mut usize, registers::NVIC_ST_CTRL_ENABLE | registers::NVIC_ST_CTRL_CLK_SRC);
+            volatile_store(self.ctrl as *mut usize, registers::NVIC_ST_CTRL_ENABLE);
         }
     }
 
@@ -113,6 +113,12 @@ impl SysTick {
         };
         result
     }
+
+    pub fn ticks_to_usecs(ticks: usize) -> usize {
+        let clock_rate = 4_000_000;
+        ticks / (clock_rate / 1_000_000)
+    }
+
 }
 
 // ****************************************************************************
