@@ -16,7 +16,7 @@ extern "C" {
     fn primer_start();
 }
 
-use ::board::launchpad;
+use ::board::launchpad as board;
 
 // ****************************************************************************
 //
@@ -98,12 +98,7 @@ pub unsafe extern "C" fn isr_nmi() {
 /// they have higher priority than any exception with configurable priority.
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault() {
-    loop {
-        launchpad::led_on(launchpad::Led::Green);
-        ::delay(200);
-        launchpad::led_off(launchpad::Led::Green);
-        ::delay(200);
-    }
+    board::panic();
 }
 
 /// A MemManage fault is an exception that occurs because of a memory
@@ -113,12 +108,7 @@ pub unsafe extern "C" fn isr_hardfault() {
 /// (XN) memory regions.
 #[no_mangle]
 pub unsafe extern "C" fn isr_mmfault() {
-    loop {
-        launchpad::led_on(launchpad::Led::Green);
-        ::delay(200);
-        launchpad::led_off(launchpad::Led::Green);
-        ::delay(200);
-    }
+    board::panic();
 }
 
 /// A BusFault is an exception that occurs because of a memory related fault
@@ -126,12 +116,7 @@ pub unsafe extern "C" fn isr_mmfault() {
 /// detected on a bus in the memory system.
 #[no_mangle]
 pub unsafe extern "C" fn isr_busfault() {
-    loop {
-        launchpad::led_on(launchpad::Led::Green);
-        ::delay(200);
-        launchpad::led_off(launchpad::Led::Green);
-        ::delay(200);
-    }
+    board::panic();
 }
 
 /// A UsageFault is an exception that occurs because of a fault related to instruction execution. This includes:
@@ -144,12 +129,7 @@ pub unsafe extern "C" fn isr_busfault() {
 /// * division by zero.
 #[no_mangle]
 pub unsafe extern "C" fn isr_usagefault() {
-    loop {
-        launchpad::led_on(launchpad::Led::Green);
-        ::delay(200);
-        launchpad::led_off(launchpad::Led::Green);
-        ::delay(200);
-    }
+    board::panic();
 }
 
 /// A supervisor call (SVC) is an exception that is triggered by the SVC
@@ -185,12 +165,7 @@ pub unsafe extern "C" fn isr_systick() {
 /// A place-holder ISR used when we have nothing better to use.
 #[no_mangle]
 pub unsafe extern "C" fn isr_empty_def() {
-    loop {
-        launchpad::led_on(launchpad::Led::Green);
-        ::delay(200);
-        launchpad::led_off(launchpad::Led::Green);
-        ::delay(200);
-    }
+    board::panic();
 }
 
 // ****************************************************************************

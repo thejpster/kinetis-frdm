@@ -8,6 +8,8 @@
 
 use rlibc;
 use core;
+// Doing board specific things here is bad
+use board::launchpad as board;
 
 // ****************************************************************************
 //
@@ -50,20 +52,20 @@ use core;
 /// Required by the compiler.
 #[no_mangle]
 pub extern "C" fn __aeabi_unwind_cpp_pr0() -> ! {
-    loop {}
+    board::panic();
 }
 
 /// Required by the compiler.
 #[no_mangle]
 pub extern "C" fn __aeabi_unwind_cpp_pr1() -> ! {
-    loop {}
+    board::panic();
 }
 
 /// Required by modules that haven't been build with panic = "abort"
 #[allow(non_snake_case)]
 #[no_mangle]
 pub extern "C" fn _Unwind_Resume() -> ! {
-    loop {}
+    board::panic();
 }
 
 /// Required by the compiler.
@@ -96,7 +98,7 @@ pub unsafe extern "C" fn __aeabi_memmove(dest: *mut u8, src: *mut u8, n: usize) 
 pub extern "C" fn rust_begin_unwind(_fmt: &core::fmt::Arguments,
                                     _file_line: &(&'static str, usize))
                                     -> ! {
-    loop {}
+    board::panic();
 }
 
 // ****************************************************************************

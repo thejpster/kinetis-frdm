@@ -66,10 +66,10 @@ pub extern "C" fn primer_start() {
                  timer::SysTick::ticks_to_usecs(delta))
             .unwrap();
         loops = loops + 1;
-        launchpad::led_on(launchpad::Led::Red);
-        primer::delay(250);
-        launchpad::led_off(launchpad::Led::Red);
-        primer::delay(250);
+        launchpad::led_on(launchpad::Led::Blue);
+        primer::delay(500);
+        launchpad::led_off(launchpad::Led::Blue);
+        primer::delay(500);
     }
 }
 

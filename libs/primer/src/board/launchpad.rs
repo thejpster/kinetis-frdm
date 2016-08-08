@@ -86,6 +86,16 @@ pub fn read_button(button: Button) -> gpio::Level {
     }
 }
 
+/// Flash the red LED if we panic
+pub fn panic() -> ! {
+    loop {
+        led_on(Led::Red);
+        ::delay(200);
+        led_off(Led::Red);
+        ::delay(200);
+    }
+}
+
 // ****************************************************************************
 //
 // Private Functions
