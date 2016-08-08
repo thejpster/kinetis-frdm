@@ -87,7 +87,7 @@ pub unsafe extern "C" fn startup() {
 /// * preempted by any exception other than Reset.
 #[no_mangle]
 pub unsafe extern "C" fn isr_nmi() {
-    loop {}
+    // Do nothing
 }
 
 /// A HardFault is an exception that occurs because of an error during
@@ -96,7 +96,8 @@ pub unsafe extern "C" fn isr_nmi() {
 /// they have higher priority than any exception with configurable priority.
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault() {
-    loop {}
+    asm!("bkpt");
+    loop { }
 }
 
 /// A MemManage fault is an exception that occurs because of a memory
@@ -106,7 +107,8 @@ pub unsafe extern "C" fn isr_hardfault() {
 /// (XN) memory regions.
 #[no_mangle]
 pub unsafe extern "C" fn isr_mmfault() {
-    loop {}
+    asm!("bkpt");
+    loop { }
 }
 
 /// A BusFault is an exception that occurs because of a memory related fault
@@ -114,7 +116,8 @@ pub unsafe extern "C" fn isr_mmfault() {
 /// detected on a bus in the memory system.
 #[no_mangle]
 pub unsafe extern "C" fn isr_busfault() {
-    loop {}
+    asm!("bkpt");
+    loop { }
 }
 
 /// A UsageFault is an exception that occurs because of a fault related to instruction execution. This includes:
@@ -127,7 +130,8 @@ pub unsafe extern "C" fn isr_busfault() {
 /// * division by zero.
 #[no_mangle]
 pub unsafe extern "C" fn isr_usagefault() {
-    loop {}
+    asm!("bkpt");
+    loop { }
 }
 
 /// A supervisor call (SVC) is an exception that is triggered by the SVC
@@ -135,13 +139,13 @@ pub unsafe extern "C" fn isr_usagefault() {
 /// to access OS kernel functions and device drivers.
 #[no_mangle]
 pub unsafe extern "C" fn isr_svcall() {
-    loop {}
+    asm!("bkpt");
 }
 
 /// Debug monitor interrupt handler.
 #[no_mangle]
 pub unsafe extern "C" fn isr_debugmon() {
-    loop {}
+    asm!("bkpt");
 }
 
 /// PendSV is an interrupt-driven request for system-level service. In an OS
@@ -149,7 +153,7 @@ pub unsafe extern "C" fn isr_debugmon() {
 /// active.
 #[no_mangle]
 pub unsafe extern "C" fn isr_pendsv() {
-    loop {}
+    asm!("bkpt");
 }
 
 /// A SysTick exception is an exception the system timer generates when it
@@ -157,13 +161,13 @@ pub unsafe extern "C" fn isr_pendsv() {
 /// environment, the processor can use this exception as system tick.
 #[no_mangle]
 pub unsafe extern "C" fn isr_systick() {
-    loop {}
+    asm!("bkpt");
 }
 
 /// A place-holder ISR used when we have nothing better to use.
 #[no_mangle]
 pub unsafe extern "C" fn isr_empty_def() {
-    loop {}
+    // Nothing
 }
 
 // ****************************************************************************

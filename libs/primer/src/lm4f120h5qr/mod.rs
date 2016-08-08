@@ -10,6 +10,7 @@ pub mod gpio;
 pub mod pll;
 pub mod registers;
 pub mod uart;
+pub mod timer;
 
 extern "C" {
     fn _stack_top();

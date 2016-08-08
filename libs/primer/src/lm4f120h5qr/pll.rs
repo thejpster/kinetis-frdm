@@ -110,11 +110,17 @@ pub fn init(speed: ClockSpeed) {
 }
 
 pub fn get_clock_hz() -> u32 {
-    let speed = unsafe { g_clockspeed.clone() };
-    match speed {
-        ClockSpeed::Speed16MHz => 16_000_000,
-        ClockSpeed::Speed66MHz => 400_000_000 / 6
+    match unsafe { &g_clockspeed } {
+        &ClockSpeed::Speed16MHz => 16_000_000,
+        &ClockSpeed::Speed66MHz => 400_000_000 / 6
     }
+}
+
+pub fn ticks_to_usecs(ticks: usize) -> usize {
+    let clock_rate = get_clock_hz() as usize;
+    //let result: f32 = (ticks as f32) / (clock_rate as f32);
+    //return (result * 1_000_000f32) as usize;
+    ticks / (clock_rate / 1_000_000)
 }
 
 // ****************************************************************************
