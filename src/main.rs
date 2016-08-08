@@ -18,7 +18,6 @@ extern crate alloc;
 extern crate collections;
 
 use core::fmt::Write;
-use collections::vec::Vec;
 use primer::board::launchpad;
 use primer::lm4f120h5qr::{uart, timer};
 
@@ -57,25 +56,14 @@ pub extern "C" fn primer_start() {
     launchpad::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
-    let mut ticks_last: usize = timer::SYSTICK_MAX;
+    let mut ticks_last = timer::SYSTICK_MAX;
     loop {
-        let ticks = timer::SYSTICK.lock().get();
-        let delta = ticks_last.wrapping_sub(ticks) & 0x00FFFFFF;
-        ticks_last = ticks;
-        let mut v = Vec::new();
-        for i in 0..100 {
-            v.push(i);
-        }
-        let mut total = 0;
-        for i in v {
-            total = total + i;
-        }
+        let delta = timer::SYSTICK.lock().since(ticks_last);
+        ticks_last = timer::SYSTICK.lock().get();
         writeln!(uart,
-                 "Hello, world! Loops = {}, total = {}, elapsed = {}, now = {}",
+                 "Hello, world! Loops = {}, elapsed = {}",
                  loops,
-                 total,
-                 timer::SysTick::ticks_to_usecs(delta),
-                 ticks)
+                 timer::SysTick::ticks_to_usecs(delta))
             .unwrap();
         loops = loops + 1;
         launchpad::led_on(launchpad::Led::Red);

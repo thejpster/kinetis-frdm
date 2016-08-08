@@ -54,7 +54,10 @@ pub struct SysTick {
 // ****************************************************************************
 
 /// SysTick is a 24-bit timer
-pub const SYSTICK_MAX:usize = (1 << 24) - 1;
+pub const SYSTICK_MAX:u32 = (1 << 24) - 1;
+
+/// SysTick runs at 16MHz / 4 = 4MHz
+pub const SYSTICK_CLOCK:u32 = 4_000_000;
 
 lazy_static! {
     pub static ref SYSTICK: Mutex<SysTick> = Mutex::new(
@@ -90,16 +93,16 @@ lazy_static! {
 // ****************************************************************************
 
 impl SysTick {
-    fn new(ctrl: usize, reload: usize, current: usize, max: usize) -> SysTick {
+    fn new(ctrl: usize, reload: usize, current: usize, max: u32) -> SysTick {
         let mut result = SysTick { ctrl: ctrl, reload: reload, current: current };
         result.set_max(max);
         result
     }
 
-    pub fn set_max(&mut self, max: usize) {
+    pub fn set_max(&mut self, max: u32) {
         unsafe {
             // SysTick counts down from max to zero
-            volatile_store(self.reload as *mut usize, max);
+            volatile_store(self.reload as *mut usize, max as usize);
             // A write to current resets the timer
             volatile_store(self.current as *mut usize, 0);
             // Set to multi-shot mode, with interrupts off and on the system clock
@@ -107,18 +110,58 @@ impl SysTick {
         }
     }
 
-    pub fn get(&self) -> usize {
+    pub fn get(&self) -> u32 {
         let result = unsafe {
             volatile_load(self.current as *const usize)
         };
-        result
+        result as u32
     }
 
-    pub fn ticks_to_usecs(ticks: usize) -> usize {
-        let clock_rate = 4_000_000;
-        ticks / (clock_rate / 1_000_000)
+    pub fn since(&self, start: u32) -> u32 {
+        let now = self.get();
+        // SysTick counts down!
+        let delta = start.wrapping_sub(now) & SYSTICK_MAX;
+        delta
     }
 
+    pub fn ticks_to_usecs(ticks: u32) -> u32 {
+        ticks / (SYSTICK_CLOCK / 1_000_000)
+    }
+
+    pub fn usecs_to_ticks(usecs: u32) -> u32 {
+        usecs * (SYSTICK_CLOCK / 1_000_000)
+    }
+
+}
+
+/// Busy-waits for the given period.
+///
+/// Uses SysTick to wait the correct amount of time.
+///
+/// * `ms` - The period to wait, in milliseconds
+pub fn delay(ms: u32) {
+    // We can manage 4 seconds before SysTick wraps
+    // We divide it up into seconds.
+    let seconds = ms / 1000;
+    let usec = (ms % 1000) * 1000;
+    for _ in 0..seconds {
+        delay_usec(1_000_000);
+    }
+    delay_usec(usec);
+}
+
+/// Busy-waits a specified number of microseconds.
+/// `usec` must be less than 2**22 otherwise SysTick
+/// will overflow.
+pub fn delay_usec(usec: u32)
+{
+    let start = SYSTICK.lock().get();
+    let ticks = SysTick::usecs_to_ticks(usec);
+    loop {
+        if SYSTICK.lock().since(start) >= ticks {
+            break
+        }
+    }
 }
 
 // ****************************************************************************

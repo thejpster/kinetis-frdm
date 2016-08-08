@@ -27,7 +27,7 @@ extern crate rlibc;
 extern crate linked_list_allocator;
 #[macro_use] extern crate lazy_static;
 
-pub use lm4f120h5qr::delay;
+pub use lm4f120h5qr::timer::delay;
 
 // ****************************************************************************
 //
