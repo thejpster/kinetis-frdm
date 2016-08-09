@@ -10,7 +10,8 @@
     "relocation-model": "static",
     "target-endian": "little",
     "target-pointer-width": "32",
-    "no-compiler-rt": true,
+    "linker": "arm-none-eabi-gcc",
+    "no-compiler-rt": false,
     "pre-link-args": [
         "-mcpu=cortex-m4", "-mthumb",
         "-Tlm4f120.ld"
