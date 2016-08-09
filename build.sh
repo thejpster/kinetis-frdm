@@ -13,7 +13,7 @@ then
 		exit 1
 	fi
 fi
-xargo build --target=$PRIMER_TARGET -v
+xargo build --target=$PRIMER_TARGET --release -v
 echo "Converting elf -> bin"
-arm-none-eabi-objcopy -O binary ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust.bin
-ls -l ./target/$PRIMER_TARGET/debug/bare-metal-arm-rust*
+arm-none-eabi-objcopy -O binary ./target/$PRIMER_TARGET/release/bare-metal-arm-rust ./target/$PRIMER_TARGET/release/bare-metal-arm-rust.bin
+ls -l ./target/$PRIMER_TARGET/release/bare-metal-arm-rust*

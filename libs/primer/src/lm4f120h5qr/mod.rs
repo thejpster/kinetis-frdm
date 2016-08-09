@@ -11,6 +11,7 @@ pub mod pll;
 pub mod registers;
 pub mod uart;
 pub mod timer;
+pub mod systick;
 
 extern "C" {
     fn _stack_top();
@@ -457,7 +458,7 @@ pub unsafe extern "C" fn isr_pendsv() {
 /// environment, the processor can use this exception as system tick.
 #[no_mangle]
 pub unsafe extern "C" fn isr_systick() {
-    timer::SysTick::isr();
+    systick::isr();
 }
 
 /// A place-holder ISR used when we have nothing better to use.

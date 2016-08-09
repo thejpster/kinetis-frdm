@@ -19,7 +19,7 @@ extern crate collections;
 
 use core::fmt::Write;
 use primer::board::launchpad;
-use primer::lm4f120h5qr::{uart, timer};
+use primer::lm4f120h5qr::{uart, systick};
 
 // ****************************************************************************
 //
@@ -56,15 +56,15 @@ pub extern "C" fn primer_start() {
     launchpad::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
-    let mut ticks_last = timer::SYSTICK_MAX;
+    let mut ticks_last = systick::SYSTICK_MAX;
     loop {
-        let delta = timer::SysTick::get_since(ticks_last);
-        ticks_last = timer::SysTick::get_ticks();
+        let delta = systick::get_since(ticks_last);
+        ticks_last = systick::get_ticks();
         writeln!(uart,
-                 "Hello, world! Loops = {}, elapsed = {}, wraps = {}",
+                 "Hello, world! Loops = {}, elapsed = {}, run_time = {}",
                  loops,
-                 timer::SysTick::ticks_to_usecs(delta),
-                 timer::SysTick::get_overflows())
+                 systick::ticks_to_usecs(delta),
+                 systick::run_time_us() as u32)
             .unwrap();
         loops = loops + 1;
         launchpad::led_on(launchpad::Led::Blue);
