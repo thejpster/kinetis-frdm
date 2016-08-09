@@ -165,13 +165,14 @@ pub fn delay_usec(usec: u32)
 /// How long since the system booted in microseconds.
 /// The u64 is good for 584,000 years.
 pub fn run_time_us() -> u64 {
-    let (overflows, ticks) = get_overflows_ticks();
-    let mut result:u64;
-    result = overflows as u64;
-    result *= (SYSTICK_MAX + 1) as u64;
-    result += ticks as u64;
-    result >>= 2;
-    result
+    // let (overflows, ticks) = get_overflows_ticks();
+    // let mut result:u64;
+    // result = overflows as u64;
+    // result *= (SYSTICK_MAX + 1) as u64;
+    // result += ticks as u64;
+    // result >>= 2;
+    // result
+    0
 }
 
 // ****************************************************************************
