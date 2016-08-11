@@ -14,8 +14,8 @@ version = "0.2.0"
 linked_list_allocator = "^0.2"
 spin = "^0.4"
 
-[dependencies.compiler-rt]
-git = "https://github.com/thejpster/compiler-rt.rs"
+[dependencies.rustc_builtins]
+git = "https://github.com/japaric/rustc-builtins.git"
 
 [dependencies.lazy_static]
 features = ["spin_no_std"]
