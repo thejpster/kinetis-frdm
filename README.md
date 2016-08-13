@@ -13,7 +13,7 @@ A bare metal example program written in Rust (https://rust-lang.org) for the Ste
 ## Compile and upload
 
 ```bash
-cargo build --target lm4f120
+xargo build --target lm4f120
 arm-none-eabi-objcopy -O binary target/lm4f120/debug/bare-metal-arm-rust target/lm4f120/debug/bare-metal-arm-rust.bin
 sudo lm4flash target/lm4f120/debug/bare-metal-arm-rust.bin
 ```
