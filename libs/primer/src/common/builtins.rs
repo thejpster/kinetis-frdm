@@ -6,7 +6,6 @@
 //
 // ****************************************************************************
 
-use rlibc;
 use core;
 // Doing board specific things here is bad
 use board::launchpad as board;

@@ -20,3 +20,4 @@ panic = "abort"
 # The release profile, used for `cargo build --release`.
 [profile.release]
 panic = "abort"
+debug = true
