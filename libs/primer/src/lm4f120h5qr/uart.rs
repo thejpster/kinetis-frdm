@@ -99,9 +99,9 @@ impl Uart {
             // Store the upper and lower parts of the divider
             uart_reg.ibrd = (baud_int / 64) as usize;
             uart_reg.fbrd = (baud_int % 64) as usize;
-            // Calculate the UART Line Control register value
-            // 8N1
-            uart_reg.lcrh = registers::UART_LCRH_WLEN_8;
+            // Set the UART Line Control register value
+            // 8N1 + FIFO enabled
+            uart_reg.lcrh = registers::UART_LCRH_WLEN_8 | registers::UART_LCRH_FEN;
             // Clear the flags
             uart_reg.rf = 0;
             // Enable
