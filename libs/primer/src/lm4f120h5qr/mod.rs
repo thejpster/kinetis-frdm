@@ -12,6 +12,7 @@ pub mod registers;
 pub mod uart;
 pub mod timer;
 pub mod systick;
+pub mod fpu;
 
 extern "C" {
     fn _stack_top();
@@ -397,7 +398,11 @@ pub unsafe extern "C" fn isr_nmi() {
 /// they have higher priority than any exception with configurable priority.
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault() {
-    board::panic();
+
+     // Todo see https://community.arm.com/servlet/JiveServlet/previewBody/7835-102-2-12371/Developing%20a%20Generic%20Hard%20Fault%20handler%20for%20ARM.pdf
+     // Use ITM to emit serial chars and then bkpt into debugger
+     asm!("bkpt");
+     board::panic();
 }
 
 /// A MemManage fault is an exception that occurs because of a memory

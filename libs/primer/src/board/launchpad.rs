@@ -9,7 +9,7 @@
 /// Bring in GPIO appropriate for this board
 pub use lm4f120h5qr::gpio;
 
-use lm4f120h5qr::{pll, systick};
+use lm4f120h5qr::{fpu, pll, systick};
 
 // ****************************************************************************
 //
@@ -57,6 +57,7 @@ pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 // ****************************************************************************
 
 pub fn init() {
+    fpu::init();
     pll::init(pll::ClockSpeed::Speed66MHz);
     systick::init();
     gpio::init();
