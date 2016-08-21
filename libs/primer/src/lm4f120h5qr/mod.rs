@@ -18,7 +18,7 @@ extern "C" {
     fn _stack_top();
 }
 
-use ::board::launchpad as board;
+use board::launchpad as board;
 
 // ****************************************************************************
 //
@@ -87,7 +87,7 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] = [// Stack pointe
                                                                  // GPIO Port E                      20
                                                                  Some(isr_empty_def),
                                                                  // UART 0                           21
-                                                                 Some(isr_empty_def),
+                                                                 Some(uart::uart0_isr),
                                                                  // UART 1                           22
                                                                  Some(isr_empty_def),
                                                                  // SSI 0                            23

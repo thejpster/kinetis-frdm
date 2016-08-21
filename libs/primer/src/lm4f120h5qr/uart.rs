@@ -11,6 +11,7 @@ use super::gpio;
 use super::pll;
 use common::volatile::VolatileStruct;
 use common;
+use core;
 
 // ****************************************************************************
 //
@@ -130,10 +131,20 @@ impl Uart {
             self.reg.data.write(value as usize);
         }
     }
+
+    /// Attempts to read from the UART. Returns 'None'
+    /// if the FIFO is empty, or 'Some(octet)'.
+    pub fn read_single(&mut self) -> Option<u8> {
+        if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
+            None
+        } else {
+            Some(self.reg.data.read() as u8)
+        }
+    }
 }
 
-impl ::core::fmt::Write for Uart {
-    fn write_str(&mut self, s: &str) -> ::core::fmt::Result {
+impl core::fmt::Write for Uart {
+    fn write_str(&mut self, s: &str) -> core::fmt::Result {
         match self.nl_mode {
             NewlineMode::Binary => {
                 for byte in s.bytes() {
@@ -152,6 +163,11 @@ impl ::core::fmt::Write for Uart {
         }
         Ok(())
     }
+}
+
+/// Called when UART 0 interrupt fires
+pub unsafe extern "C" fn uart0_isr() {
+
 }
 
 // ****************************************************************************

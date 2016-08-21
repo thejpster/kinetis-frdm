@@ -3,7 +3,7 @@
 
 #![no_std]
 #![no_main]
-#![feature(alloc, collections)]
+#![feature(alloc, collections, asm)]
 #![crate_type="staticlib"]
 
 // ****************************************************************************
@@ -51,6 +51,7 @@ use primer::lm4f120h5qr::{uart, systick};
 //
 // ****************************************************************************
 
+
 #[no_mangle]
 pub extern "C" fn primer_start() {
     launchpad::init();
@@ -66,6 +67,9 @@ pub extern "C" fn primer_start() {
                  systick::ticks_to_usecs(delta),
                  systick::run_time_us() as u32)
             .unwrap();
+        while let Some(ch) = uart.read_single() {
+            writeln!(uart, "byte read {}", ch).unwrap();
+        }
         loops = loops + 1;
         launchpad::led_on(launchpad::Led::Blue);
         primer::delay(500);
