@@ -3,6 +3,7 @@ authors = [
 	"Michael Daffin <michael@daffin.io>",
 	"Philipp Oppermann <dev@phil-opp.com>",
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
+	"Marc Brinkmann"
 ]
 keywords = ["arm", "bare-metal", "blink"]
 license = "MIT"

@@ -6,7 +6,6 @@
 #![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![feature(start)]
-#![feature(unique)]
 #![allocator]
 #![no_std]
 #![warn(dead_code)]

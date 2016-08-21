@@ -41,6 +41,8 @@
 
 #![allow(dead_code)]
 
+use ::common::volatile::{Volatile, VolatileStruct};
+
 // ****
 //
 // Watchdog Timer registers (WATCHDOG0)
@@ -10902,66 +10904,72 @@ pub const NVIC_FPDSC_RMODE_RZ: usize = 0x00C00000; // Round towards Zero (RZ) mo
 // The following are defines for the a GPIO register. See GPIO_PORTx_DATA_BITS_R.
 //
 // *****************************************************************************
+#[repr(C, packed)]
 pub struct GpioRegisters {
-    pub data_mask: [usize; 255], // Data - offset sets pin mask
-    pub data: usize, // Data register - sets all pins
-    pub dir: usize, // Direction
-    pub is: usize, // Interrupt Sense
-    pub ibe: usize, // Interrupt Both Edges
-    pub iev: usize, // Interrupt Event
-    pub im: usize, // Interrupt Mask
-    pub ris: usize, // Raw Interrupt Status
-    pub mis: usize, // Masked Interrupt Status
-    pub icr: usize, // Interrupt Clear
-    pub afsel: usize, // Alternate function Select
+    pub data_mask: [Volatile<usize>; 255], // Data - offset sets pin mask
+    pub data: Volatile<usize>, // Data register - sets all pins
+    pub dir: Volatile<usize>, // Direction
+    pub is: Volatile<usize>, // Interrupt Sense
+    pub ibe: Volatile<usize>, // Interrupt Both Edges
+    pub iev: Volatile<usize>, // Interrupt Event
+    pub im: Volatile<usize>, // Interrupt Mask
+    pub ris: Volatile<usize>, // Raw Interrupt Status
+    pub mis: Volatile<usize>, // Masked Interrupt Status
+    pub icr: Volatile<usize>, // Interrupt Clear
+    pub afsel: Volatile<usize>, // Alternate function Select
     pub _padding: [usize; 55],
-    pub dr2r: usize, // 2mA drive select
-    pub dr4r: usize, // 4mA drive select
-    pub dr8r: usize, // 8mA drive select
-    pub odr: usize, // Open-drain select
-    pub pur: usize, // Pull-up select
-    pub pdr: usize, // Pull-down select
-    pub slr: usize, // Slew-rate control
-    pub den: usize, // Digital enable
-    pub lock: usize, // Lock
-    pub cr: usize, // Commit
-    pub amsel: usize, // Analog mode select
-    pub pctl: usize, // Port Control
-    pub adcctl: usize, // ADC Control
-    pub dmactl: usize, // DMA Control
+    pub dr2r: Volatile<usize>, // 2mA drive select
+    pub dr4r: Volatile<usize>, // 4mA drive select
+    pub dr8r: Volatile<usize>, // 8mA drive select
+    pub odr: Volatile<usize>, // Open-drain select
+    pub pur: Volatile<usize>, // Pull-up select
+    pub pdr: Volatile<usize>, // Pull-down select
+    pub slr: Volatile<usize>, // Slew-rate control
+    pub den: Volatile<usize>, // Digital enable
+    pub lock: Volatile<usize>, // Lock
+    pub cr: Volatile<usize>, // Commit
+    pub amsel: Volatile<usize>, // Analog mode select
+    pub pctl: Volatile<usize>, // Port Control
+    pub adcctl: Volatile<usize>, // ADC Control
+    pub dmactl: Volatile<usize>, // DMA Control
     pub _padding2: [usize; 678],
-    pub periphid4: usize, // Peripheral ID 4
-    pub periphid5: usize, // Peripheral ID 5
-    pub periphid6: usize, // Peripheral ID 6
-    pub periphid7: usize, // Peripheral ID 7
-    pub periphid0: usize, // Peripheral ID 0
-    pub periphid1: usize, // Peripheral ID 1
-    pub periphid2: usize, // Peripheral ID 2
-    pub periphid3: usize, // Peripheral ID 3
-    pub pcelld0: usize, // PrimeCell ID 0
-    pub pcelld1: usize, // PrimeCell ID 1
-    pub pcelld2: usize, // PrimeCell ID 2
-    pub pcelld3: usize, // PrimeCell ID 3
+    pub periphid4: Volatile<usize>, // Peripheral ID 4
+    pub periphid5: Volatile<usize>, // Peripheral ID 5
+    pub periphid6: Volatile<usize>, // Peripheral ID 6
+    pub periphid7: Volatile<usize>, // Peripheral ID 7
+    pub periphid0: Volatile<usize>, // Peripheral ID 0
+    pub periphid1: Volatile<usize>, // Peripheral ID 1
+    pub periphid2: Volatile<usize>, // Peripheral ID 2
+    pub periphid3: Volatile<usize>, // Peripheral ID 3
+    pub pcelld0: Volatile<usize>, // PrimeCell ID 0
+    pub pcelld1: Volatile<usize>, // PrimeCell ID 1
+    pub pcelld2: Volatile<usize>, // PrimeCell ID 2
+    pub pcelld3: Volatile<usize>, // PrimeCell ID 3
 }
 
+impl VolatileStruct for GpioRegisters {}
+
+#[repr(C, packed)]
 pub struct UartRegisters {
-    pub data: usize, // Data Register
-    pub rsr: usize, // Receive Status
+    pub data: Volatile<usize>, // Data Register
+    pub rsr: Volatile<usize>, // Receive Status
     pub _padding: [usize; 4],
-    pub rf: usize, // Flags
+    pub rf: Volatile<usize>, // Flags
     pub _padding2: usize,
-    pub ilpr: usize, // IrDA Low-Power Register
-    pub ibrd: usize, // Integer Baud-Rate Divisor
-    pub fbrd: usize, // Fractional Baud-Rate Divisor
-    pub lcrh: usize, // Line Control
-    pub ctl: usize, // Control
-    pub ifls: usize, // Interrupt FIFO Level Select
-    pub im: usize, // Interrupt Mask
-    pub ris: usize, // UARTx_RIS_R
-    pub mis: usize, // UARTx_MIS_R
-    pub icr: usize, // UARTx_ICR_R
-    pub dmactl: usize, // UARTx_DMACTL_R
+    pub ilpr: Volatile<usize>, // IrDA Low-Power Register
+    pub ibrd: Volatile<usize>, // Integer Baud-Rate Divisor
+    pub fbrd: Volatile<usize>, // Fractional Baud-Rate Divisor
+    pub lcrh: Volatile<usize>, // Line Control
+    pub ctl: Volatile<usize>, // Control
+    pub ifls: Volatile<usize>, // Interrupt FIFO Level Select
+    pub im: Volatile<usize>, // Interrupt Mask
+    pub ris: Volatile<usize>, // UARTx_RIS_R
+    pub mis: Volatile<usize>, // UARTx_MIS_R
+    pub icr: Volatile<usize>, // UARTx_ICR_R
+    pub dmactl: Volatile<usize>, // UARTx_DMACTL_R
 }
+
+impl VolatileStruct for UartRegisters {}
 
 // ****************************************************************************
 //

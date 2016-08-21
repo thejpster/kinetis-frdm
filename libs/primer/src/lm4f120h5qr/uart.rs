@@ -6,11 +6,11 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::{volatile_store, volatile_load};
-use core::ptr::Unique;
-use super::registers;
+use super::registers as reg;
 use super::gpio;
 use super::pll;
+use common::volatile::VolatileStruct;
+use common;
 
 // ****************************************************************************
 //
@@ -37,7 +37,7 @@ pub struct Uart {
     id: UartId,
     baud: u32,
     nl_mode: NewlineMode,
-    reg: Unique<registers::UartRegisters>,
+    reg: &'static mut reg::UartRegisters,
 }
 
 /// writeln!() emits LF chars, so this is useful
@@ -88,50 +88,46 @@ impl Uart {
         // Enable UART module in RCGUART register p306
         unsafe {
             self.enable_uart();
-            let uart_reg = self.reg.get_mut();
 
             // Disable UART and all features
-            uart_reg.ctl = 0;
+            self.reg.ctl.write(0);
             // Calculate the baud rate values
             // baud_div = CLOCK_RATE / (16 * baud_rate);
             // baud_int = round(baud_div * 64)
             let baud_int: u32 = (((pll::get_clock_hz() * 8) / self.baud) + 1) / 2;
             // Store the upper and lower parts of the divider
-            uart_reg.ibrd = (baud_int / 64) as usize;
-            uart_reg.fbrd = (baud_int % 64) as usize;
+            self.reg.ibrd.write((baud_int / 64) as usize);
+            self.reg.fbrd.write((baud_int % 64) as usize);
             // Set the UART Line Control register value
             // 8N1 + FIFO enabled
-            uart_reg.lcrh = registers::UART_LCRH_WLEN_8 | registers::UART_LCRH_FEN;
+            self.reg.lcrh.write(reg::UART_LCRH_WLEN_8 | reg::UART_LCRH_FEN);
             // Clear the flags
-            uart_reg.rf = 0;
+            self.reg.rf.write(0);
             // Enable
-            uart_reg.ctl = registers::UART_CTL_RXE | registers::UART_CTL_TXE |
-                           registers::UART_CTL_UARTEN;
+            self.reg.ctl.write(reg::UART_CTL_RXE | reg::UART_CTL_TXE |
+                           reg::UART_CTL_UARTEN);
         }
     }
 
     unsafe fn enable_uart(&mut self) {
-        let mut reg: usize = volatile_load(registers::SYSCTL_RCGCUART_R);
-        reg |= match self.id {
-            UartId::Uart0 => 1 << 0,
-            UartId::Uart1 => 1 << 1,
-            UartId::Uart2 => 1 << 2,
-            UartId::Uart3 => 1 << 3,
-            UartId::Uart4 => 1 << 4,
-            UartId::Uart5 => 1 << 5,
-            UartId::Uart6 => 1 << 6,
-            UartId::Uart7 => 1 << 7,
-        };
-        volatile_store(registers::SYSCTL_RCGCUART_R, reg);
+        common::read_set_write_settle(reg::SYSCTL_RCGCUART_R, match self.id {
+            UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
+            UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
+            UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
+            UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
+            UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
+            UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
+            UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
+            UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
+        });
     }
 
     fn putc(&mut self, value: u8) {
         unsafe {
-            let uart_reg = self.reg.get_mut();
-            while (uart_reg.rf & registers::UART_FR_TXFF) != 0 {
+            while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
                 asm!("NOP");
             }
-            uart_reg.data = value as usize;
+            self.reg.data.write(value as usize);
         }
     }
 }
@@ -167,16 +163,16 @@ impl ::core::fmt::Write for Uart {
 /// Get a Unique<> wrapped pointer to the UART control registers in the chip.
 /// We use the Unique<> wrapper to make it easier to store the pointer in our
 /// object.
-fn get_uart_registers(uart: UartId) -> Unique<registers::UartRegisters> {
+fn get_uart_registers(uart: UartId) -> &'static mut reg::UartRegisters {
     match uart {
-        UartId::Uart0 => unsafe { Unique::new(registers::UART0_DR_R as *mut _) },
-        UartId::Uart1 => unsafe { Unique::new(registers::UART1_DR_R as *mut _) },
-        UartId::Uart2 => unsafe { Unique::new(registers::UART2_DR_R as *mut _) },
-        UartId::Uart3 => unsafe { Unique::new(registers::UART3_DR_R as *mut _) },
-        UartId::Uart4 => unsafe { Unique::new(registers::UART4_DR_R as *mut _) },
-        UartId::Uart5 => unsafe { Unique::new(registers::UART5_DR_R as *mut _) },
-        UartId::Uart6 => unsafe { Unique::new(registers::UART6_DR_R as *mut _) },
-        UartId::Uart7 => unsafe { Unique::new(registers::UART7_DR_R as *mut _) },
+        UartId::Uart0 => unsafe { reg::UartRegisters::from_ptr(reg::UART0_DR_R as *mut _) },
+        UartId::Uart1 => unsafe { reg::UartRegisters::from_ptr(reg::UART1_DR_R as *mut _) },
+        UartId::Uart2 => unsafe { reg::UartRegisters::from_ptr(reg::UART2_DR_R as *mut _) },
+        UartId::Uart3 => unsafe { reg::UartRegisters::from_ptr(reg::UART3_DR_R as *mut _) },
+        UartId::Uart4 => unsafe { reg::UartRegisters::from_ptr(reg::UART4_DR_R as *mut _) },
+        UartId::Uart5 => unsafe { reg::UartRegisters::from_ptr(reg::UART5_DR_R as *mut _) },
+        UartId::Uart6 => unsafe { reg::UartRegisters::from_ptr(reg::UART6_DR_R as *mut _) },
+        UartId::Uart7 => unsafe { reg::UartRegisters::from_ptr(reg::UART7_DR_R as *mut _) },
     }
 }
 
