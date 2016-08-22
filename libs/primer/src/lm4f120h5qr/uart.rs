@@ -72,6 +72,11 @@ pub enum NewlineMode {
 // ****************************************************************************
 
 impl Uart {
+    /// Create a new Uart object. The caller is responsible for ensuring
+    /// that only one object exists per UartId. The UART is set to
+    /// 8 data bits, 1 stop bit, no parity and is not configurable.
+    /// Optionally, newline translation can be performed on outbound data
+    /// - this will cause writeln!() to emit a CRLF.
     pub fn new(id: UartId, baud: u32, nl_mode: NewlineMode) -> Uart {
         let mut uart = Uart {
             id: id,
@@ -83,12 +88,13 @@ impl Uart {
         uart
     }
 
+    /// Configure the hardware
     fn init(&mut self) -> () {
         // Do GPIO pin muxing
         gpio::enable_uart(self.id);
         // Enable UART module in RCGUART register p306
         unsafe {
-            self.enable_uart();
+            self.enable_clock();
 
             // Disable UART and all features
             self.reg.ctl.write(0);
@@ -110,7 +116,8 @@ impl Uart {
         }
     }
 
-    unsafe fn enable_uart(&mut self) {
+    /// Enable the module in the real-time clock gating registers.
+    unsafe fn enable_clock(&mut self) {
         common::read_set_write_settle(reg::SYSCTL_RCGCUART_R, match self.id {
             UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
             UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
@@ -123,7 +130,8 @@ impl Uart {
         });
     }
 
-    fn putc(&mut self, value: u8) {
+    /// Emit a single octet, busy-waiting if the FIFO is full
+    pub fn putc(&mut self, value: u8) {
         unsafe {
             while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
                 asm!("NOP");
@@ -143,6 +151,7 @@ impl Uart {
     }
 }
 
+/// Allows the Uart to be passed to 'write!()' and friends.
 impl core::fmt::Write for Uart {
     fn write_str(&mut self, s: &str) -> core::fmt::Result {
         match self.nl_mode {
@@ -176,11 +185,9 @@ pub unsafe extern "C" fn uart0_isr() {
 //
 // ****************************************************************************
 
-/// Get a Unique<> wrapped pointer to the UART control registers in the chip.
-/// We use the Unique<> wrapper to make it easier to store the pointer in our
-/// object.
-fn get_uart_registers(uart: UartId) -> &'static mut reg::UartRegisters {
-    match uart {
+/// Get a reference to the UART control register struct in the chip.
+fn get_uart_registers(uart_id: UartId) -> &'static mut reg::UartRegisters {
+    match uart_id {
         UartId::Uart0 => unsafe { reg::UartRegisters::from_ptr(reg::UART0_DR_R as *mut _) },
         UartId::Uart1 => unsafe { reg::UartRegisters::from_ptr(reg::UART1_DR_R as *mut _) },
         UartId::Uart2 => unsafe { reg::UartRegisters::from_ptr(reg::UART2_DR_R as *mut _) },

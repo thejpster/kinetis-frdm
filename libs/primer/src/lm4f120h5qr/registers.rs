@@ -10971,6 +10971,66 @@ pub struct UartRegisters {
 
 impl VolatileStruct for UartRegisters {}
 
+#[repr(C, packed)]
+pub struct TimerRegisters {
+    // 0x000 GPTMCFG R/W 0x0000.0000 GPTM Configuration 688
+    pub cfg: Volatile<usize>,
+    // 0x004 GPTMTAMR R/W 0x0000.0000 GPTM Timer A Mode 690
+    pub tamr: Volatile<usize>,
+    // 0x008 GPTMTBMR R/W 0x0000.0000 GPTM Timer B Mode 694
+    pub tbmr: Volatile<usize>,
+    // 0x00C GPTMCTL R/W 0x0000.0000 GPTM Control 698
+    pub ctl: Volatile<usize>,
+    // 0x010 GPTMSYNC R/W 0x0000.0000 GPTM Synchronize 702
+    pub sync: Volatile<usize>,
+    // 0x014
+    pub _pad: usize,
+    // 0x018 GPTMIMR R/W 0x0000.0000 GPTM Interrupt Mask 706
+    pub imr: Volatile<usize>,
+    // 0x01C GPTMRIS RO 0x0000.0000 GPTM Raw Interrupt Status 709
+    pub ris: Volatile<usize>,
+    // 0x020 GPTMMIS RO 0x0000.0000 GPTM Masked Interrupt Status 712
+    pub mis: Volatile<usize>,
+    // 0x024 GPTMICR W1C 0x0000.0000 GPTM Interrupt Clear 715
+    pub icr: Volatile<usize>,
+    // 0x028 GPTMTAILR R/W 0xFFFF.FFFF GPTM Timer A Interval Load 717
+    pub tailr: Volatile<usize>,
+    // 0x02C GPTMTBILR R/W - GPTM Timer B Interval Load 718
+    pub tbilr: Volatile<usize>,
+    // 0x030 GPTMTAMATCHR R/W 0xFFFF.FFFF GPTM Timer A Match 719
+    pub tamatchr: Volatile<usize>,
+    // 0x034 GPTMTBMATCHR R/W - GPTM Timer B Match 720
+    pub tbmatchr: Volatile<usize>,
+    // 0x038 GPTMTAPR R/W 0x0000.0000 GPTM Timer A Prescale 721
+    pub tapr: Volatile<usize>,
+    // 0x03C GPTMTBPR R/W 0x0000.0000 GPTM Timer B Prescale 722
+    pub tbpr: Volatile<usize>,
+    // 0x040 GPTMTAPMR R/W 0x0000.0000 GPTM TimerA Prescale Match 723
+    pub tapmr: Volatile<usize>,
+    // 0x044 GPTMTBPMR R/W 0x0000.0000 GPTM TimerB Prescale Match 724
+    pub tbpmr: Volatile<usize>,
+    // 0x048 GPTMTAR RO 0xFFFF.FFFF GPTM Timer A 725
+    pub tar: Volatile<usize>,
+    // 0x04C GPTMTBR RO - GPTM Timer B 726
+    pub tbr: Volatile<usize>,
+    // 0x050 GPTMTAV RW 0xFFFF.FFFF GPTM Timer A Value 727
+    pub tav: Volatile<usize>,
+    // 0x054 GPTMTBV RW - GPTM Timer B Value 728
+    pub tbv: Volatile<usize>,
+    // 0x058 GPTMRTCPD RO 0x0000.7FFF GPTM RTC Predivide 729
+    pub rtcpd: Volatile<usize>,
+    // 0x05C GPTMTAPS RO 0x0000.0000 GPTM Timer A Prescale Snapshot 730
+    pub taps: Volatile<usize>,
+    // 0x060 GPTMTBPS RO 0x0000.0000 GPTM Timer B Prescale Snapshot 731
+    pub tbps: Volatile<usize>,
+    // 0x064 GPTMTAPV RO 0x0000.0000 GPTM Timer A Prescale Value 732
+    pub tapv: Volatile<usize>,
+    // 0x068 GPTMTBPV RO 0x0000.0000 GPTM Timer B Prescale Value 733
+    pub tbpv: Volatile<usize>,
+}
+
+impl VolatileStruct for TimerRegisters {}
+
 // ****************************************************************************
 //
 // End Of File
