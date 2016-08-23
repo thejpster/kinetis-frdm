@@ -81,8 +81,7 @@ pub struct Timer {
 //
 // ****************************************************************************
 
-pub const PWM_MIN:u8 = 0;
-pub const PWM_MAX:u8 = 255;
+// None
 
 // ****************************************************************************
 //
@@ -137,7 +136,7 @@ impl Timer {
     pub fn enable_pwm(&mut self, period: u32) {
         self.period = period;
 
-        if !self.is_timer_b()
+        if self.use_timer_a()
         {
             self.reg.ctl &= !reg::TIMER_CTL_TAEN;
             if self.is_double_width() {
@@ -179,7 +178,7 @@ impl Timer {
     }
 
     pub fn set_pwm(&mut self, on_time: u32) {
-        if !self.is_timer_b()
+        if self.use_timer_a()
         {
             self.reg.tamatchr.write((self.period - on_time) as usize);
             self.reg.tailr.write(self.period as usize);
@@ -202,20 +201,20 @@ impl Timer {
         }
     }
 
-    fn is_timer_b(&self) -> bool {
+    fn use_timer_a(&self) -> bool {
         match self.id {
-            TimerId::Timer0B => true,
-            TimerId::Timer1B => true,
-            TimerId::Timer2B => true,
-            TimerId::Timer3B => true,
-            TimerId::Timer4B => true,
-            TimerId::Timer5B => true,
-            _ => false,
+            TimerId::Timer0B => false,
+            TimerId::Timer1B => false,
+            TimerId::Timer2B => false,
+            TimerId::Timer3B => false,
+            TimerId::Timer4B => false,
+            TimerId::Timer5B => false,
+            _ => true,
         }
     }
 
     pub fn get_timer(&self) -> u32 {
-        if ! self.is_timer_b() {
+        if ! self.use_timer_a() {
             self.reg.tar.read() as u32
         }
         else {
