@@ -50,6 +50,7 @@ pub enum PinMode {
     InputPull(Level),
     Input,
     Output,
+    Peripheral
 }
 
 /// Describes what a pin can be set to
@@ -83,6 +84,7 @@ pub fn set_direction(pinport: PinPort, mode: PinMode) {
         PinMode::InputPull(Level::Low) => make_input_pulldown(pinport),
         PinMode::Input => make_input(pinport),
         PinMode::Output => make_output(pinport, Level::Low),
+        PinMode::Peripheral => make_peripheral(pinport),
     }
 }
 
@@ -141,133 +143,72 @@ pub fn enable_uart(id: UartId) {
     }
 }
 
+/// We assume you've already set it as PinMode::Peripheral
 pub fn enable_ccp(pinport: PinPort) {
+    let gpio_reg = get_port_registers(pinport);
+    enable_port(pinport);
     match pinport {
         PinPort::PortB(Pin::Pin0) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 0;
-            gpio_reg.den |= 1 << 0;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB0_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB0_T2CCP0;
         }
         PinPort::PortB(Pin::Pin1) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 1;
-            gpio_reg.den |= 1 << 1;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB1_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB1_T2CCP1;
         }
         PinPort::PortB(Pin::Pin2) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 2;
-            gpio_reg.den |= 1 << 2;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB2_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB2_T3CCP0;
         }
         PinPort::PortB(Pin::Pin3) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 3;
-            gpio_reg.den |= 1 << 3;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB3_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB3_T3CCP1;
         }
         PinPort::PortB(Pin::Pin4) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 4;
-            gpio_reg.den |= 1 << 4;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB4_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB4_T1CCP0;
         }
         PinPort::PortB(Pin::Pin5) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 5;
-            gpio_reg.den |= 1 << 5;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB5_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB5_T1CCP1;
         }
         PinPort::PortB(Pin::Pin6) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 6;
-            gpio_reg.den |= 1 << 6;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB6_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB6_T0CCP0;
         }
         PinPort::PortB(Pin::Pin7) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 7;
-            gpio_reg.den |= 1 << 7;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PB7_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PB7_T0CCP1;
         }
         PinPort::PortC(Pin::Pin0) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 0;
-            gpio_reg.den |= 1 << 0;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PC0_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PC0_T4CCP0;
         }
         PinPort::PortC(Pin::Pin1) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 1;
-            gpio_reg.den |= 1 << 1;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PC1_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PC1_T4CCP1;
         }
         PinPort::PortC(Pin::Pin2) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 2;
-            gpio_reg.den |= 1 << 2;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PC2_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PC2_T5CCP0;
         }
         PinPort::PortC(Pin::Pin3) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 3;
-            gpio_reg.den |= 1 << 3;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PC3_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PC3_T5CCP1;
         }
         PinPort::PortF(Pin::Pin1) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 1;
-            gpio_reg.den |= 1 << 1;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PF1_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PF1_T0CCP1;
         }
         PinPort::PortF(Pin::Pin2) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 2;
-            gpio_reg.den |= 1 << 2;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PF2_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PF2_T1CCP0;
         }
         PinPort::PortF(Pin::Pin3) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 3;
-            gpio_reg.den |= 1 << 3;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PF3_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PF3_T1CCP1;
         }
         PinPort::PortF(Pin::Pin4) => {
-            enable_port(pinport);
-            let gpio_reg = get_port_registers(pinport);
-            gpio_reg.afsel |= 1 << 4;
-            gpio_reg.den |= 1 << 4;
             gpio_reg.pctl &= !reg::GPIO_PCTL_PF4_M;
             gpio_reg.pctl |= reg::GPIO_PCTL_PF4_T2CCP0;
         }
@@ -365,7 +306,16 @@ fn make_input(pinport: PinPort) {
         gpio_reg.lock.write(0);
     }
     gpio_reg.den |= mask;
-    gpio_reg.dir &= mask;
+    gpio_reg.dir &= !mask;
+}
+
+fn make_peripheral(pinport: PinPort) {
+    enable_port(pinport);
+    let mask = get_pin_mask(pinport);
+    let gpio_reg = get_port_registers(pinport);
+    gpio_reg.afsel |= mask;
+    gpio_reg.den |= mask;
+    gpio_reg.dir &= !mask;
 }
 
 fn make_input_pullup(pinport: PinPort) {
