@@ -7,7 +7,8 @@
 // ****************************************************************************
 
 use core;
-// Doing board specific things here is bad
+
+#[cfg(feature="launchpad")]
 use board::launchpad as board;
 
 // ****************************************************************************

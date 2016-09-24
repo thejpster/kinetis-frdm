@@ -49,8 +49,8 @@ extern "C" {
 
 lazy_static! {
     static ref HEAP: Mutex<Heap> = {
-        let start = &_heap_bottom as *const _ as usize;
-        let end = &_heap_top as *const _ as usize;
+        let start = unsafe { &_heap_bottom as *const _ as usize };
+        let end = unsafe { &_heap_top as *const _ as usize };
         let size = (end - start) - 1;
         Mutex::new(unsafe { Heap::new(start, size) })
     };

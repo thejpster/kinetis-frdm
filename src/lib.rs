@@ -1,4 +1,27 @@
-//! All the boards we support in Primer
+//! Primer is a library for simple bare-metal ARM programming.
+
+#![feature(allocator)]
+#![feature(asm)]
+#![feature(const_fn)]
+#![feature(core_intrinsics)]
+#![feature(lang_items)]
+#![feature(start)]
+#![allocator]
+#![no_std]
+#![warn(dead_code)]
+#![crate_type="staticlib"]
+
+// ****************************************************************************
+//
+// Crates
+//
+// ****************************************************************************
+
+extern crate spin;
+extern crate rlibc;
+extern crate linked_list_allocator;
+extern crate rustc_builtins;
+#[macro_use] extern crate lazy_static;
 
 // ****************************************************************************
 //
@@ -6,7 +29,14 @@
 //
 // ****************************************************************************
 
-pub mod launchpad;
+pub mod board;
+pub mod common;
+
+#[cfg(feature="launchpad")]
+pub mod lm4f120h5qr;
+
+#[cfg(feature="launchpad")]
+pub use lm4f120h5qr::systick::delay;
 
 // ****************************************************************************
 //
