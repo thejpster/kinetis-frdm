@@ -19,7 +19,7 @@ extern crate collections;
 
 use core::fmt::Write;
 use primer::board::launchpad;
-use primer::lm4f120h5qr::{gpio, systick, timer, uart};
+use primer::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
 
 // ****************************************************************************
 //

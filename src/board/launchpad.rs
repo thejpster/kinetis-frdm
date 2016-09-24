@@ -7,9 +7,9 @@
 // ****************************************************************************
 
 /// Bring in GPIO appropriate for this board
-pub use lm4f120h5qr::gpio;
+pub use cpu::lm4f120h5qr::gpio;
 
-use lm4f120h5qr::{fpu, pll, systick};
+use cpu::lm4f120h5qr::{fpu, pll, systick};
 
 // ****************************************************************************
 //

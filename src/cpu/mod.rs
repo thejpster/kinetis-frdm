@@ -1,27 +1,4 @@
-//! Primer is a library for simple bare-metal ARM programming.
-
-#![feature(allocator)]
-#![feature(asm)]
-#![feature(const_fn)]
-#![feature(core_intrinsics)]
-#![feature(lang_items)]
-#![feature(start)]
-#![allocator]
-#![no_std]
-#![warn(dead_code)]
-#![crate_type="staticlib"]
-
-// ****************************************************************************
-//
-// Crates
-//
-// ****************************************************************************
-
-extern crate spin;
-extern crate rlibc;
-extern crate linked_list_allocator;
-extern crate rustc_builtins;
-#[macro_use] extern crate lazy_static;
+//! CPU definitions for primer.
 
 // ****************************************************************************
 //
@@ -29,16 +6,20 @@ extern crate rustc_builtins;
 //
 // ****************************************************************************
 
-pub mod board;
-pub mod common;
-pub mod cpu;
-
 #[cfg(feature="launchpad")]
-pub use cpu::lm4f120h5qr::systick::delay;
+pub mod lm4f120h5qr;
 
 // ****************************************************************************
 //
 // Public Types
+//
+// ****************************************************************************
+
+// None
+
+// ****************************************************************************
+//
+// Public Data
 //
 // ****************************************************************************
 
@@ -54,7 +35,7 @@ pub use cpu::lm4f120h5qr::systick::delay;
 
 // ****************************************************************************
 //
-// Public Data
+// Private Data
 //
 // ****************************************************************************
 
