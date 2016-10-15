@@ -1,4 +1,6 @@
-# Cortex-M4F with hard-float
+[build]
+target = "thumbv7em-none-eabihf"
+
 [target.thumbv7em-none-eabihf]
 rustflags = [
 	"-C", "link-arg=-Tlm4f120.ld",

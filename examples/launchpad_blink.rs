@@ -12,14 +12,14 @@
 //
 // ****************************************************************************
 
-extern crate primer;
+extern crate launchpad;
 extern crate alloc;
 #[macro_use]
 extern crate collections;
 
 use core::fmt::Write;
-use primer::board::launchpad;
-use primer::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
+use launchpad::board;
+use launchpad::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
 
 // ****************************************************************************
 //
@@ -54,7 +54,7 @@ use primer::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
 
 #[no_mangle]
 pub extern "C" fn primer_start() {
-    launchpad::init();
+    board::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
     let mut ticks_last = systick::SYSTICK_MAX;
@@ -80,7 +80,7 @@ pub extern "C" fn primer_start() {
                 writeln!(uart, "byte read {}", ch).unwrap();
             }
             loops = loops + 1;
-            primer::delay(250);
+            launchpad::delay(250);
         }
     }
 }

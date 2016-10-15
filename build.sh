@@ -7,11 +7,9 @@ set -e
 # Copyright (c) 2016 Jonathan 'theJPster' Pallant <github@thejpster.org.uk>
 #
 
-PRIMER_TARGET=thumbv7em-none-eabihf
 MODE=debug
 #ARGS=-v for verbose mode
 ARGS=
-EXAMPLE=launchpad_blink
 
 if [ "$1" == "--release" ];
 then
@@ -33,12 +31,12 @@ then
 fi
 
 echo "Running xargo..."
-xargo build --target=$PRIMER_TARGET $ARGS --example $EXAMPLE
+xargo build $ARGS --example launchpad_blink
 
 echo "Converting elf -> bin..."
-arm-none-eabi-objcopy -O binary ./target/$PRIMER_TARGET/$MODE/examples/$EXAMPLE ./target/$PRIMER_TARGET/$MODE/examples/$EXAMPLE.bin
+arm-none-eabi-objcopy -O binary ./target/thumbv7em-none-eabihf/$MODE/examples/launchpad_blink ./target/thumbv7em-none-eabihf/$MODE/examples/launchpad_blink.bin
 
 echo "Examples available..."
-ls -lh ./target/$PRIMER_TARGET/$MODE/examples/*
+ls -lh ./target/thumbv7em-none-eabihf/$MODE/examples/*
 
 echo "Done!"
