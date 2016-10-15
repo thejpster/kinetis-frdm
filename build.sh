@@ -7,12 +7,11 @@ set -e
 # Copyright (c) 2016 Jonathan 'theJPster' Pallant <github@thejpster.org.uk>
 #
 
-PRIMER_TARGET=lm4f120
+PRIMER_TARGET=thumbv7em-none-eabihf
 MODE=debug
 #ARGS=-v for verbose mode
 ARGS=
-EXAMPLE=lm4fblink
-export RUST_TARGET_PATH=`pwd`
+EXAMPLE=launchpad_blink
 
 if [ "$1" == "--release" ];
 then

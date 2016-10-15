@@ -8,7 +8,6 @@
 
 use core;
 
-#[cfg(feature="launchpad")]
 use board::launchpad as board;
 
 // ****************************************************************************

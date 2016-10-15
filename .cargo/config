@@ -1,3 +1,6 @@
-[target.lm4f120]
-linker = "arm-none-eabi-gcc"
-ar = "arm-none-eabi-ar"
+# Cortex-M4F with hard-float
+[target.thumbv7em-none-eabihf]
+rustflags = [
+	"-C", "link-arg=-Tlm4f120.ld",
+	"-C", "link-arg=-nostartfiles"
+]

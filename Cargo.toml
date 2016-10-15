@@ -11,15 +11,6 @@ name = "primer"
 readme = "README.md"
 version = "0.4.0"
 
-[features]
-# Support the LM4F120 Stellaris/Tiva-C Launchpad
-# Use the lm4f120 target
-launchpad = []
-# Support the Maple Labs Leaf Mini
-# Use the stm32f103 target
-leaf_mini = []
-default = ["launchpad"]
-
 # The development profile, used for `cargo build`.
 [profile.dev]
 panic = "abort"

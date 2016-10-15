@@ -36,7 +36,6 @@ pub mod board;
 pub mod common;
 pub mod cpu;
 
-#[cfg(feature="launchpad")]
 pub use cpu::lm4f120h5qr::systick::delay;
 
 // ****************************************************************************
