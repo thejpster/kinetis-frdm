@@ -12,6 +12,7 @@ pub mod builtins;
 
 use core::intrinsics::{volatile_store, volatile_load};
 use core::ops::{BitOrAssign, BitAndAssign, Not};
+use cortex_m::asm::nop;
 
 // ****************************************************************************
 //
@@ -50,7 +51,7 @@ pub unsafe fn write_settle<T: PartialEq + Copy>(ptr: *mut T, value: T) {
     volatile_store(ptr, value);
     // Wait for value to settle
     while volatile_load(ptr) != value {
-        asm!("NOP");
+        nop();
     }
 }
 
