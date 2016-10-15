@@ -9,5 +9,7 @@ before_install:
   - sudo apt-get update
 install:
   - sudo apt-get install gcc-arm-none-eabi cmake libssl-dev -y --force-yes
+  - pushd /
   - cargo install xargo
+  - popd
 
