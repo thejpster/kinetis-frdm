@@ -32,6 +32,7 @@ debug = true
 [dependencies]
 linked_list_allocator = "^0.2"
 spin = "^0.4"
+r0 = "^0.1.0"
 
 [dependencies.rustc_builtins]
 git = "https://github.com/japaric/rustc-builtins.git"

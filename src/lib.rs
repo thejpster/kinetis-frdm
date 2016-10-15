@@ -17,11 +17,12 @@
 //
 // ****************************************************************************
 
-extern crate spin;
-extern crate rlibc;
-extern crate linked_list_allocator;
-extern crate rustc_builtins;
 #[macro_use] extern crate lazy_static;
+extern crate linked_list_allocator;
+extern crate r0;
+extern crate rlibc;
+extern crate rustc_builtins;
+extern crate spin;
 
 // ****************************************************************************
 //

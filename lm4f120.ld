@@ -77,7 +77,7 @@ SECTIONS
         __exidx_end = .;
     } > FLASH
 
-    _start_data_flash = ALIGN(8);
+    _data_start_flash = ALIGN(8);
 
     /*
      * .data segment must be placed in RAM but it's originally stored in FLASH
@@ -86,11 +86,11 @@ SECTIONS
      * (Look at the LD documentation. (Optional Section Attributes))
      * Thanks https://github.com/utzig for the hints!
      */
-    .data : AT (_start_data_flash)
+    .data : AT (_data_start_flash)
     {
-        _start_data = .;  /* An index to the beginning of .data segment. */
+        _data_start = .;  /* An index to the beginning of .data segment. */
         *(.data*)         /* Initialised program data */
-        _end_data = .;    /* And another index to the end of .data segment. */
+        _data_end = .;    /* And another index to the end of .data segment. */
     } > SRAM
 
     /*

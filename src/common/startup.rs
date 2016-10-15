@@ -7,12 +7,16 @@
 //
 // ****************************************************************************
 
+use r0;
+
 extern "C" {
-    static mut _start_data_flash: usize;
-    static mut _start_data: usize;
-    static mut _end_data: usize;
+    // These symbols come from the linker script
+    static mut _data_start_flash: usize;
+    static mut _data_start: usize;
+    static mut _data_end: usize;
     static mut _bss_start: usize;
     static mut _bss_end: usize;
+    // This is defined by your application
     fn primer_start();
 }
 
@@ -54,27 +58,21 @@ extern "C" {
 //
 // ****************************************************************************
 
-/// Performs what you might otherwise call 'C Startup'
+/// Performs what you might otherwise call 'C Startup'.
+/// This routine is specified at the reset vector in the ISR vector table.
 ///
 /// Copies global .data init from flash to SRAM and then
 /// zeros the bss segment.
 #[no_mangle]
 pub unsafe extern "C" fn startup() {
-    let mut src: *mut usize = &mut _start_data_flash;
-    let mut dest: *mut usize = &mut _start_data;
+    let data_start_flash: *mut usize = &mut _data_start_flash;
+    let data_start: *mut usize = &mut _data_start;
+    let data_end: *mut usize = &mut _data_end;
+    let bss_start: *mut usize = &mut _bss_start;
+    let bss_end: *mut usize = &mut _bss_end;
 
-    while dest < &mut _end_data as *mut usize {
-        *dest = *src;
-        dest = ((dest as usize) + 4) as *mut usize;
-        src = ((src as usize) + 4) as *mut usize;
-    }
-
-    dest = &mut _bss_start as *mut usize;
-
-    while dest < &mut _end_data as *mut usize {
-        *dest = 0;
-        dest = ((dest as usize) + 4) as *mut usize;
-    }
+    r0::init_data(data_start, data_end, data_start_flash);
+    r0::zero_bss(bss_start, bss_end);
 
     primer_start();
 }
