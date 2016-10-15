@@ -1,15 +1,16 @@
 //! Primer is a library for simple bare-metal ARM programming.
 
+#![allocator]
+#![crate_type="staticlib"]
 #![feature(allocator)]
 #![feature(asm)]
+#![feature(compiler_builtins_lib)]
 #![feature(const_fn)]
 #![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![feature(start)]
-#![allocator]
 #![no_std]
 #![warn(dead_code)]
-#![crate_type="staticlib"]
 
 // ****************************************************************************
 //
@@ -17,11 +18,12 @@
 //
 // ****************************************************************************
 
+#[macro_use] extern crate cortex_m;
 #[macro_use] extern crate lazy_static;
 extern crate linked_list_allocator;
 extern crate r0;
 extern crate rlibc;
-extern crate rustc_builtins;
+extern crate compiler_builtins;
 extern crate spin;
 
 // ****************************************************************************

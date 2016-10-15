@@ -12,6 +12,7 @@ MODE=debug
 #ARGS=-v for verbose mode
 ARGS=
 EXAMPLE=lm4fblink
+export RUST_TARGET_PATH=`pwd`
 
 if [ "$1" == "--release" ];
 then
