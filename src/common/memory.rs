@@ -63,19 +63,21 @@ lazy_static! {
 // ****************************************************************************
 
 #[no_mangle]
-pub extern fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
+pub extern "C" fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
     HEAP.lock().allocate_first_fit(size, align).expect("out of memory")
 }
 
 #[no_mangle]
-pub extern fn __rust_deallocate(ptr: *mut u8, size: usize, align: usize)
-{
+pub extern "C" fn __rust_deallocate(ptr: *mut u8, size: usize, align: usize) {
     unsafe { HEAP.lock().deallocate(ptr, size, align) };
 }
 
 #[no_mangle]
-pub extern fn __rust_reallocate(ptr: *mut u8, size: usize, new_size: usize,
-                                align: usize) -> *mut u8 {
+pub extern "C" fn __rust_reallocate(ptr: *mut u8,
+                                    size: usize,
+                                    new_size: usize,
+                                    align: usize)
+                                    -> *mut u8 {
     use core::{ptr, cmp};
 
     // from: https://github.com/rust-lang/rust/blob/
@@ -89,14 +91,16 @@ pub extern fn __rust_reallocate(ptr: *mut u8, size: usize, new_size: usize,
 }
 
 #[no_mangle]
-pub extern fn __rust_reallocate_inplace(_ptr: *mut u8, size: usize,
-    _new_size: usize, _align: usize) -> usize
-{
+pub extern "C" fn __rust_reallocate_inplace(_ptr: *mut u8,
+                                            size: usize,
+                                            _new_size: usize,
+                                            _align: usize)
+                                            -> usize {
     size
 }
 
 #[no_mangle]
-pub extern fn __rust_usable_size(size: usize, _align: usize) -> usize {
+pub extern "C" fn __rust_usable_size(size: usize, _align: usize) -> usize {
     size
 }
 

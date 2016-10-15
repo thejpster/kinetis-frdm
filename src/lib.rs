@@ -26,8 +26,10 @@
 // ****************************************************************************
 
 extern crate compiler_builtins;
-#[macro_use] extern crate cortex_m;
-#[macro_use] extern crate lazy_static;
+#[macro_use]
+extern crate cortex_m;
+#[macro_use]
+extern crate lazy_static;
 extern crate linked_list_allocator;
 extern crate r0;
 extern crate rlibc;
