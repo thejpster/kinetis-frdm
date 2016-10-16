@@ -1,16 +1,13 @@
-language: rust
 script: ./build.sh
 cache: apt
 dist: trusty
-rust:
-  - nightly
 before_install:
   - sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded -y
   - sudo apt-get update
 install:
   - sudo apt-get install gcc-arm-none-eabi -y --force-yes
   - curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
-  - export PATH=$PATH:/home/travis/.cargo/bin
+  - source /home/travis/.cargo/env
   - pushd /
   - rustup component add rust-src
   - cargo install xargo
