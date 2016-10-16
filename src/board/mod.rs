@@ -18,15 +18,23 @@ use cpu::lm4f120h5qr::{fpu, pll, systick};
 // ****************************************************************************
 
 #[derive(PartialEq, Clone, Copy)]
+/// The Launchpad has a tri-colour LED, which we consider
+/// to be three separate LEDs.
 pub enum Led {
+    /// The Red LED
     Red,
+    /// The Blue LED
     Blue,
+    /// The Green LED
     Green,
 }
 
 #[derive(PartialEq, Clone, Copy)]
+/// The Launchpad has two buttons
 pub enum Button {
+    /// SW1
     One,
+    /// SW2
     Two,
 }
 
@@ -44,10 +52,15 @@ pub enum Button {
 //
 // ****************************************************************************
 
+/// The pin used for the Red LED
 pub const LED_RED: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin1);
+/// The pin used for the Blue LED
 pub const LED_BLUE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin2);
+/// The pin used for the Green LED
 pub const LED_GREEN: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin3);
+/// The pin used for Button One
 pub const BUTTON_ONE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin0);
+/// The pin used for Button Two
 pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 
 // ****************************************************************************
@@ -56,6 +69,9 @@ pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 //
 // ****************************************************************************
 
+/// Initialise everything on the board - FPU, PLL, SysTick, GPIO and the LEDs
+/// and buttons. Should be pretty much the first call you make in `main()`.
+/// Doesn't init the UART - that's separate.
 pub fn init() {
     fpu::init();
     pll::init(pll::ClockSpeed::Speed66MHz);
@@ -65,6 +81,7 @@ pub fn init() {
     enable_leds();
 }
 
+/// Turn an LED on
 pub fn led_on(led: Led) {
     match led {
         Led::Red => gpio::set(LED_RED, gpio::Level::High),
@@ -73,6 +90,7 @@ pub fn led_on(led: Led) {
     }
 }
 
+/// Turn an LED off
 pub fn led_off(led: Led) {
     match led {
         Led::Red => gpio::set(LED_RED, gpio::Level::Low),
@@ -81,6 +99,7 @@ pub fn led_off(led: Led) {
     }
 }
 
+/// Get the state of a button
 pub fn read_button(button: Button) -> gpio::Level {
     match button {
         Button::One => gpio::read(BUTTON_ONE),
@@ -88,7 +107,7 @@ pub fn read_button(button: Button) -> gpio::Level {
     }
 }
 
-/// Flash the red LED if we panic
+/// Call from a panic handler to flash the red LED quickly.
 pub fn panic() -> ! {
     loop {
         led_on(Led::Red);

@@ -63,15 +63,18 @@ lazy_static! {
 // ****************************************************************************
 
 #[no_mangle]
+/// Rust allocation function (c.f. malloc)
 pub extern "C" fn __rust_allocate(size: usize, align: usize) -> *mut u8 {
     HEAP.lock().allocate_first_fit(size, align).expect("out of memory")
 }
 
 #[no_mangle]
+/// Rust de-allocation function (c.f. free)
 pub extern "C" fn __rust_deallocate(ptr: *mut u8, size: usize, align: usize) {
     unsafe { HEAP.lock().deallocate(ptr, size, align) };
 }
 
+/// Rust re-allocation function (c.f. realloc)
 #[no_mangle]
 pub extern "C" fn __rust_reallocate(ptr: *mut u8,
                                     size: usize,
@@ -90,6 +93,8 @@ pub extern "C" fn __rust_reallocate(ptr: *mut u8,
     new_ptr
 }
 
+/// Rust re-allocation function which guarantees not to move the data
+/// somewhere else.
 #[no_mangle]
 pub extern "C" fn __rust_reallocate_inplace(_ptr: *mut u8,
                                             size: usize,
@@ -99,6 +104,9 @@ pub extern "C" fn __rust_reallocate_inplace(_ptr: *mut u8,
     size
 }
 
+/// Some allocators (pool allocators generally) over-allocate. This checks how
+/// much space there is at a location. Our allocator doesn't over allocate so
+/// this just returns `size`
 #[no_mangle]
 pub extern "C" fn __rust_usable_size(size: usize, _align: usize) -> usize {
     size
