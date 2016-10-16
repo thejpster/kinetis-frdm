@@ -10,9 +10,8 @@ before_install:
 install:
   - sudo apt-get install gcc-arm-none-eabi -y --force-yes
   - curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+  - export PATH=$PATH:/home/travis/.cargo/bin
   - pushd /
   - rustup component add rust-src
   - cargo install xargo
   - popd
-before_script:
-  - export PATH=$PATH:/home/travis/.cargo/bin:$PATH
