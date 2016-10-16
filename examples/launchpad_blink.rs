@@ -53,7 +53,7 @@ use launchpad::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
 
 
 #[no_mangle]
-pub extern "C" fn primer_start() {
+pub extern "C" fn launchpad_start() {
     board::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;

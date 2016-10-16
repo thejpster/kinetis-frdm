@@ -12,4 +12,5 @@ install:
   - pushd /
   - cargo install xargo
   - popd
-
+before_script:
+  - export PATH=$PATH:/home/travis/.cargo/bin:$PATH

@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 #
-# primer build script
+# launchpad build script
 #
 # Copyright (c) 2016 Jonathan 'theJPster' Pallant <github@thejpster.org.uk>
 #
@@ -15,19 +15,6 @@ if [ "$1" == "--release" ];
 then
     MODE=release
     ARGS=--release
-fi
-
-if ! which xargo > /dev/null;
-then
-	echo "Xargo not in path. Is this travis?"
-	if [ -d /home/travis/.cargo/bin ];
-	then
-		echo "Yes - setting path for travis"
-		export PATH=/home/travis/.cargo/bin:$PATH
-	else
-		echo "Xargo not found. Try 'cargo install xargo'"
-		exit 1
-	fi
 fi
 
 echo "Running xargo..."

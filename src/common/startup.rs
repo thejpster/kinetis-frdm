@@ -17,7 +17,7 @@ extern "C" {
     static mut _bss_start: usize;
     static mut _bss_end: usize;
     // This is defined by your application
-    fn primer_start();
+    fn launchpad_start();
 }
 
 // ****************************************************************************
@@ -74,7 +74,7 @@ pub unsafe extern "C" fn startup() {
     r0::init_data(data_start, data_end, data_start_flash);
     r0::zero_bss(bss_start, bss_end);
 
-    primer_start();
+    launchpad_start();
 }
 
 // ****************************************************************************
