@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-DEBUG_PATH=./target/thumbv7em-none-eabihf/debug/examples/launchpad_blink
+for EXAMPLE_RS in ./examples/*.rs; do
+
+EXAMPLE=`basename ${EXAMPLE_RS/.rs/}`
+DEBUG_PATH=./target/thumbv7em-none-eabihf/debug/examples/${EXAMPLE}
 RELEASE_PATH=${DEBUG_PATH/debug/release}
 
 #
@@ -10,21 +13,21 @@ RELEASE_PATH=${DEBUG_PATH/debug/release}
 # Copyright (c) 2016 Jonathan 'theJPster' Pallant <github@thejpster.org.uk>
 #
 
-echo "Running xargo debug..."
-xargo build --example launchpad_blink
+echo "Building ${EXAMPLE}..."
+xargo build --example ${EXAMPLE}
+xargo build --release --example ${EXAMPLE}
 arm-none-eabi-size -B -x ${DEBUG_PATH}
-
-echo "Running xargo release..."
-xargo build --release --example launchpad_blink
 arm-none-eabi-size -B -x ${RELEASE_PATH}
 
-echo "Running xargo docs..."
-xargo doc
 
 echo "Converting elf -> bin..."
 arm-none-eabi-objcopy -O binary ${DEBUG_PATH} ${DEBUG_PATH}.bin
 arm-none-eabi-objcopy -O binary ${RELEASE_PATH} ${RELEASE_PATH}.bin
 
+done
+
+echo "Running xargo docs..."
+xargo doc
 
 echo "Examples available..."
 ls -lh ./target/thumbv7em-none-eabihf/*/examples/*
