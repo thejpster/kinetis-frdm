@@ -18,7 +18,6 @@ extern crate alloc;
 extern crate collections;
 
 use core::fmt::Write;
-use launchpad::board;
 use launchpad::cpu::{gpio, systick, timer, uart};
 
 // ****************************************************************************
@@ -53,7 +52,6 @@ use launchpad::cpu::{gpio, systick, timer, uart};
 
 #[no_mangle]
 pub extern "C" fn launchpad_start() {
-    board::init();
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
     let mut ticks_last = systick::SYSTICK_MAX;
