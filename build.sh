@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DEBUG_PATH=./target/thumbv7em-none-eabihf/release/examples/launchpad_blink
+DEBUG_PATH=./target/thumbv7em-none-eabihf/debug/examples/launchpad_blink
 RELEASE_PATH=${DEBUG_PATH/debug/release}
 
 #
