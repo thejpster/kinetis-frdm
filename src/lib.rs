@@ -18,7 +18,6 @@
 #![feature(asm)]
 #![feature(compiler_builtins_lib)]
 #![feature(const_fn)]
-#![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![feature(start)]
 #![no_std]
@@ -37,6 +36,7 @@ extern crate cortex_m;
 #[macro_use]
 extern crate lazy_static;
 extern crate linked_list_allocator;
+pub extern crate lm4f120;
 extern crate r0;
 extern crate rlibc;
 extern crate spin;
@@ -50,7 +50,9 @@ extern crate volatile_register;
 
 pub mod board;
 pub mod common;
-pub mod cpu;
+//pub mod cpu;
+
+pub use lm4f120 as cpu;
 
 pub use cpu::lm4f120h5qr::systick::delay;
 

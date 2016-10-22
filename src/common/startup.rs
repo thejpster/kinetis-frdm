@@ -64,7 +64,7 @@ extern "C" {
 /// Copies global .data init from flash to SRAM and then
 /// zeros the bss segment.
 #[no_mangle]
-pub unsafe extern "C" fn startup() {
+pub unsafe extern "C" fn reset_vector() {
     let data_start_flash: *mut usize = &mut _data_start_flash;
     let data_start: *mut usize = &mut _data_start;
     let data_end: *mut usize = &mut _data_end;
