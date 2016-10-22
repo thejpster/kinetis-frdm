@@ -54,7 +54,7 @@ pub mod common;
 
 pub use lm4f120 as cpu;
 
-pub use cpu::lm4f120h5qr::systick::delay;
+pub use cpu::systick::delay;
 
 // ****************************************************************************
 //

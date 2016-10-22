@@ -19,7 +19,7 @@ extern crate collections;
 
 use core::fmt::Write;
 use launchpad::board;
-use launchpad::cpu::lm4f120h5qr::{gpio, systick, timer, uart};
+use launchpad::cpu::{gpio, systick, timer, uart};
 
 // ****************************************************************************
 //

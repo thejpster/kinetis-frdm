@@ -7,9 +7,8 @@
 // ****************************************************************************
 
 use cortex_m::Handler;
-use lm4f120::lm4f120h5qr::{fpu, pll, systick};
-pub use lm4f120::lm4f120h5qr::gpio;
-use lm4f120::lm4f120h5qr::uart;
+use lm4f120::{fpu, pll, systick, uart};
+pub use lm4f120::gpio;
 
 use common::startup::reset_vector;
 
