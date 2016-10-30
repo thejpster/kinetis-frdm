@@ -52,7 +52,7 @@ use launchpad::cpu::{gpio, systick, timer, uart};
 
 
 #[no_mangle]
-pub extern "C" fn launchpad_start() {
+pub extern "C" fn main() {
     let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
     let mut loops = 0;
     let mut ticks_last = systick::SYSTICK_MAX;

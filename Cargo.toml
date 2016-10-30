@@ -9,7 +9,7 @@ keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "launchpad"
 readme = "README.md"
-version = "0.5.2"
+version = "0.5.3"
 
 # The development profile, used for `cargo build`.
 [profile.dev]

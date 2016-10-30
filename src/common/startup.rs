@@ -21,7 +21,7 @@ extern "C" {
     static mut _bss_start: usize;
     static mut _bss_end: usize;
     // This is defined by your application
-    fn launchpad_start();
+    fn main();
     fn _stack_top();
 }
 
@@ -410,7 +410,6 @@ enum Exception {
 ///
 /// Copies global .data init from flash to SRAM and then
 /// zeros the bss segment.
-#[no_mangle]
 pub unsafe extern "C" fn reset_vector() {
     let data_start_flash: *mut usize = &mut _data_start_flash;
     let data_start: *mut usize = &mut _data_start;
@@ -422,7 +421,7 @@ pub unsafe extern "C" fn reset_vector() {
     r0::zero_bss(bss_start, bss_end);
 
     board::init();
-    launchpad_start();
+    main();
 }
 
 // ****************************************************************************
@@ -456,9 +455,7 @@ impl Exception {
 /// they have higher priority than any exception with configurable priority.
 ///
 /// This function came from japaric's excellent F3 crate.
-#[doc(hidden)]
 #[naked]
-#[no_mangle]
 pub unsafe extern "C" fn isr_hardfault() {
     use core::intrinsics;
 
@@ -471,13 +468,15 @@ pub unsafe extern "C" fn isr_hardfault() {
     intrinsics::unreachable();
 }
 
-/// Now we've gathered the StackFrame, we can process the HardFault
-/// using a normal Rust function.
-#[doc(hidden)]
+/// Once the StacFrame has been gathered by `isr_hardfault`, we can process the
+/// HardFault using a normal Rust function. It's `no_mangle` because we
+/// refer to it from raw assembler in `isr_hardfault`.
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault_rs(_sf: &cortex_m::StackFrame) -> ! {
     // Need ITM support for this to work
     //iprintln!("EXCEPTION {:?} @ PC=0x{:08x}", Exception::current(), sf.pc);
+
+    // We can see this in the debugger
     let _exc = Exception::current();
 
     bkpt!();
@@ -491,7 +490,6 @@ pub unsafe extern "C" fn isr_hardfault_rs(_sf: &cortex_m::StackFrame) -> ! {
 /// cannot be:
 /// * masked or prevented from activation by any other exception
 /// * preempted by any exception other than Reset.
-#[no_mangle]
 pub unsafe extern "C" fn isr_nmi() {
     // Do nothing
 }
@@ -501,7 +499,6 @@ pub unsafe extern "C" fn isr_nmi() {
 /// determines this fault, for both instruction and data memory transactions.
 /// This fault is always used to abort instruction accesses to Execute Never
 /// (XN) memory regions.
-#[no_mangle]
 pub unsafe extern "C" fn isr_mmfault() {
     board::panic();
 }
@@ -509,7 +506,6 @@ pub unsafe extern "C" fn isr_mmfault() {
 /// A BusFault is an exception that occurs because of a memory related fault
 /// for an instruction or data memory transaction. This might be from an error
 /// detected on a bus in the memory system.
-#[no_mangle]
 pub unsafe extern "C" fn isr_busfault() {
     board::panic();
 }
@@ -522,7 +518,6 @@ pub unsafe extern "C" fn isr_busfault() {
 /// The following can cause a UsageFault when the core is configured to report them:
 /// * an unaligned address on word and halfword memory access
 /// * division by zero.
-#[no_mangle]
 pub unsafe extern "C" fn isr_usagefault() {
     board::panic();
 }
@@ -530,13 +525,11 @@ pub unsafe extern "C" fn isr_usagefault() {
 /// A supervisor call (SVC) is an exception that is triggered by the SVC
 /// instruction. In an OS environment, applications can use SVC instructions
 /// to access OS kernel functions and device drivers.
-#[no_mangle]
 pub unsafe extern "C" fn isr_svcall() {
     // Nothing
 }
 
 /// Debug monitor interrupt handler.
-#[no_mangle]
 pub unsafe extern "C" fn isr_debugmon() {
     // Nothing
 }
@@ -544,7 +537,6 @@ pub unsafe extern "C" fn isr_debugmon() {
 /// PendSV is an interrupt-driven request for system-level service. In an OS
 /// environment, use PendSV for context switching when no other exception is
 /// active.
-#[no_mangle]
 pub unsafe extern "C" fn isr_pendsv() {
     // Nothing
 }
@@ -552,13 +544,11 @@ pub unsafe extern "C" fn isr_pendsv() {
 /// A SysTick exception is an exception the system timer generates when it
 /// reaches zero. Software can also generate a SysTick exception. In an OS
 /// environment, the processor can use this exception as system tick.
-#[no_mangle]
 pub unsafe extern "C" fn isr_systick() {
     systick::isr();
 }
 
 /// A place-holder ISR used when we have nothing better to use.
-#[no_mangle]
 pub unsafe extern "C" fn isr_empty_def() {
     board::panic();
 }
