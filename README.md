@@ -7,10 +7,21 @@ The idea is that useful functionality will be moved out into separate crates.
 ## Requirements
 
 * rustc nightly
-* xargo (run `cargo install xargo`)
+* xargo
 * arm-none-eabi-gcc
 * arm-none-eabi-ar
 * arm-none-eabi-objcopy
+
+## Geting set up
+
+```bash
+cargo install xargo
+rustup install nightly
+git clone https://github.com/thejpster/launchpad-rs.git
+cd ./launchpad-rs
+rustup override set nightly
+rustup component add rust-src
+```
 
 ## Compile and upload
 
@@ -21,11 +32,19 @@ sudo lm4flash target/thumbv7em-none-eabihf/debug/examples/launchpad_blink.bin
 ```
 
 ## You can also debug
+
 ```
-$ sudo openocd -f /usr/share/openocd/scripts/board/ek-lm4f120xl.cfg
-$ arm-none-eabi-gdb ./target/thumbv7em-none-eabihf/debug/examples/launchpad_blink
+~/launchpad-rs $ sudo openocd -f /usr/share/openocd/scripts/board/ek-lm4f120xl.cfg
+~/launchpad-rs $ arm-none-eabi-gdb ./target/thumbv7em-none-eabihf/debug/examples/launchpad_blink
 (gdb) target remote localhost:3333
+(gdb) load
+Loading section .text, size 0x1e98 lma 0x0
+Loading section .ARM.exidx, size 0x8 lma 0x1e98
+Loading section .data, size 0xc lma 0x1ea0
+Start address 0x0, load size 7852
+Transfer rate: 7 KB/sec, 2617 bytes/write.
 (gdb) monitor reset halt
+(gdb) break main
 (gdb) continue
 ```
 
