@@ -16,8 +16,10 @@ extern crate launchpad;
 extern crate alloc;
 #[macro_use]
 extern crate collections;
+extern crate embedded_serial;
 
 use core::fmt::Write;
+use embedded_serial::NonBlockingRx;
 use launchpad::cpu::{gpio, systick, timer, uart};
 
 // ****************************************************************************
@@ -77,7 +79,7 @@ pub extern "C" fn main() {
         tr.set_pwm(r as u32);
         tb.set_pwm(b as u32);
         tg.set_pwm(g as u32);
-        while let Some(ch) = uart.read_single() {
+        while let Ok(ch) = uart.getc_try() {
             writeln!(uart, "byte read {}", ch).unwrap();
         }
         loops = loops + 1;

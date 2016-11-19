@@ -22,6 +22,7 @@
 #![feature(lang_items)]
 #![feature(naked_functions)]
 #![feature(start)]
+#![feature(never_type)]
 #![no_std]
 #![warn(dead_code)]
 #![deny(missing_docs)]

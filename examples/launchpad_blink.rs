@@ -16,9 +16,11 @@ extern crate launchpad;
 extern crate alloc;
 #[macro_use]
 extern crate collections;
+extern crate embedded_serial;
 
 use core::fmt::Write;
 use launchpad::cpu::{gpio, systick, timer, uart};
+use embedded_serial::NonBlockingRx;
 
 // ****************************************************************************
 //
@@ -74,7 +76,7 @@ pub extern "C" fn main() {
                      systick::run_time_us() as u32,
                      level)
                 .unwrap();
-            while let Some(ch) = uart.read_single() {
+            while let Ok(ch) = uart.getc_try() {
                 writeln!(uart, "byte read {}", ch).unwrap();
             }
             loops = loops + 1;
