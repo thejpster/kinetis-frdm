@@ -9,6 +9,7 @@
 
 use r0;
 use cortex_m;
+use alloc_cortex_m;
 
 use board;
 use cpu::{systick, uart};
@@ -20,6 +21,8 @@ extern "C" {
     static mut _data_end: usize;
     static mut _bss_start: usize;
     static mut _bss_end: usize;
+    static mut _heap_start: usize;
+    static mut _heap_end: usize;
     // This is defined by your application
     fn main();
     fn _stack_top();
@@ -416,9 +419,13 @@ pub unsafe extern "C" fn reset_vector() {
     let data_end: *mut usize = &mut _data_end;
     let bss_start: *mut usize = &mut _bss_start;
     let bss_end: *mut usize = &mut _bss_end;
+    let heap_start: *mut usize = &mut _heap_start;
+    let heap_end: *mut usize = &mut _heap_end;
 
     r0::init_data(data_start, data_end, data_start_flash);
     r0::zero_bss(bss_start, bss_end);
+
+    alloc_cortex_m::init(heap_start, heap_end);
 
     board::init();
     main();

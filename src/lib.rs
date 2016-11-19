@@ -12,9 +12,7 @@
 //! example set by japaric in his [F3 crate](https://github.com/japaric/f3)
 //! for the STM32F3 Discovery Board.
 
-#![allocator]
 #![crate_type="staticlib"]
-#![feature(allocator)]
 #![feature(asm)]
 #![feature(compiler_builtins_lib)]
 #![feature(const_fn)]
@@ -36,13 +34,13 @@
 extern crate compiler_builtins;
 #[macro_use]
 extern crate cortex_m;
-#[macro_use]
-extern crate lazy_static;
-extern crate linked_list_allocator;
+//#[macro_use]
+//extern crate lazy_static;
+extern crate alloc_cortex_m;
+//extern crate linked_list_allocator;
 pub extern crate lm4f120;
 extern crate r0;
 extern crate rlibc;
-extern crate spin;
 extern crate volatile_register;
 
 // ****************************************************************************

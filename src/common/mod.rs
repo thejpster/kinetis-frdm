@@ -6,7 +6,7 @@
 //
 // ****************************************************************************
 
-pub mod memory;
+// pub mod memory;
 pub mod startup;
 pub mod builtins;
 

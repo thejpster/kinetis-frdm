@@ -22,13 +22,14 @@ debug = true
 lto = true
 
 [dependencies]
-linked_list_allocator = "^0.2"
-spin = "^0.4"
-r0 = "^0.1.0"
-cortex-m = "^0.1.4"
-volatile-register = "^0.1.2"
+r0 = "0.1.0"
+cortex-m = "0.1.5"
+volatile-register = "0.1.2"
 lm4f120 = "0.2.0"
 embedded-serial = "0.3.0"
+#alloc-cortex-m = "0.1.0"
+#alloc-cortex-m = { path = "/home/smokey/alloc-cortex-m"}
+alloc-cortex-m = { git = "https://github.com/thejpster/alloc-cortex-m" }
 
 [dependencies.compiler_builtins]
 git = "https://github.com/rust-lang-nursery/compiler-builtins.git"
@@ -36,7 +37,7 @@ features = [ "weak" ]
 
 [dependencies.lazy_static]
 features = ["spin_no_std"]
-version = "^0.2"
+version = "0.2"
 
 [dependencies.rlibc]
-version = "^1.0"
+version = "1.0"

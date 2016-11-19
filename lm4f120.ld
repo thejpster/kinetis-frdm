@@ -104,8 +104,8 @@ SECTIONS
         _bss_end = .;    /* End index for .bss segment */
     } > SRAM
 
-    _heap_bottom = .;
-    _heap_top = ORIGIN(SRAM) + LENGTH(SRAM) - _stack_size;
-    _stack_bottom = _heap_top;
+    _heap_start = .;
+    _heap_end = ORIGIN(SRAM) + LENGTH(SRAM) - _stack_size;
+    _stack_bottom = _heap_end;
     _stack_top = ORIGIN(SRAM) + LENGTH(SRAM);
 }
