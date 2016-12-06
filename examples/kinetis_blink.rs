@@ -1,9 +1,9 @@
 //! A blinky-LED example application
-//! This example uses launchpad-rs.
+//! This example uses kinetis-rs.
 
 #![no_std]
 #![no_main]
-#![feature(alloc, collections, asm)]
+#![feature(asm)]
 #![crate_type="staticlib"]
 
 // ****************************************************************************
@@ -12,14 +12,11 @@
 //
 // ****************************************************************************
 
-extern crate launchpad;
-extern crate alloc;
-#[macro_use]
-extern crate collections;
+extern crate kinetis;
 extern crate embedded_serial;
 
 use core::fmt::Write;
-use launchpad::cpu::{gpio, systick, timer, uart};
+use kinetis::cpu::{gpio, systick, timer, uart};
 use embedded_serial::NonBlockingRx;
 
 // ****************************************************************************
@@ -80,7 +77,7 @@ pub extern "C" fn main() {
                 writeln!(uart, "byte read {}", ch).unwrap();
             }
             loops = loops + 1;
-            launchpad::delay(250);
+            kinetis::delay(250);
         }
     }
 }

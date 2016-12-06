@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2012, Mauro Scomparin
+* Copyright (c) 2016, Jonathan Pallant
 * All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
@@ -26,21 +27,15 @@
 *
 * Author:   Mauro Scomparin <http://scompoprojects.wordpress.com>.
 * Author:   Jonathan Pallant <http://railwayelectronics.blogspot.com>.
-* Description:  Linker description file for LM4FXXX microcontrollers.
+* Description:  Linker description file for Freescale Kinetis KE06Z microcontrollers.
 */
 
-/*
-* Memory definition:
-* FLASH:  start point 0x00,   lenght 0x40000.
-* SRAM:   start point 0x20000000  length 0x8000.
-*   VAR:    enough to hold .data and .bss
-*   HEAP:   All the remaining space, up to...
-*   STACK:  start point 0x20007000  length 0x1000.
-*/
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x00040000
-    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
+    INTERRUPTS (rx) : ORIGIN = 0x00000000, LENGTH = 0x400
+    FLASH_CONF (rx) : ORIGIN = 0x00000400, LENGTH = 0x10
+    FLASH (rx)      : ORIGIN = 0x00000800, LENGTH = 128K - 0x800
+    SRAM (rwx)      : ORIGIN = 0x1FFFF000, LENGTH = 16K
 }
 
 _stack_size = 0x1000;
@@ -57,15 +52,24 @@ _stack_size = 0x1000;
 SECTIONS
 {
     /* This section it's the code, containing the NVIC Vector table that must start at 0x0
-     *   Look at the LM4F120H5QR datasheet for details. (Table 2-8. Exception Types)
+     *   Look at the KE06Z datasheet for details. (Table 2-8. Exception Types)
      */
 
-     . = 0x00000000;
+    . = 0x00000000;
 
-    .text :
+    .interrupts :
     {
         KEEP(*(.nvic_table))     /* This must be first. It tells the ARM where the stack and IRQ vectors are. */
                                  /* KEEP stops it being removed as we don't refer to it anywhere. */
+    } > INTERRUPTS
+
+    .cfmprotect :
+    {
+        KEEP(*(.cfmconfig))      /* Flash controller configuration data */
+    } > FLASH_CONF
+
+    .text :
+    {
         *(.text*)                /* This contains most of the executable code. */
         *(.rodata*)              /* Read only data (const variables) */
         . = ALIGN(4);

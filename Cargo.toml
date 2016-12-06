@@ -5,11 +5,11 @@ authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"Marc Brinkmann"
 ]
-keywords = ["arm", "bare-metal", "blink", "lm4f120"]
+keywords = ["arm", "bare-metal", "blink", "ke06z"]
 license = "MIT"
-name = "launchpad"
+name = "kinetis"
 readme = "README.md"
-version = "0.5.4"
+version = "0.1.0"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
@@ -25,15 +25,11 @@ lto = true
 r0 = "0.1.0"
 cortex-m = "0.1.5"
 volatile-register = "0.1.2"
-lm4f120 = "0.2.0"
+#lm4f120 = "0.2.0"
+ke06z = { path = "../lm4f120" }
 embedded-serial = "0.3.0"
-alloc-cortex-m = "0.2.0"
 rlibc = "1.0"
 
 [dependencies.compiler_builtins]
-git = "https://github.com/rust-lang-nursery/compiler-builtins.git"
+git = "https://github.com/rust-lang-nursery/compiler-builtins"
 features = [ "weak" ]
-
-[dependencies.lazy_static]
-features = ["spin_no_std"]
-version = "0.2"
