@@ -1,4 +1,4 @@
-//! A board support library for the TI Stellaris Launchpad
+//! A board support library for the Freescale FRDM-KE06Z
 
 // ****************************************************************************
 //
@@ -16,7 +16,7 @@ pub use ke06z::gpio;
 // ****************************************************************************
 
 #[derive(PartialEq, Clone, Copy)]
-/// The Launchpad has a tri-colour LED, which we consider
+/// The FRDM-KE06Z has a tri-colour LED, which we consider
 /// to be three separate LEDs.
 pub enum Led {
     /// The Red LED
@@ -28,7 +28,7 @@ pub enum Led {
 }
 
 #[derive(PartialEq, Clone, Copy)]
-/// The Launchpad has two buttons
+/// The FRDM-KE06Z has two buttons
 pub enum Button {
     /// SW1
     One,
@@ -51,15 +51,15 @@ pub enum Button {
 // ****************************************************************************
 
 /// The pin used for the Red LED
-pub const LED_RED: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin1);
+pub const LED_RED: gpio::PinPort = gpio::PinPort::PortG(gpio::Pin::Pin5);
 /// The pin used for the Blue LED
-pub const LED_BLUE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin2);
+pub const LED_BLUE: gpio::PinPort = gpio::PinPort::PortG(gpio::Pin::Pin7);
 /// The pin used for the Green LED
-pub const LED_GREEN: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin3);
+pub const LED_GREEN: gpio::PinPort = gpio::PinPort::PortG(gpio::Pin::Pin6);
 /// The pin used for Button One
-pub const BUTTON_ONE: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin0);
+pub const BUTTON_ONE: gpio::PinPort = gpio::PinPort::PortH(gpio::Pin::Pin3);
 /// The pin used for Button Two
-pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
+pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortH(gpio::Pin::Pin4);
 
 // ****************************************************************************
 //
@@ -71,12 +71,12 @@ pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 /// and buttons. Should be pretty much the first call you make in `main()`.
 /// Doesn't init the UART - that's separate.
 pub fn init() {
-    fpu::init();
-    pll::init(pll::ClockSpeed::Speed66MHz);
-    systick::init();
-    gpio::init();
-    enable_buttons();
-    enable_leds();
+    // fpu::init();
+    // pll::init(pll::ClockSpeed::Speed66MHz);
+    // systick::init();
+    // gpio::init();
+    // enable_buttons();
+    // enable_leds();
 }
 
 /// Turn an LED on
