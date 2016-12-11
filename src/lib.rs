@@ -42,7 +42,7 @@ pub mod common;
 
 pub use ke06z as cpu;
 
-pub use cpu::systick::delay;
+// pub use cpu::systick::delay;
 
 // ****************************************************************************
 //

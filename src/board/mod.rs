@@ -6,8 +6,10 @@
 //
 // ****************************************************************************
 
-use ke06z::{fpu, pll, systick};
+use cortex_m::asm::nop;
+
 pub use ke06z::gpio;
+pub use ke06z::sim;
 
 // ****************************************************************************
 //
@@ -74,26 +76,26 @@ pub fn init() {
     // fpu::init();
     // pll::init(pll::ClockSpeed::Speed66MHz);
     // systick::init();
-    // gpio::init();
-    // enable_buttons();
-    // enable_leds();
+    gpio::init();
+    enable_buttons();
+    enable_leds();
 }
 
 /// Turn an LED on
 pub fn led_on(led: Led) {
     match led {
-        Led::Red => gpio::set(LED_RED, gpio::Level::High),
-        Led::Blue => gpio::set(LED_BLUE, gpio::Level::High),
-        Led::Green => gpio::set(LED_GREEN, gpio::Level::High),
+        Led::Red => gpio::set(LED_RED, gpio::Level::Low),
+        Led::Blue => gpio::set(LED_BLUE, gpio::Level::Low),
+        Led::Green => gpio::set(LED_GREEN, gpio::Level::Low),
     }
 }
 
 /// Turn an LED off
 pub fn led_off(led: Led) {
     match led {
-        Led::Red => gpio::set(LED_RED, gpio::Level::Low),
-        Led::Blue => gpio::set(LED_BLUE, gpio::Level::Low),
-        Led::Green => gpio::set(LED_GREEN, gpio::Level::Low),
+        Led::Red => gpio::set(LED_RED, gpio::Level::High),
+        Led::Blue => gpio::set(LED_BLUE, gpio::Level::High),
+        Led::Green => gpio::set(LED_GREEN, gpio::Level::High),
     }
 }
 
@@ -109,9 +111,13 @@ pub fn read_button(button: Button) -> gpio::Level {
 pub fn panic() -> ! {
     loop {
         led_on(Led::Red);
-        ::delay(200);
+        for _ in 0..100000 {
+            nop();
+        }
         led_off(Led::Red);
-        ::delay(200);
+        for _ in 0..100000 {
+            nop();
+        }
     }
 }
 
@@ -128,8 +134,11 @@ fn enable_buttons() {
 
 fn enable_leds() {
     gpio::set_direction(LED_RED, gpio::PinMode::Output);
+    gpio::set(LED_RED, gpio::Level::High);
     gpio::set_direction(LED_BLUE, gpio::PinMode::Output);
+    gpio::set(LED_BLUE, gpio::Level::High);
     gpio::set_direction(LED_GREEN, gpio::PinMode::Output);
+    gpio::set(LED_GREEN, gpio::Level::High);
 }
 
 // ****************************************************************************

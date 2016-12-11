@@ -12,7 +12,7 @@ use cortex_m;
 use alloc_cortex_m;
 
 use board;
-use cpu::{systick, uart};
+// use cpu::{systick, uart};
 
 extern "C" {
     // These symbols come from the linker script
@@ -211,6 +211,16 @@ pub unsafe extern "C" fn reset_vector() {
 
     alloc_cortex_m::init(heap_start, heap_end);
 
+    // Freescale app does
+    // __init_registers
+    // __init_hardware
+    //   - Sets SCB->VTOR
+    // __init_user
+    //
+
+    // Need to perform SIM init
+    // Then ICS init
+
     board::init();
     main();
     loop {}
@@ -337,7 +347,7 @@ pub unsafe extern "C" fn isr_pendsv() {
 /// reaches zero. Software can also generate a SysTick exception. In an OS
 /// environment, the processor can use this exception as system tick.
 pub unsafe extern "C" fn isr_systick() {
-    systick::isr();
+    // systick::isr();
 }
 
 /// A place-holder ISR used when we have nothing better to use.
