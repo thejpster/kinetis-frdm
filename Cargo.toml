@@ -7,7 +7,7 @@ authors = [
 ]
 keywords = ["arm", "bare-metal", "blink", "ke06z"]
 license = "MIT"
-name = "kinetis"
+name = "kinetis-frdm"
 readme = "README.md"
 version = "0.1.0"
 
@@ -27,6 +27,7 @@ cortex-m = "0.1.5"
 volatile-register = "0.1.2"
 embedded-serial = "0.3.0"
 rlibc = "1.0"
+alloc-cortex-m = "0.2.0"
 
 [dependencies.compiler_builtins]
 git = "https://github.com/rust-lang-nursery/compiler-builtins"

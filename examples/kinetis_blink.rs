@@ -12,11 +12,11 @@
 //
 // ****************************************************************************
 
-extern crate kinetis;
 extern crate embedded_serial;
+extern crate kinetis_frdm;
 
 use core::fmt::Write;
-use kinetis::cpu::{gpio, systick, timer, uart};
+use kinetis_frdm::cpu::{gpio, systick, timer, uart};
 use embedded_serial::NonBlockingRx;
 
 // ****************************************************************************
@@ -41,7 +41,7 @@ use embedded_serial::NonBlockingRx;
 //
 // ****************************************************************************
 
-pub static mut USELESS_GLOBAL_VALUE:usize = 0x123456;
+pub static mut USELESS_GLOBAL_VALUE: usize = 0x123456;
 
 // ****************************************************************************
 //
@@ -52,6 +52,10 @@ pub static mut USELESS_GLOBAL_VALUE:usize = 0x123456;
 
 #[no_mangle]
 pub extern "C" fn main() {
+    let mut test = Vec::new();
+    test.push(1);
+    test.push(1);
+    test.push(1);
     loop {
 
     }

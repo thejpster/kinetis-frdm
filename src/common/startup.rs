@@ -9,6 +9,7 @@
 
 use r0;
 use cortex_m;
+use alloc_cortex_m;
 
 use board;
 use cpu::{systick, uart};
@@ -20,6 +21,8 @@ extern "C" {
     static mut _data_end: usize;
     static mut _bss_start: usize;
     static mut _bss_end: usize;
+    static mut _heap_start: usize;
+    static mut _heap_end: usize;
     // This is defined by your application
     fn main();
     fn _stack_top();
@@ -44,105 +47,102 @@ extern "C" {
 /// that marks the start of the stack.
 #[link_section=".nvic_table"]
 #[no_mangle]
-pub static ISR_VECTORS: [Option<cortex_m::Handler>; 48] = [
-    // Stack pointer
-    Some(_stack_top),
-    // Reset
-    Some(reset_vector),
-    // NMI
-    Some(isr_nmi),
-    // Hard Fault
-    Some(isr_hardfault),
-    // Unused
-    None,
-    // CM0+ Bus Fault
-    Some(isr_busfault),
-    // CM0+ Usage Fault
-    Some(isr_usagefault),
-    // Unused
-    None,
-    // Unused
-    None,
-    // Unused
-    None,
-    // Unused
-    None,
-    // Supervisor call
-    Some(isr_svcall),
-    // Debug monitor
-    Some(isr_debugmon),
-    // Unused
-    None,
-    // Pendable service request
-    Some(isr_pendsv),
-    // SysTick
-    Some(isr_systick),
-    // DMA Channel 0 transfer complete
-    None,
-    // DMA Channel 0 transfer complete
-    None,
-    // DMA Channel 0 transfer complete
-    None,
-    // DMA Channel 0 transfer complete
-    None,
-    // MCM
-    None,
-    // Flash
-    None,
-    // PMC
-    None,
-    // LLWU
-    None,
-    // I2C0
-    None,
-    // Reserved
-    None,
-    // SPI0
-    None,
-    // SPI1
-    None,
-    // SCI0
-    None,
-    // SCI1
-    None,
-    // SCI2
-    None,
-    // ADC0
-    None,
-    // ACMP0
-    None,
-    // FTM0
-    None,
-    // FTM1
-    None,
-    // FTM2
-    None,
-    // RTC
-    None,
-    // ACMP1
-    None,
-    // PIT_CH0
-    None,
-    // PIT_CH1
-    None,
-    // KBI0
-    None,
-    // KBI1
-    None,
-    // Reserved
-    None,
-    // ICS
-    None,
-    // Watchdog
-    None,
-    // Reserved
-    None,
-    // Reserved
-    None,
-    // Reserved
-    None,
-
-];
+pub static ISR_VECTORS: [Option<cortex_m::Handler>; 48] = [// Stack pointer
+                                                           Some(_stack_top),
+                                                           // Reset
+                                                           Some(reset_vector),
+                                                           // NMI
+                                                           Some(isr_nmi),
+                                                           // Hard Fault
+                                                           Some(isr_hardfault),
+                                                           // Unused
+                                                           None,
+                                                           // CM0+ Bus Fault
+                                                           Some(isr_busfault),
+                                                           // CM0+ Usage Fault
+                                                           Some(isr_usagefault),
+                                                           // Unused
+                                                           None,
+                                                           // Unused
+                                                           None,
+                                                           // Unused
+                                                           None,
+                                                           // Unused
+                                                           None,
+                                                           // Supervisor call
+                                                           Some(isr_svcall),
+                                                           // Debug monitor
+                                                           Some(isr_debugmon),
+                                                           // Unused
+                                                           None,
+                                                           // Pendable service request
+                                                           Some(isr_pendsv),
+                                                           // SysTick
+                                                           Some(isr_systick),
+                                                           // DMA Channel 0 transfer complete
+                                                           None,
+                                                           // DMA Channel 0 transfer complete
+                                                           None,
+                                                           // DMA Channel 0 transfer complete
+                                                           None,
+                                                           // DMA Channel 0 transfer complete
+                                                           None,
+                                                           // MCM
+                                                           None,
+                                                           // Flash
+                                                           None,
+                                                           // PMC
+                                                           None,
+                                                           // LLWU
+                                                           None,
+                                                           // I2C0
+                                                           None,
+                                                           // Reserved
+                                                           None,
+                                                           // SPI0
+                                                           None,
+                                                           // SPI1
+                                                           None,
+                                                           // SCI0
+                                                           None,
+                                                           // SCI1
+                                                           None,
+                                                           // SCI2
+                                                           None,
+                                                           // ADC0
+                                                           None,
+                                                           // ACMP0
+                                                           None,
+                                                           // FTM0
+                                                           None,
+                                                           // FTM1
+                                                           None,
+                                                           // FTM2
+                                                           None,
+                                                           // RTC
+                                                           None,
+                                                           // ACMP1
+                                                           None,
+                                                           // PIT_CH0
+                                                           None,
+                                                           // PIT_CH1
+                                                           None,
+                                                           // KBI0
+                                                           None,
+                                                           // KBI1
+                                                           None,
+                                                           // Reserved
+                                                           None,
+                                                           // ICS
+                                                           None,
+                                                           // Watchdog
+                                                           None,
+                                                           // Reserved
+                                                           None,
+                                                           // Reserved
+                                                           None,
+                                                           // Reserved
+                                                           None];
 
 // ****************************************************************************
 //
@@ -203,9 +203,13 @@ pub unsafe extern "C" fn reset_vector() {
     let data_end: *mut usize = &mut _data_end;
     let bss_start: *mut usize = &mut _bss_start;
     let bss_end: *mut usize = &mut _bss_end;
+    let heap_start: *mut usize = &mut _heap_start;
+    let heap_end: *mut usize = &mut _heap_end;
 
     r0::init_data(data_start, data_end, data_start_flash);
     r0::zero_bss(bss_start, bss_end);
+
+    alloc_cortex_m::init(heap_start, heap_end);
 
     board::init();
     main();
@@ -262,7 +266,7 @@ pub unsafe extern "C" fn isr_hardfault() {
 #[no_mangle]
 pub unsafe extern "C" fn isr_hardfault_rs(_sf: &cortex_m::StackFrame) -> ! {
     // Need ITM support for this to work
-    //iprintln!("EXCEPTION {:?} @ PC=0x{:08x}", Exception::current(), sf.pc);
+    // iprintln!("EXCEPTION {:?} @ PC=0x{:08x}", Exception::current(), sf.pc);
 
     // We can see this in the debugger
     let _exc = Exception::current();
