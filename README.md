@@ -1,8 +1,8 @@
 # Rust on the Freescale Kinetis FRDM-KE06Z
 
-A bare metal example program written in Rust (https://rust-lang.org) for the Freescale Kinetis FRDM-KE06Z (KE06Z dev board)
+A bare metal example program written in Rust (https://rust-lang.org) for the Freescale Kinetis FRDM-KE06Z (KE06Z dev board). This because is useful because it can be set to operate with 5V I/O, making it suitable for replacing an Arduino.
 
-The idea is that useful functionality will be moved out into separate crates.
+The idea is that useful functionality will be moved out into separate crates. In particular, anything that's shared with its sister project [launchpad-rs](https://github.com/thejpster/launchpad-rs) should be made common, in time.
 
 ## Requirements
 
