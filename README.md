@@ -15,13 +15,13 @@ The idea is that useful functionality will be moved out into separate crates.
 ## Geting set up
 
 ```bash
-cargo install xargo
 rustup install nightly
-git clone https://github.com/thejpster/launchpad-rs.git
-git checkout kinetis
-cd ./launchpad-rs
-rustup override set nightly
 rustup component add rust-src
+cargo install xargo
+git clone https://github.com/thejpster/kinetis-frdm
+cd ./kinetis-frdm
+rustup override set nightly
+./build.sh
 ```
 
 ## Compile and upload
