@@ -22,10 +22,10 @@
 //
 // ****************************************************************************
 
-extern crate alloc_cortex_m;
 extern crate compiler_builtins;
 #[macro_use]
 extern crate cortex_m;
+extern crate alloc_cortex_m;
 pub extern crate ke06z;
 extern crate r0;
 extern crate rlibc;

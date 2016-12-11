@@ -3,7 +3,7 @@
 
 #![no_std]
 #![no_main]
-#![feature(asm)]
+#![feature(alloc, collections, asm)]
 #![crate_type="staticlib"]
 
 // ****************************************************************************
@@ -12,8 +12,12 @@
 //
 // ****************************************************************************
 
-extern crate embedded_serial;
 extern crate kinetis_frdm;
+// Need head xargo and a nightly after 2016-12-05 to enable this
+// extern crate alloc;
+// #[macro_use]
+// extern crate collections;
+extern crate embedded_serial;
 
 use core::fmt::Write;
 use kinetis_frdm::cpu::{gpio, systick, timer, uart};
@@ -52,10 +56,10 @@ pub static mut USELESS_GLOBAL_VALUE: usize = 0x123456;
 
 #[no_mangle]
 pub extern "C" fn main() {
-    let mut test = Vec::new();
-    test.push(1);
-    test.push(1);
-    test.push(1);
+    // let mut test = collections::Vec::new();
+    // test.push(1);
+    // test.push(1);
+    // test.push(1);
     loop {
 
     }
