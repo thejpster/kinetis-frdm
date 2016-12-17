@@ -18,8 +18,9 @@ extern crate alloc;
 extern crate collections;
 extern crate cortex_m;
 
-use kinetis_frdm::board;
+use kinetis_frdm::board::uart;
 use cortex_m::asm::nop;
+use core::fmt::Write;
 
 // ****************************************************************************
 //
@@ -60,18 +61,13 @@ pub fn delay(count: u32) {
 
 #[no_mangle]
 pub extern "C" fn main() {
-    board::led_on(board::Led::Blue);
-    let mut test = collections::Vec::new();
-    test.push(1);
-    test.push(1);
-    test.push(1);
-    let delay_time: u32 = 10_000;
-    board::led_on(board::Led::Green);
+    let mut u = uart::Uart::new(
+        uart::UartId::Uart0,
+        115200,
+        uart::NewlineMode::SwapLFtoCRLF);
     loop {
-        board::led_off(board::Led::Blue);
-        delay(delay_time);
-        board::led_on(board::Led::Blue);
-        delay(delay_time);
+        let _ = write!(u, "This is a test\n");
+        delay(1_000);
     }
 }
 

@@ -10,6 +10,8 @@ use cortex_m::asm::nop;
 
 pub use ke06z::gpio;
 pub use ke06z::sim;
+pub use ke06z::uart;
+pub use ke06z::ics;
 
 // ****************************************************************************
 //
@@ -76,6 +78,7 @@ pub fn init() {
     // fpu::init();
     // pll::init(pll::ClockSpeed::Speed66MHz);
     // systick::init();
+    ics::init();
     gpio::init();
     enable_buttons();
     enable_leds();
