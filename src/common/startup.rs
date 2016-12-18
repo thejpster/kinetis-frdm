@@ -284,7 +284,7 @@ pub unsafe extern "C" fn isr_hardfault_rs(_sf: &cortex_m::StackFrame) -> ! {
 
     bkpt!();
 
-    loop {}
+    board::panic();
 }
 
 /// A Non Maskable Interrupt (NMI) can be signalled by a peripheral or
