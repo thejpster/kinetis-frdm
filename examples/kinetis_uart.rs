@@ -62,7 +62,7 @@ pub fn delay(count: u32) {
 #[no_mangle]
 pub extern "C" fn main() {
     let mut u = uart::Uart::new(
-        uart::UartId::Uart0,
+        uart::UartId::Uart1,
         115200,
         uart::NewlineMode::SwapLFtoCRLF);
     loop {
