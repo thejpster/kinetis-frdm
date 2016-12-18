@@ -60,13 +60,13 @@ pub fn delay(count: u32) {
 
 #[no_mangle]
 pub extern "C" fn main() {
-    board::led_on(board::Led::Blue);
-    let mut test = collections::Vec::new();
-    test.push(1);
-    test.push(1);
-    test.push(1);
-    let delay_time: u32 = 10_000;
-    board::led_on(board::Led::Green);
+    board::led_on(board::Led::Red);
+    // let mut test = collections::Vec::new();
+    // test.push(1);
+    // test.push(1);
+    // test.push(1);
+    let delay_time: u32 = 1000;
+    // board::led_on(board::Led::Green);
     loop {
         board::led_off(board::Led::Blue);
         delay(delay_time);
