@@ -31,7 +31,6 @@ alloc-cortex-m = "0.2.0"
 
 [dependencies.compiler_builtins]
 git = "https://github.com/rust-lang-nursery/compiler-builtins"
-features = [ "weak" ]
 
 [dependencies.ke06z]
 git = "https://github.com/thejpster/ke06z"
