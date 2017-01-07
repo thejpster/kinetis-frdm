@@ -9,7 +9,7 @@ keywords = ["arm", "bare-metal", "blink", "ke06z"]
 license = "MIT"
 name = "kinetis-frdm"
 readme = "README.md"
-version = "0.1.0"
+version = "0.1.1"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
@@ -30,7 +30,8 @@ rlibc = "1.0"
 alloc-cortex-m = "0.2.0"
 
 [dependencies.compiler_builtins]
-git = "https://github.com/rust-lang-nursery/compiler-builtins"
+git = "https://github.com/rust-lang-nursery/compiler-builtins.git"
+features = [ "mem" ]
 
 [dependencies.ke06z]
 git = "https://github.com/thejpster/ke06z"
